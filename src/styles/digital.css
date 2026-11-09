@@ -1,0 +1,4 @@
+/* Digital distribution profile. Trim comes from tokens.css. No bleed. */
+:root {
+  --bleed: 0mm;
+}

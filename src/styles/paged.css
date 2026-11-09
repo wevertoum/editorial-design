@@ -1,0 +1,82 @@
+@page {
+  size: A4;
+  margin: 18mm 16mm 20mm 22mm;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 9pt;
+
+  @top-left {
+    content: string(publication-title);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  @top-right {
+    content: string(running-chapter);
+  }
+
+  @bottom-center {
+    content: counter(page);
+    font-weight: 600;
+  }
+}
+
+@page :first {
+  @top-left {
+    content: none;
+  }
+
+  @top-right {
+    content: none;
+  }
+}
+
+.sheet + .sheet {
+  break-before: page;
+}
+
+h1,
+h2,
+h3,
+.kicker,
+.masthead {
+  break-after: avoid;
+  break-inside: avoid;
+}
+
+h1 + *,
+h2 + *,
+h3 + *,
+.kicker + * {
+  break-before: avoid;
+}
+
+.highlight,
+.infographic {
+  break-inside: avoid;
+}
+
+.timeline-event,
+.figure,
+.editorial-table,
+.pull-quote {
+  break-inside: avoid;
+}
+
+p {
+  orphans: 2;
+  widows: 2;
+}
+
+.publication-running-title {
+  string-set: publication-title content();
+}
+
+.sheet .kicker {
+  string-set: running-chapter content();
+}
+
+html[data-profile="digital"] .preview-banner,
+html[data-profile="print"] .preview-banner {
+  display: none !important;
+}

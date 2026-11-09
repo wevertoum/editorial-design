@@ -1,0 +1,45 @@
+{
+  "name": "editorial-design",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run build:digital",
+    "build:digital": "tsc -p tsconfig.app.json --noEmit && vite build --mode digital && tsx scripts/prerender-html.ts --profile digital",
+    "build:print": "tsc -p tsconfig.app.json --noEmit && vite build --mode print && tsx scripts/prerender-html.ts --profile print",
+    "preview": "vite preview",
+    "preview:paged": "vivliostyle preview dist/index.html --no-vite-config-file",
+    "pdf": "npm run pdf:digital",
+    "pdf:digital": "tsx scripts/build-pdf.ts --profile digital",
+    "pdf:print": "tsx scripts/build-pdf.ts --profile print",
+    "validate": "tsx scripts/validate-document.ts",
+    "typecheck": "tsc -p tsconfig.app.json --noEmit && tsc -p tsconfig.node.json --noEmit",
+    "check": "npm run validate && npm run typecheck",
+    "test:visual": "playwright test"
+  },
+  "dependencies": {
+    "@fontsource/source-sans-3": "^5.3.1",
+    "@fontsource/source-serif-4": "^5.3.1",
+    "@mdx-js/react": "^3.1.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@mdx-js/rollup": "^3.1.1",
+    "@playwright/test": "^1.65.0",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "@vivliostyle/cli": "^11.4.0",
+    "remark-frontmatter": "^5.0.0",
+    "remark-mdx-frontmatter": "^6.0.0",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.7"
+  }
+}

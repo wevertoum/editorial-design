@@ -1,0 +1,33 @@
+{
+  "id": "specimen-01",
+  "language": "en",
+  "title": "Specimen",
+  "subtitle": "A programmable editorial document",
+  "author": "Editorial Desk",
+  "sections": [
+    {
+      "id": "opening",
+      "strategy": "flow",
+      "layout": "standard",
+      "source": "chapters/opening.mdx"
+    },
+    {
+      "id": "measures",
+      "strategy": "flow",
+      "layout": "standard",
+      "source": "chapters/measures.mdx"
+    },
+    {
+      "id": "milestones",
+      "strategy": "structured",
+      "layout": "timeline",
+      "source": "timelines/milestones.json"
+    },
+    {
+      "id": "pipeline",
+      "strategy": "art-directed",
+      "layout": "infographic",
+      "source": "infographics/specimen.json"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "kicker": "04 — Art direction",
+  "title": "One page, placed on purpose",
+  "lede": "The values below are data. Their positions are the layout. This sheet is not a chronology and not a chapter.",
+  "stats": [
+    {
+      "id": "strategies",
+      "value": "3",
+      "label": "Composition strategies",
+      "note": "Flow, sequence, and art direction"
+    },
+    {
+      "id": "profiles",
+      "value": "2",
+      "label": "PDF profiles",
+      "note": "Digital, and print layout"
+    },
+    {
+      "id": "source",
+      "value": "1",
+      "label": "Manuscript",
+      "note": "Both PDFs read the same files"
+    }
+  ],
+  "steps": [
+    {
+      "id": "compose",
+      "index": "01",
+      "title": "Compose",
+      "body": "Write MDX and JSON. Keep trim, color, and margins out of the copy."
+    },
+    {
+      "id": "preview",
+      "index": "02",
+      "title": "Preview",
+      "body": "Read the sheets in the browser. Expect a fast refresh, not final folios."
+    },
+    {
+      "id": "paginate",
+      "index": "03",
+      "title": "Paginate",
+      "body": "Run the PDF command. Check breaks, headings, figures, and events there."
+    },
+    {
+      "id": "handoff",
+      "index": "04",
+      "title": "Hand off",
+      "body": "Send the digital file to readers. Treat the print layout as a proof until a press standard is actually produced."
+    }
+  ],
+  "footnote": "Placeholder palette and A4 trim. Crop marks appear only on the print layout PDF. No CMYK conversion, ICC profile, or PDF/X output is produced by these commands."
+}

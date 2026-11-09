@@ -1,0 +1,40 @@
+---
+kicker: "02 — Flow"
+---
+
+# The measure of a sheet
+
+Page size is a token. The initial value is A4, 210 by 297 millimetres, because a default has to be something a printer and a browser can both name. The trim is not buried in a component. It is a custom property, and the paged-media rules read it when the PDF is built. If the reference book uses a different trim, change the token and generate the file again. Do not assume these samples have discovered the final size.
+
+Margins are tokens for the same reason. The digital profile keeps the inner margin declared beside the other page tokens. The print layout profile adds a little more on the binding edge, and it declares a bleed of 3mm. The bleed is a distance reserved around the trim. Nothing in this specimen paints into that band. Crop marks are requested from the rendering engine on the print command only. They are a guide for a later imposition, not evidence that the file has been preflighted.
+
+<Columns>
+
+## Across the measure
+
+A column is a local decision inside the flow. This passage sits in two columns so the preview and the PDF both have to respect a narrower measure, a gap, and a heading that spans the text block. The table and the figure return to the full measure. Rows are easier to read when they are not broken across a narrow column, and the objects are marked to stay intact when a page boundary arrives.
+
+The screen preview shows the columns immediately, because they are ordinary CSS. What it cannot show is the page on which a column will end. That question belongs to the generated PDF.
+
+</Columns>
+
+<Figure
+  src="media/page-grid.svg"
+  alt="Diagram of an A4 page. A solid rectangle is the trim and a dashed rectangle inside it is the text block."
+  caption="Placeholder grid. The solid line is the trim. The dashed line is the text block of the digital profile, before the print profile adds inner margin."
+  credit="Diagram drawn for this specimen"
+/>
+
+<EditorialTable
+  caption="Output profiles for this specimen. The print layout is a page configuration, not a press certification."
+  columns={["Profile", "Geometry", "Color", "Use"]}
+  rows={[
+    ["Screen", "A4 trim, no folios", "RGB", "Edit in the browser"],
+    ["Digital", "A4 trim", "RGB", "Read on screen"],
+    ["Print layout", "A4 trim, 3mm bleed, crops", "RGB, unconverted", "Review the layout only"],
+  ]}
+/>
+
+A caption stays with its figure. In this short sample the table stays with its header. A longer table will need a repeated header, which this specimen does not pretend to have solved. The comparison above is the contract for the two output commands. Read the color column literally. RGB means the engine has not converted the color. Unconverted means the same thing in the print layout file, even though that file has crop marks.
+
+The browser sheet is a warm paper color so the editing view is easy to see on the desk behind it. That color is not a spot color and not a claim about the stock. The PDF page itself stays white. Highlight panels are the exception: they are painted, and they should be checked in the generated file rather than assumed.
