@@ -1390,10 +1390,40 @@
   margin: 0;
   padding: 0;
   display: grid;
+  box-sizing: border-box;
+  width: 100%;
+  /* Tracks iguais (mesmo padrão do ActorBand); inline style reforça o N dinâmico. */
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  grid-auto-columns: minmax(0, 1fr);
   column-gap: 3.5mm;
   row-gap: 4mm;
+  justify-items: stretch;
   align-items: start;
   position: relative;
+}
+
+.dual-track[data-node-count='2'] .dual-track-nodes {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.dual-track[data-node-count='3'] .dual-track-nodes {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.dual-track[data-node-count='4'] .dual-track-nodes {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.dual-track[data-node-count='5'] .dual-track-nodes {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.dual-track[data-node-count='6'] .dual-track-nodes {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.dual-track[data-node-count='7'] .dual-track-nodes {
+  grid-template-columns: repeat(7, minmax(0, 1fr));
 }
 
 /* Eixo contínuo ligando todos os anos na horizontal. */
