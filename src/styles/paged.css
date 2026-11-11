@@ -1,7 +1,7 @@
 @page {
-  size: A4;
+  size: 210mm 297mm;
   margin: 18mm 16mm 20mm 22mm;
-  font-family: "Source Sans 3", sans-serif;
+  font-family: Mulish, sans-serif;
   font-size: 9pt;
 
   @top-left {
@@ -59,13 +59,25 @@ h3 + *,
 .timeline-event,
 .figure,
 .editorial-table,
-.pull-quote {
+.pull-quote,
+.profile-card,
+.dual-track-node,
+.facts-rail,
+.callout-card {
   break-inside: avoid;
 }
 
 p {
-  orphans: 2;
-  widows: 2;
+  orphans: 3;
+  widows: 3;
+  text-wrap: pretty;
+  hyphenate-limit-lines: 2;
+  hyphenate-limit-last: always;
+}
+
+.layout-vozes-report .vozes-main .detail-list-item,
+.layout-vozes-report .vozes-main li {
+  break-inside: avoid;
 }
 
 .publication-running-title {

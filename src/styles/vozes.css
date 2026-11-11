@@ -1,0 +1,499 @@
+@font-face {
+  font-family: Mulish;
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/Mulish-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Mulish;
+  font-style: italic;
+  font-weight: 400;
+  src: url("/fonts/Mulish-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Mulish;
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/Mulish-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Mulish;
+  font-style: italic;
+  font-weight: 500;
+  src: url("/fonts/Mulish-MediumItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Mulish;
+  font-style: normal;
+  font-weight: 600;
+  src: url("/fonts/Mulish-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Mulish;
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/Mulish-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/RobotoSlab-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/RobotoSlab-Bold.ttf") format("truetype");
+}
+
+/* Grade Vozes: 6 colunas lógicas, gutter 4.5 mm (DECISOES v2). */
+.layout-vozes-report {
+  --vozes-grid-gutter: 4.5mm;
+  --vozes-col: calc((100% - 5 * var(--vozes-grid-gutter)) / 6);
+  --vozes-prose-span: 3;
+  --vozes-rail-span: 2;
+  --vozes-ar-span: 1;
+  --vozes-prose-track: minmax(0, calc(var(--vozes-col) * 3 + var(--vozes-grid-gutter) * 2));
+  --vozes-air-track: minmax(var(--vozes-grid-gutter), var(--vozes-col));
+  --vozes-rail-track: minmax(0, calc(var(--vozes-col) * var(--vozes-rail-span) + var(--vozes-grid-gutter)));
+}
+
+.layout-vozes-report .vozes-page {
+  align-items: start;
+}
+
+/* Sem rail: mesma grade A4 que o spread com aside (3/6 + 1/6 respiro + 2/6 livres). */
+.layout-vozes-report .vozes-page.vozes-prose-only,
+.layout-vozes-report .vozes-page:not(.vozes-with-rail) {
+  display: grid;
+  grid-template-columns: var(--vozes-prose-track) var(--vozes-air-track) var(--vozes-rail-track);
+  gap: 0;
+}
+
+.layout-vozes-report .vozes-page.vozes-prose-only .vozes-main,
+.layout-vozes-report .vozes-page:not(.vozes-with-rail) .vozes-main {
+  grid-column: 1;
+  width: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.layout-vozes-report .vozes-page.vozes-prose-only .vozes-rail,
+.layout-vozes-report .vozes-page:not(.vozes-with-rail) .vozes-rail {
+  display: none;
+}
+
+/* Capítulos com rail: prosa 3/6 + respiro 1/6 + rail 2/6 */
+.layout-vozes-report .vozes-page.vozes-with-rail {
+  display: grid;
+  grid-template-columns: var(--vozes-prose-track) var(--vozes-air-track) var(--vozes-rail-track);
+  gap: 0;
+}
+
+.layout-vozes-report .vozes-page.vozes-with-rail .vozes-main {
+  grid-column: 1;
+  min-width: 0;
+}
+
+.layout-vozes-report .vozes-page.vozes-with-rail .vozes-rail {
+  grid-column: 3;
+  padding-left: 0;
+  min-width: 0;
+}
+
+.layout-vozes-report .vozes-main h1,
+.layout-vozes-report .vozes-main h2,
+.layout-vozes-report .vozes-main h3 {
+  font-family: var(--font-sans);
+}
+
+.layout-vozes-report .vozes-main h3 {
+  font-weight: 600;
+  font-size: 11pt;
+  line-height: 1.27;
+  color: var(--color-vozes-roxo-2);
+  margin-top: var(--space-5);
+}
+
+.layout-vozes-report .vozes-main h2 {
+  font-size: 13pt;
+  font-weight: 700;
+  line-height: 1.23;
+  color: var(--color-ink);
+  margin-top: 6.5mm;
+}
+
+.layout-vozes-report .vozes-page.vozes-front-matter .vozes-main h2:first-of-type {
+  margin-top: 0;
+  letter-spacing: 0.04em;
+}
+
+.layout-vozes-report .vozes-main p,
+.layout-vozes-report .vozes-main .detail-list-item {
+  font-family: var(--font-sans);
+  font-size: 9.5pt;
+  line-height: 1.37;
+  text-align: left;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 2;
+  hyphenate-limit-lines: 2;
+  hyphenate-limit-last: always;
+  hyphenate-limit-zone: 8%;
+  text-wrap: pretty;
+  orphans: 3;
+  widows: 3;
+  margin-bottom: 0.92em;
+}
+
+.layout-vozes-report .vozes-main h2,
+.layout-vozes-report .vozes-main h3,
+.layout-vozes-report .vozes-main .org-section-title {
+  break-after: avoid;
+  break-inside: avoid;
+}
+
+.layout-vozes-report .vozes-main h2 + p,
+.layout-vozes-report .vozes-main h3 + p,
+.layout-vozes-report .vozes-main .org-section-title + p,
+.layout-vozes-report .vozes-main h2 + .detail-list-item,
+.layout-vozes-report .vozes-main h3 + .detail-list-item {
+  break-before: avoid;
+}
+
+.layout-vozes-report .vozes-main .figure {
+  break-inside: avoid;
+  margin: 4.5mm 0;
+}
+
+.layout-vozes-report .vozes-main .figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 1mm;
+  box-shadow: 0 0.4mm 1.2mm rgb(31 23 43 / 8%);
+}
+
+.layout-vozes-report .vozes-main .figure figcaption {
+  margin-top: 1.5mm;
+  font-size: 7.5pt;
+  line-height: 1.35;
+  color: var(--color-muted);
+}
+
+.layout-vozes-report .vozes-page.org-panel-page .vozes-main {
+  padding: 5mm 5mm 4mm;
+  background: var(--color-marfim);
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.country-opening {
+  margin-bottom: 5.5mm;
+}
+
+.country-code {
+  margin: 0 0 2mm;
+  font-family: var(--font-sans);
+  font-size: 9pt;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-vozes-roxo-2);
+}
+
+.country-opening h1 {
+  font-family: var(--font-display);
+  font-size: 28pt;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 var(--space-3);
+  color: var(--color-ink);
+}
+
+.country-lead {
+  font-size: 10pt;
+  line-height: 1.4;
+  color: var(--color-ink);
+}
+
+.profile-card {
+  position: relative;
+  margin-top: 10mm;
+  padding: 14mm 4mm 4mm;
+  background: var(--color-marfim);
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.profile-card-photo-wrap {
+  margin: -18mm auto 3mm;
+  width: 26mm;
+}
+
+.profile-card-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.profile-card-label {
+  margin: 0 0 1.5mm;
+  font-family: var(--font-sans);
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-vozes-roxo-2);
+}
+
+.profile-card-name {
+  margin: 0 0 1mm;
+  font-family: var(--font-display);
+  font-size: 14pt;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.profile-card-role {
+  margin: 0 0 2.5mm;
+  font-family: var(--font-sans);
+  font-size: 9pt;
+  font-style: italic;
+  color: var(--color-vozes-roxo-2);
+}
+
+.profile-card-bio {
+  margin: 0;
+  font-size: 8.5pt;
+  line-height: 1.35;
+}
+
+.callout-card,
+.facts-rail {
+  margin-top: 5mm;
+  padding: 4mm;
+  background: color-mix(in srgb, var(--color-vozes-roxo-2) 10%, white);
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.facts-rail {
+  background: var(--color-marfim);
+}
+
+.callout-card-title,
+.facts-rail-title {
+  margin: 0 0 2.5mm;
+  font-family: var(--font-sans);
+  font-size: 8pt;
+  font-weight: 700;
+  color: var(--color-vozes-roxo-2);
+}
+
+.facts-rail-list {
+  margin: 0;
+}
+
+.facts-rail-item {
+  margin-bottom: 2.5mm;
+}
+
+.facts-rail-item dt {
+  margin: 0;
+  font-size: 8pt;
+  font-weight: 700;
+}
+
+.facts-rail-item dd {
+  margin: 0.5mm 0 0;
+  font-size: 8.5pt;
+  line-height: 1.3;
+}
+
+.detail-list-item {
+  position: relative;
+  margin: 0 0 2mm;
+  padding-left: 4mm;
+  font-size: 9.5pt;
+  line-height: 1.35;
+}
+
+.detail-list-item::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-vozes-laranja);
+  font-weight: 700;
+}
+
+.source-note {
+  margin-top: auto;
+  padding-top: 5mm;
+  border-top: 0.35mm solid color-mix(in srgb, var(--color-ink) 40%, transparent);
+}
+
+.source-note p {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 7.5pt;
+  line-height: 1.35;
+  color: var(--color-muted);
+}
+
+.editorial-table-vozes table {
+  font-size: 8pt;
+}
+
+.editorial-table-vozes th {
+  background: var(--color-vozes-roxo-2);
+  color: white;
+  border-bottom: none;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.editorial-table-vozes tr:nth-child(even) td {
+  background: color-mix(in srgb, var(--color-marfim) 55%, white);
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.editorial-table-vozes caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.milestone-strip {
+  margin: var(--space-4) 0;
+}
+
+.milestone-strip-title {
+  font-size: 11pt;
+  font-weight: 600;
+  color: var(--color-vozes-roxo-2);
+}
+
+.milestone-strip-list {
+  list-style: none;
+  margin: 2mm 0 0;
+  padding: 0;
+}
+
+.milestone-strip-item {
+  display: grid;
+  grid-template-columns: 16mm 1fr;
+  gap: 3mm;
+  padding: 2mm 0;
+  border-top: 0.3mm solid color-mix(in srgb, var(--color-ink) 15%, transparent);
+  font-size: 8.5pt;
+  line-height: 1.3;
+}
+
+.milestone-strip-year {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-vozes-roxo-2);
+}
+
+.layout-timeline-dual {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(var(--page-height) - var(--margin-top) - var(--margin-bottom));
+}
+
+.layout-timeline-dual .dual-track-lede {
+  /* Intro alinhada ao span 3/6 da grade Vozes dentro da área útil. */
+  max-width: 50%;
+  font-size: 9.5pt;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 2;
+  hyphenate-limit-lines: 2;
+  hyphenate-limit-last: always;
+  text-wrap: pretty;
+  orphans: 3;
+  widows: 3;
+}
+
+.dual-track-lede-right {
+  margin-bottom: var(--space-3);
+}
+
+.dual-track-band {
+  flex: 1;
+  margin: var(--space-3) calc(-1 * var(--margin-outer)) 0 calc(-1 * var(--margin-inner));
+  padding: 6mm var(--margin-outer) 5mm var(--margin-inner);
+  min-height: 62%;
+  background: var(--color-marfim);
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.dual-track-tracks {
+  display: flex;
+  align-items: center;
+  gap: 3mm;
+  margin-bottom: 5mm;
+}
+
+.dual-track-tag {
+  font-family: var(--font-sans);
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.dual-track-tag--curriculo {
+  color: var(--color-vozes-verde);
+}
+
+.dual-track-tag--organizacao {
+  color: var(--color-vozes-rosa);
+}
+
+.dual-track-axis {
+  flex: 1;
+  height: 0.4mm;
+  background: color-mix(in srgb, var(--color-vozes-roxo) 35%, transparent);
+}
+
+.dual-track-nodes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(34mm, 1fr));
+  gap: 5mm 4mm;
+}
+
+.dual-track-node {
+  break-inside: avoid;
+}
+
+.dual-track-year {
+  margin: 0 0 1.5mm;
+  font-family: var(--font-display);
+  font-size: 16pt;
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+  color: var(--color-vozes-roxo-2);
+}
+
+.dual-track-curriculo,
+.dual-track-organizacao {
+  margin: 0 0 1.5mm;
+  font-size: 8pt;
+  line-height: 1.3;
+  color: var(--color-ink);
+}

@@ -1,11 +1,6 @@
-import '@fontsource/source-sans-3/latin-400.css'
-import '@fontsource/source-sans-3/latin-600.css'
-import '@fontsource/source-sans-3/latin-700.css'
-import '@fontsource/source-serif-4/latin-400-italic.css'
-import '@fontsource/source-serif-4/latin-400.css'
-import '@fontsource/source-serif-4/latin-600.css'
 import publication from '../content/document.json'
 import { App } from './App'
+import { BundleProof } from './BundleProof'
 import { resolveProfile } from './engine/profile'
 import './styles/index.css'
 import '@editorial-profile-css'
@@ -22,8 +17,13 @@ if (!root) {
   throw new Error('Root element #root is missing')
 }
 
+const searchParams = new URLSearchParams(window.location.search)
+const bundleProofEnabled =
+  import.meta.env.VITE_BUNDLE_PROOF === '1' || searchParams.get('bundle') === '1'
+const bundleSectionId = searchParams.get('section') ?? 'apresentacao'
+
 createRoot(root).render(
   <StrictMode>
-    <App />
+    {bundleProofEnabled ? <BundleProof sectionId={bundleSectionId} /> : <App />}
   </StrictMode>,
 )

@@ -52,9 +52,9 @@ export function inspectPdf(file: string): PdfReport {
 }
 
 export function assertPdfProfile(profile: 'digital' | 'print', report: PdfReport): void {
-  if (report.pageCount < 4) {
+  if (report.pageCount < 24) {
     throw new Error(
-      `Expected at least 4 pages, found ${report.pageCount} via ${report.pageCountSource}.`,
+      `Expected at least 24 pages (full Organizações document), found ${report.pageCount} via ${report.pageCountSource}.`,
     )
   }
 

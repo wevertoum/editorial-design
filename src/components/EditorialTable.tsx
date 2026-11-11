@@ -1,13 +1,11 @@
 type EditorialTableProps = {
-  caption: string
+  caption?: string
   columns: string[]
   rows: string[][]
+  variant?: 'default' | 'vozes'
 }
 
-export function EditorialTable({ caption, columns, rows }: EditorialTableProps) {
-  if (!caption.trim()) {
-    throw new Error('EditorialTable needs a caption')
-  }
+export function EditorialTable({ caption = '', columns, rows, variant = 'default' }: EditorialTableProps) {
   if (columns.length === 0) {
     throw new Error(`EditorialTable "${caption}" needs columns`)
   }
@@ -21,9 +19,9 @@ export function EditorialTable({ caption, columns, rows }: EditorialTableProps) 
   })
 
   return (
-    <figure className="editorial-table">
+    <figure className={`editorial-table${variant === 'vozes' ? ' editorial-table-vozes' : ''}`}>
       <table>
-        <caption>{caption}</caption>
+        {caption.trim() ? <caption>{caption}</caption> : null}
         <thead>
           <tr>
             {columns.map((column, index) => (

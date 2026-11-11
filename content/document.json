@@ -1,33 +1,165 @@
 {
-  "id": "specimen-01",
-  "language": "en",
-  "title": "Specimen",
-  "subtitle": "A programmable editorial document",
-  "author": "Editorial Desk",
+  "id": "levantamento-organizacoes-2026",
+  "language": "pt-BR",
+  "title": "Levantamento Internacional de Instituições de Apoio a Padrões Curriculares",
+  "subtitle": "2026",
+  "author": "Vozes da Educação",
   "sections": [
     {
-      "id": "opening",
+      "id": "apresentacao",
       "strategy": "flow",
       "layout": "standard",
-      "source": "chapters/opening.mdx"
+      "source": "chapters/apresentacao.mdx"
     },
     {
-      "id": "measures",
+      "id": "resumo-executivo",
       "strategy": "flow",
       "layout": "standard",
-      "source": "chapters/measures.mdx"
+      "source": "chapters/resumo-executivo.mdx"
     },
     {
-      "id": "milestones",
+      "id": "australia",
+      "strategy": "flow",
+      "layout": "standard",
+      "source": "chapters/australia.mdx"
+    },
+    {
+      "id": "australia-cruzamento-1-a",
       "strategy": "structured",
       "layout": "timeline",
-      "source": "timelines/milestones.json"
+      "source": "timelines/australia-cruzamento-1-a.json"
     },
     {
-      "id": "pipeline",
-      "strategy": "art-directed",
-      "layout": "infographic",
-      "source": "infographics/specimen.json"
+      "id": "australia-cruzamento-1-b",
+      "strategy": "structured",
+      "layout": "timeline",
+      "source": "timelines/australia-cruzamento-1-b.json"
+    },
+    {
+      "id": "australia-cruzamento-2-a",
+      "strategy": "structured",
+      "layout": "timeline",
+      "source": "timelines/australia-cruzamento-2-a.json"
+    },
+    {
+      "id": "australia-2",
+      "strategy": "flow",
+      "layout": "standard",
+      "source": "chapters/australia-2.mdx"
+    },
+    {
+      "id": "usa",
+      "strategy": "flow",
+      "layout": "standard",
+      "source": "chapters/usa.mdx"
+    },
+    {
+      "id": "usa-cruzamento-1-a",
+      "strategy": "structured",
+      "layout": "timeline",
+      "source": "timelines/usa-cruzamento-1-a.json"
+    },
+    {
+      "id": "usa-cruzamento-1-b",
+      "strategy": "structured",
+      "layout": "timeline",
+      "source": "timelines/usa-cruzamento-1-b.json"
+    },
+    {
+      "id": "usa-cruzamento-2-a",
+      "strategy": "structured",
+      "layout": "timeline",
+      "source": "timelines/usa-cruzamento-2-a.json"
+    },
+    {
+      "id": "usa-2",
+      "strategy": "flow",
+      "layout": "standard",
+      "source": "chapters/usa-2.mdx"
+    },
+    {
+      "id": "england",
+      "strategy": "flow",
+      "layout": "standard",
+      "source": "chapters/england.mdx"
+    },
+    {
+      "id": "england-cruzamento-1-a",
+      "strategy": "structured",
+      "layout": "timeline",
+      "source": "timelines/england-cruzamento-1-a.json"
+    },
+    {
+      "id": "england-cruzamento-1-b",
+      "strategy": "structured",
+      "layout": "timeline",
+      "source": "timelines/england-cruzamento-1-b.json"
+    },
+    {
+      "id": "england-2",
+      "strategy": "flow",
+      "layout": "standard",
+      "source": "chapters/england-2.mdx"
+    },
+    {
+      "id": "england-cruzamento-3-a",
+      "strategy": "structured",
+      "layout": "timeline",
+      "source": "timelines/england-cruzamento-3-a.json"
+    },
+    {
+      "id": "england-cruzamento-3-b",
+      "strategy": "structured",
+      "layout": "timeline",
+      "source": "timelines/england-cruzamento-3-b.json"
+    },
+    {
+      "id": "england-3",
+      "strategy": "flow",
+      "layout": "standard",
+      "source": "chapters/england-3.mdx"
+    },
+    {
+      "id": "nigeria",
+      "strategy": "flow",
+      "layout": "standard",
+      "source": "chapters/nigeria.mdx"
+    },
+    {
+      "id": "nigeria-cruzamento-1-a",
+      "strategy": "structured",
+      "layout": "timeline",
+      "source": "timelines/nigeria-cruzamento-1-a.json"
+    },
+    {
+      "id": "nigeria-cruzamento-1-b",
+      "strategy": "structured",
+      "layout": "timeline",
+      "source": "timelines/nigeria-cruzamento-1-b.json"
+    },
+    {
+      "id": "nigeria-2",
+      "strategy": "flow",
+      "layout": "standard",
+      "source": "chapters/nigeria-2.mdx"
+    },
+    {
+      "id": "chile",
+      "strategy": "flow",
+      "layout": "standard",
+      "source": "chapters/chile.mdx"
+    },
+    {
+      "id": "chile-cruzamento-1-a",
+      "strategy": "structured",
+      "layout": "timeline",
+      "source": "timelines/chile-cruzamento-1-a.json"
+    },
+    {
+      "id": "chile-2",
+      "strategy": "flow",
+      "layout": "standard",
+      "source": "chapters/chile-2.mdx"
     }
   ]
 }

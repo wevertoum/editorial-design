@@ -6,7 +6,7 @@
 export const paginationEngine = {
   id: 'vivliostyle-cli',
   packageName: '@vivliostyle/cli',
-  digitalCommand: 'npm run pdf:digital',
+  digitalCommand: 'npm run build',
   printCommand: 'npm run pdf:print',
   limitations: [
     'Digital and print PDFs are both rendered by Vivliostyle CLI through Chromium.',

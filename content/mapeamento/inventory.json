@@ -1,0 +1,5185 @@
+{
+  "source": "/Users/anaterra/Documents/Mapeamento-Organizacoes-Lemann-Vozes/01_Briefing/4. [v1] Organizações (2).docx",
+  "stats": {
+    "paragraphs": 828,
+    "chars": 89852,
+    "images": 17
+  },
+  "sections": [
+    {
+      "id": "capa",
+      "title": "Capa",
+      "start": 0,
+      "blockCount": 3
+    },
+    {
+      "id": "apresentacao",
+      "title": "APRESENTAÇÃO",
+      "start": 3,
+      "blockCount": 5
+    },
+    {
+      "id": "resumo",
+      "title": "RESUMO EXECUTIVO",
+      "start": 8,
+      "blockCount": 15
+    },
+    {
+      "id": "organizacoes",
+      "title": "ORGANIZAÇÕES",
+      "start": 23,
+      "blockCount": 1
+    },
+    {
+      "id": "australia",
+      "title": "AUSTRÁLIA",
+      "start": 24,
+      "blockCount": 142
+    },
+    {
+      "id": "eua",
+      "title": "ESTADOS UNIDOS",
+      "start": 166,
+      "blockCount": 155
+    },
+    {
+      "id": "inglaterra",
+      "title": "INGLATERRA",
+      "start": 321,
+      "blockCount": 225
+    },
+    {
+      "id": "nigeria",
+      "title": "NIGÉRIA",
+      "start": 546,
+      "blockCount": 144
+    },
+    {
+      "id": "chile",
+      "title": "CHILE",
+      "start": 690,
+      "blockCount": 138
+    }
+  ],
+  "blocks": [
+    {
+      "i": 0,
+      "style": "Heading1",
+      "text": "Levantamento Internacional",
+      "images": []
+    },
+    {
+      "i": 1,
+      "style": "Heading1",
+      "text": "de Instituições de Apoio a Padrões Curriculares",
+      "images": []
+    },
+    {
+      "i": 2,
+      "style": "Heading1",
+      "text": "2026",
+      "images": []
+    },
+    {
+      "i": 3,
+      "style": "Heading1",
+      "text": "APRESENTAÇÃO",
+      "images": []
+    },
+    {
+      "i": 4,
+      "style": "Heading1",
+      "text": "Este relatório apresenta um estudo sobre a atuação de organizações da sociedade civil e redes profissionais em processos de desenvolvimento, revisão e implementação de políticas curriculares em diferentes países. A pesquisa busca compreender como essas organizações se estruturam, quais estratégias utilizam para atuar no campo curricular e de que maneira se relacionam com os processos de formulação e implementação das políticas públicas de educação.",
+      "images": []
+    },
+    {
+      "i": 5,
+      "style": "Heading1",
+      "text": "Para isso, foram analisadas seis organizações em cinco contextos nacionais: Australian Curriculum Studies Association (ACSA), na Austrália; Achieve, nos Estados Unidos; Curriculum Foundation e British Curriculum Forum (BCF), na Inglaterra; Curriculum Organization of Nigeria (CON), na Nigéria; e Fundación Reimagina, no Chile. Os casos contemplam diferentes perfis institucionais, incluindo associações profissionais, organizações técnicas, redes de pesquisa e fundações, permitindo conhecer distintas formas de participação no campo curricular.",
+      "images": []
+    },
+    {
+      "i": 6,
+      "style": "Heading1",
+      "text": "A análise parte do entendimento de que a atuação dessas organizações está diretamente relacionada à estrutura dos sistemas educacionais e aos processos de decisão de cada país. Por essa razão, o estudo apresenta o contexto de desenvolvimento das políticas curriculares nacionais, os atores responsáveis por sua elaboração e os mecanismos pelos quais organizações externas ao governo podem participar desses processos.",
+      "images": []
+    },
+    {
+      "i": 7,
+      "style": "Heading1",
+      "text": "Cada caso está organizado em três dimensões principais. A primeira apresenta o sistema curricular do país, sua organização institucional e os principais marcos históricos. A segunda examina a organização, considerando sua origem, governança, financiamento, estratégias de atuação e trajetória. A terceira relaciona os acontecimentos da política curricular aos marcos da organização, buscando identificar quando, como e por quais mecanismos suas atividades se conectaram aos processos nacionais.",
+      "images": []
+    },
+    {
+      "i": 8,
+      "style": "Heading1",
+      "text": "RESUMO EXECUTIVO",
+      "images": []
+    },
+    {
+      "i": 9,
+      "style": "Heading1",
+      "text": "A análise das seis organizações estudadas evidencia que a participação de atores não governamentais nas políticas curriculares ocorre por diferentes caminhos, que incluem articulação institucional, produção de conhecimento, advocacy, assistência técnica e apoio à implementação. As formas de atuação variam conforme a natureza das organizações, a estrutura dos sistemas educacionais e o momento de desenvolvimento das políticas curriculares.",
+      "images": []
+    },
+    {
+      "i": 10,
+      "style": "Heading1",
+      "text": "A partir do cruzamento entre as trajetórias das organizações e dos currículos nacionais, destacam-se seis achados principais.",
+      "images": []
+    },
+    {
+      "i": 11,
+      "style": "Heading1",
+      "text": "1. A organização dos sistemas educacionais influencia as possibilidades de atuação",
+      "images": []
+    },
+    {
+      "i": 12,
+      "style": "Heading1",
+      "text": "Os mecanismos de participação variam de acordo com a distribuição de responsabilidades pela política curricular. Nos Estados Unidos, a autonomia dos estados favoreceu iniciativas de articulação interestadual, como as desenvolvidas pela Achieve. Na Austrália, a existência de uma autoridade curricular nacional, a ACARA, estabeleceu canais de consulta e interlocução utilizados pela ACSA. Já na Inglaterra, Nigéria e Chile, a condução das reformas está mais diretamente vinculada a órgãos nacionais, com diferentes possibilidades de participação externa.",
+      "images": []
+    },
+    {
+      "i": 13,
+      "style": "Heading1",
+      "text": "2. As organizações exercem papéis distintos nos processos curriculares",
+      "images": []
+    },
+    {
+      "i": 14,
+      "style": "Heading1",
+      "text": "A Achieve participou diretamente do desenvolvimento de padrões curriculares e da coordenação de iniciativas de avaliação. A ACSA concentrou sua atuação na representação profissional, na organização de debates e na participação em consultas públicas. A Curriculum Foundation desenvolve atividades de consultoria e apoio técnico, enquanto o BCF e a CON atuam principalmente na produção e circulação de conhecimento especializado. A Fundación Reimagina combina inovação educacional, articulação institucional e pesquisas voltadas à formulação de recomendações para políticas públicas.",
+      "images": []
+    },
+    {
+      "i": 15,
+      "style": "Heading1",
+      "text": "3. A atuação pode se transformar ao longo da trajetória da política curricular",
+      "images": []
+    },
+    {
+      "i": 16,
+      "style": "Heading1",
+      "text": "As experiências mostram que as organizações podem assumir diferentes funções conforme a política avança. A Achieve, por exemplo, passou da produção de estudos e articulação de estados à participação no desenvolvimento de standards, na construção de avaliações e na elaboração de ferramentas para implementação. A ACSA também ampliou sua atuação, passando da promoção de debates sobre um currículo nacional à participação em consultas e à divulgação de orientações para profissionais da educação.",
+      "images": []
+    },
+    {
+      "i": 17,
+      "style": "Heading1",
+      "text": "4. A relação com o poder público apresenta diferentes níveis de participação",
+      "images": []
+    },
+    {
+      "i": 18,
+      "style": "Heading1",
+      "text": "Foram identificadas responsabilidades técnicas formalmente atribuídas, como no caso da Achieve, e contribuições apresentadas em consultas públicas, como as da ACSA. Outros casos demonstram interlocução institucional, produção de recomendações ou participação individual de especialistas vinculados às organizações. Na Nigéria, por exemplo, a atuação de um membro da CON em uma reforma nacional não comprova representação formal da associação. No Chile, a Reimagina estabeleceu parcerias públicas e produziu estudos curriculares, mas não foi identificada participação direta na aprovação das Bases Curriculares.",
+      "images": []
+    },
+    {
+      "i": 19,
+      "style": "Heading1",
+      "text": "5. Governança e financiamento apresentam diferentes arranjos",
+      "images": []
+    },
+    {
+      "i": 20,
+      "style": "Heading1",
+      "text": "Os casos incluem estruturas associativas e eletivas, conselhos administrativos, redes vinculadas a instituições maiores e modelos de governança com participação de lideranças políticas e empresariais. O financiamento também varia: a Achieve contou principalmente com recursos filantrópicos; a ACSA combina anuidades e atividades próprias; a Curriculum Foundation oferece serviços especializados; e a Reimagina desenvolve projetos apoiados por parceiros filantrópicos.",
+      "images": []
+    },
+    {
+      "i": 21,
+      "style": "Heading1",
+      "text": "6. A implementação também constitui um espaço importante de atuação",
+      "images": []
+    },
+    {
+      "i": 22,
+      "style": "Heading1",
+      "text": "Foram identificadas iniciativas voltadas ao alinhamento entre currículo e avaliações, à formação de educadores, ao desenvolvimento de materiais e à investigação das práticas escolares. A Achieve desenvolveu ferramentas de avaliação de materiais didáticos; a Curriculum Foundation apoia escolas na organização de seus currículos; e a Reimagina pesquisa a relação entre as Bases Curriculares e as oportunidades de aprendizagem oferecidas aos estudantes.",
+      "images": []
+    },
+    {
+      "i": 23,
+      "style": "Heading1",
+      "text": "ORGANIZAÇÕES",
+      "images": []
+    },
+    {
+      "i": 24,
+      "style": "Heading1",
+      "text": "AUSTRÁLIA.",
+      "images": []
+    },
+    {
+      "i": 25,
+      "style": "Normal",
+      "text": "1. O  currículo australiano",
+      "images": []
+    },
+    {
+      "i": 26,
+      "style": "Normal",
+      "text": "1.1. O sistema curricular australiano",
+      "images": []
+    },
+    {
+      "i": 27,
+      "style": "Normal",
+      "text": "A Austrália combina um currículo nacional comum (Australian Curriculum) com implementação descentralizada. O governo federal exerce papel importante no financiamento e na definição de políticas nacionais. Dessa forma, o Australian Curriculum funciona como uma base nacional comum, enquanto estados e territórios mantêm responsabilidade sobre sua implementação e podem incorporá-lo aos próprios currículos.",
+      "images": []
+    },
+    {
+      "i": 28,
+      "style": "Normal",
+      "text": "Em New South Wales, por exemplo, as autoridades educacionais definem cronograma de desenvolvimento e implementação do programa de ensino, no qual é incorporado o conteúdo nacional, mantendo características específicas do estado.",
+      "images": []
+    },
+    {
+      "i": 29,
+      "style": "Normal",
+      "text": "O governo atribui explicitamente à Australian Curriculum Assessment and Reporting Authority (ACARA) a função de desenvolver e administrar o currículo nacional, incluindo conteúdos e padrões de aprendizagem, além de avaliação nacional e produção de dados educacionais.",
+      "images": []
+    },
+    {
+      "i": 30,
+      "style": "Normal",
+      "text": "Em resumo, os ministros definem a direção nacional e endossam as versões curriculares desenvolvidas e revisadas pela ACARA. Os estados e territórios adotam e adaptam essas versões e as escolas as implementam. A tabela abaixo detalha os principais atores e seus respectivos papéis.",
+      "images": []
+    },
+    {
+      "i": 31,
+      "style": "Normal",
+      "text": "Ator",
+      "images": []
+    },
+    {
+      "i": 32,
+      "style": "Normal",
+      "text": "Papel na política curricular",
+      "images": []
+    },
+    {
+      "i": 33,
+      "style": "Normal",
+      "text": "Education Ministers Meeting",
+      "images": []
+    },
+    {
+      "i": 34,
+      "style": "Normal",
+      "text": "Grupo de ministros da Educação",
+      "images": []
+    },
+    {
+      "i": 35,
+      "style": "Normal",
+      "text": "Define prioridades nacionais, estabelece diretrizes para a ACARA e endossa decisões centrais sobre o currículo.",
+      "images": []
+    },
+    {
+      "i": 36,
+      "style": "Normal",
+      "text": "ACARA",
+      "images": []
+    },
+    {
+      "i": 37,
+      "style": "Normal",
+      "text": "Órgão técnico nacional independente",
+      "images": []
+    },
+    {
+      "i": 38,
+      "style": "Normal",
+      "text": "Desenvolve e administra o currículo. Coordena pesquisas, redação curricular, consultas, revisões, monitoramento e produção de materiais de apoio.",
+      "images": []
+    },
+    {
+      "i": 39,
+      "style": "Normal",
+      "text": "Autoridades curriculares dos estados e territórios",
+      "images": []
+    },
+    {
+      "i": 40,
+      "style": "Normal",
+      "text": "Transformam a referência nacional em currículo efetivamente utilizado. Definem cronogramas, adaptam conteúdos e desenvolvem orientações.",
+      "images": []
+    },
+    {
+      "i": 41,
+      "style": "Normal",
+      "text": "Redes e escolas",
+      "images": []
+    },
+    {
+      "i": 42,
+      "style": "Normal",
+      "text": "Realizam a implementação. Organizam programas de ensino e práticas escolares de acordo com as regras e materiais de seu território.",
+      "images": []
+    },
+    {
+      "i": 43,
+      "style": "Normal",
+      "text": "1.2. O que é nacional e o que é estadual?",
+      "images": []
+    },
+    {
+      "i": 44,
+      "style": "Normal",
+      "text": "O Australian Curriculum estabelece uma referência comum sobre o que os estudantes devem aprender e quais níveis de aprendizagem são esperados, enquanto as autoridades estaduais tomam decisões sobre prazos de implementação, materiais complementares e operacionalização do currículo.",
+      "images": []
+    },
+    {
+      "i": 45,
+      "style": "Normal",
+      "text": "A versão atual, Australian Curriculum Version 9.0, possui uma estrutura tridimensional:",
+      "images": []
+    },
+    {
+      "i": 46,
+      "style": "Normal",
+      "text": "8 áreas de aprendizagem",
+      "images": []
+    },
+    {
+      "i": 47,
+      "style": "Normal",
+      "text": "English; Mathematics; Science; Humanities and Social Sciences; Health and Physical Education; Languages; Technologies; The Arts",
+      "images": []
+    },
+    {
+      "i": 48,
+      "style": "Normal",
+      "text": "7 capacidades gerais",
+      "images": []
+    },
+    {
+      "i": 49,
+      "style": "Normal",
+      "text": "Literacy; Numeracy; Digital Literacy; Critical and Creative Thinking; Personal and Social Capability; Intercultural Understanding; Ethical Understanding",
+      "images": []
+    },
+    {
+      "i": 50,
+      "style": "Normal",
+      "text": "3 prioridades transversais",
+      "images": []
+    },
+    {
+      "i": 51,
+      "style": "Normal",
+      "text": "Sustainability; Asia and Australia's Engagement with Asia; Aboriginal and Torres Strait Islander Histories and Cultures",
+      "images": []
+    },
+    {
+      "i": 52,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "seq": 1,
+          "relId": "rId15",
+          "docxPath": "word/media/image13.png",
+          "file": "image13.png",
+          "disk": "/Users/anaterra/Documents/Mapeamento-Organizacoes-Lemann-Vozes/03_Publicacao/links/docx-media/image13.png"
+        }
+      ],
+      "credit": "Fonte: Site oficial do Australian Curriculum."
+    },
+    {
+      "i": 53,
+      "style": "Normal",
+      "text": "Fonte: Site oficial do Australian Curriculum.",
+      "images": []
+    },
+    {
+      "i": 54,
+      "style": "Normal",
+      "text": "1.3. Como o currículo nacional é produzido",
+      "images": []
+    },
+    {
+      "i": 55,
+      "style": "Normal",
+      "text": "O processo de desenvolvimento do currículo foi originalmente estabelecido pela ACARA foi organizado em quatro grandes fases:",
+      "images": []
+    },
+    {
+      "i": 56,
+      "style": "Normal",
+      "text": "Estruturar",
+      "images": []
+    },
+    {
+      "i": 57,
+      "style": "Normal",
+      "text": "Primeiro, é preparado um documento que define a finalidade, estrutura, organização do conhecimento e orientações aos redatores. A elaboração envolve especialistas e já contém momentos de consulta aberta e consulta direcionada a stakeholders.",
+      "images": []
+    },
+    {
+      "i": 58,
+      "style": "Normal",
+      "text": "Escrever",
+      "images": []
+    },
+    {
+      "i": 59,
+      "style": "Normal",
+      "text": "Os redatores trabalham com grupos consultivos e equipes da ACARA para desenvolver os conteúdos, a progressão e os padrões de aprendizagem. Utilizam pesquisas e testes em salas de aula para validar conteúdos.",
+      "images": []
+    },
+    {
+      "i": 60,
+      "style": "Normal",
+      "text": "Implementar",
+      "images": []
+    },
+    {
+      "i": 61,
+      "style": "Normal",
+      "text": "A ACARA disponibiliza o currículo nacional para que os estados e territórios decidam como incorporá-los. As autoridades locais produzem currículos adaptados, programas de ensino e orientações próprias para que as escolas implementem.",
+      "images": []
+    },
+    {
+      "i": 62,
+      "style": "Normal",
+      "text": "Monitorar e revisar",
+      "images": []
+    },
+    {
+      "i": 63,
+      "style": "Normal",
+      "text": "A ACARA acompanha a utilização do currículo, e os resultados desse monitoramento subsidiam decisões sobre futuras revisões. Desde 2025, esse sistema passou a combinar um ciclo de revisão de dez anos.",
+      "images": []
+    },
+    {
+      "i": 64,
+      "style": "Normal",
+      "text": "Canais de participação",
+      "images": []
+    },
+    {
+      "i": 65,
+      "style": "Normal",
+      "text": "A consulta curricular australiana tem diferentes canais de participação, como consulta pública on-line, submissões escritas, fóruns estaduais e territoriais, reuniões com autoridades e associações profissionais.",
+      "images": []
+    },
+    {
+      "i": 66,
+      "style": "Normal",
+      "text": "Na revisão de 2020 a 2021, por exemplo, houve uma consulta pública de dez semanas com professores, estudantes, pais, gestores, governos e acadêmicos. Além disso, escolas primárias voluntárias testaram o escopo em um projeto específico de engajamento. A análise dos dados de consulta foi contratada à University of Queensland, adicionando uma camada independente à sistematização das contribuições.",
+      "images": []
+    },
+    {
+      "i": 67,
+      "style": "Normal",
+      "text": "1.4. A trajetória do currículo australiano",
+      "images": []
+    },
+    {
+      "i": 68,
+      "style": "Normal",
+      "text": "O Australian Curriculum foi resultado de um processo gradual de aproximação entre os sistemas educacionais dos estados e territórios. A Austrália avançou em objetivos e referências comuns até chegar, em 2008, à criação de uma estrutura nacional de currículo. Desde então, o documento passou por diferentes versões e revisões, mantendo o equilíbrio entre coordenação nacional e autonomia local.",
+      "images": []
+    },
+    {
+      "i": 69,
+      "style": "Normal",
+      "text": "A imagem a seguir sintetiza os principais marcos desse processo, desde as primeiras iniciativas de coordenação nacional até as revisões mais recentes.",
+      "images": []
+    },
+    {
+      "i": 70,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "seq": 2,
+          "relId": "rId19",
+          "docxPath": "word/media/image11.png",
+          "file": "image11.png",
+          "disk": "/Users/anaterra/Documents/Mapeamento-Organizacoes-Lemann-Vozes/03_Publicacao/links/docx-media/image11.png"
+        }
+      ],
+      "credit": "Fonte: Site oficial ACARA."
+    },
+    {
+      "i": 71,
+      "style": "Normal",
+      "text": "Fonte: Site oficial ACARA.",
+      "images": []
+    },
+    {
+      "i": 72,
+      "style": "Normal",
+      "text": "2. Australian Curriculum Studies Association (ACSA)",
+      "images": []
+    },
+    {
+      "i": 73,
+      "style": "Normal",
+      "text": "2.1. O que é a ACSA",
+      "images": []
+    },
+    {
+      "i": 74,
+      "style": "Normal",
+      "text": "Criada em 1983, a Australian Curriculum Studies Association Incorporated (ACSA) é uma associação profissional nacional, sem fins lucrativos, especializada em currículo. Sua função é oferecer um espaço para compartilhar e produzir conhecimento, políticas e práticas curriculares. A própria organização afirma exercer “national advocacy and leadership in curriculum”. Sua atuação ocorre no entorno da política: conecta profissionais, circula conhecimento, organiza discussões, participa de consultas e representa profissionais nos espaços de decisões educacionais.",
+      "images": []
+    },
+    {
+      "i": 75,
+      "style": "Normal",
+      "text": "A associação aceita membros australianos e internacionais, professores, diretores, gestores educacionais, consultores, formadores, acadêmicos, pesquisadores, pais e estudantes.",
+      "images": []
+    },
+    {
+      "i": 76,
+      "style": "Normal",
+      "text": "A ACSA possui um documento próprio de princípios que ajuda a compreender o que ela tende a defender quando entra em debates de política curricular. Entre eles estão a ideia de que o currículo deve possuir valor pessoal e social, equilibrar áreas relevantes do conhecimento, promover aprendizagem interdisciplinar e formar cidadãos ativos e informados. A organização acrescenta princípios de inclusão, diversidade cultural, colaboração, cidadania global, justiça e sustentabilidade, além da valorização de abordagens que considerem as experiências dos estudantes.",
+      "images": []
+    },
+    {
+      "i": 77,
+      "style": "Normal",
+      "text": "2.2. A governança",
+      "images": []
+    },
+    {
+      "i": 78,
+      "style": "Normal",
+      "text": "A ACSA possui uma governança associativa e eletiva, combinada a uma estrutura executiva enxuta. O  Executive Committee responde pelas decisões estratégicas da organização e reúne presidente, vice-presidente, secretário, outros membros eleitos, editores e até dois membros cooptados. A renovação dos cargos ocorre por meio de indicações e votação dos membros na Assembleia Geral. O aconselhamento ocorre por meio do próprio Comitê.",
+      "images": []
+    },
+    {
+      "i": 79,
+      "style": "Normal",
+      "text": "A gestão cotidiana fica sob responsabilidade do Executive Director, que responde ao Comitê e coordena equipe, orçamento, eventos, relacionamento institucional, advocacy, captação de recursos e projetos. A atual Executive Director é Anna Ritzema, profissional com mais de 20 anos de experiência em educação.",
+      "images": []
+    },
+    {
+      "i": 80,
+      "style": "Normal",
+      "text": "Anna Ritzema",
+      "images": [
+        {
+          "seq": 3,
+          "relId": "rId24",
+          "docxPath": "word/media/image7.png",
+          "file": "image7.png",
+          "disk": "/Users/anaterra/Documents/Mapeamento-Organizacoes-Lemann-Vozes/03_Publicacao/links/docx-media/image7.png"
+        }
+      ],
+      "credit": null
+    },
+    {
+      "i": 81,
+      "style": "Normal",
+      "text": "Anna Ritzema é uma profissional australiana da área da educação, com mais de 20 anos de experiência na Austrália e no exterior. É diretora executiva da ACSA e possui mestrado em Liderança Educacional pela University of Western Australia. Destaca-se por sua atuação na gestão escolar, no desenvolvimento curricular e pelo incentivo à participação das mulheres nas áreas de ciência, tecnologia, engenharia e matemática.",
+      "images": []
+    },
+    {
+      "i": 82,
+      "style": "Normal",
+      "text": "2.3. Financiamento",
+      "images": []
+    },
+    {
+      "i": 83,
+      "style": "Normal",
+      "text": "A ACSA utiliza diferentes mecanismos de receita, que combina anuidades de membros, atividades formativas, venda de publicações e captação de recursos externos.",
+      "images": []
+    },
+    {
+      "i": 84,
+      "style": "Normal",
+      "text": "A ACSA cobra anuidades de pessoas e instituições que desejam se associar à organização. Os valores variam de AUD 20 a AUD 2.200 por ano, conforme o perfil do associado e o número de pessoas incluídas na membership. Em troca, os membros recebem benefícios como acesso a publicações, webinars, gravações e descontos em eventos.",
+      "images": []
+    },
+    {
+      "i": 85,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "seq": 4,
+          "relId": "rId26",
+          "docxPath": "word/media/image17.png",
+          "file": "image17.png",
+          "disk": "/Users/anaterra/Documents/Mapeamento-Organizacoes-Lemann-Vozes/03_Publicacao/links/docx-media/image17.png"
+        }
+      ],
+      "credit": "Fonte: site oficial ACSA."
+    },
+    {
+      "i": 86,
+      "style": "Normal",
+      "text": "Fonte: site oficial ACSA.",
+      "images": []
+    },
+    {
+      "i": 87,
+      "style": "Normal",
+      "text": "A busca por financiamento externo também faz parte formal do modelo da organização: a descrição do cargo de Executive Director inclui entre suas atribuições a elaboração de propostas e submissões para captação de recursos. Ao longo de sua trajetória, a ACSA executou projetos financiados por fontes públicas e privadas, como os listados a seguir:",
+      "images": []
+    },
+    {
+      "i": 88,
+      "style": "Normal",
+      "text": "What Works",
+      "images": []
+    },
+    {
+      "i": 89,
+      "style": "Normal",
+      "text": "Voltado à melhoria dos resultados educacionais de estudantes indígenas.",
+      "images": []
+    },
+    {
+      "i": 90,
+      "style": "Normal",
+      "text": "National Safe Schools Framework",
+      "images": []
+    },
+    {
+      "i": 91,
+      "style": "Normal",
+      "text": "Projeto ligado à promoção de escolas seguras e prevenção de violências.",
+      "images": []
+    },
+    {
+      "i": 92,
+      "style": "Normal",
+      "text": "Partnerships in ICT Learning",
+      "images": []
+    },
+    {
+      "i": 93,
+      "style": "Normal",
+      "text": "Voltado ao uso de tecnologias digitais na aprendizagem.",
+      "images": []
+    },
+    {
+      "i": 94,
+      "style": "Normal",
+      "text": "Learning from One Another",
+      "images": []
+    },
+    {
+      "i": 95,
+      "style": "Normal",
+      "text": "Projeto de formação de professores sobre perspectivas muçulmanas.",
+      "images": []
+    },
+    {
+      "i": 96,
+      "style": "Normal",
+      "text": "2.4. A atuação",
+      "images": []
+    },
+    {
+      "i": 97,
+      "style": "Normal",
+      "text": "Além da execução de projetos educacionais financiados externamente, a ACSA atua principalmente por meio de advocacy, participação em consultas, articulação de atores, produção de conhecimento e formação profissional. Quatro exemplos mostram como essa atuação acontece.",
+      "images": []
+    },
+    {
+      "i": 98,
+      "style": "Normal",
+      "text": "National Approaches to Curriculum Forum (2006)",
+      "images": []
+    },
+    {
+      "i": 99,
+      "style": "Normal",
+      "text": "ACSA organizou dois fóruns em 2006, reunindo autoridades curriculares, órgãos estaduais e territoriais e associações profissionais, para orientarem uma possível aproximação curricular nacional. Desse processo surgiu o A Guide to Productive National Curriculum Work for the Twenty-first Century, com princípios sobre evidências, participação docente, implementação e avaliação.",
+      "images": []
+    },
+    {
+      "i": 100,
+      "style": "Normal",
+      "text": "Senado australiano (2007)",
+      "images": []
+    },
+    {
+      "i": 101,
+      "style": "Normal",
+      "text": "Em 2007, durante investigação parlamentar sobre qualidade e padrões da educação escolar, a ACSA participou de audiência pública no Senado. Entre os argumentos estavam a necessidade de maior participação profissional, transparência, fundamentação em evidências e cautela em reduzir qualidade educacional apenas ao que pode ser medido por testes.",
+      "images": []
+    },
+    {
+      "i": 102,
+      "style": "Normal",
+      "text": "Work Studies Years 9 and 10 (2013)",
+      "images": []
+    },
+    {
+      "i": 103,
+      "style": "Normal",
+      "text": "A ACARA abriu consulta sobre o novo componente curricular. A ACSA apresentou sugestões específicas, como explicitar aprendizagem ao longo da vida, ampliar a noção de mundo do trabalho e fortalecer numeracia e orientações para implementação.",
+      "images": []
+    },
+    {
+      "i": 104,
+      "style": "Normal",
+      "text": "Teaching and Learning Commission (2026)",
+      "images": []
+    },
+    {
+      "i": 105,
+      "style": "Normal",
+      "text": "Diante da proposta de criação de uma nova comissão nacional, a ACSA publicou um posicionamento institucional, defendendo maior participação de professores e especialistas, autonomia dos estados e territórios, uso transparente de evidências e consulta mais ampla.",
+      "images": []
+    },
+    {
+      "i": 106,
+      "style": "Normal",
+      "text": "A presença pública da ACSA é predominantemente técnica e profissional, com maior circulação em publicações acadêmicas, documentos de política, consultas e redes especializadas do que na imprensa generalista.",
+      "images": []
+    },
+    {
+      "i": 107,
+      "style": "Normal",
+      "text": "2.5. A trajetória da organização",
+      "images": []
+    },
+    {
+      "i": 108,
+      "style": "Normal",
+      "text": "Ano",
+      "images": []
+    },
+    {
+      "i": 109,
+      "style": "Normal",
+      "text": "Marco da organização",
+      "images": []
+    },
+    {
+      "i": 110,
+      "style": "Normal",
+      "text": "1983",
+      "images": []
+    },
+    {
+      "i": 111,
+      "style": "Normal",
+      "text": "Criação da ACSA como associação nacional dedicada ao trabalho curricular.",
+      "images": []
+    },
+    {
+      "i": 112,
+      "style": "Normal",
+      "text": "2006",
+      "images": []
+    },
+    {
+      "i": 113,
+      "style": "Normal",
+      "text": "Realiza o National Approaches to Curriculum Forum, reunindo autoridades, associações e profissionais para discutir caminhos de reforma curricular nacional.",
+      "images": []
+    },
+    {
+      "i": 114,
+      "style": "Normal",
+      "text": "2007",
+      "images": []
+    },
+    {
+      "i": 115,
+      "style": "Normal",
+      "text": "Apresenta evidências ao Senado australiano em investigação sobre padrões acadêmicos e participa do debate sobre abordagens nacionais para currículo.",
+      "images": []
+    },
+    {
+      "i": 116,
+      "style": "Normal",
+      "text": "2008 a 2010",
+      "images": []
+    },
+    {
+      "i": 117,
+      "style": "Normal",
+      "text": "A política nacional de currículo ganha forma, já atua como voz profissional organizada no debate que antecede e acompanha esse processo.",
+      "images": []
+    },
+    {
+      "i": 118,
+      "style": "Normal",
+      "text": "2013",
+      "images": []
+    },
+    {
+      "i": 119,
+      "style": "Normal",
+      "text": "Aparece entre as organizações que enviaram contribuição escrita à consulta da ACARA.",
+      "images": []
+    },
+    {
+      "i": 120,
+      "style": "Normal",
+      "text": "2026",
+      "images": []
+    },
+    {
+      "i": 121,
+      "style": "Normal",
+      "text": "Publica posicionamento sobre a proposta de nova Teaching and Learning Commission, cobrando consulta mais ampla a professores, entidades profissionais e pesquisadores.",
+      "images": []
+    },
+    {
+      "i": 122,
+      "style": "Normal",
+      "text": "3. Onde as trajetórias se cruzam",
+      "images": []
+    },
+    {
+      "i": 123,
+      "style": "Normal",
+      "text": "Ano",
+      "images": []
+    },
+    {
+      "i": 124,
+      "style": "Normal",
+      "text": "Currículo",
+      "images": []
+    },
+    {
+      "i": 125,
+      "style": "Normal",
+      "text": "Organização",
+      "images": []
+    },
+    {
+      "i": 126,
+      "style": "Normal",
+      "text": "1983 a 2005",
+      "images": []
+    },
+    {
+      "i": 127,
+      "style": "Normal",
+      "text": "Avançavam iniciativas de colaboração entre estados sobre um currículo nacional.",
+      "images": []
+    },
+    {
+      "i": 128,
+      "style": "Normal",
+      "text": "ACSA se consolida como fórum especializado em estudos curriculares.",
+      "images": []
+    },
+    {
+      "i": 129,
+      "style": "Normal",
+      "text": "Forma-se uma comunidade profissional especializada em currículo antes da existência da política nacional atual.",
+      "images": []
+    },
+    {
+      "i": 130,
+      "style": "Normal",
+      "text": "2006",
+      "images": []
+    },
+    {
+      "i": 131,
+      "style": "Normal",
+      "text": "Debate político sobre maior consistência e coordenação nacional ganha força.",
+      "images": []
+    },
+    {
+      "i": 132,
+      "style": "Normal",
+      "text": "ACSA realiza dois National Approaches to Curriculum Forums.",
+      "images": []
+    },
+    {
+      "i": 133,
+      "style": "Normal",
+      "text": "A associação cria seu próprio espaço para reunir atores do sistema e formular princípios para uma futura abordagem nacional.",
+      "images": []
+    },
+    {
+      "i": 134,
+      "style": "Normal",
+      "text": "2007",
+      "images": []
+    },
+    {
+      "i": 135,
+      "style": "Normal",
+      "text": "Senado investiga padrões acadêmicos e discute currículo nacional.",
+      "images": []
+    },
+    {
+      "i": 136,
+      "style": "Normal",
+      "text": "ACSA participa de audiência no Senado e articula associações profissionais.",
+      "images": []
+    },
+    {
+      "i": 137,
+      "style": "Normal",
+      "text": "A entrada no Parlamento ocorreu por dois canais formais: a contribuição escrita Submission 63 e uma audiência pública no Senado. Parte dos argumentos apresentados pela ACSA foi incorporada ao registro do relatório final, comprovando sua entrada no debate oficial.",
+      "images": []
+    },
+    {
+      "i": 138,
+      "style": "Normal",
+      "text": "2008 a 2010",
+      "images": []
+    },
+    {
+      "i": 139,
+      "style": "Normal",
+      "text": "National Curriculum Board e depois ACARA começam a construir o Australian Curriculum.",
+      "images": []
+    },
+    {
+      "i": 140,
+      "style": "Normal",
+      "text": "Coalizão articulada pela ACSA dialoga com autoridades; liderança da ACSA também ocupa posição na ACARA.",
+      "images": []
+    },
+    {
+      "i": 141,
+      "style": "Normal",
+      "text": "A atuação ganha escala por meio de coalizões de associações profissionais e interlocução recorrente com as autoridades responsáveis pelo novo currículo. Nesse período, Tony Mackay acumulou a presidência da ACSA e funções na ACARA. Trata-se, porém, de uma sobreposição de liderança individual, e não de um assento institucional da ACSA no órgão.",
+      "images": []
+    },
+    {
+      "i": 142,
+      "style": "Normal",
+      "text": "2010",
+      "images": []
+    },
+    {
+      "i": 143,
+      "style": "Normal",
+      "text": "Primeiros componentes do Australian Curriculum estão sendo concluídos.",
+      "images": []
+    },
+    {
+      "i": 144,
+      "style": "Normal",
+      "text": "ACSA assina o Common View on the Australian Curriculum, documento que apoiava a criação do currículo nacional.",
+      "images": []
+    },
+    {
+      "i": 145,
+      "style": "Normal",
+      "text": "A ACSA apoiava a existência de um currículo nacional, mas levou ao processo preocupações em relação a prazos, participação profissional, transparência, excesso de conteúdo e condições de implementação.",
+      "images": []
+    },
+    {
+      "i": 146,
+      "style": "Normal",
+      "text": "2013 a 2015",
+      "images": []
+    },
+    {
+      "i": 147,
+      "style": "Normal",
+      "text": "ACARA desenvolve Work Studies Years 9 - 10 e amplia o currículo.",
+      "images": []
+    },
+    {
+      "i": 148,
+      "style": "Normal",
+      "text": "ACSA apresenta contribuição escrita à consulta.",
+      "images": []
+    },
+    {
+      "i": 149,
+      "style": "Normal",
+      "text": "Contribuição da ACSA: recomendação sobre aprendizagem ao longo da vida, que é registrada na resposta da ACARA e surge posteriormente no documento final.",
+      "images": []
+    },
+    {
+      "i": 150,
+      "style": "Normal",
+      "text": "2014 a 2018",
+      "images": []
+    },
+    {
+      "i": 151,
+      "style": "Normal",
+      "text": "Governo revisa o Australian Curriculum; Version 8 é consolidada.",
+      "images": []
+    },
+    {
+      "i": 152,
+      "style": "Normal",
+      "text": "ACSA participa como stakeholder da revisão e continua produzindo debate e conhecimento.",
+      "images": []
+    },
+    {
+      "i": 153,
+      "style": "Normal",
+      "text": "A relação muda conforme o currículo amadurece. Em 2014, a ACSA aparece formalmente entre os stakeholders consultados na revisão. Em 2018, amplia sua atuação por meio da produção de conhecimento e análise crítica da experiência do Australian Curriculum.",
+      "images": []
+    },
+    {
+      "i": 154,
+      "style": "Normal",
+      "text": "2020 a 2022",
+      "images": []
+    },
+    {
+      "i": 155,
+      "style": "Normal",
+      "text": "Primeira revisão integral leva à Version 9.0.",
+      "images": []
+    },
+    {
+      "i": 156,
+      "style": "Normal",
+      "text": "ACSA promove conferência curricular durante a consulta pública, com participação da liderança da ACARA.",
+      "images": []
+    },
+    {
+      "i": 157,
+      "style": "Normal",
+      "text": "A conferência da ACSA ocorreu durante a consulta da Version 9.0 e contou com a participação da liderança da ACARA, funcionando como espaço de interlocução entre a autoridade curricular e a comunidade profissional.",
+      "images": []
+    },
+    {
+      "i": 158,
+      "style": "Normal",
+      "text": "2023",
+      "images": []
+    },
+    {
+      "i": 159,
+      "style": "Normal",
+      "text": "Estados começam a implementar a Version 9.0.",
+      "images": []
+    },
+    {
+      "i": 160,
+      "style": "Normal",
+      "text": "ACSA realiza série de atividades com especialistas da ACARA explicando mudanças.",
+      "images": []
+    },
+    {
+      "i": 161,
+      "style": "Normal",
+      "text": "A relação passa a funcionar também no sentido inverso: especialistas da ACARA utilizam o espaço profissional da ACSA para explicar as mudanças do currículo aos educadores. A associação passa, portanto, a atuar também como ponte de tradução, circulação de informação e apoio à implementação.",
+      "images": []
+    },
+    {
+      "i": 162,
+      "style": "Normal",
+      "text": "2025 a 2026",
+      "images": []
+    },
+    {
+      "i": 163,
+      "style": "Normal",
+      "text": "Novo ciclo de dez anos, revisões focalizadas e proposta de reorganização institucional.",
+      "images": []
+    },
+    {
+      "i": 164,
+      "style": "Normal",
+      "text": "ACSA publica posicionamento crítico sobre processo, evidências, autonomia e participação profissional.",
+      "images": []
+    },
+    {
+      "i": 165,
+      "style": "Normal",
+      "text": "A incidência volta a se concentrar nas regras e na governança da política curricular. A ACSA questiona participação profissional, evidências, autonomia dos estados e desenho institucional da nova comissão. O processo está em andamento.",
+      "images": []
+    },
+    {
+      "i": 166,
+      "style": "Heading1",
+      "text": "ESTADOS UNIDOS.",
+      "images": []
+    },
+    {
+      "i": 167,
+      "style": "Normal",
+      "text": "1. O currículo nos Estados Unidos",
+      "images": []
+    },
+    {
+      "i": 168,
+      "style": "Normal",
+      "text": "1.1. O sistema curricular",
+      "images": []
+    },
+    {
+      "i": 169,
+      "style": "Normal",
+      "text": "Os Estados Unidos possuem um sistema educacional descentralizado. Não existe um currículo nacional definido pelo governo federal: a responsabilidade principal pela educação cabe aos estados. São os estados que estabelecem padrões acadêmicos, enquanto estados e redes locais desenvolvem currículos e definem como esses padrões serão ensinados nas escolas.",
+      "images": []
+    },
+    {
+      "i": 170,
+      "style": "Normal",
+      "text": "O governo federal participa por meio de financiamento, legislação, políticas de equidade, avaliações e regras de prestação de contas, mas a legislação limita sua possibilidade de determinar diretamente o currículo. Atualmente, a principal lei federal da educação básica é a Every Student Succeeds Act (ESSA), de 2015.",
+      "images": []
+    },
+    {
+      "i": 171,
+      "style": "Normal",
+      "text": "A tabela abaixo apresenta os principais atores e seus respectivos papéis.",
+      "images": []
+    },
+    {
+      "i": 172,
+      "style": "Normal",
+      "text": "Ator",
+      "images": []
+    },
+    {
+      "i": 173,
+      "style": "Normal",
+      "text": "Papel na política curricular",
+      "images": []
+    },
+    {
+      "i": 174,
+      "style": "Normal",
+      "text": "Governo Federal",
+      "images": []
+    },
+    {
+      "i": 175,
+      "style": "Normal",
+      "text": "Define requisitos federais ligados a financiamento, avaliação e transparência.",
+      "images": []
+    },
+    {
+      "i": 176,
+      "style": "Normal",
+      "text": "Estados",
+      "images": []
+    },
+    {
+      "i": 177,
+      "style": "Normal",
+      "text": "Definem e aprovam os padrões acadêmicos, requisitos de conclusão e sistemas de avaliação. O desenho institucional varia entre os estados.",
+      "images": []
+    },
+    {
+      "i": 178,
+      "style": "Normal",
+      "text": "Conselhos e agências estaduais de educação",
+      "images": []
+    },
+    {
+      "i": 179,
+      "style": "Normal",
+      "text": "Transformam a referência nacional em currículo efetivamente utilizado. Definem cronogramas, adaptam conteúdos e desenvolvem orientações.",
+      "images": []
+    },
+    {
+      "i": 180,
+      "style": "Normal",
+      "text": "Redes e escolas",
+      "images": []
+    },
+    {
+      "i": 181,
+      "style": "Normal",
+      "text": "Traduzem os padrões em currículos, materiais, programas de ensino e decisões locais. Realizam a implementação no cotidiano escolar.",
+      "images": []
+    },
+    {
+      "i": 182,
+      "style": "Normal",
+      "text": "1.2. Os Standards",
+      "images": []
+    },
+    {
+      "i": 183,
+      "style": "Normal",
+      "text": "Os standards determinam o que os estudantes devem saber e ser capazes de fazer em cada etapa. O currículo define como esses conhecimentos serão organizados, ensinados e trabalhados pelas redes e escolas.",
+      "images": []
+    },
+    {
+      "i": 184,
+      "style": "Normal",
+      "text": "Publicados em 2010, os Common Core State Standards (CCSS) estabeleceram expectativas comuns para Matemática e Língua Inglesa, mas não constituem um currículo nacional. Sua elaboração foi coordenada por organizações representativas dos estados responsáveis por desenvolver políticas públicas: a National Governors Association (NGA) e Council of Chief State School Officers (CCSSO), e cada estado decidiu se adotaria ou não os standards.",
+      "images": []
+    },
+    {
+      "i": 185,
+      "style": "Normal",
+      "text": "Em 2010, por exemplo, o estado da Califórnia criou uma comissão responsável por analisar os Common Core e autorizada a recomendar sua aprovação e adicionar até 15% de conteúdos. A comissão se reuniu quatro vezes, apresentou sua recomendação e os standards foram aprovados em agosto daquele ano.",
+      "images": []
+    },
+    {
+      "i": 186,
+      "style": "Normal",
+      "text": "1.3. Como os standards são produzidos",
+      "images": []
+    },
+    {
+      "i": 187,
+      "style": "Normal",
+      "text": "Estados podem criar referências próprias ou participar de processos de colaboração interestadual, como o Common Core. Em 2009, lideranças de 48 estados, dois territórios e do District of Columbia participaram da iniciativa conduzida pela NGA e pela CCSSO. Foram constituídos grupos de redação e revisão, elaboradas versões e realizadas consultas públicas antes da publicação final dos standards em junho de 2010.",
+      "images": []
+    },
+    {
+      "i": 188,
+      "style": "Normal",
+      "text": "Organizações externas podem entrar em diferentes etapas desse processo. No Common Core, por exemplo, a Achieve foi parceira da NGA e da CCSSO, e profissionais e consultores ligados à organização integraram equipes de redação e revisão.",
+      "images": []
+    },
+    {
+      "i": 189,
+      "style": "Normal",
+      "text": "O processo do Common Core incluiu equipes técnicas, grupos de feedback, participação dos estados, comitê de validação e consultas públicas. Em setembro de 2009, por exemplo, um draft das expectativas de college and career readiness recebeu aproximadamente mil respostas de educadores e do público.",
+      "images": []
+    },
+    {
+      "i": 190,
+      "style": "Normal",
+      "text": "Ao mesmo tempo, houve questionamentos públicos sobre a transparência da fase inicial de redação, especialmente porque parte das reuniões dos grupos técnicos era fechada. Posteriormente, drafts foram submetidos à consulta pública e revisão externa.",
+      "images": []
+    },
+    {
+      "i": 191,
+      "style": "Normal",
+      "text": "1.4. A trajetória do currículo",
+      "images": []
+    },
+    {
+      "i": 192,
+      "style": "Normal",
+      "text": "Ano",
+      "images": []
+    },
+    {
+      "i": 193,
+      "style": "Normal",
+      "text": "Marco",
+      "images": []
+    },
+    {
+      "i": 194,
+      "style": "Normal",
+      "text": "1983",
+      "images": []
+    },
+    {
+      "i": 195,
+      "style": "Normal",
+      "text": "Relatório nacional que impulsiona o debate sobre qualidade, desempenho e elevação das expectativas acadêmicas.",
+      "images": []
+    },
+    {
+      "i": 196,
+      "style": "Normal",
+      "text": "1989",
+      "images": []
+    },
+    {
+      "i": 197,
+      "style": "Normal",
+      "text": "Presidente e governadores pactuam objetivos nacionais para a educação, mantendo a autonomia estadual.",
+      "images": []
+    },
+    {
+      "i": 198,
+      "style": "Normal",
+      "text": "1994",
+      "images": []
+    },
+    {
+      "i": 199,
+      "style": "Normal",
+      "text": "A agenda de reformas baseadas em standards ganha força em âmbito federal.",
+      "images": []
+    },
+    {
+      "i": 200,
+      "style": "Normal",
+      "text": "1996",
+      "images": []
+    },
+    {
+      "i": 201,
+      "style": "Normal",
+      "text": "Governadores e lideranças empresariais reforçam a agenda de standards, avaliações e accountability.",
+      "images": []
+    },
+    {
+      "i": 202,
+      "style": "Normal",
+      "text": "1990 a 2000",
+      "images": []
+    },
+    {
+      "i": 203,
+      "style": "Normal",
+      "text": "Consolida-se o modelo em que cada estado define expectativas de aprendizagem próprias.",
+      "images": []
+    },
+    {
+      "i": 204,
+      "style": "Normal",
+      "text": "2001",
+      "images": []
+    },
+    {
+      "i": 205,
+      "style": "Normal",
+      "text": "Aumenta a centralidade de standards estaduais, testes e accountability.",
+      "images": []
+    },
+    {
+      "i": 206,
+      "style": "Normal",
+      "text": "2008",
+      "images": []
+    },
+    {
+      "i": 207,
+      "style": "Normal",
+      "text": "NGA, CCSSO e Achieve recomendam standards comuns e internacionalmente comparáveis.",
+      "images": []
+    },
+    {
+      "i": 208,
+      "style": "Normal",
+      "text": "2009 a 2010",
+      "images": []
+    },
+    {
+      "i": 209,
+      "style": "Normal",
+      "text": "São desenvolvidos standards comuns em Matemática e English Language Arts.",
+      "images": []
+    },
+    {
+      "i": 210,
+      "style": "Normal",
+      "text": "2011 a 2013",
+      "images": []
+    },
+    {
+      "i": 211,
+      "style": "Normal",
+      "text": "Estados desenvolvem uma nova referência comum para Ciências.",
+      "images": []
+    },
+    {
+      "i": 212,
+      "style": "Normal",
+      "text": "2013 a 2015",
+      "images": []
+    },
+    {
+      "i": 213,
+      "style": "Normal",
+      "text": "Parte dos estados revisa, renomeia ou substitui o Common Core.",
+      "images": []
+    },
+    {
+      "i": 214,
+      "style": "Normal",
+      "text": "2015 a 2026",
+      "images": []
+    },
+    {
+      "i": 215,
+      "style": "Normal",
+      "text": "Os estados seguem com autonomia sobre standards, ainda que muitos mantenham elementos do Common Core e de outras referências comuns.",
+      "images": []
+    },
+    {
+      "i": 216,
+      "style": "Normal",
+      "text": "2. A ACHIEVE",
+      "images": []
+    },
+    {
+      "i": 217,
+      "style": "Normal",
+      "text": "2.1. O que foi a Achieve",
+      "images": []
+    },
+    {
+      "i": 218,
+      "style": "Normal",
+      "text": "Criada em 1996, a Achieve foi uma organização nacional, independente, apartidária e sem fins lucrativos voltada à reforma educacional. Surgiu a partir do National Education Summit, encontro que reuniu governadores e lideranças empresariais em torno da agenda de elevação dos standards acadêmicos, avaliações e responsabilidades.",
+      "images": []
+    },
+    {
+      "i": 219,
+      "style": "Normal",
+      "text": "Seu objetivo central passou a ser apoiar os estados para que os estudantes concluíssem o ensino médio preparados para faculdade, carreiras e cidadania. Para isso, a organização desenvolvia pesquisas, comparava standards, prestava assistência técnica, articulava estados, desenvolvia ferramentas e participava diretamente de iniciativas interestaduais.",
+      "images": []
+    },
+    {
+      "i": 220,
+      "style": "Normal",
+      "text": "A Achieve funcionava como uma organização técnica e de advocacy, trabalhando principalmente com governadores, autoridades estaduais, lideranças empresariais, especialistas e financiadores.",
+      "images": []
+    },
+    {
+      "i": 221,
+      "style": "Normal",
+      "text": "Um ponto importante para a leitura histórica é que a Achieve encerrou suas atividades em 2020. Seu site permanece disponível como acervo, mas a organização não atua atualmente.",
+      "images": []
+    },
+    {
+      "i": 222,
+      "style": "Normal",
+      "text": "2.2. A governança",
+      "images": []
+    },
+    {
+      "i": 223,
+      "style": "Normal",
+      "text": "Nos primeiros anos, a estrutura da Achieve era composto por seis governadores e seis CEOs, com equilíbrio entre governadores democratas e republicanos. A intenção era combinar liderança política estadual e participação empresarial na agenda de reforma educacional. A composição mudou ao longo do tempo. No último período de funcionamento, a estrutura incluía lideranças de negócios, educação, ciência e organizações sociais. A gestão cotidiana ficava sob responsabilidade do presidente e da equipe profissional.",
+      "images": []
+    },
+    {
+      "i": 224,
+      "style": "Normal",
+      "text": "A estrutura pode ser simplificada da seguinte forma:",
+      "images": []
+    },
+    {
+      "i": 225,
+      "style": "Normal",
+      "text": "BOARD OF DIRECTORS",
+      "images": []
+    },
+    {
+      "i": 226,
+      "style": "Normal",
+      "text": "↓",
+      "images": []
+    },
+    {
+      "i": 227,
+      "style": "Normal",
+      "text": "PRESIDENT",
+      "images": []
+    },
+    {
+      "i": 228,
+      "style": "Normal",
+      "text": "↓",
+      "images": []
+    },
+    {
+      "i": 229,
+      "style": "Normal",
+      "text": "EQUIPES TÉCNICAS",
+      "images": []
+    },
+    {
+      "i": 230,
+      "style": "Normal",
+      "text": "↓",
+      "images": []
+    },
+    {
+      "i": 231,
+      "style": "Normal",
+      "text": "PROJETOS E REDES",
+      "images": []
+    },
+    {
+      "i": 232,
+      "style": "Normal",
+      "text": "Michael Cohen",
+      "images": [
+        {
+          "seq": 5,
+          "relId": "rId42",
+          "docxPath": "word/media/image14.png",
+          "file": "image14.png",
+          "disk": "/Users/anaterra/Documents/Mapeamento-Organizacoes-Lemann-Vozes/03_Publicacao/links/docx-media/image14.png"
+        }
+      ],
+      "credit": null
+    },
+    {
+      "i": 233,
+      "style": "Normal",
+      "text": "Michael Cohen presidiu a Achieve de 2003 até o encerramento da organização. Antes disso, havia sido diretor de política educacional da National Governors Association e ocupado cargos como Assistant Secretary for Elementary and Secondary Education e assessor de política educacional da Presidência.",
+      "images": []
+    },
+    {
+      "i": 234,
+      "style": "Normal",
+      "text": "2.3. Financiamento",
+      "images": []
+    },
+    {
+      "i": 235,
+      "style": "Normal",
+      "text": "A Achieve era financiada predominantemente por grants e contribuições, especialmente de fundações filantrópicas, além de receitas menores provenientes de serviços e projetos.",
+      "images": []
+    },
+    {
+      "i": 236,
+      "style": "Normal",
+      "text": "Em 2019, a organização registrou US$ 5,6 milhões em receita, dos quais aproximadamente 91,8% vieram de contribuições. Em 2020, foram US$ 3,9 milhões em receitas, com 87,4% provenientes de contribuições.",
+      "images": []
+    },
+    {
+      "i": 237,
+      "style": "Normal",
+      "text": "Entre os financiamentos documentados estão:",
+      "images": []
+    },
+    {
+      "i": 238,
+      "style": "Normal",
+      "text": "Financiador: William and Flora Hewlett Foundation",
+      "images": []
+    },
+    {
+      "i": 239,
+      "style": "Normal",
+      "text": "Finalidade: pesquisa sobre conhecimentos e habilidades necessários para faculdade e trabalho.",
+      "images": []
+    },
+    {
+      "i": 240,
+      "style": "Normal",
+      "text": "Financiador: Bill & Melinda Gates Foundation",
+      "images": []
+    },
+    {
+      "i": 241,
+      "style": "Normal",
+      "text": "Finalidade: expansão da rede, apoio aos estados na implementação do Common Core, construção de alianças, qualidade de standards e avaliações.",
+      "images": []
+    },
+    {
+      "i": 242,
+      "style": "Normal",
+      "text": "Financiador: GE Foundation",
+      "images": []
+    },
+    {
+      "i": 243,
+      "style": "Normal",
+      "text": "Finalidade: apoio à implementação do Common Core.",
+      "images": []
+    },
+    {
+      "i": 244,
+      "style": "Normal",
+      "text": "A receita caiu significativamente nos últimos anos de funcionamento. Ainda assim, não seria correto concluir que a Achieve encerrou exclusivamente por dificuldades financeiras. Em seu anúncio oficial, a organização menciona conjuntamente seu impacto, o trabalho ainda necessário, a capacidade de outras organizações e o ambiente político e financeiro.",
+      "images": []
+    },
+    {
+      "i": 245,
+      "style": "Normal",
+      "text": "2.4. A atuação",
+      "images": []
+    },
+    {
+      "i": 246,
+      "style": "Normal",
+      "text": "A Achieve combinava produção de evidências, assistência técnica, articulação de estados, advocacy, desenvolvimento de standards, gestão de projetos e apoio à implementação.",
+      "images": []
+    },
+    {
+      "i": 247,
+      "style": "Normal",
+      "text": "Alguns exemplos mostram como essa atuação acontecia.",
+      "images": []
+    },
+    {
+      "i": 248,
+      "style": "Normal",
+      "text": "American Diploma Project",
+      "images": []
+    },
+    {
+      "i": 249,
+      "style": "Normal",
+      "text": "Iniciado em 2001, o American Diploma Project (ADP) buscou identificar o que os estudantes precisavam dominar em Matemática e Língua Inglesa para terem sucesso no ensino superior e no mercado de trabalho. O resultado da pesquisa foi o relatório Ready or Not, de 2004, com os conhecimentos e habilidades esperados ao final do ensino médio. Em 2005, a Achieve transformou esse trabalho em uma rede de 35 estados (ADP Network).",
+      "images": []
+    },
+    {
+      "i": 250,
+      "style": "Normal",
+      "text": "Common Core",
+      "images": []
+    },
+    {
+      "i": 251,
+      "style": "Normal",
+      "text": "A Achieve participou como parceira da iniciativa, e integrantes de sua equipe e consultores ocuparam posições nos grupos de redação e revisão. A organização também levava para o processo uma agenda que vinha construindo anteriormente por meio do American Diploma Project: comparação entre estados e alinhamento entre standards e expectativas pós-ensino médio.",
+      "images": []
+    },
+    {
+      "i": 252,
+      "style": "Normal",
+      "text": "Partnership for Assessment of Readiness for College and Careers (PARCC)",
+      "images": []
+    },
+    {
+      "i": 253,
+      "style": "Normal",
+      "text": "Depois da publicação do Common Core, a Achieve participou da construção de um sistema de avaliações comuns, reunindo 27 estados interessados. Esse movimento deu origem ao PARCC. O consórcio de estados recebeu financiamento federal e selecionou a Achieve como responsável por apoiar a coordenação do trabalho.",
+      "images": []
+    },
+    {
+      "i": 254,
+      "style": "Normal",
+      "text": "Next Generation Science Standards",
+      "images": []
+    },
+    {
+      "i": 255,
+      "style": "Normal",
+      "text": "Após o Conselho Nacional de Pesquisa dos Estados Unidos publicar, em 2011, uma base para educação científica, 26 estados parceiros desenvolveram os standards em um processo administrado pela Achieve. Os estados organizaram comitês próprios e participaram de sucessivas revisões, com períodos de consulta pública.",
+      "images": []
+    },
+    {
+      "i": 256,
+      "style": "Normal",
+      "text": "Educators Evaluating the Quality of Instructional Products (EQuIP)",
+      "images": []
+    },
+    {
+      "i": 257,
+      "style": "Normal",
+      "text": "Com os standards já aprovados, a atuação da Achieve se deslocou também para a qualidade dos materiais utilizados nas escolas. A iniciativa EQuIP criou rubricas e processos para avaliar se aulas e unidades estavam alinhadas ao Common Core e ao Next Generation Science Standards (NGSS), padrões de aprendizagem em Ciências.",
+      "images": []
+    },
+    {
+      "i": 258,
+      "style": "Normal",
+      "text": "2.5. A trajetória da organização",
+      "images": []
+    },
+    {
+      "i": 259,
+      "style": "Normal",
+      "text": "Ano",
+      "images": []
+    },
+    {
+      "i": 260,
+      "style": "Normal",
+      "text": "Marco da organização",
+      "images": []
+    },
+    {
+      "i": 261,
+      "style": "Normal",
+      "text": "1996",
+      "images": []
+    },
+    {
+      "i": 262,
+      "style": "Normal",
+      "text": "Achieve é criada por governadores e lideranças empresariais após o National Education Summit.",
+      "images": []
+    },
+    {
+      "i": 263,
+      "style": "Normal",
+      "text": "1998",
+      "images": []
+    },
+    {
+      "i": 264,
+      "style": "Normal",
+      "text": "Inicia trabalho sistemático de benchmarking de standards e avaliações estaduais.",
+      "images": []
+    },
+    {
+      "i": 265,
+      "style": "Normal",
+      "text": "2001",
+      "images": []
+    },
+    {
+      "i": 266,
+      "style": "Normal",
+      "text": "Lança, com parceiros, o American Diploma Project.",
+      "images": []
+    },
+    {
+      "i": 267,
+      "style": "Normal",
+      "text": "2004",
+      "images": []
+    },
+    {
+      "i": 268,
+      "style": "Normal",
+      "text": "Publica Ready or Not, definindo benchmarks de curso superior e trajetória de carreira.",
+      "images": []
+    },
+    {
+      "i": 269,
+      "style": "Normal",
+      "text": "2005",
+      "images": []
+    },
+    {
+      "i": 270,
+      "style": "Normal",
+      "text": "Cria a ADP Network, inicialmente com 13 estados.",
+      "images": []
+    },
+    {
+      "i": 271,
+      "style": "Normal",
+      "text": "2009 a 2010",
+      "images": []
+    },
+    {
+      "i": 272,
+      "style": "Normal",
+      "text": "Torna-se parceira técnica do Common Core; profissionais ligados à organização participam das equipes de redação e revisão.",
+      "images": []
+    },
+    {
+      "i": 273,
+      "style": "Normal",
+      "text": "2010",
+      "images": []
+    },
+    {
+      "i": 274,
+      "style": "Normal",
+      "text": "Passa a atuar como Project Management Partner do PARCC.",
+      "images": []
+    },
+    {
+      "i": 275,
+      "style": "Normal",
+      "text": "2011 a 2013",
+      "images": []
+    },
+    {
+      "i": 276,
+      "style": "Normal",
+      "text": "Gerencia o desenvolvimento dos Next Generation Science Standards.",
+      "images": []
+    },
+    {
+      "i": 277,
+      "style": "Normal",
+      "text": "2015 a 2019",
+      "images": []
+    },
+    {
+      "i": 278,
+      "style": "Normal",
+      "text": "Atua em revisões estaduais, implementação da ESSA e análises na área curricular.",
+      "images": []
+    },
+    {
+      "i": 279,
+      "style": "Normal",
+      "text": "2020",
+      "images": []
+    },
+    {
+      "i": 280,
+      "style": "Normal",
+      "text": "Encerra suas atividades e transfere projetos e recursos para outras organizações.",
+      "images": []
+    },
+    {
+      "i": 281,
+      "style": "Normal",
+      "text": "3. Onde as trajetórias se cruzam",
+      "images": []
+    },
+    {
+      "i": 282,
+      "style": "Normal",
+      "text": "Ano",
+      "images": []
+    },
+    {
+      "i": 283,
+      "style": "Normal",
+      "text": "Currículo",
+      "images": []
+    },
+    {
+      "i": 284,
+      "style": "Normal",
+      "text": "Organização",
+      "images": []
+    },
+    {
+      "i": 285,
+      "style": "Normal",
+      "text": "1996",
+      "images": []
+    },
+    {
+      "i": 286,
+      "style": "Normal",
+      "text": "Governadores e empresas discutem standards e responsabilidades no National Education Summit.",
+      "images": []
+    },
+    {
+      "i": 287,
+      "style": "Normal",
+      "text": "A Achieve é criada como organização independente para apoiar os estados nessa agenda.",
+      "images": []
+    },
+    {
+      "i": 288,
+      "style": "Normal",
+      "text": "Achieve nasce de uma articulação de governadores e lideranças empresariais já envolvidas na agenda de reforma estadual.",
+      "images": []
+    },
+    {
+      "i": 289,
+      "style": "Normal",
+      "text": "1998 a 2004",
+      "images": []
+    },
+    {
+      "i": 290,
+      "style": "Normal",
+      "text": "Estados desenvolvem e revisam seus próprios standards e sistemas de avaliação.",
+      "images": []
+    },
+    {
+      "i": 291,
+      "style": "Normal",
+      "text": "Achieve compara standards estaduais, presta assistência técnica e desenvolve o American Diploma Project.",
+      "images": []
+    },
+    {
+      "i": 292,
+      "style": "Normal",
+      "text": "A organização constrói sua legitimidade principalmente por benchmarking e expertise técnica. Em estados como Indiana, realizou avaliações de standards e avaliações a pedido das próprias autoridades estaduais.",
+      "images": []
+    },
+    {
+      "i": 293,
+      "style": "Normal",
+      "text": "2005 a 2008",
+      "images": []
+    },
+    {
+      "i": 294,
+      "style": "Normal",
+      "text": "Cresce a busca por maior alinhamento entre ensino médio, faculdade e mercado de trabalho.",
+      "images": []
+    },
+    {
+      "i": 295,
+      "style": "Normal",
+      "text": "A ADP Network conecta dezenas de estados em torno de uma agenda comum de preparação para o ensino superior e carreira.",
+      "images": []
+    },
+    {
+      "i": 296,
+      "style": "Normal",
+      "text": "Achieve passa de prestadora de análises para articuladora de uma rede interestadual. Em paralelo, seus relatórios passam a comparar publicamente o avanço dos estados em padrões, graduação e avaliação.",
+      "images": []
+    },
+    {
+      "i": 297,
+      "style": "Normal",
+      "text": "2008 a 2010",
+      "images": []
+    },
+    {
+      "i": 298,
+      "style": "Normal",
+      "text": "Movimento por standards comuns culmina no desenvolvimento do Common Core.",
+      "images": []
+    },
+    {
+      "i": 299,
+      "style": "Normal",
+      "text": "Achieve produz estudos preparatórios, torna-se parceira da NGA e CCSSO e participa tecnicamente das equipes de redação e revisão.",
+      "images": []
+    },
+    {
+      "i": 300,
+      "style": "Normal",
+      "text": "NGA, CCSSO e Achieve publicam recomendações de standards comuns e internacionalmente comparáveis. No ano seguinte, a Achieve passa da construção de agenda para participação direta no processo técnico de formulação.",
+      "images": []
+    },
+    {
+      "i": 301,
+      "style": "Normal",
+      "text": "2010 a 2014",
+      "images": []
+    },
+    {
+      "i": 302,
+      "style": "Normal",
+      "text": "Estados adotam e começam a implementar Common Core e constroem avaliações alinhadas.",
+      "images": []
+    },
+    {
+      "i": 303,
+      "style": "Normal",
+      "text": "Achieve coordena a articulação inicial do PARCC e atua como Project Management Partner.",
+      "images": []
+    },
+    {
+      "i": 304,
+      "style": "Normal",
+      "text": "Depois de participar do desenvolvimento dos standards, a organização assume responsabilidades operacionais na construção de uma infraestrutura de avaliação comum entre estados.",
+      "images": []
+    },
+    {
+      "i": 305,
+      "style": "Normal",
+      "text": "2011 a 2013",
+      "images": []
+    },
+    {
+      "i": 306,
+      "style": "Normal",
+      "text": "Estados desenvolvem uma nova geração de standards comuns de Ciências.",
+      "images": []
+    },
+    {
+      "i": 307,
+      "style": "Normal",
+      "text": "Achieve gerencia o processo de elaboração dos NGSS com 26 estados e redatores.",
+      "images": []
+    },
+    {
+      "i": 308,
+      "style": "Normal",
+      "text": "Diferentemente do Common Core, no NGSS há documentação externa explícita de que o processo de desenvolvimento dos standards foi administrado pela Achieve, embora a adoção continuasse sendo decisão de cada estado.",
+      "images": []
+    },
+    {
+      "i": 309,
+      "style": "Normal",
+      "text": "2013 a 2017",
+      "images": []
+    },
+    {
+      "i": 310,
+      "style": "Normal",
+      "text": "Implementação dos novos standards convive com crescente reação política ao Common Core e revisões em diversos estados.",
+      "images": []
+    },
+    {
+      "i": 311,
+      "style": "Normal",
+      "text": "Achieve cria ferramentas de implementação, revisa standards estaduais e participa do debate público.",
+      "images": []
+    },
+    {
+      "i": 312,
+      "style": "Normal",
+      "text": "A atuação se adapta ao novo contexto. A organização também passa a avaliar standards revisados pelos estados. Em 2017, analisou os standards de 24 estados que haviam realizado mudanças após a adoção inicial do Common Core.",
+      "images": []
+    },
+    {
+      "i": 313,
+      "style": "Normal",
+      "text": "2015 a 2019",
+      "images": []
+    },
+    {
+      "i": 314,
+      "style": "Normal",
+      "text": "A ESSA devolve maior flexibilidade aos estados e reforça limites à interferência federal sobre standards.",
+      "images": []
+    },
+    {
+      "i": 315,
+      "style": "Normal",
+      "text": "Achieve continua oferecendo assistência técnica, análises e apoio a estados na implementação da nova legislação.",
+      "images": []
+    },
+    {
+      "i": 316,
+      "style": "Normal",
+      "text": "A organização adapta sua atuação a um ambiente mais descentralizado. Um subsídio de US$ 2,5 milhões da Gates Foundation em 2016, por exemplo, destinou-se explicitamente a apoiar a qualidade de standards e ações de coalizão e advocacy na implementação estadual da ESSA.",
+      "images": []
+    },
+    {
+      "i": 317,
+      "style": "Normal",
+      "text": "2020",
+      "images": []
+    },
+    {
+      "i": 318,
+      "style": "Normal",
+      "text": "Standards permanecem responsabilidade estadual e a política entra em nova fase, sem uma organização nacional responsável por dirigir o processo.",
+      "images": []
+    },
+    {
+      "i": 319,
+      "style": "Normal",
+      "text": "Achieve encerra as atividades e distribui parte de seus projetos e ativos para outras organizações.",
+      "images": []
+    },
+    {
+      "i": 320,
+      "style": "Normal",
+      "text": "A organização decidiu interromper as atividades após avaliar seu impacto, as necessidades do campo e o ambiente político e financeiro. A equipe de Ciências e a gestão de recursos ligados ao NGSS migraram para a WestEd, organização de pesquisa e apoio à educação nos EUA, enquanto outros materiais permaneceram publicamente disponíveis.",
+      "images": []
+    },
+    {
+      "i": 321,
+      "style": "Heading1",
+      "text": "INGLATERRA.",
+      "images": []
+    },
+    {
+      "i": 322,
+      "style": "Normal",
+      "text": "1. O currículo inglês",
+      "images": []
+    },
+    {
+      "i": 323,
+      "style": "Normal",
+      "text": "1.1. O sistema curricular inglês",
+      "images": []
+    },
+    {
+      "i": 324,
+      "style": "Normal",
+      "text": "A Inglaterra possui um currículo nacional (National Curriculum), cuja definição e revisão são de responsabilidade do governo central, por meio do Department for Education (DfE), órgão equivalente ao Ministério da Educação. Criado em 1988 pela legislação Education Reform Act, o currículo estabelece os conhecimentos e padrões de aprendizagem esperados nas diferentes etapas da educação básica.",
+      "images": []
+    },
+    {
+      "i": 325,
+      "style": "Normal",
+      "text": "O National Curriculum é obrigatório para escolas públicas mantidas pelas autoridades locais. Já as escolas academies, financiadas pelo governo e administradas por instituições autônomas (academy trusts) não precisam seguir integralmente o documento, embora devam oferecer um currículo amplo e equilibrado, incluindo Inglês, Matemática e Ciências.",
+      "images": []
+    },
+    {
+      "i": 326,
+      "style": "Normal",
+      "text": "A responsabilidade pela política curricular é distribuída entre diferentes instituições, conforme apresentado na tabela abaixo.",
+      "images": []
+    },
+    {
+      "i": 327,
+      "style": "Normal",
+      "text": "Ator",
+      "images": []
+    },
+    {
+      "i": 328,
+      "style": "Normal",
+      "text": "Papel na política curricular",
+      "images": []
+    },
+    {
+      "i": 329,
+      "style": "Normal",
+      "text": "Department for Education (DfE)",
+      "images": []
+    },
+    {
+      "i": 330,
+      "style": "Normal",
+      "text": "Ministério da Educação",
+      "images": []
+    },
+    {
+      "i": 331,
+      "style": "Normal",
+      "text": "Conduz o desenvolvimento e a revisão do currículo nacional, organiza consultas e estabelece diretrizes educacionais.",
+      "images": []
+    },
+    {
+      "i": 332,
+      "style": "Normal",
+      "text": "Secretary of State for Education",
+      "images": []
+    },
+    {
+      "i": 333,
+      "style": "Normal",
+      "text": "Secretário de Estado da Educação",
+      "images": []
+    },
+    {
+      "i": 334,
+      "style": "Normal",
+      "text": "Autoridade ministerial responsável pelas decisões e pela aprovação das disposições curriculares nacionais.",
+      "images": []
+    },
+    {
+      "i": 335,
+      "style": "Normal",
+      "text": "Parlamento",
+      "images": []
+    },
+    {
+      "i": 336,
+      "style": "Normal",
+      "text": "Estabelece a legislação que sustenta a política curricular e acompanha as decisões do governo.",
+      "images": []
+    },
+    {
+      "i": 337,
+      "style": "Normal",
+      "text": "Standards and Testing Agency (STA)",
+      "images": []
+    },
+    {
+      "i": 338,
+      "style": "Normal",
+      "text": "Agência de avaliações nacionais",
+      "images": []
+    },
+    {
+      "i": 339,
+      "style": "Normal",
+      "text": "Desenvolve e administra avaliações nacionais vinculadas ao currículo, especialmente na educação primária.",
+      "images": []
+    },
+    {
+      "i": 340,
+      "style": "Normal",
+      "text": "Ofsted",
+      "images": []
+    },
+    {
+      "i": 341,
+      "style": "Normal",
+      "text": "Órgão de inspeção educacional",
+      "images": []
+    },
+    {
+      "i": 342,
+      "style": "Normal",
+      "text": "Inspeciona escolas e avalia, entre outros aspectos, a qualidade da organização e implementação curricular.",
+      "images": []
+    },
+    {
+      "i": 343,
+      "style": "Normal",
+      "text": "Escolas e academy trusts",
+      "images": []
+    },
+    {
+      "i": 344,
+      "style": "Normal",
+      "text": "Organizam os currículos escolares, selecionam materiais e definem práticas de ensino, respeitando as exigências aplicáveis a cada tipo de escola.",
+      "images": []
+    },
+    {
+      "i": 345,
+      "style": "Normal",
+      "text": "1.2. Como o currículo é organizado",
+      "images": []
+    },
+    {
+      "i": 346,
+      "style": "Normal",
+      "text": "O National Curriculum estabelece quais disciplinas devem ser ensinadas e quais conhecimentos e habilidades os estudantes devem desenvolver, por meio dos programas de estudo (Programmes of Study) e expectativas de aprendizagem (Attainment Targets).",
+      "images": []
+    },
+    {
+      "i": 347,
+      "style": "Normal",
+      "text": "Sua organização compreende quatro etapas, chamadas Key Stages (KS):",
+      "images": []
+    },
+    {
+      "i": 348,
+      "style": "Normal",
+      "text": "Etapas",
+      "images": []
+    },
+    {
+      "i": 349,
+      "style": "Normal",
+      "text": "KS 1",
+      "images": []
+    },
+    {
+      "i": 350,
+      "style": "Normal",
+      "text": "KS 2",
+      "images": []
+    },
+    {
+      "i": 351,
+      "style": "Normal",
+      "text": "KS 3",
+      "images": []
+    },
+    {
+      "i": 352,
+      "style": "Normal",
+      "text": "KS 4",
+      "images": []
+    },
+    {
+      "i": 353,
+      "style": "Normal",
+      "text": "Idade aproximada",
+      "images": []
+    },
+    {
+      "i": 354,
+      "style": "Normal",
+      "text": "5 a 7",
+      "images": []
+    },
+    {
+      "i": 355,
+      "style": "Normal",
+      "text": "anos",
+      "images": []
+    },
+    {
+      "i": 356,
+      "style": "Normal",
+      "text": "7 a 11",
+      "images": []
+    },
+    {
+      "i": 357,
+      "style": "Normal",
+      "text": "anos",
+      "images": []
+    },
+    {
+      "i": 358,
+      "style": "Normal",
+      "text": "11 a 14 anos",
+      "images": []
+    },
+    {
+      "i": 359,
+      "style": "Normal",
+      "text": "14 a 16 anos",
+      "images": []
+    },
+    {
+      "i": 360,
+      "style": "Normal",
+      "text": "Anos escolares",
+      "images": []
+    },
+    {
+      "i": 361,
+      "style": "Normal",
+      "text": "Years 1-2",
+      "images": []
+    },
+    {
+      "i": 362,
+      "style": "Normal",
+      "text": "Years 3-6",
+      "images": []
+    },
+    {
+      "i": 363,
+      "style": "Normal",
+      "text": "Years 7-9",
+      "images": []
+    },
+    {
+      "i": 364,
+      "style": "Normal",
+      "text": "Years 10-11",
+      "images": []
+    },
+    {
+      "i": 365,
+      "style": "Normal",
+      "text": "As três disciplinas centrais são Inglês, Matemática e Ciências, mas o currículo contempla História, Geografia, Computação, Artes, Música, Educação Física, Tecnologia e Design, Línguas Estrangeiras e Cidadania, com diferentes exigências conforme a etapa. Há também componentes obrigatórios fora da estrutura principal, como Educação Religiosa e Educação para Relacionamentos, Sexualidade e Saúde.",
+      "images": []
+    },
+    {
+      "i": 366,
+      "style": "Normal",
+      "text": "As escolas possuem espaço para organizar a sequência dos conteúdos, selecionar estratégias pedagógicas e oferecer experiências complementares, desde que cumpram as exigências legais aplicáveis.",
+      "images": []
+    },
+    {
+      "i": 367,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "seq": 6,
+          "relId": "rId53",
+          "docxPath": "word/media/image8.png",
+          "file": "image8.png",
+          "disk": "/Users/anaterra/Documents/Mapeamento-Organizacoes-Lemann-Vozes/03_Publicacao/links/docx-media/image8.png"
+        }
+      ],
+      "credit": "Fonte: The National Curriculum in England"
+    },
+    {
+      "i": 368,
+      "style": "Normal",
+      "text": "Fonte: The National Curriculum in England",
+      "images": []
+    },
+    {
+      "i": 369,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "seq": 7,
+          "relId": "rId55",
+          "docxPath": "word/media/image4.png",
+          "file": "image4.png",
+          "disk": "/Users/anaterra/Documents/Mapeamento-Organizacoes-Lemann-Vozes/03_Publicacao/links/docx-media/image4.png"
+        }
+      ],
+      "credit": "Fonte: The National Curriculum in England"
+    },
+    {
+      "i": 370,
+      "style": "Normal",
+      "text": "Fonte: The National Curriculum in England",
+      "images": []
+    },
+    {
+      "i": 371,
+      "style": "Normal",
+      "text": "O site utiliza a representação de uma árvore para explicar sua concepção de currículo: disciplinas e conhecimentos, experiências de aprendizagem e competências fundamentais. Ajuda o leitor a entender os princípios que orientam seus serviços.",
+      "images": []
+    },
+    {
+      "i": 372,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "seq": 8,
+          "relId": "rId57",
+          "docxPath": "word/media/image5.png",
+          "file": "image5.png",
+          "disk": "/Users/anaterra/Documents/Mapeamento-Organizacoes-Lemann-Vozes/03_Publicacao/links/docx-media/image5.png"
+        }
+      ],
+      "credit": "Fonte: Site institucional"
+    },
+    {
+      "i": 373,
+      "style": "Normal",
+      "text": "Fonte: Site institucional",
+      "images": []
+    },
+    {
+      "i": 374,
+      "style": "Normal",
+      "text": "1.3. Como o currículo nacional é produzido",
+      "images": []
+    },
+    {
+      "i": 375,
+      "style": "Normal",
+      "text": "A elaboração e revisão do currículo inglês são conduzidas pelo Department for Education, sob responsabilidade do governo. Esse processo pode envolver painéis de especialistas, pesquisas, consultas públicas, contribuições de organizações educacionais e elaboração de novas disposições curriculares. A decisão final permanece com a autoridade governamental competente.",
+      "images": []
+    },
+    {
+      "i": 376,
+      "style": "Normal",
+      "text": "A revisão de 2024 e 2025, denominada Curriculum and Assessment Review, oferece um exemplo de como esses mecanismos funcionam. O governo nomeou um painel independente presidido pela professora Becky Francis para avaliar o currículo, o sistema de avaliações e as qualificações escolares. A revisão seguiu as principais etapas apresentadas abaixo.",
+      "images": []
+    },
+    {
+      "i": 377,
+      "style": "Normal",
+      "text": "Constituição do painel",
+      "images": []
+    },
+    {
+      "i": 378,
+      "style": "Normal",
+      "text": "O governo nomeou Becky Francis e um grupo de especialistas para analisar o sistema curricular e de avaliações.",
+      "images": []
+    },
+    {
+      "i": 379,
+      "style": "Normal",
+      "text": "Coleta de evidências",
+      "images": []
+    },
+    {
+      "i": 380,
+      "style": "Normal",
+      "text": "Entre setembro e novembro de 2024, foi aberta uma chamada pública para receber avaliações sobre o sistema e sugestões de melhoria.",
+      "images": []
+    },
+    {
+      "i": 381,
+      "style": "Normal",
+      "text": "Participação de diferentes atores",
+      "images": []
+    },
+    {
+      "i": 382,
+      "style": "Normal",
+      "text": "O painel também realizou eventos, reuniões, pesquisas e debates com professores, estudantes, famílias, pesquisadores, sindicatos e organizações.",
+      "images": []
+    },
+    {
+      "i": 383,
+      "style": "Normal",
+      "text": "Recomendações",
+      "images": []
+    },
+    {
+      "i": 384,
+      "style": "Normal",
+      "text": "Em novembro de 2025, o painel publicou um relatório final com diagnósticos e recomendações para o currículo e as avaliações.",
+      "images": []
+    },
+    {
+      "i": 385,
+      "style": "Normal",
+      "text": "Resposta governamental",
+      "images": []
+    },
+    {
+      "i": 386,
+      "style": "Normal",
+      "text": "O DfE analisou as direções e publicou quais pretendia seguir. A redação e implementação das mudanças ficaram sob responsabilidade governamental.",
+      "images": []
+    },
+    {
+      "i": 387,
+      "style": "Normal",
+      "text": "Canais de participação",
+      "images": []
+    },
+    {
+      "i": 388,
+      "style": "Normal",
+      "text": "Pessoas externas podem contribuir em diferentes momentos da política curricular, apresentando pesquisas, recomendações e posicionamentos ou participando de reuniões e eventos. Em 2024, por exemplo, qualquer interessado podia apresentar contribuições por meio de formulário on-line ou canais alternativos.",
+      "images": []
+    },
+    {
+      "i": 389,
+      "style": "Normal",
+      "text": "O painel também promoveu dois webinars, nove eventos com mais de 3.600 participantes e reuniões direcionadas, ampliando a participação para além das contribuições escritas.",
+      "images": []
+    },
+    {
+      "i": 390,
+      "style": "Normal",
+      "text": "Em novembro de 2025, o governo anunciou a intenção de atualizar o currículo, mantendo sua estrutura geral e revisando conteúdos e abordagens. Entre os temas contemplados estão letramento digital e inteligência artificial, educação financeira, cidadania, inclusão, diversidade e preparação para a vida e o trabalho.",
+      "images": []
+    },
+    {
+      "i": 391,
+      "style": "Normal",
+      "text": "O planejamento governamental prevê a publicação do currículo revisado em 2027 e o início de sua implementação em setembro de 2028. Em outubro de 2026, o DfE também buscou a participação de educadores no desenvolvimento de uma versão digital e navegável do currículo, para facilitar o acesso e a organização dos conteúdos pelas escolas.",
+      "images": []
+    },
+    {
+      "i": 392,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "seq": 9,
+          "relId": "rId65",
+          "docxPath": "word/media/image1.png",
+          "file": "image1.png",
+          "disk": "/Users/anaterra/Documents/Mapeamento-Organizacoes-Lemann-Vozes/03_Publicacao/links/docx-media/image1.png"
+        }
+      ],
+      "credit": "Fonte: Site Schools Week"
+    },
+    {
+      "i": 393,
+      "style": "Normal",
+      "text": "Fonte: Site Schools Week",
+      "images": []
+    },
+    {
+      "i": 394,
+      "style": "Normal",
+      "text": "1.4. A trajetória do currículo inglês",
+      "images": []
+    },
+    {
+      "i": 395,
+      "style": "Normal",
+      "text": "Ano",
+      "images": []
+    },
+    {
+      "i": 396,
+      "style": "Normal",
+      "text": "Marco",
+      "images": []
+    },
+    {
+      "i": 397,
+      "style": "Normal",
+      "text": "1988",
+      "images": []
+    },
+    {
+      "i": 398,
+      "style": "Normal",
+      "text": "National Curriculum é criado, com disciplinas centrais, expectativas de aprendizagem e etapas escolares comuns.",
+      "images": []
+    },
+    {
+      "i": 399,
+      "style": "Normal",
+      "text": "1993 a 1995",
+      "images": []
+    },
+    {
+      "i": 400,
+      "style": "Normal",
+      "text": "Revisão simplifica os conteúdos prescritos, amplia flexibilidade e modifica aspectos das avaliações.",
+      "images": []
+    },
+    {
+      "i": 401,
+      "style": "Normal",
+      "text": "1997 a 2000",
+      "images": []
+    },
+    {
+      "i": 402,
+      "style": "Normal",
+      "text": "Nova revisão curricular amplia a atenção a competências, formação pessoal, cidadania e tecnologias. Uma nova versão entra em vigor em 2000.",
+      "images": []
+    },
+    {
+      "i": 403,
+      "style": "Normal",
+      "text": "2007 e 2008",
+      "images": []
+    },
+    {
+      "i": 404,
+      "style": "Normal",
+      "text": "Revisão do currículo secundário: fortalece conceitos, processos de aprendizagem e conexões entre disciplinas.",
+      "images": []
+    },
+    {
+      "i": 405,
+      "style": "Normal",
+      "text": "2010 e 2011",
+      "images": []
+    },
+    {
+      "i": 406,
+      "style": "Normal",
+      "text": "Autonomia escolar e nova revisão: a expansão das academies modifica o alcance obrigatório do currículo. Em 2011, o governo inicia revisão voltada a conteúdos essenciais e comparação internacional.",
+      "images": []
+    },
+    {
+      "i": 407,
+      "style": "Normal",
+      "text": "2013 a 2014",
+      "images": []
+    },
+    {
+      "i": 408,
+      "style": "Normal",
+      "text": "Publicação e implementação de novo currículo: o DfE publica a nova estrutura, com ênfase nos conhecimentos disciplinares e expectativas de aprendizagem. A maior parte entra em vigor em setembro de 2014.",
+      "images": []
+    },
+    {
+      "i": 409,
+      "style": "Normal",
+      "text": "2016 a 2017",
+      "images": []
+    },
+    {
+      "i": 410,
+      "style": "Normal",
+      "text": "Conclusão da implementação: entram em vigor os últimos componentes e exigências da revisão anterior.",
+      "images": []
+    },
+    {
+      "i": 411,
+      "style": "Normal",
+      "text": "2024 a 2025",
+      "images": []
+    },
+    {
+      "i": 412,
+      "style": "Normal",
+      "text": "Novo painel independente analisa o currículo e as avaliações. O relatório final e a resposta governamental são publicados em novembro de 2025.",
+      "images": []
+    },
+    {
+      "i": 413,
+      "style": "Normal",
+      "text": "2026 a 2028 (previsto)",
+      "images": []
+    },
+    {
+      "i": 414,
+      "style": "Normal",
+      "text": "Desenvolvimento de um novo currículo, com versão para o formato digital. A publicação está prevista para 2027, com início de implementação em setembro de 2028.",
+      "images": []
+    },
+    {
+      "i": 415,
+      "style": "Normal",
+      "text": "2. Curriculum Foundation",
+      "images": []
+    },
+    {
+      "i": 416,
+      "style": "Normal",
+      "text": "2.1. O que é a Curriculum Foundation",
+      "images": []
+    },
+    {
+      "i": 417,
+      "style": "Normal",
+      "text": "Criada em 2009, a Curriculum Foundation é uma organização britânica sem fins lucrativos, especializada em desenvolvimento, revisão e implementação curricular. Atua oferecendo consultoria, formação e apoio técnico a escolas, redes de ensino, ministérios da Educação, no Reino Unido  e internacionalmente.",
+      "images": []
+    },
+    {
+      "i": 418,
+      "style": "Normal",
+      "text": "Sua proposta é contribuir para a construção de currículos que combinem conhecimentos, habilidades e atitudes, considerando as necessidades dos estudantes e os contextos locais. A organização defende que um currículo de qualidade deve promover a formação integral e preparar os jovens para participar da sociedade e enfrentar desafios futuros.",
+      "images": []
+    },
+    {
+      "i": 419,
+      "style": "Normal",
+      "text": "Do ponto de vista jurídico, a instituição está registrada como uma companhia limitada por garantia, sem capital acionário (company limited by guarantee). Seu funcionamento se baseia na reunião de especialistas que apoiam outras instituições em processos de desenvolvimento e mudança curricular.",
+      "images": []
+    },
+    {
+      "i": 420,
+      "style": "Normal",
+      "text": "2.2. A governança",
+      "images": []
+    },
+    {
+      "i": 421,
+      "style": "Normal",
+      "text": "A Curriculum Foundation possui uma estrutura de governança formada por um conselho administrativo, responsável pela administração formal da instituição, combinado a uma equipe executiva e uma rede de especialistas que participam da realização dos projetos.",
+      "images": []
+    },
+    {
+      "i": 422,
+      "style": "Normal",
+      "text": "Segundo o registro oficial britânico, a organização possui atualmente três diretores registrados: Brian Male, Victoria Pendry e Narinderjit Gill. A organização informa que também mobiliza especialistas associados conforme as necessidades de cada projeto, reunindo profissionais com experiência em escolas, pesquisa, inspeção educacional, autoridades curriculares e consultoria internacional.",
+      "images": []
+    },
+    {
+      "i": 423,
+      "style": "Normal",
+      "text": "Victoria Pendry",
+      "images": [
+        {
+          "seq": 10,
+          "relId": "rId70",
+          "docxPath": "word/media/image10.png",
+          "file": "image10.png",
+          "disk": "/Users/anaterra/Documents/Mapeamento-Organizacoes-Lemann-Vozes/03_Publicacao/links/docx-media/image10.png"
+        }
+      ],
+      "credit": null
+    },
+    {
+      "i": 424,
+      "style": "Normal",
+      "text": "Victoria Pendry é a CEO identificada nas fontes institucionais e em registros do British Council. Possui experiência em liderança escolar e desenvolvimento curricular. Sua trajetória inclui atuação em projetos de revisão curricular em países como Sudão do Sul, Uganda e Zâmbia.",
+      "images": []
+    },
+    {
+      "i": 425,
+      "style": "Normal",
+      "text": "2.3. Financiamento",
+      "images": []
+    },
+    {
+      "i": 426,
+      "style": "Normal",
+      "text": "A Curriculum Foundation oferta serviços especializados, incluindo consultoria para desenvolvimento curricular, apoio à implementação, formação de profissionais, avaliação e projetos contratados por escolas, redes e organizações educacionais.",
+      "images": []
+    },
+    {
+      "i": 427,
+      "style": "Normal",
+      "text": "Seu histórico também mostra participação em iniciativas financiadas por governos e organismos internacionais. No Sudão do Sul, por exemplo, a organização prestou apoio técnico ao desenvolvimento do currículo nacional em um projeto com recursos do governo britânico e da Global Partnership for Education (GPE), parceria internacional de financiamento da educação, com participação do UNICEF na gestão de recursos e atividades.",
+      "images": []
+    },
+    {
+      "i": 428,
+      "style": "Normal",
+      "text": "2.4. A atuação",
+      "images": []
+    },
+    {
+      "i": 429,
+      "style": "Normal",
+      "text": "A Curriculum Foundation atua principalmente por meio de consultoria técnica, desenvolvimento de documentos curriculares, apoio à implementação, formação profissional e produção de materiais. Sua participação ocorre na elaboração de referências nacionais e no desenvolvimento de currículos próprios de redes.",
+      "images": []
+    },
+    {
+      "i": 430,
+      "style": "Normal",
+      "text": "Os exemplos abaixo de 2019 demonstram como essas atividades são operacionalizadas.",
+      "images": []
+    },
+    {
+      "i": 431,
+      "style": "Normal",
+      "text": "Revisão de currículos das escolas",
+      "images": []
+    },
+    {
+      "i": 432,
+      "style": "Normal",
+      "text": "Escolas primárias buscaram desenvolver currículos próprios. A organização conduziu processos colaborativos de diagnóstico e redesenho curricular, produzindo referências adaptadas a cada escola.",
+      "images": []
+    },
+    {
+      "i": 433,
+      "style": "Normal",
+      "text": "Formação de lideranças curriculares",
+      "images": []
+    },
+    {
+      "i": 434,
+      "style": "Normal",
+      "text": "A organização promoveu workshops sobre diagnóstico curricular e desenvolvimento de referenciais próprios para lideranças de escolas primárias em diferentes localidades inglesas.",
+      "images": []
+    },
+    {
+      "i": 435,
+      "style": "Normal",
+      "text": "Debate sobre inspeção escolar",
+      "images": []
+    },
+    {
+      "i": 436,
+      "style": "Normal",
+      "text": "O Ofsted propôs a atualização do modelo de inspeção das escolas, dando maior atenção à qualidade do currículo. A organização posicionou-se favorável a essa valorização do currículo, discutindo os critérios propostos.",
+      "images": []
+    },
+    {
+      "i": 437,
+      "style": "Normal",
+      "text": "2.5. A trajetória da organização",
+      "images": []
+    },
+    {
+      "i": 438,
+      "style": "Normal",
+      "text": "Ano",
+      "images": []
+    },
+    {
+      "i": 439,
+      "style": "Normal",
+      "text": "Marco da organização",
+      "images": []
+    },
+    {
+      "i": 440,
+      "style": "Normal",
+      "text": "2009",
+      "images": []
+    },
+    {
+      "i": 441,
+      "style": "Normal",
+      "text": "Constituição formal da Curriculum Foundation como organização especializada em desenvolvimento curricular.",
+      "images": []
+    },
+    {
+      "i": 442,
+      "style": "Normal",
+      "text": "2012 a 2013",
+      "images": []
+    },
+    {
+      "i": 443,
+      "style": "Normal",
+      "text": "Início dos trabalhos de apoio à reforma curricular do Sudão do Sul, em parceria com o Ministério da Educação.",
+      "images": []
+    },
+    {
+      "i": 444,
+      "style": "Normal",
+      "text": "2019",
+      "images": []
+    },
+    {
+      "i": 445,
+      "style": "Normal",
+      "text": "Divulgação de estudos de revisão curricular em escolas britânicas e workshops de liderança curricular na Inglaterra.",
+      "images": []
+    },
+    {
+      "i": 446,
+      "style": "Normal",
+      "text": "2020",
+      "images": []
+    },
+    {
+      "i": 447,
+      "style": "Normal",
+      "text": "Victoria Pendry assume uma posição formal de direção na organização.",
+      "images": []
+    },
+    {
+      "i": 448,
+      "style": "Normal",
+      "text": "2024",
+      "images": []
+    },
+    {
+      "i": 449,
+      "style": "Normal",
+      "text": "Victoria Pendry participa como CEO da organização em uma conferência internacional, promovida pelo British Council.",
+      "images": []
+    },
+    {
+      "i": 450,
+      "style": "Normal",
+      "text": "2025 a 2026",
+      "images": []
+    },
+    {
+      "i": 451,
+      "style": "Normal",
+      "text": "Publicações sobre temas curriculares e continuidade de sua atuação internacional.",
+      "images": []
+    },
+    {
+      "i": 452,
+      "style": "Normal",
+      "text": "3. Onde as trajetórias se cruzam",
+      "images": []
+    },
+    {
+      "i": 453,
+      "style": "Normal",
+      "text": "Ano",
+      "images": []
+    },
+    {
+      "i": 454,
+      "style": "Normal",
+      "text": "Currículo",
+      "images": []
+    },
+    {
+      "i": 455,
+      "style": "Normal",
+      "text": "Organização",
+      "images": []
+    },
+    {
+      "i": 456,
+      "style": "Normal",
+      "text": "2009 a 2010",
+      "images": []
+    },
+    {
+      "i": 457,
+      "style": "Normal",
+      "text": "O National Curriculum permanece em vigor, enquanto cresce a discussão sobre autonomia escolar e futuras reformas.",
+      "images": []
+    },
+    {
+      "i": 458,
+      "style": "Normal",
+      "text": "A Curriculum Foundation é criada, em 2009, como organização especializada em desenvolvimento e revisão curricular.",
+      "images": []
+    },
+    {
+      "i": 459,
+      "style": "Normal",
+      "text": "A Curriculum Foundation surge mais de vinte anos após a criação do National Curriculum. Sua proposta inicial já está associada à oferta de conhecimentos e serviços técnicos de desenvolvimento curricular.",
+      "images": []
+    },
+    {
+      "i": 460,
+      "style": "Normal",
+      "text": "2011 a 2014",
+      "images": []
+    },
+    {
+      "i": 461,
+      "style": "Normal",
+      "text": "O governo revisa o National Curriculum, com publicação da nova versão em 2013 e início de implementação em 2014.",
+      "images": []
+    },
+    {
+      "i": 462,
+      "style": "Normal",
+      "text": "A organização amplia sua trajetória de apoio técnico a escolas e sistemas educacionais, inclusive internacionalmente.",
+      "images": []
+    },
+    {
+      "i": 463,
+      "style": "Normal",
+      "text": "O período coincide com a construção de uma nova versão do currículo inglês, um cenário de intenso debate sobre o papel do conhecimento e da estrutura curricular. Nesse contexto, a Curriculum Foundation consolida sua identidade técnica.",
+      "images": []
+    },
+    {
+      "i": 464,
+      "style": "Normal",
+      "text": "2018 a 2019",
+      "images": []
+    },
+    {
+      "i": 465,
+      "style": "Normal",
+      "text": "A atenção à qualidade dos currículos escolares ganha destaque no debate sobre o novo modelo de inspeção do Ofsted",
+      "images": []
+    },
+    {
+      "i": 466,
+      "style": "Normal",
+      "text": "A Curriculum Foundation publica um posicionamento sobre o modelo de inspeção e promove formação e desenvolvimento curricular em escolas britânicas.",
+      "images": []
+    },
+    {
+      "i": 467,
+      "style": "Normal",
+      "text": "A atuação da organização se concentra no debate público e na elaboração de currículos nas escolas, ou seja, no nível da implementação, onde o currículo nacional se traduz em prática.",
+      "images": []
+    },
+    {
+      "i": 468,
+      "style": "Normal",
+      "text": "2020 a 2023",
+      "images": []
+    },
+    {
+      "i": 469,
+      "style": "Normal",
+      "text": "O currículo de 2014 permanece como referência nacional, com diferentes iniciativas de desenvolvimento curricular pelas escolas.",
+      "images": []
+    },
+    {
+      "i": 470,
+      "style": "Normal",
+      "text": "A organização divulga trabalhos de revisão curricular e avaliação realizados para governos estrangeiros, como o Sudão do Sul.",
+      "images": []
+    },
+    {
+      "i": 471,
+      "style": "Normal",
+      "text": "A Curriculum Foundation amplia sua atuação para reformas curriculares internacionais, participando da elaboração de programas, orientações e instrumentos de avaliação.",
+      "images": []
+    },
+    {
+      "i": 472,
+      "style": "Normal",
+      "text": "2024 a 2026",
+      "images": []
+    },
+    {
+      "i": 473,
+      "style": "Normal",
+      "text": "O governo conduz uma nova revisão nacional, publica recomendações e inicia a preparação das futuras mudanças curriculares.",
+      "images": []
+    },
+    {
+      "i": 474,
+      "style": "Normal",
+      "text": "A Curriculum Foundation permanece ativa, desenvolvendo e divulgando trabalhos relacionados ao currículo.",
+      "images": []
+    },
+    {
+      "i": 475,
+      "style": "Normal",
+      "text": "A Inglaterra vive uma nova revisão e a organização segue ativa como referência no campo, desenvolvendo e divulgando trabalhos relacionados a currículo.",
+      "images": []
+    },
+    {
+      "i": 476,
+      "style": "Normal",
+      "text": "4. O BRITISH CURRICULUM FORUM (BCF)",
+      "images": []
+    },
+    {
+      "i": 477,
+      "style": "Normal",
+      "text": "4.1. O que é o British Curriculum Forum",
+      "images": []
+    },
+    {
+      "i": 478,
+      "style": "Normal",
+      "text": "O British Curriculum Forum (BCF) é uma rede britânica de pesquisa e debate curricular vinculada à British Educational Research Association (BERA), associação profissional de pesquisadores em educação. Seu objetivo é aproximar professores, pesquisadores, escolas, universidades e outros profissionais para promover o estudo, o desenvolvimento e a implementação de currículos.",
+      "images": []
+    },
+    {
+      "i": 479,
+      "style": "Normal",
+      "text": "O BCF atua principalmente por meio de produção e divulgação de pesquisas, eventos, publicações, apoio a investigações desenvolvidas em escolas e participação no debate sobre políticas curriculares. Sua atuação abrange as diferentes nações do Reino Unido e não se limita à Inglaterra.",
+      "images": []
+    },
+    {
+      "i": 480,
+      "style": "Normal",
+      "text": "4.2. A governança",
+      "images": []
+    },
+    {
+      "i": 481,
+      "style": "Normal",
+      "text": "Desde sua incorporação à BERA, o BCF é administrado por um grupo diretor nomeado pelo BERA Council, instância responsável pela governança da associação. O grupo orienta as atividades do fórum, organiza eventos e bolsas de pesquisa, articula pesquisadores e profissionais e pode contribuir para posicionamentos institucionais sobre currículo.",
+      "images": []
+    },
+    {
+      "i": 482,
+      "style": "Normal",
+      "text": "A presidência do BCF coordena essas atividades, acompanha os projetos financiados e representa o fórum perante a direção da BERA. A estrutura prevê reuniões do grupo diretor duas vezes ao ano, além de outras atividades de acompanhamento e representação.",
+      "images": []
+    },
+    {
+      "i": 483,
+      "style": "Normal",
+      "text": "A escolha dos integrantes ocorre por meio de processos de candidatura e nomeação pela BERA. Em 2025, por exemplo, foram abertas candidaturas para a presidência e para novos membros do grupo diretor.",
+      "images": []
+    },
+    {
+      "i": 484,
+      "style": "Normal",
+      "text": "Grace Healy",
+      "images": [
+        {
+          "seq": 11,
+          "relId": "rId80",
+          "docxPath": "word/media/image15.png",
+          "file": "image15.png",
+          "disk": "/Users/anaterra/Documents/Mapeamento-Organizacoes-Lemann-Vozes/03_Publicacao/links/docx-media/image15.png"
+        }
+      ],
+      "credit": null
+    },
+    {
+      "i": 485,
+      "style": "Normal",
+      "text": "Em julho de 2025, Grace Healy foi nomeada presidente do BCF. Ela possui experiência como professora de Geografia e liderança escolar, além de atuação acadêmica na University College London. Também integra a equipe editorial de The Curriculum Journal, publicação vinculada à BERA.",
+      "images": []
+    },
+    {
+      "i": 486,
+      "style": "Normal",
+      "text": "4.3. Financiamento",
+      "images": []
+    },
+    {
+      "i": 487,
+      "style": "Normal",
+      "text": "O BCF funciona atualmente como uma rede mantida dentro da estrutura institucional da BERA. Suas atividades incluem eventos, publicações e bolsas de financiamento para pesquisas curriculares.",
+      "images": []
+    },
+    {
+      "i": 488,
+      "style": "Normal",
+      "text": "Um mecanismo documentado é o BCF Curriculum Investigation Grant, programa que oferece recursos para investigações conduzidas por escolas e instituições educacionais. Na edição de 2024/2025, o financiamento disponibilizado era de até £5 mil por projeto selecionado. Esse modelo permite que o BCF apoie a produção de evidências a partir da prática escolar, sem assumir diretamente a responsabilidade por alterar as disposições curriculares nacionais.",
+      "images": []
+    },
+    {
+      "i": 489,
+      "style": "Normal",
+      "text": "A BERA, por sua vez, possui receitas institucionais associadas a membros, publicações, conferências e outras atividades, e disponibiliza demonstrações financeiras auditadas.",
+      "images": []
+    },
+    {
+      "i": 490,
+      "style": "Normal",
+      "text": "4.4. A atuação",
+      "images": []
+    },
+    {
+      "i": 491,
+      "style": "Normal",
+      "text": "O BCF atua principalmente por meio de pesquisa curricular, articulação entre universidades e escolas, realização de eventos, publicações e financiamento de investigações conduzidas por profissionais da educação. Sua atuação documentada concentra-se na produção de conhecimento e na criação de espaços de discussão e experimentação curricular.",
+      "images": []
+    },
+    {
+      "i": 492,
+      "style": "Normal",
+      "text": "São apresentados abaixo exemplos concretos.",
+      "images": []
+    },
+    {
+      "i": 493,
+      "style": "Normal",
+      "text": "The Curriculum Journal (desde 1990)",
+      "images": []
+    },
+    {
+      "i": 494,
+      "style": "Normal",
+      "text": "A organização predecessora criou uma revista científica para discutir políticas, pesquisas e práticas curriculares. O BCF manteve um espaço de publicação e circulação de pesquisas e análises críticas sobre currículo.",
+      "images": []
+    },
+    {
+      "i": 495,
+      "style": "Normal",
+      "text": "Pesquisa e desenvolvimento curricular (2019–2020)",
+      "images": []
+    },
+    {
+      "i": 496,
+      "style": "Normal",
+      "text": "O BCF organizou um evento em Londres, reunindo experiências de desenvolvimento curricular, em que escolas e pesquisadores participaram, e os resultados foram sistematizados em relatório publicado em 2020.",
+      "images": []
+    },
+    {
+      "i": 497,
+      "style": "Normal",
+      "text": "Curriculum in a Changing World (2024)",
+      "images": []
+    },
+    {
+      "i": 498,
+      "style": "Normal",
+      "text": "Articulou autores e pesquisadores para organizar e divulgar diferentes perspectivas sobre currículo. A publicação reuniu 50 textos de especialistas sobre políticas, práticas e transformações curriculares.",
+      "images": []
+    },
+    {
+      "i": 499,
+      "style": "Normal",
+      "text": "Curriculum and Assessment Review (2024 a 2026)",
+      "images": []
+    },
+    {
+      "i": 500,
+      "style": "Normal",
+      "text": "O governo inglês iniciou uma nova revisão do currículo nacional e das avaliações. O ambiente institucional da BERA reuniu pesquisas, debates, eventos e análises sobre a reforma.",
+      "images": []
+    },
+    {
+      "i": 501,
+      "style": "Normal",
+      "text": "4.5. A trajetória da organização",
+      "images": []
+    },
+    {
+      "i": 502,
+      "style": "Normal",
+      "text": "Ano",
+      "images": []
+    },
+    {
+      "i": 503,
+      "style": "Normal",
+      "text": "Marco da organização",
+      "images": []
+    },
+    {
+      "i": 504,
+      "style": "Normal",
+      "text": "1970",
+      "images": []
+    },
+    {
+      "i": 505,
+      "style": "Normal",
+      "text": "Formação de uma associação ligada à tradição de pesquisa curricular e ao trabalho de Lawrence Stenhouse.",
+      "images": []
+    },
+    {
+      "i": 506,
+      "style": "Normal",
+      "text": "1990",
+      "images": []
+    },
+    {
+      "i": 507,
+      "style": "Normal",
+      "text": "Lançamento de The Curriculum Journal, periódico dedicado à pesquisa e ao debate curricular.",
+      "images": []
+    },
+    {
+      "i": 508,
+      "style": "Normal",
+      "text": "2014",
+      "images": []
+    },
+    {
+      "i": 509,
+      "style": "Normal",
+      "text": "A organização é incorporada à BERA, dando origem à atual estrutura do British Curriculum Forum.",
+      "images": []
+    },
+    {
+      "i": 510,
+      "style": "Normal",
+      "text": "2019 a 2020",
+      "images": []
+    },
+    {
+      "i": 511,
+      "style": "Normal",
+      "text": "Realização de eventos sobre pesquisa e desenvolvimento curricular, com publicação de relatórios e materiais.",
+      "images": []
+    },
+    {
+      "i": 512,
+      "style": "Normal",
+      "text": "2024",
+      "images": []
+    },
+    {
+      "i": 513,
+      "style": "Normal",
+      "text": "Publicação de Curriculum in a Changing World, reunindo 50 perspectivas sobre política e prática curricular.",
+      "images": []
+    },
+    {
+      "i": 514,
+      "style": "Normal",
+      "text": "2025",
+      "images": []
+    },
+    {
+      "i": 515,
+      "style": "Normal",
+      "text": "Renovação do grupo diretor, com Grace Healy assumindo a presidência.",
+      "images": []
+    },
+    {
+      "i": 516,
+      "style": "Normal",
+      "text": "2025 a 2026",
+      "images": []
+    },
+    {
+      "i": 517,
+      "style": "Normal",
+      "text": "Continuidade dos programas de pesquisa, eventos e publicações, em um contexto de novas revisões curriculares.",
+      "images": []
+    },
+    {
+      "i": 518,
+      "style": "Normal",
+      "text": "5. Onde as trajetórias se cruzam",
+      "images": []
+    },
+    {
+      "i": 519,
+      "style": "Normal",
+      "text": "Ano",
+      "images": []
+    },
+    {
+      "i": 520,
+      "style": "Normal",
+      "text": "Currículo",
+      "images": []
+    },
+    {
+      "i": 521,
+      "style": "Normal",
+      "text": "Organização",
+      "images": []
+    },
+    {
+      "i": 522,
+      "style": "Normal",
+      "text": "1988 a 1990",
+      "images": []
+    },
+    {
+      "i": 523,
+      "style": "Normal",
+      "text": "O National Curriculum é criado pela Education Reform Act, estabelecendo conteúdos e expectativas nacionais.",
+      "images": []
+    },
+    {
+      "i": 524,
+      "style": "Normal",
+      "text": "A organização predecessora lança, em 1990, The Curriculum Journal, revista de pesquisa e discussão curricular.",
+      "images": []
+    },
+    {
+      "i": 525,
+      "style": "Normal",
+      "text": "A criação de The Curriculum Journal, em 1990, estabeleceu um veículo especializado de pesquisa e análise curricular no período inicial do National Curriculum",
+      "images": []
+    },
+    {
+      "i": 526,
+      "style": "Normal",
+      "text": "2011 a 2014",
+      "images": []
+    },
+    {
+      "i": 527,
+      "style": "Normal",
+      "text": "O governo conduz revisão nacional que resulta no currículo publicado em 2013 e implementado a partir de 2014.",
+      "images": []
+    },
+    {
+      "i": 528,
+      "style": "Normal",
+      "text": "A Direção da British Curriculum Foundation participa do painel oficial de especialistas da revisão. Em 2014, a entidade é incorporada à BERA.",
+      "images": []
+    },
+    {
+      "i": 529,
+      "style": "Normal",
+      "text": "Mary James, integrante da direção da British Curriculum Foundation entre 1989 e 2014, foi nomeada para o painel de especialistas responsável por formular recomendações para a revisão de 2011.",
+      "images": []
+    },
+    {
+      "i": 530,
+      "style": "Normal",
+      "text": "2019 a 2020",
+      "images": []
+    },
+    {
+      "i": 531,
+      "style": "Normal",
+      "text": "O currículo de 2014 permanece em vigor e as escolas discutem organização curricular, conhecimentos e práticas de ensino.",
+      "images": []
+    },
+    {
+      "i": 532,
+      "style": "Normal",
+      "text": "O BCF realiza eventos que aproximam professores e pesquisadores e publica relatório sobre desenvolvimento curricular nas escolas.",
+      "images": []
+    },
+    {
+      "i": 533,
+      "style": "Normal",
+      "text": "BCF reuniu professores, pesquisadores e lideranças escolares para discutir a elaboração de currículos nas próprias instituições. O encontro gerou um relatório publicado em 2020.",
+      "images": []
+    },
+    {
+      "i": 534,
+      "style": "Normal",
+      "text": "2021 a 2023",
+      "images": []
+    },
+    {
+      "i": 535,
+      "style": "Normal",
+      "text": "Escolas continuam desenvolvendo e contextualizando seus currículos, considerando as exigências nacionais.",
+      "images": []
+    },
+    {
+      "i": 536,
+      "style": "Normal",
+      "text": "O BCF financia investigações escolares sobre diversidade, sustentabilidade, inclusão e outros desafios curriculares.",
+      "images": []
+    },
+    {
+      "i": 537,
+      "style": "Normal",
+      "text": "Por meio do Curriculum Investigation Grant, o BCF passou a apoiar pesquisas conduzidas por escolas sobre seus próprios currículos. A iniciativa promove investigação, experimentação e divulgação de práticas curriculares.",
+      "images": []
+    },
+    {
+      "i": 538,
+      "style": "Normal",
+      "text": "2024 a 2025",
+      "images": []
+    },
+    {
+      "i": 539,
+      "style": "Normal",
+      "text": "Tem início uma nova Curriculum and Assessment Review, com consulta pública, painel de especialistas e recomendações.",
+      "images": []
+    },
+    {
+      "i": 540,
+      "style": "Normal",
+      "text": "O BCF publica Curriculum in a Changing World em parceria com a BERA; a BERA também reúne e divulga pesquisas e debates sobre a revisão nacional.",
+      "images": []
+    },
+    {
+      "i": 541,
+      "style": "Normal",
+      "text": "BERA criou um espaço institucional para reunir pesquisas, análises e discussões sobre o processo. Paralelamente, o BCF participou da publicação Curriculum in a Changing World, com 50 textos de especialistas.",
+      "images": []
+    },
+    {
+      "i": 542,
+      "style": "Normal",
+      "text": "2025 a 2026",
+      "images": []
+    },
+    {
+      "i": 543,
+      "style": "Normal",
+      "text": "O governo prepara o desenvolvimento do currículo revisado e as futuras etapas de implementação.",
+      "images": []
+    },
+    {
+      "i": 544,
+      "style": "Normal",
+      "text": "O BCF renova sua liderança e mantém projetos de pesquisa e espaços de discussão curricular.",
+      "images": []
+    },
+    {
+      "i": 545,
+      "style": "Normal",
+      "text": "A organização mantém sua atuação por meio de publicações, financiamento de pesquisas e articulação entre profissionais, enquanto a reforma nacional segue em desenvolvimento.",
+      "images": []
+    },
+    {
+      "i": 546,
+      "style": "Heading1",
+      "text": "NIGÉRIA.",
+      "images": []
+    },
+    {
+      "i": 547,
+      "style": "Normal",
+      "text": "1. O  currículo nigeriano",
+      "images": []
+    },
+    {
+      "i": 548,
+      "style": "Normal",
+      "text": "1.1. O sistema curricular nigeriano",
+      "images": []
+    },
+    {
+      "i": 549,
+      "style": "Normal",
+      "text": "A Nigéria possui um sistema educacional federativo, com diretrizes curriculares nacionais e implementação compartilhada entre diferentes níveis de governo. O governo federal estabelece as políticas e referências comuns, enquanto os 36 estados e o Território da Capital Federal participam das decisões educacionais e são responsáveis por parte importante de sua implementação nas escolas.",
+      "images": []
+    },
+    {
+      "i": 550,
+      "style": "Normal",
+      "text": "O desenvolvimento técnico dos currículos nacionais é realizado principalmente pelo Nigerian Educational Research and Development Council (NERDC), órgão federal responsável pela elaboração, revisão e produção de materiais curriculares. As decisões de política educacional são discutidas no National Council on Education (NCE), instância que reúne autoridades federais e estaduais e busca harmonizar as políticas educacionais do país.",
+      "images": []
+    },
+    {
+      "i": 551,
+      "style": "Normal",
+      "text": "A tabela abaixo apresenta os principais atores e seus respectivos papéis.",
+      "images": []
+    },
+    {
+      "i": 552,
+      "style": "Normal",
+      "text": "Ator",
+      "images": []
+    },
+    {
+      "i": 553,
+      "style": "Normal",
+      "text": "Papel na política curricular",
+      "images": []
+    },
+    {
+      "i": 554,
+      "style": "Normal",
+      "text": "Federal Ministry of Education (FME)",
+      "images": []
+    },
+    {
+      "i": 555,
+      "style": "Normal",
+      "text": "Ministério Federal da Educação",
+      "images": []
+    },
+    {
+      "i": 556,
+      "style": "Normal",
+      "text": "Formula políticas educacionais nacionais, estabelece diretrizes e coordena o sistema.",
+      "images": []
+    },
+    {
+      "i": 557,
+      "style": "Normal",
+      "text": "National Council on Education (NCE)",
+      "images": []
+    },
+    {
+      "i": 558,
+      "style": "Normal",
+      "text": "Conselho Nacional de Educação",
+      "images": []
+    },
+    {
+      "i": 559,
+      "style": "Normal",
+      "text": "Reúne lideranças educacionais federais e estaduais para discutir e deliberar sobre políticas nacionais.",
+      "images": []
+    },
+    {
+      "i": 560,
+      "style": "Normal",
+      "text": "Comissão federal e conselhos estaduais de educação básica",
+      "images": []
+    },
+    {
+      "i": 561,
+      "style": "Normal",
+      "text": "Apoiam a implementação por meio de recursos, formação docente, distribuição de materiais e monitoramento.",
+      "images": []
+    },
+    {
+      "i": 562,
+      "style": "Normal",
+      "text": "Governos estaduais, redes e escolas",
+      "images": []
+    },
+    {
+      "i": 563,
+      "style": "Normal",
+      "text": "Organizam a oferta educacional e colocam as orientações nacionais em prática, considerando necessidades locais.",
+      "images": []
+    },
+    {
+      "i": 564,
+      "style": "Normal",
+      "text": "1.2. O currículo nacional",
+      "images": []
+    },
+    {
+      "i": 565,
+      "style": "Normal",
+      "text": "A educação escolar nigeriana está organizada em nove anos de educação básica, seguidos por três anos de ensino secundário superior. A principal referência da educação básica é o Basic Education Curriculum (BEC), desenvolvido pelo NERDC para estabelecer conteúdos, objetivos de aprendizagem, competências e orientações de ensino. Para o ensino secundário superior, existe o Senior Secondary Education Curriculum, voltado à formação geral e à preparação para estudos posteriores e para o mundo do trabalho.",
+      "images": []
+    },
+    {
+      "i": 566,
+      "style": "Normal",
+      "text": "Em 2025, o governo federal apresentou uma nova revisão curricular para a educação básica e secundária. A reforma buscou reduzir a sobrecarga de disciplinas e fortalecer aprendizagens práticas, digitais, tecnológicas e profissionais. Entre as mudanças estão a reorganização dos componentes curriculares, a inclusão de novas tecnologias e a retomada da História da Nigéria como disciplina obrigatória durante a educação básica.",
+      "images": []
+    },
+    {
+      "i": 567,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "seq": 12,
+          "relId": "rId93",
+          "docxPath": "word/media/image12.png",
+          "file": "image12.png",
+          "disk": "/Users/anaterra/Documents/Mapeamento-Organizacoes-Lemann-Vozes/03_Publicacao/links/docx-media/image12.png"
+        },
+        {
+          "seq": 13,
+          "relId": "rId94",
+          "docxPath": "word/media/image3.png",
+          "file": "image3.png",
+          "disk": "/Users/anaterra/Documents/Mapeamento-Organizacoes-Lemann-Vozes/03_Publicacao/links/docx-media/image3.png"
+        }
+      ],
+      "credit": "Fonte: Página oficial da Africa Independent Television (AIT)."
+    },
+    {
+      "i": 568,
+      "style": "Normal",
+      "text": "Fonte: Página oficial da Africa Independent Television (AIT).",
+      "images": []
+    },
+    {
+      "i": 569,
+      "style": "Normal",
+      "text": "A implementação foi planejada de maneira progressiva, começando pelas primeiras séries de cada ciclo de três anos (Primary 1-3, Primary 4-6, Junior Secondary School 1-3), para permitir a preparação dos professores, a distribuição de materiais e a incorporação gradual das mudanças.",
+      "images": []
+    },
+    {
+      "i": 570,
+      "style": "Normal",
+      "text": "1.3. Como o currículo nacional é produzido",
+      "images": []
+    },
+    {
+      "i": 571,
+      "style": "Normal",
+      "text": "O desenvolvimento curricular é coordenado pelo NERDC, que combina pesquisas, consultas a diferentes atores, elaboração técnica e revisão dos documentos. O processo envolve especialistas, professores, gestores, órgãos governamentais e representantes de organizações da sociedade civil, conforme a natureza da revisão.",
+      "images": []
+    },
+    {
+      "i": 572,
+      "style": "Normal",
+      "text": "A documentação do NERDC apresenta cinco etapas principais para o desenvolvimento e a revisão curricular.",
+      "images": []
+    },
+    {
+      "i": 573,
+      "style": "Normal",
+      "text": "Identificar necessidades (Pre-design)",
+      "images": []
+    },
+    {
+      "i": 574,
+      "style": "Normal",
+      "text": "Analisar problemas do currículo existente, consultar atores educacionais e definir as mudanças necessárias e os padrões pretendidos.",
+      "images": []
+    },
+    {
+      "i": 575,
+      "style": "Normal",
+      "text": "Planejar (Planning)",
+      "images": []
+    },
+    {
+      "i": 576,
+      "style": "Normal",
+      "text": "Definir a concepção da reforma, a organização dos conteúdos e a estratégia de elaboração dos novos documentos.",
+      "images": []
+    },
+    {
+      "i": 577,
+      "style": "Normal",
+      "text": "Elaborar (Writing/Review/Design)",
+      "images": []
+    },
+    {
+      "i": 578,
+      "style": "Normal",
+      "text": "Reunir equipes técnicas e especialistas para produzir ou revisar componentes, conteúdos e orientações pedagógicas.",
+      "images": []
+    },
+    {
+      "i": 579,
+      "style": "Normal",
+      "text": "Discutir e validar tecnicamente",
+      "images": []
+    },
+    {
+      "i": 580,
+      "style": "Normal",
+      "text": "Submeter as versões preliminares a oficinas de análise crítica, coletar contribuições e identificar ajustes.",
+      "images": []
+    },
+    {
+      "i": 581,
+      "style": "Normal",
+      "text": "Finalizar o editorial",
+      "images": []
+    },
+    {
+      "i": 582,
+      "style": "Normal",
+      "text": "Incorporar as revisões e preparar os documentos para sua publicação e encaminhamento institucional.",
+      "images": []
+    },
+    {
+      "i": 583,
+      "style": "Normal",
+      "text": "Além do processo técnico do NERDC, propostas de política educacional podem passar por comitês especializados, que analisam recomendações antes de encaminhá-las ao NCE. O conselho reúne autoridades federais e estaduais para deliberar sobre diretrizes nacionais; segundo o Ministério da Educação, suas decisões são encaminhadas ao Federal Executive Council para aprovação final.",
+      "images": []
+    },
+    {
+      "i": 584,
+      "style": "Normal",
+      "text": "Canais de participação",
+      "images": []
+    },
+    {
+      "i": 585,
+      "style": "Normal",
+      "text": "O NERDC utiliza consultas e encontros com diferentes públicos para subsidiar as revisões.",
+      "images": []
+    },
+    {
+      "i": 586,
+      "style": "Normal",
+      "text": "Um exemplo documentado ocorreu em 11 de março de 2020, quando a instituição realizou, na região Sudeste da Nigéria, um diálogo sobre a revisão do currículo do ensino secundário superior. Participaram representantes de ministérios estaduais, professores, estudantes, associações de pais e organizações da sociedade civil. O encontro buscou identificar problemas no currículo existente e registrar sugestões para orientar a revisão.",
+      "images": []
+    },
+    {
+      "i": 587,
+      "style": "Normal",
+      "text": "1.4. A trajetória do currículo nigeriano",
+      "images": []
+    },
+    {
+      "i": 588,
+      "style": "Normal",
+      "text": "Ano",
+      "images": []
+    },
+    {
+      "i": 589,
+      "style": "Normal",
+      "text": "Marco",
+      "images": []
+    },
+    {
+      "i": 590,
+      "style": "Normal",
+      "text": "1969",
+      "images": []
+    },
+    {
+      "i": 591,
+      "style": "Normal",
+      "text": "Conferência Nacional de Currículo reúne especialistas, representantes governamentais e diferentes setores sociais para discutir os objetivos da educação nigeriana.",
+      "images": []
+    },
+    {
+      "i": 592,
+      "style": "Normal",
+      "text": "1977",
+      "images": []
+    },
+    {
+      "i": 593,
+      "style": "Normal",
+      "text": "A primeira National Policy on Education (NPE) estabelece princípios, objetivos e diretrizes para a educação nacional. Consolida a busca por uma formação mais funcional, articulada ao desenvolvimento social e econômico.",
+      "images": []
+    },
+    {
+      "i": 594,
+      "style": "Normal",
+      "text": "1988",
+      "images": []
+    },
+    {
+      "i": 595,
+      "style": "Normal",
+      "text": "Criação do NERDC através da reunião de quatro instituições de pesquisa e desenvolvimento educacional. A mudança consolida uma estrutura técnica nacional especializada.",
+      "images": []
+    },
+    {
+      "i": 596,
+      "style": "Normal",
+      "text": "1999 a 2004",
+      "images": []
+    },
+    {
+      "i": 597,
+      "style": "Normal",
+      "text": "O governo lança, em 1999, o programa Universal Basic Education (UBE) para ampliar o acesso à educação básica. Em 2004, a legislação estabelece a gratuidade e obrigatoriedade dos nove anos de ensino.",
+      "images": []
+    },
+    {
+      "i": 598,
+      "style": "Normal",
+      "text": "2006 a 2008",
+      "images": []
+    },
+    {
+      "i": 599,
+      "style": "Normal",
+      "text": "Em 2006, o NERDC desenvolve o currículo da educação básica de nove anos, alinhado ao programa UBE. A implementação nacional começa em setembro de 2008, com substituição progressiva da estrutura anterior.",
+      "images": []
+    },
+    {
+      "i": 600,
+      "style": "Normal",
+      "text": "2012 a 2014",
+      "images": []
+    },
+    {
+      "i": 601,
+      "style": "Normal",
+      "text": "Após avaliações da implementação, o NERDC revisa o currículo para reduzir o excesso de disciplinas e a repetição de conteúdos. A nova versão começa a ser implementada nacionalmente em setembro de 2014.",
+      "images": []
+    },
+    {
+      "i": 602,
+      "style": "Normal",
+      "text": "2020",
+      "images": []
+    },
+    {
+      "i": 603,
+      "style": "Normal",
+      "text": "O NERDC organiza diálogos regionais para identificar lacunas do currículo e recolher sugestões de atores educacionais e representantes da sociedade civil.",
+      "images": []
+    },
+    {
+      "i": 604,
+      "style": "Normal",
+      "text": "2025",
+      "images": []
+    },
+    {
+      "i": 605,
+      "style": "Normal",
+      "text": "O governo apresenta uma reforma da educação básica e secundária para reduzir a quantidade de disciplinas e fortalecer competências digitais, profissionais e práticas. O NERDC publica novos documentos, com estratégia de implementação progressiva e formação de professores.",
+      "images": []
+    },
+    {
+      "i": 606,
+      "style": "Normal",
+      "text": "2. A CURRICULUM ORGANIZATION OF NIGERIA",
+      "images": []
+    },
+    {
+      "i": 607,
+      "style": "Normal",
+      "text": "2.1. O que é a CON",
+      "images": []
+    },
+    {
+      "i": 608,
+      "style": "Normal",
+      "text": "A Curriculum Organization of Nigeria (CON) é uma associação profissional nigeriana, criada em 1982, dedicada ao estudo, desenvolvimento e aperfeiçoamento curricular. Reúne especialistas, pesquisadores, professores e outros profissionais interessados na produção e disseminação de conhecimento sobre currículo.",
+      "images": []
+    },
+    {
+      "i": 609,
+      "style": "Normal",
+      "text": "A organização surgiu para fortalecer o campo dos estudos curriculares na Nigéria, criando espaços de colaboração entre profissionais e instituições. Sua atuação envolve principalmente a realização de conferências, publicação de pesquisas, intercâmbio acadêmico e discussão de questões relacionadas à elaboração, implementação e avaliação dos currículos.",
+      "images": []
+    },
+    {
+      "i": 610,
+      "style": "Normal",
+      "text": "Diferentemente do Nigerian Educational Research and Development Council (NERDC), responsável pelo desenvolvimento técnico dos currículos nacionais, a CON atua como uma associação profissional externa à estrutura governamental.",
+      "images": []
+    },
+    {
+      "i": 611,
+      "style": "Normal",
+      "text": "2.2. A governança",
+      "images": []
+    },
+    {
+      "i": 612,
+      "style": "Normal",
+      "text": "A CON possui uma estrutura associativa, com órgãos responsáveis pelas decisões institucionais, administração e representação dos membros. A organização identifica as seguintes instâncias formais:",
+      "images": []
+    },
+    {
+      "i": 613,
+      "style": "Normal",
+      "text": "Annual General Meeting (AGM)",
+      "images": []
+    },
+    {
+      "i": 614,
+      "style": "Normal",
+      "text": "Assembleia dos membros, responsável por aprovar determinadas decisões institucionais.",
+      "images": []
+    },
+    {
+      "i": 615,
+      "style": "Normal",
+      "text": "National Executive Committee",
+      "images": []
+    },
+    {
+      "i": 616,
+      "style": "Normal",
+      "text": "Órgão de direção que administra a organização e propõe decisões, como taxas de associação.",
+      "images": []
+    },
+    {
+      "i": 617,
+      "style": "Normal",
+      "text": "Chapters",
+      "images": []
+    },
+    {
+      "i": 618,
+      "style": "Normal",
+      "text": "Capítulos ou representações da organização, cuja distribuição e competências específicas precisam ser confirmadas.",
+      "images": []
+    },
+    {
+      "i": 619,
+      "style": "Normal",
+      "text": "Board of Fellows",
+      "images": []
+    },
+    {
+      "i": 620,
+      "style": "Normal",
+      "text": "Reúne membros reconhecidos como fellows e realiza encontros para discutir questões da organização.",
+      "images": []
+    },
+    {
+      "i": 621,
+      "style": "Normal",
+      "text": "Aisha Isa",
+      "images": [
+        {
+          "seq": 14,
+          "relId": "rId104",
+          "docxPath": "word/media/image6.png",
+          "file": "image6.png",
+          "disk": "/Users/anaterra/Documents/Mapeamento-Organizacoes-Lemann-Vozes/03_Publicacao/links/docx-media/image6.png"
+        }
+      ],
+      "credit": null
+    },
+    {
+      "i": 622,
+      "style": "Normal",
+      "text": "A Professora Aisha Isa foi eleita Presidenta Nacional da organização em setembro de 2026. Ela é uma renomada acadêmica nigeriana e especialista na área de educação, e ocupa a posição de Diretora (Dean) da Faculdade de Educação em Ciência e Tecnologia na Aliko Dangote University of Science and Technology (ADUSTECH).",
+      "images": []
+    },
+    {
+      "i": 623,
+      "style": "Normal",
+      "text": "2.3. Financiamento",
+      "images": []
+    },
+    {
+      "i": 624,
+      "style": "Normal",
+      "text": "A CON possui um modelo de associação que prevê taxas de inscrição, anuidades e outras contribuições dos membros. Os valores são definidos periodicamente pelo Comitê Executivo Nacional e aprovados pela Assembleia Geral.",
+      "images": []
+    },
+    {
+      "i": 625,
+      "style": "Normal",
+      "text": "O quadro de membros da CON é aberto a estudantes, profissionais e instituições da área educacional, dividindo-se em categorias que acompanham a evolução acadêmica. O fluxo inicial atende estudantes e recém-graduados com taxas reduzidas e suporte de transição para a carreira. O núcleo da organização é formado por professores e pesquisadores estabelecidos com direito a voto, além de faculdades e órgãos públicos associados. No topo da estrutura, estão os títulos honoríficos de mérito, voltado para a mentoria de educadores sêniores de destaque nacional, e filantropos ou ministros externos de grande impacto na educação.",
+      "images": []
+    },
+    {
+      "i": 626,
+      "style": "Normal",
+      "text": "Para ingressar nas categorias regulares, é preciso preencher o formulário oficial e pagar a taxa de registro estipulada pelo comitê. A inscrição pode ser feita online pelo site oficial.",
+      "images": []
+    },
+    {
+      "i": 627,
+      "style": "Normal",
+      "text": "2.4. A atuação",
+      "images": []
+    },
+    {
+      "i": 628,
+      "style": "Normal",
+      "text": "A CON atua principalmente por meio da produção e divulgação de conhecimento curricular, organização de encontros profissionais e articulação de pesquisadores e educadores. Suas atividades documentadas concentram-se em conferências, seminários, periódicos e livros especializados.",
+      "images": []
+    },
+    {
+      "i": 629,
+      "style": "Normal",
+      "text": "Quatro exemplos mostram como essa atuação acontece.",
+      "images": []
+    },
+    {
+      "i": 630,
+      "style": "Normal",
+      "text": "Conferências anuais",
+      "images": []
+    },
+    {
+      "i": 631,
+      "style": "Normal",
+      "text": "A CON organiza conferências para reunir pesquisadores, professores e especialistas em torno de problemas do desenvolvimento e da implementação curricular. Em 2019, a 32ª Conferência Anual, por exemplo, discutiu o papel do currículo na construção de uma sociedade livre de corrupção.",
+      "images": []
+    },
+    {
+      "i": 632,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "seq": 15,
+          "relId": "rId108",
+          "docxPath": "word/media/image2.png",
+          "file": "image2.png",
+          "disk": "/Users/anaterra/Documents/Mapeamento-Organizacoes-Lemann-Vozes/03_Publicacao/links/docx-media/image2.png"
+        }
+      ],
+      "credit": null
+    },
+    {
+      "i": 633,
+      "style": "Normal",
+      "text": "Nigerian Journal of Curriculum Studies",
+      "images": []
+    },
+    {
+      "i": 634,
+      "style": "Normal",
+      "text": "A CON publica o Nigerian Journal of Curriculum Studies, periódico acadêmico iniciado em 1983 e dedicado à divulgação de pesquisas sobre currículo. A revista reúne estudos sobre desenvolvimento, implementação, avaliação e inovação curricular.",
+      "images": []
+    },
+    {
+      "i": 635,
+      "style": "Normal",
+      "text": "Produção de livros especializados",
+      "images": []
+    },
+    {
+      "i": 636,
+      "style": "Normal",
+      "text": "Em 2009, a CON desenvolveu dois livros voltados aos estudos curriculares no ensino superior: Curriculum Theory and Practice e Curriculum Diversification in Nigeria. Em 2014, publicou Curriculum and Teaching in Nigeria, obra em homenagem à então presidente A. E. O. Esu.",
+      "images": []
+    },
+    {
+      "i": 637,
+      "style": "Normal",
+      "text": "Seminários e reconhecimento de especialistas",
+      "images": []
+    },
+    {
+      "i": 638,
+      "style": "Normal",
+      "text": "A CON também organiza seminários temáticos no campo curricular. O primeiro ocorreu em março de 1999, na University of Jos, com apoio registrado da UNESCO. Em 2001, a organização promoveu uma discussão sobre os desafios da educação secundária nigeriana no século XXI, com apresentações de especialistas, discussões entre participantes e elaboração de comunicados.",
+      "images": []
+    },
+    {
+      "i": 639,
+      "style": "Normal",
+      "text": "2.5. trajetória da organização",
+      "images": []
+    },
+    {
+      "i": 640,
+      "style": "Normal",
+      "text": "Ano",
+      "images": []
+    },
+    {
+      "i": 641,
+      "style": "Normal",
+      "text": "Marco da organização",
+      "images": []
+    },
+    {
+      "i": 642,
+      "style": "Normal",
+      "text": "1982",
+      "images": []
+    },
+    {
+      "i": 643,
+      "style": "Normal",
+      "text": "Fundação em 24 de setembro, durante a conferência internacional realizada na University of Jos. Eleição do primeiro Comitê Executivo.",
+      "images": []
+    },
+    {
+      "i": 644,
+      "style": "Normal",
+      "text": "1983",
+      "images": []
+    },
+    {
+      "i": 645,
+      "style": "Normal",
+      "text": "Início do Nigerian Journal of Curriculum Studies, conforme registros bibliográficos.",
+      "images": []
+    },
+    {
+      "i": 646,
+      "style": "Normal",
+      "text": "1991 a 1997",
+      "images": []
+    },
+    {
+      "i": 647,
+      "style": "Normal",
+      "text": "Período de interrupção das atividades, seguido de retomada institucional.",
+      "images": []
+    },
+    {
+      "i": 648,
+      "style": "Normal",
+      "text": "1999",
+      "images": []
+    },
+    {
+      "i": 649,
+      "style": "Normal",
+      "text": "Realização do primeiro seminário bienal e concessão dos primeiros reconhecimentos de especialistas.",
+      "images": []
+    },
+    {
+      "i": 650,
+      "style": "Normal",
+      "text": "2001 a 2005",
+      "images": []
+    },
+    {
+      "i": 651,
+      "style": "Normal",
+      "text": "Continuidade dos seminários temáticos sobre educação secundária e qualidade educacional.",
+      "images": []
+    },
+    {
+      "i": 652,
+      "style": "Normal",
+      "text": "2009",
+      "images": []
+    },
+    {
+      "i": 653,
+      "style": "Normal",
+      "text": "Produção de dois livros especializados em teoria e diversificação curricular.",
+      "images": []
+    },
+    {
+      "i": 654,
+      "style": "Normal",
+      "text": "2014",
+      "images": []
+    },
+    {
+      "i": 655,
+      "style": "Normal",
+      "text": "Publicação de Curriculum and Teaching in Nigeria.",
+      "images": []
+    },
+    {
+      "i": 656,
+      "style": "Normal",
+      "text": "2018",
+      "images": []
+    },
+    {
+      "i": 657,
+      "style": "Normal",
+      "text": "Conferência anual sobre desenvolvimento curricular e educação privada.",
+      "images": []
+    },
+    {
+      "i": 658,
+      "style": "Normal",
+      "text": "2019",
+      "images": []
+    },
+    {
+      "i": 659,
+      "style": "Normal",
+      "text": "Conferência sobre currículo e construção de uma sociedade livre de corrupção.",
+      "images": []
+    },
+    {
+      "i": 660,
+      "style": "Normal",
+      "text": "2020 a 2023",
+      "images": []
+    },
+    {
+      "i": 661,
+      "style": "Normal",
+      "text": "Publicação de novas edições do periódico acadêmico, conforme o acervo institucional.",
+      "images": []
+    },
+    {
+      "i": 662,
+      "style": "Normal",
+      "text": "3. Onde as trajetórias se cruzam",
+      "images": []
+    },
+    {
+      "i": 663,
+      "style": "Normal",
+      "text": "Ano",
+      "images": []
+    },
+    {
+      "i": 664,
+      "style": "Normal",
+      "text": "Currículo",
+      "images": []
+    },
+    {
+      "i": 665,
+      "style": "Normal",
+      "text": "Organização",
+      "images": []
+    },
+    {
+      "i": 666,
+      "style": "Normal",
+      "text": "1969 a 1982",
+      "images": []
+    },
+    {
+      "i": 667,
+      "style": "Normal",
+      "text": "A Conferência Nacional de Currículo de 1969 e a National Policy on Education de 1977 estabelecem as bases da política curricular nacional.",
+      "images": []
+    },
+    {
+      "i": 668,
+      "style": "Normal",
+      "text": "A CON é criada em 1982 por profissionais da University of Jos, em um contexto de fortalecimento dos estudos curriculares.",
+      "images": []
+    },
+    {
+      "i": 669,
+      "style": "Normal",
+      "text": "A CON surge após a consolidação das primeiras diretrizes nacionais, como espaço de organização dos especialistas em currículo.",
+      "images": []
+    },
+    {
+      "i": 670,
+      "style": "Normal",
+      "text": "1983 a 1990",
+      "images": []
+    },
+    {
+      "i": 671,
+      "style": "Normal",
+      "text": "O país avança na organização institucional do desenvolvimento curricular. Em 1988, é criado o NERDC.",
+      "images": []
+    },
+    {
+      "i": 672,
+      "style": "Normal",
+      "text": "A CON estrutura sua rede de associados, realiza encontros profissionais e desenvolve publicações especializadas.",
+      "images": []
+    },
+    {
+      "i": 673,
+      "style": "Normal",
+      "text": "O fortalecimento de uma autoridade técnica nacional ocorre paralelamente à organização de uma comunidade acadêmica especializada.",
+      "images": []
+    },
+    {
+      "i": 674,
+      "style": "Normal",
+      "text": "1991 a 2005",
+      "images": []
+    },
+    {
+      "i": 675,
+      "style": "Normal",
+      "text": "A Universal Basic Education, lançada em 1999 e regulamentada em 2004, amplia a necessidade de articulação curricular nos nove anos de educação básica.",
+      "images": []
+    },
+    {
+      "i": 676,
+      "style": "Normal",
+      "text": "Após uma interrupção entre 1991 e 1997, a CON retoma suas atividades e promove seminários, incluindo um encontro sobre os desafios da educação secundária em 2001.",
+      "images": []
+    },
+    {
+      "i": 677,
+      "style": "Normal",
+      "text": "A CON volta a discutir questões educacionais em um período de ampliação da educação básica.",
+      "images": []
+    },
+    {
+      "i": 678,
+      "style": "Normal",
+      "text": "2008 a 2014",
+      "images": []
+    },
+    {
+      "i": 679,
+      "style": "Normal",
+      "text": "O NERDC desenvolve o currículo de nove anos, implementado em 2008. Após passar por uma revisão, entra em vigor novamente em 2014.",
+      "images": []
+    },
+    {
+      "i": 680,
+      "style": "Normal",
+      "text": "A CON publica, em 2014, o livro Curriculum and Teaching in Nigeria, reunindo estudos curriculares.",
+      "images": []
+    },
+    {
+      "i": 681,
+      "style": "Normal",
+      "text": "A organização contribui para a circulação de conhecimento curricular durante o período de revisão.",
+      "images": []
+    },
+    {
+      "i": 682,
+      "style": "Normal",
+      "text": "2018 a 2020",
+      "images": []
+    },
+    {
+      "i": 683,
+      "style": "Normal",
+      "text": "O país inicia discussões e consultas para revisar o currículo do ensino secundário superior.",
+      "images": []
+    },
+    {
+      "i": 684,
+      "style": "Normal",
+      "text": "A CON realiza conferências sobre desenvolvimento curricular e mantém a publicação de estudos especializados.",
+      "images": []
+    },
+    {
+      "i": 685,
+      "style": "Normal",
+      "text": "Os temas debatidos pela CON dialogam com problemas da política curricular. O NERDC realizou consultas com associações e sociedade civil em 2020.",
+      "images": []
+    },
+    {
+      "i": 686,
+      "style": "Normal",
+      "text": "2020 a 2025",
+      "images": []
+    },
+    {
+      "i": 687,
+      "style": "Normal",
+      "text": "O NERDC coordena uma ampla revisão dos currículos da educação básica e secundária, apresentada pelo governo em 2025.",
+      "images": []
+    },
+    {
+      "i": 688,
+      "style": "Normal",
+      "text": "Chima Egbujuo, identificado oficialmente como membro ativo da CON, atua como líder técnico do projeto nacional de revisão curricular.",
+      "images": []
+    },
+    {
+      "i": 689,
+      "style": "Normal",
+      "text": "Presença de profissionais vinculados à associação nos processos nacionais de desenvolvimento curricular.",
+      "images": []
+    },
+    {
+      "i": 690,
+      "style": "Heading1",
+      "text": "CHILE.",
+      "images": []
+    },
+    {
+      "i": 691,
+      "style": "Normal",
+      "text": "1. O  currículo chileno",
+      "images": []
+    },
+    {
+      "i": 692,
+      "style": "Normal",
+      "text": "1.1. O sistema curricular chileno",
+      "images": []
+    },
+    {
+      "i": 693,
+      "style": "Normal",
+      "text": "O Chile possui um sistema curricular nacional, no qual o Ministério da Educação (MINEDUC) é responsável por elaborar as referências curriculares e o Consejo Nacional de Educación (CNED) por analisá-las e aprová-las. Diferentemente da Austrália e dos Estados Unidos, as decisões curriculares centrais não são tomadas individualmente por estados ou regiões.",
+      "images": []
+    },
+    {
+      "i": 694,
+      "style": "Normal",
+      "text": "A elaboração técnica é conduzida pela Unidad de Currículum y Evaluación (UCE), vinculada ao Ministério. As Bases Curriculares estabelecem os objetivos nacionais de aprendizagem, enquanto os estabelecimentos educacionais organizam seu ensino a partir dessas referências. A legislação também permite que as escolas desenvolvam planos e programas próprios, desde que respeitem as exigências nacionais.",
+      "images": []
+    },
+    {
+      "i": 695,
+      "style": "Normal",
+      "text": "Ator",
+      "images": []
+    },
+    {
+      "i": 696,
+      "style": "Normal",
+      "text": "Papel na política curricular",
+      "images": []
+    },
+    {
+      "i": 697,
+      "style": "Normal",
+      "text": "Ministerio de Educación (MINEDUC)",
+      "images": []
+    },
+    {
+      "i": 698,
+      "style": "Normal",
+      "text": "Governo nacional",
+      "images": []
+    },
+    {
+      "i": 699,
+      "style": "Normal",
+      "text": "Define prioridades educacionais, apresenta propostas curriculares e formaliza as Bases Curriculares por decreto.",
+      "images": []
+    },
+    {
+      "i": 700,
+      "style": "Normal",
+      "text": "Unidad de Currículum y Evaluación (UCE)",
+      "images": []
+    },
+    {
+      "i": 701,
+      "style": "Normal",
+      "text": "Unidade técnica do Ministério",
+      "images": []
+    },
+    {
+      "i": 702,
+      "style": "Normal",
+      "text": "Desenvolve propostas de Bases Curriculares, planos, programas e orientações para sua implementação.",
+      "images": []
+    },
+    {
+      "i": 703,
+      "style": "Normal",
+      "text": "Consejo Nacional de Educación (CNED)",
+      "images": []
+    },
+    {
+      "i": 704,
+      "style": "Normal",
+      "text": "Analisa as propostas do Ministério, podendo aprová-las, apresentar observações ou rejeitá-las.",
+      "images": []
+    },
+    {
+      "i": 705,
+      "style": "Normal",
+      "text": "Órgãos responsáveis pela administração escolar",
+      "images": []
+    },
+    {
+      "i": 706,
+      "style": "Normal",
+      "text": "Organizam as condições institucionais e os recursos necessários para que as escolas implementem o currículo.",
+      "images": []
+    },
+    {
+      "i": 707,
+      "style": "Normal",
+      "text": "Escolas e equipes pedagógicas",
+      "images": []
+    },
+    {
+      "i": 708,
+      "style": "Normal",
+      "text": "Planejam o ensino, utilizam os programas oficiais ou desenvolvem programas próprios compatíveis com as Bases Curriculares.",
+      "images": []
+    },
+    {
+      "i": 709,
+      "style": "Normal",
+      "text": "1.2. Como o currículo é organizado",
+      "images": []
+    },
+    {
+      "i": 710,
+      "style": "Normal",
+      "text": "As Bases Curriculares são o principal documento do currículo nacional chileno. Elas estabelecem os Objetivos de Aprendizaje (OA), ou seja, o que os estudantes devem aprender em cada disciplina e etapa escolar, considerando conhecimentos, habilidades e atitudes.",
+      "images": []
+    },
+    {
+      "i": 711,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "seq": 16,
+          "relId": "rId112",
+          "docxPath": "word/media/image16.png",
+          "file": "image16.png",
+          "disk": "/Users/anaterra/Documents/Mapeamento-Organizacoes-Lemann-Vozes/03_Publicacao/links/docx-media/image16.png"
+        }
+      ],
+      "credit": "Fonte: Site oficial do Currículo Nacional"
+    },
+    {
+      "i": 712,
+      "style": "Normal",
+      "text": "Fonte: Site oficial do Currículo Nacional",
+      "images": []
+    },
+    {
+      "i": 713,
+      "style": "Normal",
+      "text": "O currículo nacional é complementado pelos Planes de Estudio, que organizam o tempo destinado às disciplinas, e pelos Programas de Estudio, que oferecem orientações para trabalhar os objetivos de aprendizagem nas escolas.",
+      "images": []
+    },
+    {
+      "i": 714,
+      "style": "Normal",
+      "text": "As Bases Curriculares são obrigatórias, mas os estabelecimentos podem desenvolver planos e programas próprios que cumpram os objetivos nacionais, seguindo os procedimentos previstos na legislação. Os programas elaborados pelo Ministério são obrigatórios para escolas que não possuem programas próprios.",
+      "images": []
+    },
+    {
+      "i": 715,
+      "style": "Normal",
+      "text": "O currículo escolar chileno compreende a educação parvularia (primeira infância), oito anos de educação básica e quatro anos de educação média. Os dois últimos anos do ensino médio incluem possibilidades de formação diferenciada, como a técnico-profissional.",
+      "images": []
+    },
+    {
+      "i": 716,
+      "style": "Normal",
+      "text": "Educación Parvularia",
+      "images": []
+    },
+    {
+      "i": 717,
+      "style": "Normal",
+      "text": "Primeira infância",
+      "images": []
+    },
+    {
+      "i": 718,
+      "style": "Normal",
+      "text": "Educación Básica",
+      "images": []
+    },
+    {
+      "i": 719,
+      "style": "Normal",
+      "text": "1º a 8º básico",
+      "images": []
+    },
+    {
+      "i": 720,
+      "style": "Normal",
+      "text": "Educación Media",
+      "images": []
+    },
+    {
+      "i": 721,
+      "style": "Normal",
+      "text": "1º a 4º medio",
+      "images": []
+    },
+    {
+      "i": 722,
+      "style": "Normal",
+      "text": "1.3. Como o currículo é produzido",
+      "images": []
+    },
+    {
+      "i": 723,
+      "style": "Normal",
+      "text": "O processo de desenvolvimento curricular chileno é conduzido pela Unidad de Currículum y Evaluación (UCE), do Ministério da Educação. A elaboração e atualização das Bases Curriculares devem incluir diagnóstico, consulta, avaliação e retroalimentação, conforme a Lei Geral de Educação.",
+      "images": []
+    },
+    {
+      "i": 724,
+      "style": "Normal",
+      "text": "Depois da elaboração técnica, as propostas são encaminhadas ao Consejo Nacional de Educación (CNED), que pode aprová-las, apresentar observações ou rejeitá-las. A aprovação do conselho é necessária para que as Bases sejam formalizadas por decreto.",
+      "images": []
+    },
+    {
+      "i": 725,
+      "style": "Normal",
+      "text": "O processo funciona da seguinte forma:",
+      "images": []
+    },
+    {
+      "i": 726,
+      "style": "Normal",
+      "text": "Diagnosticar",
+      "images": []
+    },
+    {
+      "i": 727,
+      "style": "Normal",
+      "text": "O Ministério analisa os currículos vigentes, pesquisas educacionais, avaliações, experiências internacionais e dificuldades de implementação, identificando o que precisa ser atualizado.",
+      "images": []
+    },
+    {
+      "i": 728,
+      "style": "Normal",
+      "text": "Elaborar a proposta",
+      "images": []
+    },
+    {
+      "i": 729,
+      "style": "Normal",
+      "text": "A UCE desenvolve versões preliminares das Bases Curriculares, com apoio de especialistas e mesas técnicas, definindo os objetivos de aprendizagem e a organização dos conteúdos.",
+      "images": []
+    },
+    {
+      "i": 730,
+      "style": "Normal",
+      "text": "Consultar e revisar",
+      "images": []
+    },
+    {
+      "i": 731,
+      "style": "Normal",
+      "text": "O Ministério realiza consultas públicas e técnicas com professores, estudantes, especialistas, organizações e comunidades escolares. As contribuições são sistematizadas para subsidiar ajustes na proposta.",
+      "images": []
+    },
+    {
+      "i": 732,
+      "style": "Normal",
+      "text": "Submeter à aprovação",
+      "images": []
+    },
+    {
+      "i": 733,
+      "style": "Normal",
+      "text": "O CNED avalia a pertinência, a progressão e a viabilidade dos objetivos de aprendizagem. Pode aprovar, observar ou rejeitar a proposta, abrindo novas rodadas de análise quando necessário.",
+      "images": []
+    },
+    {
+      "i": 734,
+      "style": "Normal",
+      "text": "Formalizar e implementar",
+      "images": []
+    },
+    {
+      "i": 735,
+      "style": "Normal",
+      "text": "As Bases aprovadas são estabelecidas por decreto. O Ministério desenvolve programas e orientações, enquanto as escolas organizam sua implementação.",
+      "images": []
+    },
+    {
+      "i": 736,
+      "style": "Normal",
+      "text": "Canais de participação",
+      "images": []
+    },
+    {
+      "i": 737,
+      "style": "Normal",
+      "text": "O Chile possui mecanismos de participação pública na construção curricular. Um exemplo importante é a atualização das Bases Curriculares do 1º básico ao 2º médio, desenvolvida nos últimos anos.",
+      "images": []
+    },
+    {
+      "i": 738,
+      "style": "Normal",
+      "text": "Congreso Pedagógico y Curricular: Organizado pelo Ministério da Educação em parceria com a UNESCO, reuniu mais de 800 mil participantes em discussões sobre o que, como, quando e onde aprender. As contribuições serviram como referência para a elaboração da proposta curricular.",
+      "images": []
+    },
+    {
+      "i": 739,
+      "style": "Normal",
+      "text": "Consulta Pública da Atualização Curricular: Mais de 115 mil pessoas participaram da avaliação da proposta, incluindo professores, gestores e outros atores educacionais. O processo buscou identificar problemas de clareza, pertinência e viabilidade de implementação.",
+      "images": []
+    },
+    {
+      "i": 740,
+      "style": "Normal",
+      "text": "A consulta não equivale à aprovação do currículo. Após a sistematização das contribuições e a preparação da proposta pelo Ministério, o CNED realiza sua própria análise. As consultas públicas, os debates técnicos e as deliberações do CNED constituem momentos em que organizações externas podem tentar influenciar a política curricular.",
+      "images": []
+    },
+    {
+      "i": 741,
+      "style": "Normal",
+      "text": "1.4. A trajetória do currículo chileno",
+      "images": []
+    },
+    {
+      "i": 742,
+      "style": "Normal",
+      "text": "Ano",
+      "images": []
+    },
+    {
+      "i": 743,
+      "style": "Normal",
+      "text": "Marco",
+      "images": []
+    },
+    {
+      "i": 744,
+      "style": "Normal",
+      "text": "1990",
+      "images": []
+    },
+    {
+      "i": 745,
+      "style": "Normal",
+      "text": "A Ley Orgánica Constitucional de Enseñanza (LOCE) estabelece um marco regulatório que prevê objetivos gerais e conteúdos mínimos nacionais.",
+      "images": []
+    },
+    {
+      "i": 746,
+      "style": "Normal",
+      "text": "1996 a 1998",
+      "images": []
+    },
+    {
+      "i": 747,
+      "style": "Normal",
+      "text": "Os decretos de 1996 e 1998 estabelecem os objetivos fundamentais e conteúdos mínimos obrigatórios (OF-CMO), e permitem que os estabelecimentos utilizem programas oficiais ou desenvolvam os próprios.",
+      "images": []
+    },
+    {
+      "i": 748,
+      "style": "Normal",
+      "text": "2009",
+      "images": []
+    },
+    {
+      "i": 749,
+      "style": "Normal",
+      "text": "A Lei nº 20.370 substitui a LOCE no marco geral da educação escolar e introduz as Bases Curriculares como principal instrumento nacional.",
+      "images": []
+    },
+    {
+      "i": 750,
+      "style": "Normal",
+      "text": "2012",
+      "images": []
+    },
+    {
+      "i": 751,
+      "style": "Normal",
+      "text": "O Ministério estabelece as primeiras Bases Curriculares para o 1º ao 6º básico, organizando os conteúdos em objetivos de aprendizagem que integram conhecimentos, habilidades e atitudes.",
+      "images": []
+    },
+    {
+      "i": 752,
+      "style": "Normal",
+      "text": "2013 a 2015",
+      "images": []
+    },
+    {
+      "i": 753,
+      "style": "Normal",
+      "text": "São estabelecidas novas Bases para o 7º básico ao 2º médio e para a formação diferenciada técnico-profissional, ampliando progressivamente o novo modelo curricular.",
+      "images": []
+    },
+    {
+      "i": 754,
+      "style": "Normal",
+      "text": "2018 a 2021",
+      "images": []
+    },
+    {
+      "i": 755,
+      "style": "Normal",
+      "text": "As novas Bases da educação parvularia entram em vigor em 2019. Também em 2019, são estabelecidas as Bases para o 3º e 4º médio, implementadas progressivamente em 2020 e 2021, com reorganização da formação geral e diferenciada.",
+      "images": []
+    },
+    {
+      "i": 756,
+      "style": "Normal",
+      "text": "2020 a 2023",
+      "images": []
+    },
+    {
+      "i": 757,
+      "style": "Normal",
+      "text": "Durante a pandemia, o Ministério adota uma priorização dos objetivos de aprendizagem. Posteriormente, atualiza a estratégia para apoiar a recuperação educacional e orientar o trabalho pedagógico a partir de 2023.",
+      "images": []
+    },
+    {
+      "i": 758,
+      "style": "Normal",
+      "text": "2023 a 2024",
+      "images": []
+    },
+    {
+      "i": 759,
+      "style": "Normal",
+      "text": "O Ministério promove o Congresso Pedagógico e Curricular e uma consulta pública sobre a atualização das Bases do 1º básico ao 2º médio.",
+      "images": []
+    },
+    {
+      "i": 760,
+      "style": "Normal",
+      "text": "2025 a 2026",
+      "images": []
+    },
+    {
+      "i": 761,
+      "style": "Normal",
+      "text": "O conselho examina as propostas de atualização e apresenta decisões específicas por disciplina. Em 2026, aprova algumas propostas e solicita ajustes em outras.",
+      "images": []
+    },
+    {
+      "i": 762,
+      "style": "Normal",
+      "text": "2. A Fundación Reimagina",
+      "images": []
+    },
+    {
+      "i": 763,
+      "style": "Normal",
+      "text": "2.1. O que é a Fundación Reimagina",
+      "images": []
+    },
+    {
+      "i": 764,
+      "style": "Normal",
+      "text": "A Fundación Reimagina é uma organização chilena sem fins lucrativos dedicada à transformação da educação, com foco em inovação pedagógica, aprendizagem integral, desenvolvimento de capacidades e colaboração entre diferentes atores educacionais.",
+      "images": []
+    },
+    {
+      "i": 765,
+      "style": "Normal",
+      "text": "Sua atuação ocorre no entorno da política e combina produção de conhecimento, articulação de redes, desenvolvimento de iniciativas educacionais e participação no debate sobre políticas públicas. Por meio de pesquisas, parcerias e projetos, a fundação busca melhorar as experiências de aprendizagem.",
+      "images": []
+    },
+    {
+      "i": 766,
+      "style": "Normal",
+      "text": "Entre suas atividades, a Reimagina desenvolve estudos sobre aprendizagens, currículo e condições de implementação, com o objetivo de identificar desafios e formular recomendações. Para isso, estabelece parcerias com pesquisadores, organizações e outros atores educacionais, o que permite realizar projetos conjuntos e ampliar a circulação de conhecimento. A fundação também promove iniciativas voltadas à transformação das experiências de aprendizagem e ao fortalecimento de capacidades, e recorre a pesquisas, recomendações e espaços de diálogo para contribuir com os debates sobre mudanças educacionais.",
+      "images": []
+    },
+    {
+      "i": 767,
+      "style": "Normal",
+      "text": "2.2. A governança",
+      "images": []
+    },
+    {
+      "i": 768,
+      "style": "Normal",
+      "text": "A Fundación Reimagina possui uma estrutura composta por um diretório institucional, responsável pela governança, e uma equipe executiva e técnica, responsável pela condução das iniciativas.",
+      "images": []
+    },
+    {
+      "i": 769,
+      "style": "Normal",
+      "text": "A organização é juridicamente registrada no Chile como Fundación para el Impulso de la Educación y la Cultura Reimagina, constituída em 29 de setembro de 2020. Seu registro público de organizações aptas a receber doações disponibiliza estatutos, certificado de diretório e demonstrações financeiras.",
+      "images": []
+    },
+    {
+      "i": 770,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "seq": 17,
+          "relId": "rId121",
+          "docxPath": "word/media/image9.png",
+          "file": "image9.png",
+          "disk": "/Users/anaterra/Documents/Mapeamento-Organizacoes-Lemann-Vozes/03_Publicacao/links/docx-media/image9.png"
+        }
+      ],
+      "credit": null
+    },
+    {
+      "i": 771,
+      "style": "Normal",
+      "text": "Alfredo Grez Kaulen",
+      "images": []
+    },
+    {
+      "i": 772,
+      "style": "Normal",
+      "text": "Alfredo Grez Kaulen é o presidente do diretório.  Engenheiro comercial pela Pontificia Universidad Católica de Chile, com atuação empresarial e participação em iniciativas de empreendedorismo. É responsável pela presidência do órgão de governança da fundação.",
+      "images": []
+    },
+    {
+      "i": 773,
+      "style": "Normal",
+      "text": "2.3. Financiamento",
+      "images": []
+    },
+    {
+      "i": 774,
+      "style": "Normal",
+      "text": "A Reimagina mobiliza recursos por meio de parcerias filantrópicas, doações e financiamento de iniciativas educacionais, combinando apoio institucional e recursos destinados a projetos específicos.",
+      "images": []
+    },
+    {
+      "i": 775,
+      "style": "Normal",
+      "text": "Um exemplo documentado é a parceria com a BHP Foundation, que apoia o programa Efecto Colectivo, voltado a identificar, financiar, fortalecer e ampliar iniciativas de inovação educacional. O relatório de 2023 registra aproximadamente US$ 3 milhões mobilizados para o programa, valor que não deve ser confundido com a receita anual da fundação.",
+      "images": []
+    },
+    {
+      "i": 776,
+      "style": "Normal",
+      "text": "Esse tipo de apoio se dá, em primeiro lugar, por meio de parcerias filantrópicas, nas quais fundações financiam iniciativas específicas, como o próprio Efecto Colectivo. Além disso, a instituição está registrada no sistema chileno de organizações aptas a receber doações, o que amplia suas possibilidades de captação. Soma-se a isso a colaboração com universidades, organismos internacionais e entidades públicas em pesquisas e projetos, embora nem toda parceria implique transferência financeira. Por fim, a Reimagina mobiliza recursos para apoiar outras organizações e ampliar iniciativas educacionais, ainda que esses recursos não equivalham necessariamente a receitas livres para a operação institucional.",
+      "images": []
+    },
+    {
+      "i": 777,
+      "style": "Normal",
+      "text": "A fundação possui certificação internacional Equivalence Determination, concedida pela NGOsource, que facilita sua elegibilidade para receber doações de determinadas instituições filantrópicas dos Estados Unidos. Também disponibiliza demonstrações financeiras auditadas e relatórios de atividades em sua página de transparência.",
+      "images": []
+    },
+    {
+      "i": 778,
+      "style": "Normal",
+      "text": "2.4. A atuação",
+      "images": []
+    },
+    {
+      "i": 779,
+      "style": "Normal",
+      "text": "A Fundación Reimagina combina inovação pedagógica, articulação de organizações, apoio à implementação de iniciativas educacionais e produção de evidências para políticas públicas. Sua atuação não se limita ao currículo, mas os projetos recentes demonstram uma aproximação explícita com a análise das Bases Curriculares chilenas e sua implementação nas escolas.",
+      "images": []
+    },
+    {
+      "i": 780,
+      "style": "Normal",
+      "text": "Cinco exemplos ajudam a compreender como essa atuação acontece:",
+      "images": []
+    },
+    {
+      "i": 781,
+      "style": "Normal",
+      "text": "Aprendo en Casa e Laboratorio de Aprendizajes (2020-2022)",
+      "images": []
+    },
+    {
+      "i": 782,
+      "style": "Normal",
+      "text": "A partir de 2020, a fundação impulsionou a expansão regional do Aprendo en Casa, plataforma de recursos educacionais criada na pandemia, que conectou organizações e ofereceu materiais a professores e famílias. Depois, desenvolveu o Laboratorio de Aprendizajes, com formações sobre tecnologias, competências do século XXI, desenvolvimento socioemocional, metodologias pedagógicas e liderança. Em 2022, o Aprendo en Casa já era uma rede colaborativa presente em sete países.",
+      "images": []
+    },
+    {
+      "i": 783,
+      "style": "Normal",
+      "text": "Efecto Colectivo (2023-2025)",
+      "images": []
+    },
+    {
+      "i": 784,
+      "style": "Normal",
+      "text": "A Reimagina desenvolveu o Efecto Colectivo, que identifica e amplia inovações educacionais já testadas por organizações da sociedade civil. O processo envolve chamada pública, seleção, avaliação por especialistas, financiamento e acompanhamento. Em 2023, recebeu mais de 120 candidaturas de diversas regiões do Chile. Busca gerar evidências sobre as inovações e apoiar sua incorporação em escala. Há articulação com órgãos públicos, mas isso não equivale a participação direta na redação das Bases Curriculares.",
+      "images": []
+    },
+    {
+      "i": 785,
+      "style": "Normal",
+      "text": "Redes internacionais e articulação com governos (2023-2025)",
+      "images": []
+    },
+    {
+      "i": 786,
+      "style": "Normal",
+      "text": "A Reimagina passou a integrar redes internacionais de transformação educacional e colaborou com a UNESCO na estruturação da Alianza Regional para la Transformación e Innovación Educativa (ARTIE). A UNESCO encarregou a fundação de produzir um diagnóstico regional sobre inovação educacional, com contribuições de ministérios da Educação, que ajudou a estruturar uma iniciativa de cooperação e fortalecimento institucional apresentada em 2025.",
+      "images": []
+    },
+    {
+      "i": 787,
+      "style": "Normal",
+      "text": "Del currículum al aula: estudo das oportunidades de aprendizagem (2026)",
+      "images": []
+    },
+    {
+      "i": 788,
+      "style": "Normal",
+      "text": "A Fundación Reimagina e a Brookings Institution desenvolveram o estudo Del currículum al aula: oportunidades de aprendizaje en el sistema educativo chileno, da Reimagina com a Brookings Institution, que compara o currículo previsto nos documentos nacionais com as experiências realmente oferecidas aos estudantes. Analisou documentos curriculares, 104 observações de aula e 460 entrevistas em 41 escolas de quatro regiões, abrangendo oito domínios de aprendizagem. Identificou baixa presença de tecnologia e bem-estar físico nas oportunidades de aprendizagem, e diferenças entre a importância atribuída às competências socioemocionais e sua presença nas práticas escolares.",
+      "images": []
+    },
+    {
+      "i": 789,
+      "style": "Normal",
+      "text": "Learning What Matters in Chile (2026)",
+      "images": []
+    },
+    {
+      "i": 790,
+      "style": "Normal",
+      "text": "Em julho de 2026, a Brookings publicou o estudo Learning What Matters in Chile, baseado em entrevistas com atores de órgãos nacionais, análise das Bases Curriculares e estudos aprofundados em cinco escolas públicas das macrorregiões chilenas. Examinou três condições necessárias ao desenvolvimento de competências amplas: compromisso, capacidade e coerência entre políticas e práticas educacionais.",
+      "images": []
+    },
+    {
+      "i": 791,
+      "style": "Normal",
+      "text": "2.5. A trajetória da organização",
+      "images": []
+    },
+    {
+      "i": 792,
+      "style": "Normal",
+      "text": "Ano",
+      "images": []
+    },
+    {
+      "i": 793,
+      "style": "Normal",
+      "text": "Marco",
+      "images": []
+    },
+    {
+      "i": 794,
+      "style": "Normal",
+      "text": "2020",
+      "images": []
+    },
+    {
+      "i": 795,
+      "style": "Normal",
+      "text": "Constituição formal da fundação. Impulsiona Aprendo en Casa, ecosiSTEAM e iniciativas de formação e inovação educacional.",
+      "images": []
+    },
+    {
+      "i": 796,
+      "style": "Normal",
+      "text": "2021",
+      "images": []
+    },
+    {
+      "i": 797,
+      "style": "Normal",
+      "text": "Expande redes de aprendizagem e parcerias regionais. Participa de iniciativas de cooperação com ministérios da Educação e organizações internacionais.",
+      "images": []
+    },
+    {
+      "i": 798,
+      "style": "Normal",
+      "text": "2022",
+      "images": []
+    },
+    {
+      "i": 799,
+      "style": "Normal",
+      "text": "Desenvolve iniciativas formativas e amplia o Aprendo en Casa para sete países. Integra redes de organizações da sociedade civil no Chile.",
+      "images": []
+    },
+    {
+      "i": 800,
+      "style": "Normal",
+      "text": "2023",
+      "images": []
+    },
+    {
+      "i": 801,
+      "style": "Normal",
+      "text": "Lança o Efecto Colectivo e amplia sua articulação internacional, incluindo a rede vinculada à Brookings.",
+      "images": []
+    },
+    {
+      "i": 802,
+      "style": "Normal",
+      "text": "2024",
+      "images": []
+    },
+    {
+      "i": 803,
+      "style": "Normal",
+      "text": "Consolida iniciativas de inovação educacional e amplia sua participação em redes internacionais de transformação dos sistemas educacionais.",
+      "images": []
+    },
+    {
+      "i": 804,
+      "style": "Normal",
+      "text": "2025",
+      "images": []
+    },
+    {
+      "i": 805,
+      "style": "Normal",
+      "text": "Colabora com a UNESCO na estruturação da ARTIE, rede de cooperação entre ministérios da Educação latino-americanos.",
+      "images": []
+    },
+    {
+      "i": 806,
+      "style": "Normal",
+      "text": "2026",
+      "images": []
+    },
+    {
+      "i": 807,
+      "style": "Normal",
+      "text": "Publica pesquisas com a Brookings sobre currículo, oportunidades de aprendizagem e condições de implementação das competências amplas no Chile.",
+      "images": []
+    },
+    {
+      "i": 808,
+      "style": "Normal",
+      "text": "3. Onde as trajetórias se cruzam",
+      "images": []
+    },
+    {
+      "i": 809,
+      "style": "Normal",
+      "text": "Ano",
+      "images": []
+    },
+    {
+      "i": 810,
+      "style": "Normal",
+      "text": "Currículo",
+      "images": []
+    },
+    {
+      "i": 811,
+      "style": "Normal",
+      "text": "Organização",
+      "images": []
+    },
+    {
+      "i": 812,
+      "style": "Normal",
+      "text": "2020 a 2022",
+      "images": []
+    },
+    {
+      "i": 813,
+      "style": "Normal",
+      "text": "Durante a pandemia, o Ministério adota a priorização curricular para orientar o ensino e a recuperação das aprendizagens.",
+      "images": []
+    },
+    {
+      "i": 814,
+      "style": "Normal",
+      "text": "A Reimagina é criada em 2020 e desenvolve iniciativas como Aprendo en Casa, redes colaborativas e formação de educadores.",
+      "images": []
+    },
+    {
+      "i": 815,
+      "style": "Normal",
+      "text": "As iniciativas da fundação buscavam apoiar o trabalho pedagógico e ampliar o acesso a oportunidades de aprendizagem durante a crise.",
+      "images": []
+    },
+    {
+      "i": 816,
+      "style": "Normal",
+      "text": "2023",
+      "images": []
+    },
+    {
+      "i": 817,
+      "style": "Normal",
+      "text": "O MINEDUC e a UNESCO promovem o Congresso Pedagógico e Curricular, e a proposta de atualização das Bases Curriculares do 1º básico ao 2º médio é submetida à consulta pública,",
+      "images": []
+    },
+    {
+      "i": 818,
+      "style": "Normal",
+      "text": "A fundação amplia sua atuação em inovação educacional e articulação de organizações, incluindo o lançamento do Efecto Colectivo. A Reimagina estabelece um acordo de colaboração com a Dirección de Educación Pública (DEP), voltado à ampliação de iniciativas educacionais.",
+      "images": []
+    },
+    {
+      "i": 819,
+      "style": "Normal",
+      "text": "A Reimagina estabeleceu um canal formal de colaboração com um órgão público responsável pela administração e pelo fortalecimento da educação pública. O objetivo era levar práticas e inovações educacionais às escolas, produzindo evidências que pudessem contribuir para políticas educacionais.",
+      "images": []
+    },
+    {
+      "i": 820,
+      "style": "Normal",
+      "text": "2025",
+      "images": []
+    },
+    {
+      "i": 821,
+      "style": "Normal",
+      "text": "O MINEDUC encaminha e ajusta a proposta de atualização curricular a partir das observações do CNED.",
+      "images": []
+    },
+    {
+      "i": 822,
+      "style": "Normal",
+      "text": "A fundação desenvolve análises sobre competências amplas nas Bases Curriculares vigentes e na proposta de atualização.",
+      "images": []
+    },
+    {
+      "i": 823,
+      "style": "Normal",
+      "text": "A fundação identificou dificuldades de articulação entre as competências previstas no currículo, os sistemas de avaliação, a formação docente e as práticas escolares. Com base nessas evidências, apresentou recomendações como flexibilizar o currículo, ampliar a avaliação de competências transversais, fortalecer a formação docente e melhorar a articulação entre políticas e práticas educacionais.",
+      "images": []
+    },
+    {
+      "i": 824,
+      "style": "Normal",
+      "text": "2026",
+      "images": []
+    },
+    {
+      "i": 825,
+      "style": "Normal",
+      "text": "A atualização curricular permanece em análise institucional, com decisões e ajustes específicos por componente.",
+      "images": []
+    },
+    {
+      "i": 826,
+      "style": "Normal",
+      "text": "A Reimagina publica pesquisas com a Brookings sobre as Bases Curriculares, sua implementação nas escolas e as condições necessárias ao desenvolvimento de competências amplas.",
+      "images": []
+    },
+    {
+      "i": 827,
+      "style": "Normal",
+      "text": "A pesquisa analisou os objetivos de aprendizagem das Bases vigentes e da proposta de atualização do 1º básico ao 2º médio. Também contou com entrevistas de representantes do MINEDUC, da Agencia de Calidad de la Educación e da Dirección de Educación Pública, além de apoio da DEP e de Serviços Locais de Educação Pública para o acesso às escolas.",
+      "images": []
+    }
+  ]
+}

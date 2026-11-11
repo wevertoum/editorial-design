@@ -6,6 +6,14 @@ import { Heading } from './components/Heading'
 import { HighlightBox } from './components/HighlightBox'
 import { Paragraph } from './components/Paragraph'
 import { PullQuote } from './components/PullQuote'
+import { CalloutCard } from './components/vozes/CalloutCard'
+import { CountryOpening } from './components/vozes/CountryOpening'
+import { DetailList } from './components/vozes/DetailList'
+import { FactsRail, RailItem } from './components/vozes/FactsRail'
+import { MilestoneItem, MilestoneStrip } from './components/vozes/MilestoneStrip'
+import { ProfileCard } from './components/vozes/ProfileCard'
+import { SourceNote } from './components/vozes/SourceNote'
+import { VozesLayout, VozesMain, VozesRail } from './components/vozes/VozesLayout'
 
 type WithNode<T> = T & { node?: unknown }
 
@@ -26,4 +34,16 @@ export const mdxComponents = {
   Figure,
   HighlightBox,
   PullQuote,
+  VozesLayout,
+  VozesMain,
+  VozesRail,
+  CountryOpening,
+  ProfileCard,
+  CalloutCard,
+  FactsRail,
+  RailItem,
+  DetailList,
+  SourceNote,
+  MilestoneStrip,
+  MilestoneItem,
 }

@@ -10,10 +10,12 @@ body {
   color: var(--color-ink);
   background: white;
   hyphens: auto;
+  hyphenate-limit-chars: 6 3 2;
 }
 
 p {
   margin: 0 0 0.72em;
+  text-wrap: pretty;
 }
 
 h1,

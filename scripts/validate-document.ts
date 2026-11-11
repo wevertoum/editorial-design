@@ -1,12 +1,37 @@
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
 import path from 'node:path'
-import { ContentError, parseDocument, parseInfographic, parseTimeline } from '../src/content/schema'
+import {
+  assertBundleMatchesDocument,
+  ContentError,
+  parseDocument,
+  parseInfographic,
+  parsePublicationBundle,
+  parseTimeline,
+} from '../src/content/schema'
 import { assertDesignTokens, assertLength, readCustomProperty, readText } from './design-tokens'
 
 const root = process.cwd()
 const contentDir = path.join(root, 'content')
 const errors: string[] = []
-const allowedComponents = new Set(['Columns', 'EditorialTable', 'Figure', 'HighlightBox', 'PullQuote'])
+const allowedComponents = new Set([
+  'CalloutCard',
+  'Columns',
+  'CountryOpening',
+  'DetailList',
+  'EditorialTable',
+  'FactsRail',
+  'Figure',
+  'HighlightBox',
+  'MilestoneItem',
+  'MilestoneStrip',
+  'ProfileCard',
+  'PullQuote',
+  'RailItem',
+  'SourceNote',
+  'VozesLayout',
+  'VozesMain',
+  'VozesRail',
+])
 
 function fail(message: string) {
   errors.push(message)
@@ -99,6 +124,18 @@ guard(() => {
   }
 })
 
+const bundlePath = path.join(contentDir, 'publication.bundle.json')
+guard(() => {
+  if (!document) return
+  if (!existsSync(bundlePath)) {
+    throw new Error(
+      'Missing content/publication.bundle.json — run npm run export:bundle after content changes',
+    )
+  }
+  const bundle = parsePublicationBundle(readJson(bundlePath))
+  assertBundleMatchesDocument(bundle, document)
+})
+
 if (errors.length > 0) {
   console.error(`Document validation failed (${errors.length})`)
   for (const error of errors) console.error(`- ${error}`)
@@ -149,6 +186,8 @@ function checkMdx(file: string, source: string, assets: Set<string>) {
     /\bsrc='([^']+)'/g,
     /\bsrc=\{"([^"]+)"\}/g,
     /\bsrc=\{'([^']+)'\}/g,
+    /\bphoto="([^"]+)"/g,
+    /\bphoto=\{"([^"]+)"\}/g,
     /!\[[^\]]*\]\(([^)\s]+)\)/g,
   ]
   for (const pattern of patterns) {

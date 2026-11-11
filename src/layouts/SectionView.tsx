@@ -16,6 +16,7 @@ export function SectionView({ section, publication, showMasthead }: SectionViewP
       <StandardPage
         id={section.id}
         kicker={section.kicker}
+        sheetVariant={section.sheetVariant}
         showMasthead={showMasthead}
         publication={publication}
       >

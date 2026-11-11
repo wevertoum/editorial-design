@@ -1,0 +1,34 @@
+{
+  "variant": "dual-track",
+  "kicker": "Estados Unidos · Cruzamento",
+  "title": "Onde as trajetórias se cruzam",
+  "lede": [],
+  "spreadPart": "a",
+  "spreadIndex": 1,
+  "nodes": [
+    {
+      "id": "y-1996",
+      "year": "1996",
+      "curriculo": "Governadores e empresas discutem standards e responsabilidades no National Education Summit. Achieve nasce de uma articulação de governadores e lideranças empresariais já envolvidas na agenda de reforma estadual.",
+      "organizacao": "A Achieve é criada como organização independente para apoiar os estados nessa agenda."
+    },
+    {
+      "id": "y-1998-a-2004-1",
+      "year": "1998 a 2004",
+      "curriculo": "Estados desenvolvem e revisam seus próprios standards e sistemas de avaliação. A organização constrói sua legitimidade principalmente por benchmarking e expertise técnica. Em estados como Indiana, realizou avaliações de standards e avaliações a pedido das próprias autoridades estaduais.",
+      "organizacao": "Achieve compara standards estaduais, presta assistência técnica e desenvolve o American Diploma Project."
+    },
+    {
+      "id": "y-2005-a-2008-2",
+      "year": "2005 a 2008",
+      "curriculo": "Cresce a busca por maior alinhamento entre ensino médio, faculdade e mercado de trabalho. Achieve passa de prestadora de análises para articuladora de uma rede interestadual. Em paralelo, seus relatórios passam a comparar publicamente o avanço dos estados em padrões, graduação e avaliação.",
+      "organizacao": "A ADP Network conecta dezenas de estados em torno de uma agenda comum de preparação para o ensino superior e carreira."
+    },
+    {
+      "id": "y-2008-a-2010-3",
+      "year": "2008 a 2010",
+      "curriculo": "Movimento por standards comuns culmina no desenvolvimento do Common Core. NGA, CCSSO e Achieve publicam recomendações de standards comuns e internacionalmente comparáveis. No ano seguinte, a Achieve passa da construção de agenda para participação direta no processo técnico de formulação.",
+      "organizacao": "Achieve produz estudos preparatórios, torna-se parceira da NGA e CCSSO e participa tecnicamente das equipes de redação e revisão."
+    }
+  ]
+}

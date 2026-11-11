@@ -7,7 +7,7 @@ import { SectionView } from './SectionView'
 
 const profileCopy = {
   screen:
-    'Screen preview · A4 trim · page breaks, folios, and crop marks are applied by the PDF command',
+    'Edição rápida (sem paginação): npm run dev:edit · spreads e numeração: npm run dev · PDF: npm run build',
   digital: 'Digital profile · A4 trim · no bleed',
   print:
     'Print layout profile · A4 trim · bleed and crop marks are added in the PDF · color is not converted',

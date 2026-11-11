@@ -1,0 +1,22 @@
+{
+  "variant": "dual-track",
+  "kicker": "Austrália · Cruzamento",
+  "title": "Onde as trajetórias se cruzam",
+  "lede": [],
+  "spreadPart": "a",
+  "spreadIndex": 2,
+  "nodes": [
+    {
+      "id": "y-2023",
+      "year": "2023",
+      "curriculo": "Estados começam a implementar a Version 9.0. A relação passa a funcionar também no sentido inverso: especialistas da ACARA utilizam o espaço profissional da ACSA para explicar as mudanças do currículo aos educadores. A associação passa, portanto, a atuar também como ponte de tradução, circulação de informação e apoio à implementação.",
+      "organizacao": "ACSA realiza série de atividades com especialistas da ACARA explicando mudanças."
+    },
+    {
+      "id": "y-2025-a-2026-1",
+      "year": "2025 a 2026",
+      "curriculo": "Novo ciclo de dez anos, revisões focalizadas e proposta de reorganização institucional. A incidência volta a se concentrar nas regras e na governança da política curricular. A ACSA questiona participação profissional, evidências, autonomia dos estados e desenho institucional da nova comissão. O processo está em andamento.",
+      "organizacao": "ACSA publica posicionamento crítico sobre processo, evidências, autonomia e participação profissional."
+    }
+  ]
+}

@@ -7,24 +7,33 @@
   --margin-outer: 16mm;
   --bleed: 0mm;
 
-  --font-serif: "Source Serif 4", "Iowan Old Style", Palatino, "Palatino Linotype", serif;
-  --font-sans: "Source Sans 3", "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-serif: "Roboto Slab", "Source Serif 4", serif;
+  --font-sans: Mulish, "Source Sans 3", "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-display: "Roboto Slab", Georgia, serif;
 
-  --text-body: 10.5pt;
-  --text-leading: 1.45;
-  --text-h1: 26pt;
-  --text-h2: 16pt;
-  --text-h3: 13pt;
+  --text-body: 9.5pt;
+  --text-leading: 1.37;
+  --text-h1: 28pt;
+  --text-h2: 13pt;
+  --text-h3: 11pt;
   --text-kicker: 8pt;
-  --text-small: 8.5pt;
+  --text-small: 7.5pt;
 
-  --color-ink: #1c1915;
-  --color-paper: #f3efe6;
-  --color-accent: #3f4f46;
-  --color-muted: #5e584e;
-  --color-rule: #d3cdc2;
-  --color-highlight: #e7efe8;
-  --color-desk: #c9c1b4;
+  --color-ink: #000000;
+  --color-paper: #ffffff;
+  --color-accent: #493975;
+  --color-muted: #4a4a4a;
+  --color-rule: #d9d2c8;
+  --color-highlight: #f3eee6;
+  --color-desk: #e8e3db;
+
+  --color-vozes-roxo: #493975;
+  --color-vozes-roxo-2: #8146cb;
+  --color-vozes-verde: #0d6353;
+  --color-vozes-verde-vivo: #01c689;
+  --color-vozes-rosa: #ef5ca1;
+  --color-vozes-laranja: #ff8327;
+  --color-marfim: #f3eee6;
 
   --space-1: 2mm;
   --space-2: 4mm;

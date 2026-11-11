@@ -36,10 +36,11 @@
   .sheet {
     box-sizing: border-box;
     width: var(--page-width);
+    max-width: var(--page-width);
     min-height: var(--page-height);
     margin: 28px auto;
     padding: var(--margin-top) var(--margin-outer) var(--margin-bottom) var(--margin-inner);
-    background: var(--color-paper);
+    background: white;
     box-shadow: 0 16px 40px rgba(28, 25, 21, 0.16);
   }
 
@@ -47,6 +48,7 @@
     height: var(--page-height);
     overflow: hidden;
   }
+
 }
 
 @media screen and (max-width: 840px) {
@@ -62,6 +64,7 @@
     min-height: 0;
     overflow: visible;
   }
+
 }
 
 @media print {

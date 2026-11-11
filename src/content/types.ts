@@ -25,12 +25,32 @@ export type TimelineEvent = {
   paragraphs: string[]
 }
 
-export type TimelineContent = {
-  kicker: string
-  title: string
-  lede: string[]
-  events: TimelineEvent[]
+export type DualTrackNode = {
+  id: string
+  year: string
+  curriculo: string
+  organizacao: string
 }
+
+export type TimelineContent =
+  | {
+      variant?: 'classic'
+      kicker: string
+      title: string
+      lede: string[]
+      events: TimelineEvent[]
+    }
+  | {
+      variant: 'dual-track'
+      kicker: string
+      title: string
+      lede: string[]
+      spreadPart: 'a' | 'b'
+      spreadIndex: number
+      introBodyRight?: string
+      sourceNote?: string
+      nodes: DualTrackNode[]
+    }
 
 export type InfographicStat = {
   id: string

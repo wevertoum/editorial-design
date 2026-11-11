@@ -1,0 +1,22 @@
+{
+  "variant": "dual-track",
+  "kicker": "Nigéria · Cruzamento",
+  "title": "Onde as trajetórias se cruzam",
+  "lede": [],
+  "spreadPart": "b",
+  "spreadIndex": 1,
+  "nodes": [
+    {
+      "id": "y-2018-a-2020",
+      "year": "2018 a 2020",
+      "curriculo": "O país inicia discussões e consultas para revisar o currículo do ensino secundário superior. Os temas debatidos pela CON dialogam com problemas da política curricular. O NERDC realizou consultas com associações e sociedade civil em 2020.",
+      "organizacao": "A CON realiza conferências sobre desenvolvimento curricular e mantém a publicação de estudos especializados."
+    },
+    {
+      "id": "y-2020-a-2025-1",
+      "year": "2020 a 2025",
+      "curriculo": "O NERDC coordena uma ampla revisão dos currículos da educação básica e secundária, apresentada pelo governo em 2025. Presença de profissionais vinculados à associação nos processos nacionais de desenvolvimento curricular.",
+      "organizacao": "Chima Egbujuo, identificado oficialmente como membro ativo da CON, atua como líder técnico do projeto nacional de revisão curricular."
+    }
+  ]
+}

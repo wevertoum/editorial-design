@@ -15,6 +15,7 @@ export type LoadedSection =
       layout: 'standard'
       source: string
       kicker?: string
+      sheetVariant?: string
       Content: ComponentType
     }
   | {
@@ -56,20 +57,30 @@ function findModule(modules: Record<string, unknown>, source: string): unknown {
   return match[1]
 }
 
-function readKicker(frontmatter: unknown, source: string): string | undefined {
-  if (frontmatter === undefined) return undefined
+function readFrontmatter(frontmatter: unknown, source: string): { kicker?: string; sheetVariant?: string } {
+  if (frontmatter === undefined) return {}
   if (typeof frontmatter !== 'object' || frontmatter === null || Array.isArray(frontmatter)) {
     throw new ContentError(`${source} frontmatter must be an object`)
   }
   const record = frontmatter as Record<string, unknown>
-  if (record.kicker === undefined) return undefined
-  if (typeof record.kicker !== 'string' || record.kicker.trim() === '') {
-    throw new ContentError(`${source} frontmatter.kicker must be a non-empty string`)
+  let kicker: string | undefined
+  if (record.kicker !== undefined) {
+    if (typeof record.kicker !== 'string' || record.kicker.trim() === '') {
+      throw new ContentError(`${source} frontmatter.kicker must be a non-empty string`)
+    }
+    kicker = record.kicker.trim()
   }
-  return record.kicker.trim()
+  let sheetVariant: string | undefined
+  if (record.sheetVariant !== undefined) {
+    if (typeof record.sheetVariant !== 'string' || record.sheetVariant.trim() === '') {
+      throw new ContentError(`${source} frontmatter.sheetVariant must be a non-empty string`)
+    }
+    sheetVariant = record.sheetVariant.trim()
+  }
+  return { kicker, sheetVariant }
 }
 
-function readMdx(source: string): { Content: ComponentType; kicker?: string } {
+function readMdx(source: string): { Content: ComponentType; kicker?: string; sheetVariant?: string } {
   const loaded = findModule(mdxModules, source)
   if (
     typeof loaded !== 'object' ||
@@ -82,7 +93,7 @@ function readMdx(source: string): { Content: ComponentType; kicker?: string } {
   const mdx = loaded as MdxModule
   return {
     Content: mdx.default,
-    kicker: readKicker(mdx.frontmatter, source),
+    ...readFrontmatter(mdx.frontmatter, source),
   }
 }
 

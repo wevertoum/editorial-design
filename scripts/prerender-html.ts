@@ -38,6 +38,27 @@ try {
     throw new Error('Prerender asset URLs are missing the /vivliostyle/ base')
   }
 
+  const devWatchScript =
+    process.env.EDITORIAL_DEV_WATCH === '1'
+      ? `
+    <script type="module">
+      let last = '';
+      setInterval(async () => {
+        try {
+          const response = await fetch(
+            '/vivliostyle/.dev-build-stamp.txt?nocache=' + Date.now(),
+          );
+          if (!response.ok) return;
+          const stamp = await response.text();
+          if (last && stamp !== last) location.reload();
+          last = stamp;
+        } catch {
+          /* servidor ou stamp ainda ausente */
+        }
+      }, 600);
+    </script>`
+      : ''
+
   const html = `<!doctype html>
 <html lang="${escapeHtml(rendered.language)}" data-profile="${rendered.profile}">
   <head>
@@ -46,7 +67,7 @@ try {
     ${styles.join('\n    ')}
   </head>
   <body>
-    ${rendered.body}
+    ${rendered.body}${devWatchScript}
   </body>
 </html>
 `
