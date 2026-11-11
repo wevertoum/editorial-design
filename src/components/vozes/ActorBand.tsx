@@ -39,7 +39,6 @@ export function ActorBand({ title, items, columns = 4, className }: ActorBandPro
       <div
         className="actor-band-grid"
         data-columns={colCount}
-        style={{ gridTemplateColumns: `repeat(${colCount}, minmax(0, 1fr))` }}
         role="list"
       >
         {items.map((item, index) => {
