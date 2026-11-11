@@ -1,27 +1,64 @@
 import type { FlowBlock, FlowSectionPayload, TextRun } from './bundle-types'
+import { parseInlineRuns } from './inline-markdown'
 
-const COUNTRY_HEADINGS: Record<string, { slug: string; label: string }> = {
-  'AUSTRÁLIA.': { slug: 'australia', label: 'Austrália' },
-  'ESTADOS UNIDOS.': { slug: 'usa', label: 'Estados Unidos' },
-  'INGLATERRA.': { slug: 'england', label: 'Inglaterra' },
-  'NIGÉRIA.': { slug: 'nigeria', label: 'Nigéria' },
-  'CHILE.': { slug: 'chile', label: 'Chile' },
+const COUNTRY_HEADINGS: Record<string, { slug: string; label: string; code: string }> = {
+  'AUSTRÁLIA.': { slug: 'australia', label: 'Austrália', code: 'AU' },
+  'ESTADOS UNIDOS.': { slug: 'usa', label: 'Estados Unidos', code: 'US' },
+  'INGLATERRA.': { slug: 'england', label: 'Inglaterra', code: 'GB' },
+  'NIGÉRIA.': { slug: 'nigeria', label: 'Nigéria', code: 'NG' },
+  'CHILE.': { slug: 'chile', label: 'Chile', code: 'CL' },
 }
+
+const COUNTRY_OPENING_BY_SLUG: Record<string, { code: string; title: string }> = Object.fromEntries(
+  Object.values(COUNTRY_HEADINGS).map((entry) => [entry.slug, { code: entry.code, title: entry.label }]),
+)
 
 const FRONT_SECTION_LABELS = new Set(['APRESENTAÇÃO', 'RESUMO EXECUTIVO', 'ORGANIZAÇÕES'])
 
+const SUBSECTION_LABELS = new Set(['Canais de participação'])
+
+const SHOUTING_TITLES: Record<string, string> = {
+  'A ACHIEVE': 'Achieve',
+  'A CURRICULUM ORGANIZATION OF NIGERIA': 'Curriculum Organization of Nigeria',
+  'O BRITISH CURRICULUM FORUM (BCF)': 'British Curriculum Forum (BCF)',
+}
+
+const KNOWN_PROFILES: Record<string, { role: string; label: string }> = {
+  'Anna Ritzema': { role: 'Executive Director, ACSA', label: 'Perfil' },
+  'Michael Cohen': { role: 'President, Achieve', label: 'Perfil' },
+  'Victoria Pendry': { role: 'CEO, Curriculum Foundation', label: 'Perfil' },
+  'Grace Healy': { role: 'President, British Curriculum Forum', label: 'Perfil' },
+  'Aisha Isa': { role: 'Presidenta Nacional, CON', label: 'Perfil' },
+  'Alfredo Grez Kaulen': { role: 'Presidente do diretório, Fundación Reimagina', label: 'Perfil' },
+}
+
 const YEAR_RE = /^(\d{4}(?:\s+a\s+\d{4})?|\d{4}\s*[-–]\s*\d{4})$/
+
+const ROLE_DESCRIPTION_RE =
+  /^(Autoridade|Analisa|Apoiam|Conduz|Define|Definem|Desenvolve|Estabelece|Formula|Inspeciona|Organizam|Planejam|Realizam|Reúne|Traduzem|Transformam)\b/
+
+function isRoleDescription(text: string): boolean {
+  const t = text.trim()
+  return Boolean(t) && ROLE_DESCRIPTION_RE.test(t)
+}
+
+function joinLabelSubtitle(label: string, subtitle: string): string {
+  return `${label.trim()}\n${subtitle.trim()}`
+}
 
 type InventoryItem = {
   text?: string
   style?: string
   images?: { file?: string }[]
+  credit?: string | null
 }
 
 type InvBlock =
   | { kind: 'paragraph'; plain: string; style: string | null }
+  | { kind: 'list'; title: string; body: string }
   | { kind: 'table'; rows: string[][] }
-  | { kind: 'image'; imageTarget: string }
+  | { kind: 'image'; imageTarget: string; credit?: string }
+  | { kind: 'profile'; name: string; role: string; label: string; bio: string; imageTarget: string }
 
 type FlowSegment = {
   kind: 'flow' | 'cross'
@@ -46,6 +83,39 @@ function paragraphBlock(text: string, style: string | null | undefined): InvBloc
   return { kind: 'paragraph', plain: text, style: style ?? null }
 }
 
+function coalesceListPairs(blocks: InvBlock[], listPairKeys: Set<string>): InvBlock[] {
+  if (listPairKeys.size === 0) return blocks
+  const out: InvBlock[] = []
+  let i = 0
+  while (i < blocks.length) {
+    const block = blocks[i]
+    if (block.kind !== 'paragraph') {
+      out.push(block)
+      i += 1
+      continue
+    }
+    const maybeNext = blocks[i + 1]
+    if (maybeNext?.kind === 'paragraph') {
+      const next = maybeNext
+      const key = `${block.plain}\0${next.plain}`
+      if (listPairKeys.has(key) && headingLevel(next.plain, next.style) === null) {
+        out.push({ kind: 'list', title: block.plain, body: next.plain })
+        i += 2
+        continue
+      }
+    }
+    const singleKey = `${block.plain}\0`
+    if (listPairKeys.has(singleKey)) {
+      out.push({ kind: 'list', title: block.plain, body: '' })
+      i += 1
+      continue
+    }
+    out.push(block)
+    i += 1
+  }
+  return out
+}
+
 function inventoryItemsToBlocks(items: InventoryItem[]): InvBlock[] {
   const blocks: InvBlock[] = []
   for (const item of items) {
@@ -53,10 +123,11 @@ function inventoryItemsToBlocks(items: InventoryItem[]): InvBlock[] {
     if (text) {
       blocks.push(paragraphBlock(text, item.style))
     }
+    const credit = (item.credit ?? '').trim() || undefined
     for (const img of item.images ?? []) {
       const fname = img.file
       if (fname) {
-        blocks.push({ kind: 'image', imageTarget: fname })
+        blocks.push({ kind: 'image', imageTarget: fname, credit })
       }
     }
   }
@@ -72,16 +143,26 @@ function eatActorsTable(blocks: InvBlock[], start: number): { table: InvBlock; n
   const header = [plainAt(blocks, start) ?? '', plainAt(blocks, start + 1) ?? '']
   let i = start + 2
   const rows: string[][] = [header]
-  while (i + 2 < blocks.length) {
+  while (i < blocks.length) {
     if (blocks[i].kind !== 'paragraph') break
     const a = plainAt(blocks, i)
-    const b = plainAt(blocks, i + 1)
-    const c = plainAt(blocks, i + 2)
-    if (!a || !b || !c) break
+    if (!a) break
     if (isCountryHeading(a) || looksLikeYear(a) || a === 'Ano') break
     if (/^\d+\.\d+\./.test(a)) break
-    rows.push([`${a}${b}`, c])
-    i += 3
+    const b = plainAt(blocks, i + 1)
+    if (!b) break
+    const c = plainAt(blocks, i + 2)
+    if (isRoleDescription(b)) {
+      rows.push([a, b])
+      i += 2
+      continue
+    }
+    if (c && isRoleDescription(c)) {
+      rows.push([joinLabelSubtitle(a, b), c])
+      i += 3
+      continue
+    }
+    break
   }
   return { table: { kind: 'table', rows }, next: i }
 }
@@ -171,9 +252,16 @@ function eatChileLevelsTable(blocks: InvBlock[], start: number): { table: InvBlo
   for (const off of [0, 2, 4]) {
     const a = plainAt(blocks, start + off) ?? ''
     const b = plainAt(blocks, start + off + 1) ?? ''
-    pairs.push(`${a}${b}`)
+    pairs.push(joinLabelSubtitle(a, b))
   }
   return { table: { kind: 'table', rows: [pairs] }, next: start + 6 }
+}
+
+function listBlockToDetailList(block: InvBlock & { kind: 'list' }): FlowBlock {
+  const title = block.title.replace(/\*\*/g, '').trim()
+  const body = block.body.trim()
+  const inner = body ? `**${title}**\n\n${body}` : `**${title}**`
+  return { type: 'component', name: 'DetailList', props: { children: inner } }
 }
 
 export function coalesceInventoryTables(blocks: InvBlock[]): InvBlock[] {
@@ -256,11 +344,34 @@ function isChileEducationLevelsTable(rows: string[][]): boolean {
   return joined.includes('educación parvularia') && joined.includes('educación básica')
 }
 
+function isCrossHeading(text: string): boolean {
+  return text.includes('Onde as trajetórias se cruzam')
+}
+
+function collapseSpaces(text: string): string {
+  return text.replace(/\s+/g, ' ').trim()
+}
+
+function displayHeadingText(text: string, style: string | null): string {
+  let plain = collapseSpaces(text)
+  const keepNumberedFinding =
+    style === 'Heading1' && /^\d+\.\s/.test(plain) && !/^\d+\.\d+\./.test(plain)
+  if (!keepNumberedFinding) {
+    plain = plain.replace(/^\d+\.\d+\.\s*/, '').replace(/^\d+\.\s*/, '').trim()
+  }
+  if (plain.toLowerCase() === 'trajetória da organização') {
+    plain = 'A trajetória da organização'
+  }
+  return SHOUTING_TITLES[plain] ?? plain
+}
+
 function headingLevel(text: string, style: string | null): 2 | 3 | null {
-  const plain = text.trim()
+  const plain = collapseSpaces(text)
 
   if (FRONT_SECTION_LABELS.has(plain)) return 2
   if (isCountryHeading(plain)) return 2
+  if (SUBSECTION_LABELS.has(plain)) return 3
+  if (isCrossHeading(plain)) return null
 
   if (style === 'Heading1') {
     if (/^\d+\.\s/.test(plain) && !/^\d+\.\d+\./.test(plain) && plain.length <= 200) {
@@ -273,6 +384,76 @@ function headingLevel(text: string, style: string | null): 2 | 3 | null {
   if (/^\d+\.\s/.test(plain) && !/^\d+\.\d+\./.test(plain)) return 2
   if (/^\d+\.\d+\./.test(plain)) return 3
   return null
+}
+
+/** Infográficos horizontais que ocupam prosa + rail (ex.: tríade do Australian Curriculum). */
+const FULL_WIDTH_IMAGE_FILES = new Set(['image13.png'])
+
+function coalesceImageFonteLines(blocks: InvBlock[]): InvBlock[] {
+  const out: InvBlock[] = []
+  let i = 0
+  while (i < blocks.length) {
+    const block = blocks[i]
+    if (block.kind === 'image') {
+      out.push(block)
+      const next = blocks[i + 1]
+      if (next?.kind === 'paragraph' && next.plain.trim().toLowerCase().startsWith('fonte:')) {
+        i += 2
+        continue
+      }
+      i += 1
+      continue
+    }
+    out.push(block)
+    i += 1
+  }
+  return out
+}
+
+function coalesceProfiles(blocks: InvBlock[]): InvBlock[] {
+  const out: InvBlock[] = []
+  let i = 0
+  while (i < blocks.length) {
+    const block = blocks[i]
+    const next = blocks[i + 1]
+    const after = blocks[i + 2]
+
+    if (block.kind === 'image' && next?.kind === 'paragraph' && next.plain in KNOWN_PROFILES) {
+      const meta = KNOWN_PROFILES[next.plain]
+      const bio = after?.kind === 'paragraph' && headingLevel(after.plain, after.style) === null ? after.plain : ''
+      out.push({
+        kind: 'profile',
+        name: next.plain,
+        role: meta.role,
+        label: meta.label,
+        bio,
+        imageTarget: block.imageTarget,
+      })
+      i += bio ? 3 : 2
+      continue
+    }
+
+    if (block.kind === 'paragraph' && block.plain in KNOWN_PROFILES) {
+      const meta = KNOWN_PROFILES[block.plain]
+      if (next?.kind === 'image') {
+        const bio = after?.kind === 'paragraph' && headingLevel(after.plain, after.style) === null ? after.plain : ''
+        out.push({
+          kind: 'profile',
+          name: block.plain,
+          role: meta.role,
+          label: meta.label,
+          bio,
+          imageTarget: next.imageTarget,
+        })
+        i += bio ? 3 : 2
+        continue
+      }
+    }
+
+    out.push(block)
+    i += 1
+  }
+  return out
 }
 
 function padRow(row: string[], colCount: number): string[] {
@@ -306,7 +487,14 @@ function invTableToFlowBlock(rows: string[][]): FlowBlock {
   } else if (isActorsTable(padded)) {
     caption = headers[0] || 'Tabela'
   } else if (isOrgTrajectoryTable(padded)) {
-    caption = 'Marcos da organização'
+    return {
+      type: 'component',
+      name: 'MilestoneStrip',
+      props: {
+        title: 'Marcos da organização',
+        items: body.map((row) => [row[0] ?? '', row[1] ?? '']),
+      },
+    }
   } else if (headers[0]?.toLowerCase().startsWith('ano')) {
     caption = ''
   } else {
@@ -319,11 +507,13 @@ function invTableToFlowBlock(rows: string[][]): FlowBlock {
 function paragraphToFlowBlocks(block: InvBlock & { kind: 'paragraph' }): FlowBlock[] {
   const level = headingLevel(block.plain, block.style)
   const plain = block.plain.trim()
-  const runs: TextRun[] = [{ text: plain }]
 
   if (level) {
-    return [{ type: 'heading', level, text: plain, runs }]
+    const text = displayHeadingText(plain, block.style)
+    return [{ type: 'heading', level, text, runs: parseInlineRuns(text) }]
   }
+
+  const runs: TextRun[] = parseInlineRuns(plain)
 
   if (plain.toLowerCase().startsWith('fonte:')) {
     let body = plain.slice(6).trim()
@@ -334,16 +524,48 @@ function paragraphToFlowBlocks(block: InvBlock & { kind: 'paragraph' }): FlowBlo
   return [{ type: 'paragraph', runs }]
 }
 
+function profileToFlowBlock(block: InvBlock & { kind: 'profile' }, imageMap: Map<string, string>): FlowBlock {
+  const media = imageMap.get(block.imageTarget) ?? `org-${block.imageTarget}`
+  return {
+    type: 'component',
+    name: 'ProfileCard',
+    props: {
+      name: block.name,
+      role: block.role,
+      bio: block.bio,
+      photo: `media/${media}`,
+    },
+  }
+}
+
+function countryOpeningBlock(slug: string): FlowBlock | undefined {
+  const opening = COUNTRY_OPENING_BY_SLUG[slug]
+  if (!opening) return undefined
+  return {
+    type: 'component',
+    name: 'CountryOpening',
+    props: { code: opening.code, title: opening.title },
+  }
+}
+
 function invBlockToFlowBlocks(block: InvBlock, imageMap: Map<string, string>): FlowBlock[] {
+  if (block.kind === 'list') {
+    return [listBlockToDetailList(block)]
+  }
   if (block.kind === 'paragraph') {
     return paragraphToFlowBlocks(block)
   }
   if (block.kind === 'table') {
     return [invTableToFlowBlock(block.rows)]
   }
+  if (block.kind === 'profile') {
+    return [profileToFlowBlock(block, imageMap)]
+  }
   const media = imageMap.get(block.imageTarget) ?? `org-${block.imageTarget}`
   const alt = `Ilustração do documento (${media}).`
-  return [{ type: 'image', src: `media/${media}`, alt }]
+  const placement = FULL_WIDTH_IMAGE_FILES.has(block.imageTarget) ? 'span' : undefined
+  const caption = block.credit?.trim() || undefined
+  return [{ type: 'image', src: `media/${media}`, alt, caption, placement }]
 }
 
 export function buildInventoryImageMap(items: InventoryItem[]): Map<string, string> {
@@ -375,6 +597,11 @@ export function segmentInventoryFlow(blocks: InvBlock[]): FlowSegment[] {
   })
 
   for (const block of blocks) {
+    if (block.kind === 'list' || block.kind === 'profile') {
+      if (!current) continue
+      current.blocks.push(block)
+      continue
+    }
     if (block.kind === 'paragraph') {
       const plain = block.plain.trim()
       if (plain === 'ORGANIZAÇÕES') {
@@ -412,11 +639,13 @@ export function segmentInventoryFlow(blocks: InvBlock[]): FlowSegment[] {
         }
       }
       if (!current) continue
-      if (/^[234]\.\s/.test(plain) && plain.includes('Onde as trajetórias se cruzam')) {
-        current.blocks.push(block)
+      if (isCrossHeading(plain)) {
         continue
       }
-      if (/^2\.\s/.test(plain) && current.kind === 'flow') {
+      if (/^2\.\s/.test(plain) && currentCountry && current.slug === currentCountry) {
+        countryFlowParts[currentCountry] = Math.max(countryFlowParts[currentCountry] ?? 1, 1)
+        current = startSegment(`${currentCountry}-org`, currentCountryLabel ?? current.kicker)
+        segments.push(current)
         current.blocks.push(block)
         continue
       }
@@ -444,19 +673,35 @@ export function segmentInventoryFlow(blocks: InvBlock[]): FlowSegment[] {
     }
   }
 
-  return segments.filter((s) => s.kind === 'flow')
+  return segments.filter((s) => s.kind === 'flow' && s.blocks.length > 0)
+}
+
+export type InventoryToFlowMapOptions = {
+  listPairKeys?: Set<string>
 }
 
 export function inventoryDocumentToFlowMap(
   data: InventoryDocument,
-): Map<string, { kicker: string; blocks: FlowBlock[] }> {
+  options: InventoryToFlowMapOptions = {},
+): Map<string, { kicker?: string; blocks: FlowBlock[] }> {
+  const listPairKeys = options.listPairKeys ?? new Set<string>()
   const coalesced = coalesceInventoryTables(inventoryItemsToBlocks(data.blocks ?? []))
+  const withLists = coalesceListPairs(coalesced, listPairKeys)
+  const withProfiles = coalesceProfiles(withLists)
+  const withImageFonte = coalesceImageFonteLines(withProfiles)
   const imageMap = buildInventoryImageMap(data.blocks ?? [])
-  const segments = segmentInventoryFlow(coalesced)
-  const map = new Map<string, { kicker: string; blocks: FlowBlock[] }>()
+  const segments = segmentInventoryFlow(withImageFonte)
+  const map = new Map<string, { kicker?: string; blocks: FlowBlock[] }>()
   for (const seg of segments) {
-    const blocks = seg.blocks.flatMap((b) => invBlockToFlowBlocks(b, imageMap))
-    map.set(seg.slug, { kicker: seg.kicker, blocks })
+    const opening = countryOpeningBlock(seg.slug)
+    const blocks = [
+      ...(opening ? [opening] : []),
+      ...seg.blocks.flatMap((b) => invBlockToFlowBlocks(b, imageMap)),
+    ]
+    map.set(seg.slug, {
+      kicker: COUNTRY_OPENING_BY_SLUG[seg.slug] ? undefined : seg.kicker,
+      blocks,
+    })
   }
   return map
 }
@@ -469,7 +714,7 @@ export type FlowSectionFromInventoryOptions = {
 
 export function flowSectionFromInventory(
   sectionId: string,
-  flowMap: Map<string, { kicker: string; blocks: FlowBlock[] }>,
+  flowMap: Map<string, { kicker?: string; blocks: FlowBlock[] }>,
   options: FlowSectionFromInventoryOptions = {},
 ): FlowSectionPayload | undefined {
   const entry = flowMap.get(sectionId)

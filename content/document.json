@@ -6,6 +6,36 @@
   "author": "Vozes da Educação",
   "sections": [
     {
+      "id": "capa",
+      "strategy": "flow",
+      "layout": "standard",
+      "source": "chapters/capa.mdx"
+    },
+    {
+      "id": "expediente",
+      "strategy": "flow",
+      "layout": "standard",
+      "source": "chapters/expediente.mdx"
+    },
+    {
+      "id": "folha-de-rosto",
+      "strategy": "flow",
+      "layout": "standard",
+      "source": "chapters/folha-de-rosto.mdx"
+    },
+    {
+      "id": "sumario",
+      "strategy": "flow",
+      "layout": "standard",
+      "source": "chapters/sumario.mdx"
+    },
+    {
+      "id": "pagina-vazia",
+      "strategy": "flow",
+      "layout": "standard",
+      "source": "chapters/pagina-vazia.mdx"
+    },
+    {
       "id": "apresentacao",
       "strategy": "flow",
       "layout": "standard",
@@ -22,6 +52,12 @@
       "strategy": "flow",
       "layout": "standard",
       "source": "chapters/australia.mdx"
+    },
+    {
+      "id": "australia-org",
+      "strategy": "flow",
+      "layout": "standard",
+      "source": "chapters/australia-org.mdx"
     },
     {
       "id": "australia-cruzamento-1-a",
@@ -42,16 +78,16 @@
       "source": "timelines/australia-cruzamento-2-a.json"
     },
     {
-      "id": "australia-2",
-      "strategy": "flow",
-      "layout": "standard",
-      "source": "chapters/australia-2.mdx"
-    },
-    {
       "id": "usa",
       "strategy": "flow",
       "layout": "standard",
       "source": "chapters/usa.mdx"
+    },
+    {
+      "id": "usa-org",
+      "strategy": "flow",
+      "layout": "standard",
+      "source": "chapters/usa-org.mdx"
     },
     {
       "id": "usa-cruzamento-1-a",
@@ -66,16 +102,16 @@
       "source": "timelines/usa-cruzamento-1-b.json"
     },
     {
-      "id": "usa-2",
-      "strategy": "flow",
-      "layout": "standard",
-      "source": "chapters/usa-2.mdx"
-    },
-    {
       "id": "england",
       "strategy": "flow",
       "layout": "standard",
       "source": "chapters/england.mdx"
+    },
+    {
+      "id": "england-org",
+      "strategy": "flow",
+      "layout": "standard",
+      "source": "chapters/england-org.mdx"
     },
     {
       "id": "england-cruzamento-1-a",
@@ -108,16 +144,16 @@
       "source": "timelines/england-cruzamento-3-b.json"
     },
     {
-      "id": "england-3",
-      "strategy": "flow",
-      "layout": "standard",
-      "source": "chapters/england-3.mdx"
-    },
-    {
       "id": "nigeria",
       "strategy": "flow",
       "layout": "standard",
       "source": "chapters/nigeria.mdx"
+    },
+    {
+      "id": "nigeria-org",
+      "strategy": "flow",
+      "layout": "standard",
+      "source": "chapters/nigeria-org.mdx"
     },
     {
       "id": "nigeria-cruzamento-1-a",
@@ -132,28 +168,22 @@
       "source": "timelines/nigeria-cruzamento-1-b.json"
     },
     {
-      "id": "nigeria-2",
-      "strategy": "flow",
-      "layout": "standard",
-      "source": "chapters/nigeria-2.mdx"
-    },
-    {
       "id": "chile",
       "strategy": "flow",
       "layout": "standard",
       "source": "chapters/chile.mdx"
     },
     {
+      "id": "chile-org",
+      "strategy": "flow",
+      "layout": "standard",
+      "source": "chapters/chile-org.mdx"
+    },
+    {
       "id": "chile-cruzamento-1-a",
       "strategy": "structured",
       "layout": "timeline",
       "source": "timelines/chile-cruzamento-1-a.json"
-    },
-    {
-      "id": "chile-2",
-      "strategy": "flow",
-      "layout": "standard",
-      "source": "chapters/chile-2.mdx"
     }
   ]
 }

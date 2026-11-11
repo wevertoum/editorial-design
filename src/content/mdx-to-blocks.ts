@@ -1,8 +1,9 @@
-import type { FlowBlock, FlowSectionPayload, TextRun } from './bundle-types'
+import type { FlowBlock, FlowSectionPayload } from './bundle-types'
+import { parseInlineRuns } from './inline-markdown'
 
-const LAYOUT_TAGS = new Set(['VozesLayout', 'VozesMain', 'VozesRail'])
+const LAYOUT_TAGS = new Set(['VozesLayout', 'VozesMain', 'VozesRail', 'PageStack'])
 /** Inner text is stored on the component, not reparsed as prose blocks. */
-const JSX_BODY_COMPONENTS = new Set(['SourceNote'])
+const JSX_BODY_COMPONENTS = new Set(['SourceNote', 'Heading'])
 const HEADING_LEVEL = [1, 2, 3, 4, 5, 6] as const
 
 export type MdxFrontmatter = {
@@ -192,6 +193,8 @@ function parseJsxElement(source: string, index: number): ParsedJsx | undefined {
 
 function componentToBlocks(name: string, props: Record<string, unknown>): FlowBlock[] {
   if (name === 'Figure' && typeof props.src === 'string') {
+    const placement = props.placement === 'span' || props.placement === 'rail' ? props.placement : undefined
+    const className = typeof props.className === 'string' ? props.className : undefined
     return [
       {
         type: 'image',
@@ -199,6 +202,28 @@ function componentToBlocks(name: string, props: Record<string, unknown>): FlowBl
         alt: typeof props.alt === 'string' ? props.alt : undefined,
         caption: typeof props.caption === 'string' ? props.caption : undefined,
         credit: typeof props.credit === 'string' ? props.credit : undefined,
+        placement,
+        ...(className ? { className } : {}),
+      },
+    ]
+  }
+  if (name === 'Heading') {
+    const levelRaw = typeof props.level === 'number' ? props.level : 3
+    const level = (levelRaw >= 1 && levelRaw <= 6 ? levelRaw : 3) as 1 | 2 | 3 | 4 | 5 | 6
+    const text =
+      typeof props.children === 'string'
+        ? props.children.trim()
+        : typeof props.children === 'undefined' && typeof props.text === 'string'
+          ? props.text.trim()
+          : ''
+    const className = typeof props.className === 'string' ? props.className : undefined
+    return [
+      {
+        type: 'heading',
+        level,
+        text,
+        runs: parseInlineRuns(text),
+        ...(className ? { className } : {}),
       },
     ]
   }
@@ -228,6 +253,89 @@ function componentToBlocks(name: string, props: Record<string, unknown>): FlowBl
           : undefined
     return [{ type: 'component', name: 'SourceNote', props: children !== undefined ? { children } : props }]
   }
+  if (name === 'DetailList') {
+    const children =
+      typeof props.children === 'string'
+        ? props.children
+        : typeof props.body === 'string'
+          ? props.body
+          : ''
+    const icon = typeof props.icon === 'string' ? props.icon : undefined
+    return [
+      {
+        type: 'component',
+        name: 'DetailList',
+        props: icon ? { children, icon } : { children },
+      },
+    ]
+  }
+  if (name === 'DimensionList') {
+    const children =
+      typeof props.children === 'string'
+        ? props.children
+        : typeof props.body === 'string'
+          ? props.body
+          : ''
+    const number =
+      typeof props.number === 'string'
+        ? props.number
+        : typeof props.number === 'number'
+          ? String(props.number)
+          : ''
+    return [{ type: 'component', name: 'DimensionList', props: { number, children } }]
+  }
+  if (name === 'CountryOpening') {
+    return [{ type: 'component', name: 'CountryOpening', props }]
+  }
+  if (name === 'ProfileCard') {
+    return [{ type: 'component', name: 'ProfileCard', props }]
+  }
+  if (
+    name === 'ActorBand' &&
+    Array.isArray(props.items) &&
+    props.items.every(
+      (item) =>
+        Array.isArray(item) &&
+        item.length >= 2 &&
+        typeof item[0] === 'string' &&
+        typeof item[1] === 'string',
+    )
+  ) {
+    return [
+      {
+        type: 'component',
+        name: 'ActorBand',
+        props: {
+          title: typeof props.title === 'string' ? props.title : undefined,
+          items: props.items as string[][],
+          columns: typeof props.columns === 'number' ? props.columns : 4,
+          className: typeof props.className === 'string' ? props.className : undefined,
+        },
+      },
+    ]
+  }
+  if (
+    name === 'MilestoneStrip' &&
+    Array.isArray(props.items) &&
+    props.items.every(
+      (item) =>
+        Array.isArray(item) &&
+        item.length >= 2 &&
+        typeof item[0] === 'string' &&
+        typeof item[1] === 'string',
+    )
+  ) {
+    return [
+      {
+        type: 'component',
+        name: 'MilestoneStrip',
+        props: {
+          title: typeof props.title === 'string' ? props.title : undefined,
+          items: props.items as string[][],
+        },
+      },
+    ]
+  }
   return [{ type: 'component', name, props }]
 }
 
@@ -252,29 +360,6 @@ function headingLevel(mark: string): (typeof HEADING_LEVEL)[number] {
   const level = mark.length
   if (level >= 1 && level <= 6) return level as (typeof HEADING_LEVEL)[number]
   return 2
-}
-
-function parseInlineRuns(text: string): TextRun[] {
-  const runs: TextRun[] = []
-  const pattern = /(\*\*[^*]+\*\*|_[^_]+_)/g
-  let last = 0
-  let match: RegExpExecArray | null
-  while ((match = pattern.exec(text)) !== null) {
-    if (match.index > last) {
-      runs.push({ text: text.slice(last, match.index) })
-    }
-    const token = match[1]
-    if (token.startsWith('**')) {
-      runs.push({ text: token.slice(2, -2), bold: true })
-    } else {
-      runs.push({ text: token.slice(1, -1), italic: true })
-    }
-    last = match.index + token.length
-  }
-  if (last < text.length) {
-    runs.push({ text: text.slice(last) })
-  }
-  return runs.length > 0 ? runs : [{ text }]
 }
 
 export function parseFlowBlocks(body: string): FlowBlock[] {
@@ -310,7 +395,12 @@ export function parseFlowBlocks(body: string): FlowBlock[] {
           i = el.end
           continue
         }
-        if (JSX_BODY_COMPONENTS.has(el.name) && el.inner.trim()) {
+        if (
+          (JSX_BODY_COMPONENTS.has(el.name) ||
+            el.name === 'DetailList' ||
+            el.name === 'DimensionList') &&
+          el.inner.trim()
+        ) {
           blocks.push(
             ...componentToBlocks(el.name, { ...el.props, children: el.inner.trim() }),
           )

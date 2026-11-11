@@ -62,6 +62,11 @@ Documento para continuar diagramação no **InDesign** (fonte de verdade visual)
 
 **Alvo editorial (DECISOES):** prosa **≤ ~65 CPL** → colunas **3/6** na grade, ~52–55 CPL em Mulish 9,5.
 
+### Espaçamento entre blocos
+
+Tabela completa (antes/depois por estilo, blocos MDX, paginação): **`docs/ESPACAMENTO-TIPOGRAFICO.md`**.  
+Implementação: tokens `--stack-*` em `src/styles/tokens.css`.
+
 ---
 
 ## 4. Cor — papéis semânticos

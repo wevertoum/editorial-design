@@ -12,11 +12,15 @@ from pathlib import Path
 from import_organizacoes_lib import (
     DEFAULT_MAPEAMENTO_CONTENT,
     DEFAULT_MAPEAMENTO_MEDIA,
+    DEFAULT_ORGANIZACOES_DOCX,
     MAPEAMENTO_SNAPSHOT,
     MEDIA,
     Block,
     Run,
+    list_pairs_from_docx,
     is_country_heading,
+    is_role_description,
+    join_label_subtitle,
     run_import,
 )
 
@@ -58,18 +62,29 @@ def eat_actors_table(blocks: list[Block], start: int) -> tuple[Block, int]:
     header = [plain_at(blocks, start) or "", plain_at(blocks, start + 1) or ""]
     i = start + 2
     rows: list[list[str]] = [header]
-    while i + 2 < len(blocks):
+    while i < len(blocks):
         if blocks[i].kind != "paragraph":
             break
-        a, b, c = plain_at(blocks, i), plain_at(blocks, i + 1), plain_at(blocks, i + 2)
-        if not a or not b or not c:
+        a = plain_at(blocks, i)
+        if not a:
             break
         if is_country_heading(a) or looks_like_year(a) or a == "Ano":
             break
         if re.match(r"^\d+\.\d+\.", a):
             break
-        rows.append([f"{a}{b}", c])
-        i += 3
+        b = plain_at(blocks, i + 1) if i + 1 < len(blocks) else None
+        if not b:
+            break
+        c = plain_at(blocks, i + 2) if i + 2 < len(blocks) else None
+        if is_role_description(b):
+            rows.append([a, b])
+            i += 2
+            continue
+        if c and is_role_description(c):
+            rows.append([join_label_subtitle(a, b), c])
+            i += 3
+            continue
+        break
     return Block(kind="table", rows=rows), i
 
 
@@ -159,7 +174,7 @@ def eat_chile_levels_table(blocks: list[Block], start: int) -> tuple[Block, int]
     for off in (0, 2, 4):
         a = plain_at(blocks, start + off) or ""
         b = plain_at(blocks, start + off + 1) or ""
-        pairs.append(f"{a}{b}")
+        pairs.append(join_label_subtitle(a, b))
     return Block(kind="table", rows=[pairs]), start + 6
 
 
@@ -208,10 +223,12 @@ def coalesce_inventory_tables(blocks: list[Block]) -> list[Block]:
     return out
 
 
-def load_inventory(path: Path) -> list[Block]:
+def load_inventory(path: Path) -> tuple[list[Block], set[tuple[str, str]]]:
     data = json.loads(path.read_text(encoding="utf-8"))
+    docx = Path(os.environ.get("ORGANIZACOES_DOCX", str(DEFAULT_ORGANIZACOES_DOCX)))
+    list_pairs = list_pairs_from_docx(docx)
     raw = inventory_items_to_blocks(data.get("blocks") or [])
-    return coalesce_inventory_tables(raw)
+    return coalesce_inventory_tables(raw), list_pairs
 
 
 def copy_inventory_images(
@@ -274,11 +291,16 @@ def main() -> None:
         raise SystemExit(f"Missing docx media dir: {media_dir}")
 
     data = json.loads(inv_path.read_text(encoding="utf-8"))
-    blocks = load_inventory(inv_path)
+    blocks, list_pairs = load_inventory(inv_path)
+    pairs_path = MAPEAMENTO_SNAPSHOT / "list-pairs.json"
+    pairs_path.write_text(
+        json.dumps([list(pair) for pair in sorted(list_pairs)], ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
     image_map: dict[str, str] = {}
     copy_inventory_images(data.get("blocks") or [], media_dir, image_map)
 
-    run_import(blocks, image_map, source_label=inv_path.name)
+    run_import(blocks, image_map, source_label=inv_path.name, list_pairs=list_pairs)
 
 
 if __name__ == "__main__":

@@ -1,15 +1,27 @@
 import type { ReactNode } from 'react'
+import { renderInlineText } from '../../content/renderRuns'
 
 type MilestoneStripProps = {
-  title: string
-  children: ReactNode
+  title?: string
+  /** Pares [ano, marco] — forma preferida no MDX e no inventário. */
+  items?: string[][]
+  children?: ReactNode
 }
 
-export function MilestoneStrip({ title, children }: MilestoneStripProps) {
+export function MilestoneStrip({ title, items, children }: MilestoneStripProps) {
+  const label = title?.trim() || 'Marcos da organização'
   return (
-    <section className="milestone-strip" aria-label={title}>
-      <h3 className="milestone-strip-title">{title}</h3>
-      <ol className="milestone-strip-list">{children}</ol>
+    <section className="milestone-strip" aria-label={label}>
+      {title?.trim() ? (
+        <p className="milestone-strip-title">{title.trim()}</p>
+      ) : null}
+      <ol className="milestone-strip-list">
+        {items
+          ? items.map(([year, body], index) => (
+              <MilestoneItem key={`${year}-${index}`} year={year} label={body} />
+            ))
+          : children}
+      </ol>
     </section>
   )
 }
@@ -19,11 +31,37 @@ type MilestoneItemProps = {
   label: string
 }
 
+/** Separa "2008 a 2010" / "2007 e 2008" em ano 1 + filete vertical + ano 2. */
+function renderYearParts(year: string): ReactNode {
+  const trimmed = year.trim()
+  const range = trimmed.match(/^(\d{4})\s+(?:a|e)\s+(\d{4})(?:\s*\([^)]+\))?$/i)
+  if (!range) {
+    return <span className="milestone-strip-year-num">{trimmed}</span>
+  }
+  const [, start, end] = range
+  return (
+    <>
+      <span className="milestone-strip-year-num">{start}</span>
+      <span className="milestone-strip-year-rule" aria-hidden="true" />
+      <span className="milestone-strip-year-num">{end}</span>
+    </>
+  )
+}
+
 export function MilestoneItem({ year, label }: MilestoneItemProps) {
+  const trimmedYear = year.trim()
+  const isRange = /^(\d{4})\s+(?:a|e)\s+(\d{4})(?:\s*\([^)]+\))?$/i.test(trimmedYear)
   return (
     <li className="milestone-strip-item">
-      <span className="milestone-strip-year">{year}</span>
-      <span className="milestone-strip-label">{label}</span>
+      <p
+        className={
+          isRange ? 'milestone-strip-year milestone-strip-year--range' : 'milestone-strip-year'
+        }
+        {...(isRange ? { 'aria-label': trimmedYear } : {})}
+      >
+        {renderYearParts(year)}
+      </p>
+      <p className="milestone-strip-label">{renderInlineText(label)}</p>
     </li>
   )
 }

@@ -14,8 +14,26 @@ body {
 }
 
 p {
-  margin: 0 0 0.72em;
+  margin: 0 0 var(--stack-paragraph);
   text-wrap: pretty;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.12em;
+  text-decoration-color: color-mix(in srgb, var(--color-accent) 55%, transparent);
+}
+
+a:hover {
+  text-decoration-color: var(--color-accent);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 1px;
 }
 
 h1,
@@ -29,20 +47,20 @@ h3 {
 h1 {
   font-family: var(--font-serif);
   font-size: var(--text-h1);
-  margin: 0 0 var(--space-3);
+  margin: 0 0 var(--stack-after-h1);
   letter-spacing: -0.015em;
 }
 
 h2 {
   font-family: var(--font-serif);
   font-size: var(--text-h2);
-  margin: var(--space-5) 0 var(--space-2);
+  margin: var(--stack-before-h2) 0 var(--stack-after-h2);
 }
 
 h3 {
   font-family: var(--font-sans);
   font-size: var(--text-h3);
-  margin: var(--space-4) 0 var(--space-1);
+  margin: var(--stack-before-h3) 0 var(--stack-after-h3);
 }
 
 .kicker {
@@ -52,7 +70,7 @@ h3 {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-accent);
-  margin: 0 0 var(--space-1);
+  margin: 0 0 var(--stack-after-kicker);
 }
 
 .masthead {
@@ -78,7 +96,7 @@ h3 {
 
 .masthead-subtitle {
   grid-column: 1 / -1;
-  font-size: 9.5pt;
+  font-size: var(--text-body);
   color: var(--color-muted);
 }
 
@@ -94,7 +112,7 @@ h3 {
 }
 
 .pull-quote {
-  margin: var(--space-4) 0 var(--space-4) 8mm;
+  margin: var(--stack-block) 0 var(--stack-block) 8mm;
   padding: 0 0 0 5mm;
   border-left: 0.5mm solid var(--color-accent);
   color: var(--color-accent);
@@ -108,7 +126,7 @@ h3 {
 }
 
 .pull-quote-attribution {
-  margin-top: 2.5mm;
+  margin-top: var(--stack-pullquote-attribution);
   font-family: var(--font-sans);
   font-size: var(--text-small);
   font-style: normal;
@@ -117,7 +135,7 @@ h3 {
 }
 
 .highlight {
-  margin: var(--space-4) 0;
+  margin: var(--stack-block) 0;
   padding: 4mm 5mm;
   background: var(--color-highlight);
   print-color-adjust: exact;
@@ -125,7 +143,7 @@ h3 {
 }
 
 .highlight-title {
-  margin: 0 0 2mm;
+  margin: 0 0 var(--stack-highlight-title);
   font-family: var(--font-sans);
   font-size: var(--text-kicker);
   font-weight: 700;
@@ -157,7 +175,7 @@ h3 {
 }
 
 .figure {
-  margin: var(--space-4) 0;
+  margin: var(--stack-block) 0;
 }
 
 .figure img {
@@ -183,7 +201,7 @@ h3 {
 }
 
 .editorial-table {
-  margin: var(--space-4) 0;
+  margin: var(--stack-block) 0;
 }
 
 .editorial-table table {

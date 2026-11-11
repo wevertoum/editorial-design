@@ -1,6 +1,6 @@
 {
   "variant": "dual-track",
-  "kicker": "Austrália · Cruzamento",
+  "kicker": "Austrália",
   "title": "Onde as trajetórias se cruzam",
   "lede": [],
   "spreadPart": "b",
@@ -9,25 +9,25 @@
     {
       "id": "y-2010",
       "year": "2010",
-      "curriculo": "Primeiros componentes do Australian Curriculum estão sendo concluídos. A ACSA apoiava a existência de um currículo nacional, mas levou ao processo preocupações em relação a prazos, participação profissional, transparência, excesso de conteúdo e condições de implementação.",
-      "organizacao": "ACSA assina o Common View on the Australian Curriculum, documento que apoiava a criação do currículo nacional."
+      "curriculo": "Primeiros componentes do *Australian Curriculum* estão sendo concluídos. A ACSA apoiava a existência de um currículo nacional, mas levou ao processo preocupações em relação a prazos, participação profissional, transparência, excesso de conteúdo e condições de implementação.",
+      "organizacao": "ACSA assina o *Common View on the Australian Curriculum, *documento que apoiava a criação do currículo nacional."
     },
     {
       "id": "y-2013-a-2015-1",
       "year": "2013 a 2015",
-      "curriculo": "ACARA desenvolve Work Studies Years 9 - 10 e amplia o currículo. Contribuição da ACSA: recomendação sobre aprendizagem ao longo da vida, que é registrada na resposta da ACARA e surge posteriormente no documento final.",
+      "curriculo": "ACARA desenvolve *Work Studies Years 9 - 10* e amplia o currículo. Contribuição da ACSA: recomendação sobre aprendizagem ao longo da vida, que é registrada na resposta da ACARA e surge posteriormente no documento final.",
       "organizacao": "ACSA apresenta contribuição escrita à consulta."
     },
     {
       "id": "y-2014-a-2018-2",
       "year": "2014 a 2018",
-      "curriculo": "Governo revisa o Australian Curriculum; Version 8 é consolidada. A relação muda conforme o currículo amadurece. Em 2014, a ACSA aparece formalmente entre os stakeholders consultados na revisão. Em 2018, amplia sua atuação por meio da produção de conhecimento e análise crítica da experiência do Australian Curriculum.",
-      "organizacao": "ACSA participa como stakeholder da revisão e continua produzindo debate e conhecimento."
+      "curriculo": "Governo revisa o *Australian Curriculum; Version *8 é consolidada. A relação muda conforme o currículo amadurece. Em 2014, a ACSA aparece formalmente entre os *stakeholders *consultados na revisão. Em 2018, amplia sua atuação por meio da produção de conhecimento e análise crítica da experiência do *Australian Curriculum.*",
+      "organizacao": "ACSA participa como *stakeholder *da revisão e continua produzindo debate e conhecimento."
     },
     {
       "id": "y-2020-a-2022-3",
       "year": "2020 a 2022",
-      "curriculo": "Primeira revisão integral leva à Version 9.0. A conferência da ACSA ocorreu durante a consulta da Version 9.0 e contou com a participação da liderança da ACARA, funcionando como espaço de interlocução entre a autoridade curricular e a comunidade profissional.",
+      "curriculo": "Primeira revisão integral leva à *Version *9.0. A conferência da ACSA ocorreu durante a consulta da *Version *9.0 e contou com a participação da liderança da ACARA, funcionando como espaço de interlocução entre a autoridade curricular e a comunidade profissional.",
       "organizacao": "ACSA promove conferência curricular durante a consulta pública, com participação da liderança da ACARA."
     }
   ]

@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import html
 import re
 import zipfile
 from pathlib import Path
@@ -13,6 +14,7 @@ from import_organizacoes_lib import (
     Block,
     Run,
     run_import,
+    runs_to_md,
     runs_to_plain,
 )
 
@@ -28,17 +30,76 @@ NS = {
 }
 
 
-def para_runs(p: ET.Element) -> list[Run]:
+def normalize_external_url(url: str) -> str:
+    url = html.unescape(url.strip())
+    for sep in ("%5D", "%29", "]("):
+        if sep in url:
+            url = url.split(sep, 1)[0]
+    return url.rstrip("?)").strip()
+
+
+def run_is_on(el: ET.Element | None) -> bool:
+    if el is None:
+        return False
+    val = el.get(f"{{{NS['w']}}}val")
+    return val is None or val not in {"0", "false"}
+
+
+def run_from_r(r: ET.Element) -> list[Run]:
+    parts: list[str] = []
+    for child in r:
+        tag = child.tag.split("}")[-1]
+        if tag == "t":
+            parts.append(child.text or "")
+        elif tag == "br":
+            parts.append("\n")
+        elif tag == "tab":
+            parts.append("\t")
+    text = "".join(parts)
+    if not text:
+        return []
+    bold = run_is_on(r.find(".//w:b", NS))
+    italic = run_is_on(r.find(".//w:i", NS))
+    return [Run(text=text, bold=bold, italic=italic)]
+
+
+def para_runs(p: ET.Element, rid_to_target: dict[str, str]) -> list[Run]:
     runs: list[Run] = []
-    for r in p.findall(".//w:r", NS):
-        texts = [t.text or "" for t in r.findall(".//w:t", NS)]
-        if not texts:
+    for child in p:
+        tag = child.tag.split("}")[-1]
+        if tag == "r":
+            runs.extend(run_from_r(child))
             continue
-        text = "".join(texts)
-        bold = r.find(".//w:b", NS) is not None
-        italic = r.find(".//w:i", NS) is not None
-        runs.append(Run(text=text, bold=bold, italic=italic))
+        if tag != "hyperlink":
+            continue
+        rid = child.get(f"{{{NS['r']}}}id")
+        target = normalize_external_url(rid_to_target.get(rid or "", ""))
+        inner: list[Run] = []
+        for r in child.findall("w:r", NS):
+            inner.extend(run_from_r(r))
+        if target and (
+            target.startswith("http://")
+            or target.startswith("https://")
+            or target.startswith("mailto:")
+        ):
+            for ir in inner:
+                if ir.text:
+                    runs.append(
+                        Run(text=ir.text, bold=ir.bold, italic=ir.italic, href=target)
+                    )
+        else:
+            runs.extend(inner)
     return runs
+
+
+def cell_plain(tc: ET.Element, rid_to_target: dict[str, str]) -> str:
+    parts: list[str] = []
+    for p in tc.findall(".//w:p", NS):
+        pr = para_runs(p, rid_to_target)
+        md = runs_to_md(pr).strip()
+        if md:
+            parts.append(md)
+    return "\n".join(parts).strip()
 
 
 def parse_docx(path: Path) -> tuple[list[Block], dict[str, bytes]]:
@@ -69,7 +130,7 @@ def parse_docx(path: Path) -> tuple[list[Block], dict[str, bytes]]:
                         imgs.append(target.split("/")[-1])
             for im in imgs:
                 blocks.append(Block(kind="image", image_target=im))
-            runs = para_runs(child)
+            runs = para_runs(child, rid_to_target)
             plain = runs_to_plain(runs).strip()
             if not plain:
                 continue
@@ -77,14 +138,22 @@ def parse_docx(path: Path) -> tuple[list[Block], dict[str, bytes]]:
             style = None
             if pstyle is not None:
                 style = pstyle.get(f"{{{NS['w']}}}val")
-            blocks.append(Block(kind="paragraph", runs=runs, plain=plain, style=style))
+            list_item = child.find("w:pPr/w:numPr", NS) is not None
+            blocks.append(
+                Block(
+                    kind="paragraph",
+                    runs=runs,
+                    plain=plain,
+                    style=style,
+                    list_item=list_item,
+                )
+            )
         elif tag == "tbl":
             rows: list[list[str]] = []
             for tr in child.findall(".//w:tr", NS):
                 row: list[str] = []
                 for tc in tr.findall("w:tc", NS):
-                    cell_runs = para_runs(tc)
-                    row.append(runs_to_plain(cell_runs).strip().replace("\n", " "))
+                    row.append(cell_plain(tc, rid_to_target))
                 if any(cell.strip() for cell in row):
                     rows.append(row)
             if rows:

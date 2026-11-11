@@ -2,6 +2,8 @@
 
 This repository builds one editorial document as React, previews it with Vite, and paginates it with Vivliostyle CLI. Read this file before changing the pipeline, the page model, or the sample.
 
+**Operational workflow (every agent turn):** follow `.cursor/rules/vozes-editorial-workflow.mdc` (`alwaysApply`) — interpret plain-language edit requests; run bundle/validate without asking editors to name those steps. **Preserve every editor-agreed treatment** (MDX components, layout classes, CSS, assets) until they ask to change it; paginated preview and PDF render from MDX, so inventory-only state is not enough. After `import:mapeamento`, reconcile editorial patterns before claiming done. **Human editors (non-technical):** `docs/EDITAR-COM-AGENTE.md` — examples in natural Portuguese only.
+
 ## Architecture
 
 Three composition strategies stay separate:
@@ -11,6 +13,8 @@ Three composition strategies stay separate:
 3. **Art-directed** (`strategy: "art-directed"`, `layout: "infographic"`). JSON supplies values. `InfographicPage` places them. Do not let that page grow like a chapter. If the copy no longer fits one page, change the layout or cut the copy, then check the PDF.
 
 `content/document.json` is the only reading order. Files that are not listed there fail `npm run validate`.
+
+**Source of truth for page content.** Reading order and metadata live in `content/document.json` (title, subtitle, section list). Section bodies live in the paths listed there (`content/chapters/*.mdx`, `content/timelines/*.json`, …). After changing any of those, run `npm run export:bundle` so `content/publication.bundle.json` stays aligned (required by `npm run validate`). Mapeamento upstream edits may also flow through `content/mapeamento/inventory.json` and `npm run import:mapeamento`. Layout and cover treatment (`sheetVariant: vozes-cover` on `chapters/capa.mdx`) live in MDX frontmatter and React/CSS — not in the old specimen masthead on the first chapter.
 
 Content does not own trim, margins, or color. Those live in `src/styles/tokens.css`, with profile overrides in `src/styles/digital.css` and `src/styles/print.css`.
 
@@ -26,8 +30,10 @@ User-facing:
 
 | Command | What it does |
 | --- | --- |
-| `npm run dev` | Build digital, then Vivliostyle viewer with `spread=true` (facing pages) and page numbers from `paged.css`. Default http://127.0.0.1:13000. Watches `content/`, `src/`, `assets/`, and `vite.config.ts`; rebuilds and reloads the viewer on save (first build can be slow). Pass `-- --no-build` to skip the initial build when `dist/` exists. |
-| `npm run build` | Validate, build digital, write `output/document-digital.pdf`. |
+| `npm run dev` / `npm run visualizar` | Build digital, then Vivliostyle viewer with `spread=true` (facing pages) and page numbers from `paged.css`. Default http://127.0.0.1:13000. Watches `content/`, `src/`, `assets/`, and `vite.config.ts`; rebuilds and reloads the viewer on save (first build can be slow). Pass `-- --no-build` to skip the initial build when `dist/` exists. Editors say **visualizar** — use this script. |
+| `npm run dev:edit` / `npm run editar` | Vite at http://127.0.0.1:5173. Hot reload, not paginated. Editors say **modo de edição**. |
+| `npm run build` / `npm run gerar-pdf` | Validate, build digital, write `output/document-digital.pdf`. Editors say **gerar renderização PDF**. |
+| `npm run pdf:print` / `npm run gerar-pdf-grafica` | Print profile PDF with bleed and crop marks. |
 
 Maintainers:
 
@@ -71,7 +77,7 @@ If you upgrade `@vivliostyle/cli`, run `node_modules/.bin/vivliostyle build --he
 
 ## Content conventions
 
-- Flow chapters: `content/chapters/<slug>.mdx`, with YAML frontmatter `kicker`.
+- Flow chapters: `content/chapters/<slug>.mdx`, with YAML frontmatter `sheetVariant` and optional `kicker` (omit `kicker` on `apresentacao`, `resumo-executivo`, and `capa`).
 - Timelines: `content/timelines/<slug>.json`.
 - Infographics: `content/infographics/<slug>.json`.
 - Manifest paths are relative to `content/` and one folder deep. The loader globs those three folders.
@@ -91,7 +97,7 @@ IDs are lowercase slugs. Section ids and event ids share the document, so they m
 - Headings, kickers, and the masthead use `break-after: avoid`. The following paragraph uses `break-before: avoid`.
 - `.timeline-event`, figures, tables, pull quotes, highlight boxes, and the infographic use `break-inside: avoid`.
 - Each section starts a new PDF page via `.sheet + .sheet { break-before: page; }`.
-- Running heads use CSS `string-set`. The publication title is the hidden `.publication-running-title`. The chapter label is the sheet's direct `.kicker`.
+- Vozes PDF margins omit running heads (`@top-left` / `@top-right` are empty in `paged.css`). Capítulos de abertura (`apresentacao`, `resumo-executivo`) não usam `kicker` no frontmatter — só o `h2` no corpo. Outros fluxos podem manter `kicker` na folha quando o rótulo não repete um título visível no texto.
 - The warm sheet color is a screen preview. Do not treat it as a printed stock. PDF page backgrounds stay white.
 - Placeholder naming is "Specimen" / "Editorial Desk". Do not invent a final brand.
 

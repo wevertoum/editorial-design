@@ -19,16 +19,13 @@ export function DocumentShell({ publication }: { publication: LoadedPublication 
   return (
     <MDXProvider components={mdxComponents}>
       <p className="preview-banner">{profileCopy[profile]}</p>
-      <p className="publication-running-title" aria-hidden="true">
-        {publication.title}
-      </p>
       <div className="desk" data-profile={profile} data-pagination-engine={paginationEngine.id}>
-        {publication.sections.map((section, index) => (
+        {publication.sections.map((section) => (
           <SectionView
             key={section.id}
             section={section}
             publication={publication}
-            showMasthead={index === 0}
+            showMasthead={section.id === 'capa'}
           />
         ))}
       </div>

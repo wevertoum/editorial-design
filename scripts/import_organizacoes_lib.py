@@ -4,9 +4,11 @@ from __future__ import annotations
 
 import json
 import re
+import zipfile
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Literal
+from xml.etree import ElementTree as ET
 
 ROOT = Path(__file__).resolve().parent.parent
 CHAPTERS = ROOT / "content" / "chapters"
@@ -16,16 +18,51 @@ MEDIA = ROOT / "assets" / "media"
 MANIFEST = ROOT / "content" / "document.json"
 
 COUNTRY_HEADINGS = {
-    "AUSTRÁLIA.": ("australia", "Austrália"),
-    "ESTADOS UNIDOS.": ("usa", "Estados Unidos"),
-    "INGLATERRA.": ("england", "Inglaterra"),
-    "NIGÉRIA.": ("nigeria", "Nigéria"),
-    "CHILE.": ("chile", "Chile"),
+    "AUSTRÁLIA.": ("australia", "Austrália", "AU"),
+    "ESTADOS UNIDOS.": ("usa", "Estados Unidos", "US"),
+    "INGLATERRA.": ("england", "Inglaterra", "GB"),
+    "NIGÉRIA.": ("nigeria", "Nigéria", "NG"),
+    "CHILE.": ("chile", "Chile", "CL"),
+}
+
+COUNTRY_OPENING_BY_SLUG = {
+    slug: (code, label) for slug, label, code in COUNTRY_HEADINGS.values()
 }
 
 FRONT_SECTION_LABELS = frozenset({"APRESENTAÇÃO", "RESUMO EXECUTIVO", "ORGANIZAÇÕES"})
 
+SUBSECTION_LABELS = frozenset({"Canais de participação"})
+
+SHOUTING_TITLES = {
+    "A ACHIEVE": "Achieve",
+    "A CURRICULUM ORGANIZATION OF NIGERIA": "Curriculum Organization of Nigeria",
+    "O BRITISH CURRICULUM FORUM (BCF)": "British Curriculum Forum (BCF)",
+}
+
+KNOWN_PROFILES = {
+    "Anna Ritzema": ("Executive Director, ACSA", "Perfil"),
+    "Michael Cohen": ("President, Achieve", "Perfil"),
+    "Victoria Pendry": ("CEO, Curriculum Foundation", "Perfil"),
+    "Grace Healy": ("President, British Curriculum Forum", "Perfil"),
+    "Aisha Isa": ("Presidenta Nacional, CON", "Perfil"),
+    "Alfredo Grez Kaulen": ("Presidente do diretório, Fundación Reimagina", "Perfil"),
+}
+
 NODES_PER_SPREAD = 4
+
+ROLE_DESCRIPTION_RE = re.compile(
+    r"^(Autoridade|Analisa|Apoiam|Conduz|Define|Definem|Desenvolve|Estabelece|"
+    r"Formula|Inspeciona|Organizam|Planejam|Realizam|Reúne|Traduzem|Transformam)\b"
+)
+
+
+def is_role_description(text: str) -> bool:
+    t = text.strip()
+    return bool(t) and ROLE_DESCRIPTION_RE.match(t) is not None
+
+
+def join_label_subtitle(label: str, subtitle: str) -> str:
+    return f"{label.strip()}\n{subtitle.strip()}"
 
 DEFAULT_MAPEAMENTO_CONTENT = Path(
     "/Users/anaterra/Documents/Mapeamento-Organizacoes-Lemann-Vozes/03_Publicacao/content"
@@ -35,22 +72,107 @@ DEFAULT_MAPEAMENTO_MEDIA = Path(
 )
 MAPEAMENTO_SNAPSHOT = ROOT / "content" / "mapeamento"
 
+DEFAULT_ORGANIZACOES_DOCX = Path(
+    "/Users/anaterra/Documents/Mapeamento-Organizacoes-Lemann-Vozes/01_Briefing/4. [v1] Organizações (2).docx"
+)
+
+DOCX_NS = {"w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
+
+
+def list_pairs_from_docx(path: Path) -> set[tuple[str, str]]:
+    """Title/body paragraph pairs that use Word list markers (w:numPr + following paragraph)."""
+    if not path.is_file():
+        return set()
+    with zipfile.ZipFile(path) as z:
+        doc = z.read("word/document.xml")
+    root = ET.fromstring(doc)
+    body = root.find("w:body", DOCX_NS)
+    if body is None:
+        return set()
+    paras: list[tuple[str, bool]] = []
+    for child in list(body):
+        if child.tag.split("}")[-1] != "p":
+            continue
+        plain = "".join(t.text or "" for t in child.findall(".//w:t", DOCX_NS)).strip()
+        if not plain:
+            continue
+        is_list = child.find("w:pPr/w:numPr", DOCX_NS) is not None
+        paras.append((plain, is_list))
+    pairs: set[tuple[str, str]] = set()
+    for i, (title, is_list) in enumerate(paras):
+        if not is_list:
+            continue
+        if i + 1 >= len(paras):
+            pairs.add((title, ""))
+            continue
+        body_text, _ = paras[i + 1]
+        pairs.add((title, body_text))
+    return pairs
+
+
+def coalesce_list_pairs_scoped(
+    blocks: list[Block], pairs: set[tuple[str, str]]
+) -> list[Block]:
+    """Merge list title/body only for pairs confirmed in the source DOCX."""
+    if not pairs:
+        return blocks
+    out: list[Block] = []
+    i = 0
+    while i < len(blocks):
+        block = blocks[i]
+        if block.kind != "paragraph":
+            out.append(block)
+            i += 1
+            continue
+        if i + 1 < len(blocks) and blocks[i + 1].kind == "paragraph":
+            nxt = blocks[i + 1]
+            key = (block.plain.strip(), nxt.plain.strip())
+            if key in pairs and heading_level(nxt.plain, nxt.style) is None:
+                out.append(
+                    Block(
+                        kind="list",
+                        runs=block.runs,
+                        plain=block.plain,
+                        style=block.style,
+                        body_runs=nxt.runs,
+                        body_plain=nxt.plain,
+                    )
+                )
+                i += 2
+                continue
+        key_single = (block.plain.strip(), "")
+        if key_single in pairs:
+            out.append(
+                Block(kind="list", runs=block.runs, plain=block.plain, style=block.style)
+            )
+            i += 1
+            continue
+        out.append(block)
+        i += 1
+    return out
+
 
 @dataclass
 class Run:
     text: str
     bold: bool = False
     italic: bool = False
+    href: str | None = None
 
 
 @dataclass
 class Block:
-    kind: Literal["paragraph", "table", "image"]
+    kind: Literal["paragraph", "table", "image", "list", "profile"]
     runs: list[Run] = field(default_factory=list)
     plain: str = ""
     style: str | None = None
     rows: list[list[str]] = field(default_factory=list)
     image_target: str | None = None
+    list_item: bool = False
+    body_runs: list[Run] = field(default_factory=list)
+    body_plain: str = ""
+    profile_role: str = ""
+    profile_label: str = "Perfil"
 
 
 def runs_to_plain(runs: list[Run]) -> str:
@@ -70,14 +192,15 @@ def runs_to_md(runs: list[Run], *, force_body_weight: bool = False) -> str:
         if strip_bold:
             if run.italic:
                 text = f"*{text}*"
-            out.append(text)
-            continue
-        if run.bold and run.italic:
+        elif run.bold and run.italic:
             text = f"***{text}***"
         elif run.bold:
             text = f"**{text}**"
         elif run.italic:
             text = f"*{text}*"
+        if run.href:
+            url = run.href.replace(")", "%29").replace(" ", "%20")
+            text = f"[{text}]({url})"
         out.append(text)
     return "".join(out)
 
@@ -128,6 +251,11 @@ def is_actors_table(rows: list[list[str]]) -> bool:
 
 
 def cross_table_to_nodes(rows: list[list[str]]) -> list[dict[str, str]]:
+    """Parse Ano | Currículo | Organização tables.
+
+    Continuation rows (empty year) with text only in Currículo are the period
+    synthesis (*resumo*). Mixed continuation cells still append to the tracks.
+    """
     data = rows[1:]
     nodes: list[dict[str, str]] = []
     current: dict[str, str] | None = None
@@ -139,10 +267,13 @@ def cross_table_to_nodes(rows: list[list[str]]) -> list[dict[str, str]]:
                 nodes.append(current)
             current = {"year": year, "curriculo": cur, "organizacao": org}
         elif current:
-            if cur:
-                current["curriculo"] = (current["curriculo"] + " " + cur).strip()
-            if org:
-                current["organizacao"] = (current["organizacao"] + " " + org).strip()
+            if cur and not org:
+                current["resumo"] = ((current.get("resumo") or "") + " " + cur).strip()
+            else:
+                if cur:
+                    current["curriculo"] = (current["curriculo"] + " " + cur).strip()
+                if org:
+                    current["organizacao"] = (current["organizacao"] + " " + org).strip()
     if current:
         nodes.append(current)
     return nodes
@@ -206,14 +337,43 @@ def is_country_heading(text: str) -> bool:
     return text.strip() in COUNTRY_HEADINGS
 
 
+def is_cross_heading(text: str) -> bool:
+    return "Onde as trajetórias se cruzam" in text
+
+
+def collapse_spaces(text: str) -> str:
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def display_heading_text(text: str, style: str | None) -> str:
+    plain = collapse_spaces(text)
+    keep_numbered_finding = (
+        style == "Heading1"
+        and re.match(r"^\d+\.\s", plain)
+        and not re.match(r"^\d+\.\d+\.", plain)
+    )
+    if not keep_numbered_finding:
+        plain = re.sub(r"^\d+\.\d+\.\s*", "", plain)
+        plain = re.sub(r"^\d+\.\s*", "", plain).strip()
+    if plain.lower() == "trajetória da organização":
+        plain = "A trajetória da organização"
+    return SHOUTING_TITLES.get(plain, plain)
+
+
 def heading_level(text: str, style: str | None) -> int | None:
-    plain = text.strip()
+    plain = collapse_spaces(text)
 
     if plain in FRONT_SECTION_LABELS:
         return 2
 
     if is_country_heading(plain):
         return 2
+
+    if plain in SUBSECTION_LABELS:
+        return 3
+
+    if is_cross_heading(plain):
+        return None
 
     if style == "Heading1":
         if re.match(r"^\d+\.\s", plain) and not re.match(r"^\d+\.\d+\.", plain):
@@ -236,10 +396,122 @@ def mdx_escape_heading(text: str) -> str:
     return text.replace("#", "\\#")
 
 
+def coalesce_list_pairs(blocks: list[Block]) -> list[Block]:
+    """Merge Word list markers (w:numPr) with the following description paragraph (direct DOCX parse)."""
+    out: list[Block] = []
+    i = 0
+    while i < len(blocks):
+        block = blocks[i]
+        if block.kind != "paragraph" or not block.list_item:
+            out.append(block)
+            i += 1
+            continue
+
+        if i + 1 < len(blocks) and blocks[i + 1].kind == "paragraph":
+            nxt = blocks[i + 1]
+            if not nxt.list_item and heading_level(nxt.plain, nxt.style) is None:
+                out.append(
+                    Block(
+                        kind="list",
+                        runs=block.runs,
+                        plain=block.plain,
+                        style=block.style,
+                        body_runs=nxt.runs,
+                        body_plain=nxt.plain,
+                    )
+                )
+                i += 2
+                continue
+
+        out.append(
+            Block(kind="list", runs=block.runs, plain=block.plain, style=block.style)
+        )
+        i += 1
+    return out
+
+
+def coalesce_profiles(blocks: list[Block]) -> list[Block]:
+    out: list[Block] = []
+    i = 0
+    while i < len(blocks):
+        block = blocks[i]
+        nxt = blocks[i + 1] if i + 1 < len(blocks) else None
+        after = blocks[i + 2] if i + 2 < len(blocks) else None
+
+        if block.kind == "image" and nxt and nxt.kind == "paragraph" and nxt.plain in KNOWN_PROFILES:
+            role, label = KNOWN_PROFILES[nxt.plain]
+            bio = ""
+            if after and after.kind == "paragraph" and heading_level(after.plain, after.style) is None:
+                bio = after.plain
+            out.append(
+                Block(
+                    kind="profile",
+                    runs=nxt.runs,
+                    plain=nxt.plain,
+                    style=nxt.style,
+                    image_target=block.image_target,
+                    profile_role=role,
+                    profile_label=label,
+                    body_plain=bio,
+                )
+            )
+            i += 3 if bio else 2
+            continue
+
+        if block.kind == "paragraph" and block.plain in KNOWN_PROFILES:
+            role, label = KNOWN_PROFILES[block.plain]
+            if nxt and nxt.kind == "image":
+                bio = ""
+                if after and after.kind == "paragraph" and heading_level(after.plain, after.style) is None:
+                    bio = after.plain
+                out.append(
+                    Block(
+                        kind="profile",
+                        runs=block.runs,
+                        plain=block.plain,
+                        style=block.style,
+                        image_target=nxt.image_target,
+                        profile_role=role,
+                        profile_label=label,
+                        body_plain=bio,
+                    )
+                )
+                i += 3 if bio else 2
+                continue
+
+        out.append(block)
+        i += 1
+    return out
+
+
+def profile_to_mdx(block: Block, image_map: dict[str, str]) -> str:
+    media = image_map.get(block.image_target or "", block.image_target or "")
+    return (
+        f"<ProfileCard\n"
+        f"  name={{{jsx_json(block.plain)}}}\n"
+        f"  role={{{jsx_json(block.profile_role)}}}\n"
+        f"  bio={{{jsx_json(block.body_plain)}}}\n"
+        f'  photo="media/{media}"\n'
+        f"/>\n"
+    )
+
+
+def list_to_mdx(block: Block) -> str:
+    title = runs_to_md(block.runs).strip()
+    if title and not (title.startswith("**") and title.endswith("**")):
+        title = f"**{title}**"
+    body = runs_to_md(block.body_runs).strip() if block.body_runs else ""
+    inner = f"{title}\n\n{body}".strip() if body else title
+    return f"<DetailList>\n\n{inner}\n\n</DetailList>\n\n"
+
+
 def paragraph_to_mdx(block: Block) -> str:
     level = heading_level(block.plain, block.style)
     if level:
-        md = runs_to_md(block.runs, force_body_weight=True)
+        md = display_heading_text(
+            runs_to_md(block.runs, force_body_weight=True),
+            block.style,
+        )
     else:
         md = runs_to_md(
             block.runs,
@@ -267,7 +539,10 @@ class Segment:
     org_panel: bool = False
 
 
-def segment_flow_to_mdx(seg: Segment, image_map: dict[str, str], *, has_rail: bool = False) -> str:
+def segment_flow_to_mdx(seg: Segment, image_map: dict[str, str]) -> str:
+    rail_blocks = [b for b in seg.blocks if b.kind == "profile"]
+    main_blocks = [b for b in seg.blocks if b.kind != "profile"]
+    has_rail = bool(rail_blocks)
     kicker = seg.kicker.replace('"', '\\"')
     layout_classes: list[str] = []
     if has_rail:
@@ -279,16 +554,36 @@ def segment_flow_to_mdx(seg: Segment, image_map: dict[str, str], *, has_rail: bo
     if seg.org_panel:
         layout_classes.append("org-panel-page")
     layout_attrs = f' className="{" ".join(layout_classes)}"' if layout_classes else ""
-    parts = [
-        "---\n",
-        f'kicker: "{kicker}"\n',
-        "sheetVariant: vozes-report\n",
-        "---\n\n",
-        f"<VozesLayout{layout_attrs}>\n<VozesMain>\n\n",
-    ]
-    for block in seg.blocks:
-        if block.kind == "paragraph":
+    parts = ["---\n"]
+    if seg.slug not in {"apresentacao", "resumo-executivo", *COUNTRY_OPENING_BY_SLUG.keys()}:
+        parts.append(f'kicker: "{kicker}"\n')
+    parts.extend(
+        [
+            "sheetVariant: vozes-report\n",
+            "---\n\n",
+            f"<VozesLayout{layout_attrs}>\n<VozesMain>\n\n",
+        ]
+    )
+    if seg.slug in COUNTRY_OPENING_BY_SLUG:
+        code, title = COUNTRY_OPENING_BY_SLUG[seg.slug]
+        safe_title = title.replace('"', "&quot;")
+        parts.append(f'<CountryOpening code="{code}" title="{safe_title}" />\n\n')
+    profile_inserted = False
+    for block in main_blocks:
+        if block.kind == "list":
+            parts.append(list_to_mdx(block))
+        elif block.kind == "paragraph":
+            level = heading_level(block.plain, block.style)
             parts.append(paragraph_to_mdx(block))
+            if (
+                not profile_inserted
+                and level == 3
+                and "governança" in block.plain.lower()
+                and rail_blocks
+            ):
+                for profile in rail_blocks:
+                    parts.append(profile_to_mdx(profile, image_map))
+                profile_inserted = True
         elif block.kind == "image" and block.image_target:
             media = image_map.get(block.image_target, block.image_target)
             alt = f"Ilustração do documento ({media})."
@@ -298,7 +593,14 @@ def segment_flow_to_mdx(seg: Segment, image_map: dict[str, str], *, has_rail: bo
         elif block.kind == "table":
             cap = ""
             parts.append(table_to_mdx(block.rows, cap))
-    parts.append("</VozesMain>\n<VozesRail>\n\n</VozesRail>\n</VozesLayout>\n")
+    parts.append("</VozesMain>\n")
+    non_profile_rail = [b for b in rail_blocks if b.kind != "profile"]
+    if non_profile_rail:
+        parts.append("<VozesRail>\n\n")
+        for block in non_profile_rail:
+            parts.append(profile_to_mdx(block, image_map))
+        parts.append("\n</VozesRail>\n")
+    parts.append("</VozesLayout>\n")
     return "".join(parts)
 
 
@@ -313,17 +615,18 @@ def write_dual_track_timelines(
         file_slug = f"{country_slug}-cruzamento-{spread}-{part}"
         out_nodes = []
         for i, node in enumerate(chunk):
-            out_nodes.append(
-                {
-                    "id": node_id(node["year"], i),
-                    "year": node["year"],
-                    "curriculo": node["curriculo"],
-                    "organizacao": node["organizacao"],
-                }
-            )
+            out: dict[str, str] = {
+                "id": node_id(node["year"], i),
+                "year": node["year"],
+                "curriculo": node["curriculo"],
+                "organizacao": node["organizacao"],
+            }
+            if node.get("resumo"):
+                out["resumo"] = node["resumo"]
+            out_nodes.append(out)
         payload = {
             "variant": "dual-track",
-            "kicker": f"{seg.kicker} · Cruzamento",
+            "kicker": seg.kicker,
             "title": "Onde as trajetórias se cruzam",
             "lede": [],
             "spreadPart": part,
@@ -342,8 +645,19 @@ def write_dual_track_timelines(
         )
 
 
-def run_import(blocks: list[Block], image_map: dict[str, str], *, source_label: str) -> int:
+def run_import(
+    blocks: list[Block],
+    image_map: dict[str, str],
+    *,
+    source_label: str,
+    list_pairs: set[tuple[str, str]] | None = None,
+) -> int:
     """Write chapters, timelines, and document.json from parsed blocks. Returns section count."""
+    if list_pairs is not None:
+        blocks = coalesce_list_pairs_scoped(blocks, list_pairs)
+    else:
+        blocks = coalesce_list_pairs(blocks)
+    blocks = coalesce_profiles(blocks)
     segments: list[Segment] = []
     current: Segment | None = None
     current_country: str | None = None
@@ -356,13 +670,17 @@ def run_import(blocks: list[Block], image_map: dict[str, str], *, source_label: 
         return Segment(kind=kind, slug=slug, kicker=kicker, org_panel=org_panel_next)
 
     for block in blocks:
-        if block.kind == "paragraph":
+        if block.kind in {"paragraph", "list", "profile"}:
+            if block.kind == "profile":
+                if current is not None:
+                    current.blocks.append(block)
+                continue
             plain = block.plain.strip()
             if plain == "ORGANIZAÇÕES":
                 mode = "body"
                 continue
             if plain in COUNTRY_HEADINGS:
-                key, label = COUNTRY_HEADINGS[plain]
+                key, label, _code = COUNTRY_HEADINGS[plain]
                 current_country = key
                 current_country_label = label
                 country_flow_parts[key] = 1
@@ -385,15 +703,19 @@ def run_import(blocks: list[Block], image_map: dict[str, str], *, source_label: 
                     continue
             if current is None:
                 continue
-            if re.match(r"^[234]\.\s", plain) and "Onde as trajetórias se cruzam" in plain:
-                current.blocks.append(block)
+            if is_cross_heading(plain):
                 continue
-            if re.match(r"^2\.\s", plain) and current.kind == "flow":
+            if (
+                re.match(r"^2\.\s", plain)
+                and current.kind == "flow"
+                and current_country
+                and current.slug == current_country
+            ):
                 org_panel_next = True
-                if current.blocks:
-                    current.org_panel = False
-                current.blocks.append(block)
+                current = start_segment("flow", f"{current_country}-org", current_country_label or current.kicker)
+                segments.append(current)
                 current.org_panel = True
+                current.blocks.append(block)
                 continue
             if re.match(r"^4\.\s", plain) and "BRITISH CURRICULUM FORUM" in plain.upper():
                 org_panel_next = True
@@ -435,6 +757,8 @@ def run_import(blocks: list[Block], image_map: dict[str, str], *, source_label: 
 
     for seg in segments:
         if seg.kind == "flow":
+            if not seg.blocks:
+                continue
             fname = f"{seg.slug}.mdx"
             (CHAPTERS / fname).write_text(segment_flow_to_mdx(seg, image_map), encoding="utf-8")
             sections.append(

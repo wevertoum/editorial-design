@@ -1,4 +1,5 @@
 import type { TimelineEvent } from '../content/types'
+import { renderInlineText } from '../content/renderRuns'
 import { Heading } from './Heading'
 import { Paragraph } from './Paragraph'
 
@@ -11,7 +12,7 @@ export function Timeline({ events }: { events: TimelineEvent[] }) {
           <div className="timeline-copy">
             <Heading level={2}>{event.title}</Heading>
             {event.paragraphs.map((paragraph, index) => (
-              <Paragraph key={`${event.id}-${index}`}>{paragraph}</Paragraph>
+              <Paragraph key={`${event.id}-${index}`}>{renderInlineText(paragraph)}</Paragraph>
             ))}
           </div>
         </li>

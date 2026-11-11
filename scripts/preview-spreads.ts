@@ -20,6 +20,10 @@ const previewArgs = [
   'preview',
   path.join('dist', 'index.html'),
   '--no-vite-config-file',
+  '--host',
+  '127.0.0.1',
+  '--port',
+  '13000',
   '-d',
   '--viewer-param',
   'spread=true',
@@ -39,8 +43,12 @@ let rebuildTimer: ReturnType<typeof setTimeout> | null = null
 let rebuildInFlight = false
 let rebuildQueued = false
 
+const PREVIEW_VIEWER_URL =
+  'http://127.0.0.1:13000/__vivliostyle-viewer/index.html#src=http://127.0.0.1:13000/vivliostyle/index.html&bookMode=false&renderAllPages=true&spread=true'
+
 console.log('\nPrévia paginada (Vivliostyle) · páginas em spread · numeração em @page')
-console.log('URL padrão: http://127.0.0.1:13000 (o navegador abre sozinho)')
+console.log('Abra esta URL (só http://127.0.0.1:13000/ não mostra o livro):')
+console.log(PREVIEW_VIEWER_URL)
 console.log(
   'Watch ativo: ao salvar conteúdo, estilos ou fontes, a prévia reconstrói e atualiza sozinha.',
 )

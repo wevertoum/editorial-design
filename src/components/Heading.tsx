@@ -1,4 +1,5 @@
 import type { ComponentProps, ReactNode } from 'react'
+import { updateGovernancaFromHeading, useProfileGovernanceHighlight } from '../lib/profileGovernanceHighlight'
 
 type HeadingProps = ComponentProps<'h1'> & {
   level?: 1 | 2 | 3
@@ -7,6 +8,9 @@ type HeadingProps = ComponentProps<'h1'> & {
 }
 
 export function Heading({ level = 1, kicker, className, children, ...rest }: HeadingProps) {
+  const highlightStore = useProfileGovernanceHighlight()
+  updateGovernancaFromHeading(highlightStore, level, children)
+
   const Tag = `h${level}` as 'h1' | 'h2' | 'h3'
   const classes = ['heading', `heading-${level}`, className].filter(Boolean).join(' ')
   return (

@@ -7,6 +7,7 @@ import {
   inventoryDocumentToFlowMap,
   type InventoryDocument as InvDoc,
 } from '../src/content/inventory-to-blocks'
+import { mergeMdxLinkRuns } from '../src/content/inline-markdown'
 import { mdxFileToFlowPayload } from '../src/content/mdx-to-blocks'
 import { parseDocument, parseInfographic, parseTimeline } from '../src/content/schema'
 
@@ -14,6 +15,7 @@ const root = process.cwd()
 const contentDir = path.join(root, 'content')
 const manifestPath = path.join(contentDir, 'document.json')
 const inventoryPath = path.join(contentDir, 'mapeamento', 'inventory.json')
+const listPairsPath = path.join(contentDir, 'mapeamento', 'list-pairs.json')
 const outPath = path.join(contentDir, 'publication.bundle.json')
 
 function readJson(file: string): unknown {
@@ -27,8 +29,16 @@ const mapeamento = existsSync(inventoryPath)
   ? { inventory: path.posix.join('mapeamento/inventory.json') }
   : undefined
 
+function loadListPairKeys(): Set<string> {
+  if (!existsSync(listPairsPath)) return new Set()
+  const raw = readJson(listPairsPath) as [string, string][]
+  return new Set(raw.map(([title, body]) => `${title}\0${body}`))
+}
+
 const inventoryFlowMap = mapeamento
-  ? inventoryDocumentToFlowMap(readJson(inventoryPath) as InvDoc)
+  ? inventoryDocumentToFlowMap(readJson(inventoryPath) as InvDoc, {
+      listPairKeys: loadListPairKeys(),
+    })
   : undefined
 
 const sections: BundleSection[] = document.sections.map((section) => {
@@ -47,7 +57,11 @@ const sections: BundleSection[] = document.sections.map((section) => {
         mdxBlocks: mdxPayload.blocks,
       })
       if (fromInventory) {
-        return { ...section, payload: fromInventory }
+        const blocks = mergeMdxLinkRuns(fromInventory.blocks, mdxPayload.blocks)
+        return {
+          ...section,
+          payload: { ...fromInventory, blocks, mdxBlocks: mdxPayload.blocks },
+        }
       }
     }
     return { ...section, payload: mdxPayload }

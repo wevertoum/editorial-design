@@ -14,16 +14,20 @@ const root = process.cwd()
 const contentDir = path.join(root, 'content')
 const errors: string[] = []
 const allowedComponents = new Set([
+  'ActorBand',
   'CalloutCard',
   'Columns',
   'CountryOpening',
   'DetailList',
+  'DimensionList',
   'EditorialTable',
   'FactsRail',
   'Figure',
+  'Heading',
   'HighlightBox',
   'MilestoneItem',
   'MilestoneStrip',
+  'PageStack',
   'ProfileCard',
   'PullQuote',
   'RailItem',
@@ -112,11 +116,14 @@ guard(() => {
   }
 })
 
+guard(() => collectSrcMediaReferences(referencedAssets))
+
 guard(() => {
   const mediaDir = path.join(root, 'assets', 'media')
   if (!existsSync(mediaDir)) return
   for (const file of readdirSync(mediaDir)) {
-    if (file.startsWith('.')) continue
+    // Skip dotfiles and private working folders (e.g. _incoming portrait masters)
+    if (file.startsWith('.') || file.startsWith('_')) continue
     const used = [...referencedAssets].some((asset) => resolveAsset(asset) === path.posix.join('assets/media', file) || resolveAsset(asset) === path.join('assets/media', file))
     if (!used) {
       throw new Error(`assets/media/${file} is not referenced by content`)
@@ -213,6 +220,26 @@ function collectAssetStrings(value: unknown, assets: Set<string>) {
   if (typeof value === 'object' && value !== null) {
     for (const item of Object.values(value)) collectAssetStrings(item, assets)
   }
+}
+
+function collectSrcMediaReferences(assets: Set<string>) {
+  const srcDir = path.join(root, 'src')
+  if (!existsSync(srcDir)) return
+  const visit = (dir: string) => {
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      const absolute = path.join(dir, entry.name)
+      if (entry.isDirectory()) {
+        visit(absolute)
+        continue
+      }
+      if (!/\.(tsx?|css)$/.test(entry.name)) continue
+      const text = readFileSync(absolute, 'utf8')
+      for (const match of text.matchAll(/\bmedia\/[a-zA-Z0-9._-]+\.[a-z0-9]+\b/g)) {
+        assets.add(match[0])
+      }
+    }
+  }
+  visit(srcDir)
 }
 
 function resolveAsset(reference: string): string {

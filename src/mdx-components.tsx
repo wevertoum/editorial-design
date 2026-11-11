@@ -9,9 +9,12 @@ import { PullQuote } from './components/PullQuote'
 import { CalloutCard } from './components/vozes/CalloutCard'
 import { CountryOpening } from './components/vozes/CountryOpening'
 import { DetailList } from './components/vozes/DetailList'
+import { DimensionList } from './components/vozes/DimensionList'
 import { FactsRail, RailItem } from './components/vozes/FactsRail'
 import { MilestoneItem, MilestoneStrip } from './components/vozes/MilestoneStrip'
 import { ProfileCard } from './components/vozes/ProfileCard'
+import { ActorBand } from './components/vozes/ActorBand'
+import { PageStack } from './components/vozes/PageStack'
 import { SourceNote } from './components/vozes/SourceNote'
 import { VozesLayout, VozesMain, VozesRail } from './components/vozes/VozesLayout'
 
@@ -32,6 +35,7 @@ export const mdxComponents = {
   Columns,
   EditorialTable,
   Figure,
+  Heading,
   HighlightBox,
   PullQuote,
   VozesLayout,
@@ -43,7 +47,10 @@ export const mdxComponents = {
   FactsRail,
   RailItem,
   DetailList,
+  DimensionList,
   SourceNote,
   MilestoneStrip,
   MilestoneItem,
+  ActorBand,
+  PageStack,
 }

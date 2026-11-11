@@ -13,10 +13,18 @@ export type TextRun = {
 }
 
 export type FlowBlock =
-  | { type: 'heading'; level: 1 | 2 | 3 | 4 | 5 | 6; text: string; runs?: TextRun[] }
+  | { type: 'heading'; level: 1 | 2 | 3 | 4 | 5 | 6; text: string; runs?: TextRun[]; className?: string }
   | { type: 'paragraph'; runs: TextRun[] }
   | { type: 'table'; headers: string[]; rows: string[][]; caption?: string; variant?: string }
-  | { type: 'image'; src: string; alt?: string; caption?: string; credit?: string }
+  | {
+      type: 'image'
+      src: string
+      alt?: string
+      caption?: string
+      credit?: string
+      placement?: 'rail' | 'span'
+      className?: string
+    }
   | { type: 'component'; name: string; props: Record<string, unknown> }
 
 export type FlowSectionPayload = {

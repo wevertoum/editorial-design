@@ -50,7 +50,18 @@ try {
           );
           if (!response.ok) return;
           const stamp = await response.text();
-          if (last && stamp !== last) location.reload();
+          if (last && stamp !== last) {
+            document.querySelectorAll('img[src*="/media/"]').forEach((img) => {
+              try {
+                const url = new URL(img.src);
+                url.searchParams.set('rs', stamp.trim());
+                img.src = url.toString();
+              } catch {
+                /* ignore */
+              }
+            });
+            location.reload();
+          }
           last = stamp;
         } catch {
           /* servidor ou stamp ainda ausente */

@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { ProfileGovernanceHighlightProvider } from '../../lib/profileGovernanceHighlight'
 
 type VozesLayoutProps = {
   className?: string
@@ -11,7 +12,11 @@ export function VozesLayout({ className, children }: VozesLayoutProps) {
 }
 
 export function VozesMain({ children }: { children: ReactNode }) {
-  return <div className="vozes-main">{children}</div>
+  return (
+    <ProfileGovernanceHighlightProvider>
+      <div className="vozes-main">{children}</div>
+    </ProfileGovernanceHighlightProvider>
+  )
 }
 
 export function VozesRail({ children }: { children: ReactNode }) {

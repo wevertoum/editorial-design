@@ -82,10 +82,8 @@ function blockToMdx(block: Record<string, unknown>): string {
     return `<EditorialTable variant="vozes" caption="Principais atores" columns={${JSON.stringify(block.headers)}} rows={${JSON.stringify(block.rows)}} />\n\n`
   }
   if (type === 'timelineSimple') {
-    const nodes = (block.nodes as Array<{ year: string; label: string }>)
-      .map((n) => `  <MilestoneItem year="${n.year}" label={${JSON.stringify(n.label)}} />`)
-      .join('\n')
-    return `<MilestoneStrip title={${JSON.stringify(block.title as string)}}>\n${nodes}\n</MilestoneStrip>\n\n`
+    const items = (block.nodes as Array<{ year: string; label: string }>).map((n) => [n.year, n.label])
+    return `<MilestoneStrip title={${JSON.stringify(block.title as string)}} items={${JSON.stringify(items)}} />\n\n`
   }
   if (type === 'figure') {
     const src = block.src as string
@@ -102,7 +100,6 @@ function railToMdx(rail: Record<string, unknown>): string {
   const railType = rail.type as string
   if (railType === 'profile') {
     return `<ProfileCard
-  label={${JSON.stringify(rail.label as string)}}
   name={${JSON.stringify(rail.name as string)}}
   role={${JSON.stringify(rail.role as string)}}
   bio={${JSON.stringify(rail.bio as string)}}

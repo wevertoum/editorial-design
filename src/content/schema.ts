@@ -318,7 +318,14 @@ function requireTextRuns(value: unknown, label: string): TextRun[] {
     const text = requireString(run.text, `${itemLabel}.text`)
     const bold = run.bold === undefined ? undefined : Boolean(run.bold)
     const italic = run.italic === undefined ? undefined : Boolean(run.italic)
-    return { text, bold, italic }
+    let href: string | undefined
+    if (run.href !== undefined) {
+      href = requireString(run.href, `${itemLabel}.href`)
+      if (!/^(https?:|mailto:|#)/.test(href)) {
+        throw new ContentError(`${itemLabel}.href must be http(s), mailto, or # fragment`)
+      }
+    }
+    return { text, bold, italic, href }
   })
 }
 
@@ -335,7 +342,14 @@ function parseFlowBlock(value: unknown, label: string): FlowBlock {
       const text = requireString(value.text, `${label}.text`)
       const runs =
         value.runs === undefined ? undefined : requireTextRuns(value.runs, `${label}.runs`)
-      return { type: 'heading', level: level as 1 | 2 | 3 | 4 | 5 | 6, text, runs }
+      const className = optionalString(value.className, `${label}.className`)
+      return {
+        type: 'heading',
+        level: level as 1 | 2 | 3 | 4 | 5 | 6,
+        text,
+        runs,
+        ...(className ? { className } : {}),
+      }
     }
     case 'paragraph':
       return { type: 'paragraph', runs: requireTextRuns(value.runs, `${label}.runs`) }
@@ -362,7 +376,23 @@ function parseFlowBlock(value: unknown, label: string): FlowBlock {
       const alt = optionalString(value.alt, `${label}.alt`)
       const caption = optionalString(value.caption, `${label}.caption`)
       const credit = optionalString(value.credit, `${label}.credit`)
-      return { type: 'image', src, alt, caption, credit }
+      let placement: 'rail' | 'span' | undefined
+      if (value.placement !== undefined && value.placement !== null) {
+        if (value.placement !== 'rail' && value.placement !== 'span') {
+          throw new ContentError(`${label}.placement must be "rail" or "span"`)
+        }
+        placement = value.placement
+      }
+      const className = optionalString(value.className, `${label}.className`)
+      return {
+        type: 'image',
+        src,
+        alt,
+        caption,
+        credit,
+        placement,
+        ...(className ? { className } : {}),
+      }
     }
     case 'component': {
       const name = requireString(value.name, `${label}.name`)
@@ -513,7 +543,18 @@ export function assertBundleMatchesDocument(bundle: PublicationBundle, document:
         `bundle sections[${i}] does not match document.json (expected ${manifest.id}, got ${section.id})`,
       )
     }
-    if (bundle.mapeamento?.inventory && manifest.strategy === 'flow') {
+    const inventoryExemptFlow = new Set([
+      'capa',
+      'expediente',
+      'folha-de-rosto',
+      'sumario',
+      'pagina-vazia',
+    ])
+    if (
+      bundle.mapeamento?.inventory &&
+      manifest.strategy === 'flow' &&
+      !inventoryExemptFlow.has(manifest.id)
+    ) {
       if (section.payload.kind !== 'flow') {
         throw new ContentError(`bundle sections[${i}] expected flow payload`)
       }
