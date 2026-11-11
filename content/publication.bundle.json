@@ -2957,7 +2957,7 @@
       "layout": "timeline",
       "source": "timelines/usa-cruzamento-1-a.json",
       "payload": {
-        "kind": "structured",
+        "kind": "timeline",
         "timeline": {
           "variant": "dual-track",
           "kicker": "Estados Unidos · Cruzamento",
@@ -2991,7 +2991,43 @@
               "organizacao": "Achieve produz estudos preparatórios, torna-se parceira da NGA e CCSSO e participa tecnicamente das equipes de redação e revisão."
             }
           ]
-        }
+        },
+        "variant": "dual-track",
+        "kicker": "Estados Unidos",
+        "title": "Onde as trajetórias se cruzam",
+        "lede": [],
+        "spreadPart": "a",
+        "spreadIndex": 1,
+        "nodes": [
+          {
+            "id": "y-1996",
+            "year": "1996",
+            "curriculo": "Governadores e empresas discutem *standards* e responsabilidades no *National Education Summit*.",
+            "organizacao": "A Achieve é criada como organização independente para apoiar os estados nessa agenda.",
+            "resumo": "Achieve nasce de uma articulação de governadores e lideranças empresariais já envolvidas na agenda de reforma estadual."
+          },
+          {
+            "id": "y-1998-a-2004",
+            "year": "1998 a 2004",
+            "curriculo": "Estados desenvolvem e revisam seus próprios *standards* e sistemas de avaliação.",
+            "organizacao": "Achieve compara *standards* estaduais, presta assistência técnica e desenvolve o *American Diploma Project*.",
+            "resumo": "A organização constrói sua legitimidade principalmente por *benchmarking* e expertise técnica. Em estados como Indiana, realizou avaliações de *standards* e avaliações a pedido das próprias autoridades estaduais."
+          },
+          {
+            "id": "y-2005-a-2008",
+            "year": "2005 a 2008",
+            "curriculo": "Cresce a busca por maior alinhamento entre ensino médio, faculdade e mercado de trabalho.",
+            "organizacao": "A ADP *Network* conecta dezenas de estados em torno de uma agenda comum de preparação para o ensino superior e carreira.",
+            "resumo": "Achieve passa de prestadora de análises para articuladora de uma rede interestadual. Em paralelo, seus relatórios passam a comparar publicamente o avanço dos estados em padrões, graduação e avaliação."
+          },
+          {
+            "id": "y-2008-a-2010",
+            "year": "2008 a 2010",
+            "curriculo": "Movimento por *standards* comuns culmina no desenvolvimento do *Common Core*.",
+            "organizacao": "Achieve produz estudos preparatórios, torna-se parceira da NGA e CCSSO e participa tecnicamente das equipes de redação e revisão.",
+            "resumo": "NGA, CCSSO e Achieve publicam recomendações de *standards* comuns e internacionalmente comparáveis. No ano seguinte, a Achieve passa da construção de agenda para participação direta no processo técnico de formulação."
+          }
+        ]
       }
     },
     {
@@ -3000,7 +3036,7 @@
       "layout": "timeline",
       "source": "timelines/usa-cruzamento-1-b.json",
       "payload": {
-        "kind": "structured",
+        "kind": "timeline",
         "timeline": {
           "variant": "dual-track",
           "kicker": "Estados Unidos · Cruzamento",
@@ -3034,32 +3070,50 @@
               "organizacao": "Achieve continua oferecendo assistência técnica, análises e apoio a estados na implementação da nova legislação."
             }
           ]
-        }
-      }
-    },
-    {
-      "id": "usa-cruzamento-2-a",
-      "strategy": "structured",
-      "layout": "timeline",
-      "source": "timelines/usa-cruzamento-2-a.json",
-      "payload": {
-        "kind": "structured",
-        "timeline": {
-          "variant": "dual-track",
-          "kicker": "Estados Unidos · Cruzamento",
-          "title": "Onde as trajetórias se cruzam",
-          "lede": [],
-          "spreadPart": "a",
-          "spreadIndex": 2,
-          "nodes": [
-            {
-              "id": "y-2020",
-              "year": "2020",
-              "curriculo": "Standards permanecem responsabilidade estadual e a política entra em nova fase, sem uma organização nacional responsável por dirigir o processo. A organização decidiu interromper as atividades após avaliar seu impacto, as necessidades do campo e o ambiente político e financeiro. A equipe de Ciências e a gestão de recursos ligados ao NGSS migraram para a WestEd, organização de pesquisa e apoio à educação nos EUA, enquanto outros materiais permaneceram publicamente disponíveis.",
-              "organizacao": "Achieve encerra as atividades e distribui parte de seus projetos e ativos para outras organizações."
-            }
-          ]
-        }
+        },
+        "variant": "dual-track",
+        "kicker": "Estados Unidos",
+        "title": "Onde as trajetórias se cruzam",
+        "lede": [],
+        "spreadPart": "b",
+        "spreadIndex": 1,
+        "nodes": [
+          {
+            "id": "y-2010-a-2014",
+            "year": "2010 a 2014",
+            "curriculo": "Estados adotam e começam a implementar *Common Core* e constroem avaliações alinhadas.",
+            "organizacao": "Achieve coordena a articulação inicial do PARCC e atua como *Project Management Partner*.",
+            "resumo": "Depois de participar do desenvolvimento dos *standards*, a organização assume responsabilidades operacionais na construção de uma infraestrutura de avaliação comum entre estados."
+          },
+          {
+            "id": "y-2011-a-2013",
+            "year": "2011 a 2013",
+            "curriculo": "Estados desenvolvem uma nova geração de *standards* comuns de Ciências.",
+            "organizacao": "Achieve gerencia o processo de elaboração dos NGSS com 26 estados e redatores.",
+            "resumo": "Diferentemente do *Common Core*, no NGSS há documentação externa explícita de que o processo de desenvolvimento dos *standards* foi administrado pela Achieve, embora a adoção continuasse sendo decisão de cada estado."
+          },
+          {
+            "id": "y-2013-a-2017",
+            "year": "2013 a 2017",
+            "curriculo": "Implementação dos novos *standards* convive com crescente reação política ao *Common Core* e revisões em diversos estados.",
+            "organizacao": "Achieve cria ferramentas de implementação, revisa *standards* estaduais e participa do debate público.",
+            "resumo": "A atuação se adapta ao novo contexto. A organização também passa a avaliar *standards* revisados pelos estados. Em 2017, analisou os *standards* de 24 estados que haviam realizado mudanças após a adoção inicial do *Common Core*."
+          },
+          {
+            "id": "y-2015-a-2019",
+            "year": "2015 a 2019",
+            "curriculo": "A ESSA devolve maior flexibilidade aos estados e reforça limites à interferência federal sobre *standards*.",
+            "organizacao": "Achieve continua oferecendo assistência técnica, análises e apoio a estados na implementação da nova legislação.",
+            "resumo": "A organização adapta sua atuação a um ambiente mais descentralizado. Um subsídio de US$ 2,5 milhões da *Gates Foundation* em 2016, por exemplo, destinou-se explicitamente a apoiar a qualidade de *standards* e ações de coalizão e advocacy na implementação estadual da ESSA."
+          },
+          {
+            "id": "y-2020",
+            "year": "2020",
+            "curriculo": "*Standards* permanecem responsabilidade estadual e a política entra em nova fase, sem uma organização nacional responsável por dirigir o processo.",
+            "organizacao": "Achieve encerra as atividades e distribui parte de seus projetos e ativos para outras organizações.",
+            "resumo": "A organização decidiu interromper as atividades após avaliar seu impacto, as necessidades do campo e o ambiente político e financeiro. A equipe de Ciências e a gestão de recursos ligados ao NGSS migraram para a WestEd, organização de pesquisa e apoio à educação nos EUA, enquanto outros materiais permaneceram publicamente disponíveis."
+          }
+        ]
       }
     },
     {

@@ -1,4 +1,5 @@
 import type { DualTrackNode } from '../../content/types'
+import { renderInlineText } from '../../content/renderRuns'
 
 type DualTrackTimelineProps = {
   nodes: DualTrackNode[]
@@ -7,19 +8,28 @@ type DualTrackTimelineProps = {
 
 export function DualTrackTimeline({ nodes, spreadPart }: DualTrackTimelineProps) {
   return (
-    <div className="dual-track" data-spread-part={spreadPart}>
+    <div className="dual-track" data-spread-part={spreadPart} data-node-count={nodes.length}>
       <div className="dual-track-band">
-        <div className="dual-track-tracks" aria-hidden="true">
-          <span className="dual-track-tag dual-track-tag--curriculo">Currículo</span>
-          <span className="dual-track-axis" />
-          <span className="dual-track-tag dual-track-tag--organizacao">Organização</span>
-        </div>
-        <ol className="dual-track-nodes">
+        <ol
+          className="dual-track-nodes"
+          style={{ gridTemplateColumns: `repeat(${nodes.length}, minmax(0, 1fr))` }}
+        >
           {nodes.map((node) => (
             <li key={node.id} className="dual-track-node">
               <p className="dual-track-year">{node.year}</p>
-              <p className="dual-track-curriculo">{node.curriculo}</p>
-              <p className="dual-track-organizacao">{node.organizacao}</p>
+              <div className="dual-track-body">
+                <p className="dual-track-curriculo">
+                  <span className="dual-track-tag dual-track-tag--curriculo">Currículo</span>
+                  {renderInlineText(node.curriculo)}
+                </p>
+                <p className="dual-track-organizacao">
+                  <span className="dual-track-tag dual-track-tag--organizacao">Organização</span>
+                  {renderInlineText(node.organizacao)}
+                </p>
+                {node.resumo?.trim() ? (
+                  <p className="dual-track-resumo">{renderInlineText(node.resumo.trim())}</p>
+                ) : null}
+              </div>
             </li>
           ))}
         </ol>

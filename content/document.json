@@ -66,12 +66,6 @@
       "source": "timelines/usa-cruzamento-1-b.json"
     },
     {
-      "id": "usa-cruzamento-2-a",
-      "strategy": "structured",
-      "layout": "timeline",
-      "source": "timelines/usa-cruzamento-2-a.json"
-    },
-    {
       "id": "usa-2",
       "strategy": "flow",
       "layout": "standard",

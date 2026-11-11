@@ -9,6 +9,7 @@ export type TextRun = {
   text: string
   bold?: boolean
   italic?: boolean
+  href?: string
 }
 
 export type FlowBlock =

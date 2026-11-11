@@ -1,6 +1,7 @@
 import { Masthead } from '../components/Masthead'
 import { Heading } from '../components/Heading'
 import { Paragraph } from '../components/Paragraph'
+import { renderInlineText } from '../content/renderRuns'
 import { Timeline } from '../components/Timeline'
 import { DualTrackTimeline } from '../components/vozes/DualTrackTimeline'
 import { SourceNote } from '../components/vozes/SourceNote'
@@ -24,17 +25,19 @@ export function TimelinePage({ id, content, showMasthead, publication }: Timelin
       data-layout="timeline"
     >
       {showMasthead ? <Masthead publication={publication} /> : null}
-      <p className="kicker">{content.kicker}</p>
+      {isDual && content.spreadPart === 'b' ? null : <p className="kicker">{content.kicker}</p>}
       {isDual && content.spreadPart === 'b' ? null : <Heading level={1}>{content.title}</Heading>}
       {content.lede.length > 0
         ? content.lede.map((paragraph, index) => (
             <Paragraph key={`${id}-lede-${index}`} className={isDual ? 'dual-track-lede' : undefined}>
-              {paragraph}
+              {renderInlineText(paragraph)}
             </Paragraph>
           ))
         : null}
       {isDual && content.spreadPart === 'b' && content.introBodyRight ? (
-        <Paragraph className="dual-track-lede dual-track-lede-right">{content.introBodyRight}</Paragraph>
+        <Paragraph className="dual-track-lede dual-track-lede-right">
+          {renderInlineText(content.introBodyRight)}
+        </Paragraph>
       ) : null}
       {isDual ? (
         <DualTrackTimeline nodes={content.nodes} spreadPart={content.spreadPart} />

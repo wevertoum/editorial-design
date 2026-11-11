@@ -189,11 +189,16 @@ export function parseTimeline(value: unknown, source: string): TimelineContent {
       if (!isRecord(node)) {
         throw new ContentError(`${label} must be an object`)
       }
+      const resumo =
+        node.resumo === undefined
+          ? undefined
+          : requireString(node.resumo, `${label}.resumo`)
       return {
         id: requireId(node.id, `${label}.id`, seen),
         year: requireString(node.year, `${label}.year`),
         curriculo: requireString(node.curriculo, `${label}.curriculo`),
         organizacao: requireString(node.organizacao, `${label}.organizacao`),
+        ...(resumo ? { resumo } : {}),
       }
     })
     const introBodyRight =

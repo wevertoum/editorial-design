@@ -30,6 +30,8 @@ export type DualTrackNode = {
   year: string
   curriculo: string
   organizacao: string
+  /** Síntese do período — peso tipográfico maior que currículo/organização. */
+  resumo?: string
 }
 
 export type TimelineContent =

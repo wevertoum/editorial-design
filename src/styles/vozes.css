@@ -411,10 +411,17 @@
   min-height: calc(var(--page-height) - var(--margin-top) - var(--margin-bottom));
 }
 
+.layout-timeline-dual > h1.heading-1 {
+  font-size: 18pt;
+  line-height: 1.15;
+  margin-bottom: var(--space-2);
+}
+
 .layout-timeline-dual .dual-track-lede {
   /* Intro alinhada ao span 3/6 da grade Vozes dentro da área útil. */
   max-width: 50%;
-  font-size: 9.5pt;
+  font-size: var(--text-body);
+  line-height: var(--text-leading);
   hyphens: auto;
   hyphenate-limit-chars: 6 3 2;
   hyphenate-limit-lines: 2;
@@ -428,43 +435,36 @@
   margin-bottom: var(--space-3);
 }
 
+.dual-track {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
 .dual-track-band {
   flex: 1;
-  margin: var(--space-3) calc(-1 * var(--margin-outer)) 0 calc(-1 * var(--margin-inner));
-  padding: 6mm var(--margin-outer) 5mm var(--margin-inner);
+  margin: var(--space-2) calc(-1 * var(--margin-outer)) 0 calc(-1 * var(--margin-inner));
+  padding: 5mm var(--margin-outer) 5mm var(--margin-inner);
   min-height: 62%;
   background: var(--color-marfim);
   print-color-adjust: exact;
   -webkit-print-color-adjust: exact;
 }
 
-.dual-track-tracks {
-  display: flex;
-  align-items: center;
-  gap: 3mm;
-  margin-bottom: 5mm;
-}
-
 .dual-track-tag {
+  display: inline;
+  margin: 0 0.8mm 0 0;
   font-family: var(--font-sans);
-  font-size: 7pt;
+  font-size: 5.5pt;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-}
-
-.dual-track-tag--curriculo {
+  line-height: inherit;
+  vertical-align: baseline;
   color: var(--color-vozes-verde);
-}
-
-.dual-track-tag--organizacao {
-  color: var(--color-vozes-rosa);
-}
-
-.dual-track-axis {
-  flex: 1;
-  height: 0.4mm;
-  background: color-mix(in srgb, var(--color-vozes-roxo) 35%, transparent);
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
 }
 
 .dual-track-nodes {
@@ -472,28 +472,110 @@
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(34mm, 1fr));
-  gap: 5mm 4mm;
+  column-gap: 3.5mm;
+  row-gap: 4mm;
+  align-items: start;
+  position: relative;
+}
+
+/* Eixo contínuo ligando todos os anos na horizontal. */
+.dual-track-nodes::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 7.8mm;
+  height: 0.45mm;
+  background: color-mix(in srgb, var(--color-vozes-roxo-2) 55%, transparent);
+  pointer-events: none;
+  z-index: 0;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
 }
 
 .dual-track-node {
+  min-width: 0;
   break-inside: avoid;
+  position: relative;
+  z-index: 1;
 }
 
 .dual-track-year {
-  margin: 0 0 1.5mm;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  position: relative;
+  margin: 0 0 3.5mm;
+  height: 8mm;
   font-family: var(--font-display);
-  font-size: 16pt;
+  font-size: 13pt;
   font-weight: 700;
-  line-height: 1.1;
-  text-align: center;
+  line-height: 1.05;
+  text-align: left;
   color: var(--color-vozes-roxo-2);
+  font-variant-numeric: tabular-nums;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.dual-track-year::after {
+  content: '';
+  position: absolute;
+  left: 0.15mm;
+  bottom: -1.1mm;
+  width: 2.2mm;
+  height: 2.2mm;
+  border-radius: 50%;
+  background: var(--color-vozes-roxo-2);
+  box-shadow: 0 0 0 0.7mm var(--color-marfim);
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.dual-track[data-node-count='5'] .dual-track-year {
+  font-size: 11.5pt;
+}
+
+.dual-track[data-node-count='5'] .dual-track-curriculo,
+.dual-track[data-node-count='5'] .dual-track-organizacao {
+  font-size: 7pt;
+}
+
+.dual-track[data-node-count='5'] .dual-track-resumo {
+  font-size: 8pt;
+}
+
+.dual-track-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+  min-width: 0;
 }
 
 .dual-track-curriculo,
 .dual-track-organizacao {
-  margin: 0 0 1.5mm;
-  font-size: 8pt;
+  margin: 0;
+  font-size: 7.5pt;
   line-height: 1.3;
   color: var(--color-ink);
+  text-align: left;
+  text-wrap: pretty;
+  hyphens: auto;
+}
+
+.dual-track-resumo {
+  margin: 3.5mm 0 0;
+  font-family: var(--font-display);
+  font-size: 8.5pt;
+  font-weight: 400;
+  line-height: 1.32;
+  color: var(--color-ink);
+  text-wrap: pretty;
+  hyphens: auto;
+}
+
+/* Página B: sem título — a banda sobe para ocupar a dupla. */
+.dual-track[data-spread-part='b'] .dual-track-band {
+  margin-top: 0;
+  min-height: 78%;
 }
