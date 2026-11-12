@@ -1,0 +1,19 @@
+/*
+ * Print layout profile. Geometry only.
+ * This file does not convert color, embed an ICC profile, or declare PDF/X.
+ * scripts/build-pdf.ts reads --bleed for the Vivliostyle --bleed flag.
+ */
+:root {
+  --bleed: 3mm;
+  --margin-inner: 24mm;
+  --color-paper: #ffffff;
+  --color-highlight: #eef2ef;
+}
+
+@page {
+  margin: 18mm 16mm 20mm 24mm;
+}
+
+@page :left {
+  margin: 18mm 24mm 20mm 16mm;
+}

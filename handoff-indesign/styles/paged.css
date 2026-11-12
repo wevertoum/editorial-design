@@ -1,0 +1,129 @@
+@page {
+  size: 210mm 297mm;
+  margin: 18mm 16mm 20mm 22mm;
+  /* Folio: Mulish + cinza escuro (--font-sans / --color-folio). Literals — Vivliostyle @page. */
+  font-family: Mulish, "Source Sans 3", "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 9pt;
+  color: #4a4a4a;
+
+  @top-left {
+    content: none;
+  }
+
+  @top-right {
+    content: none;
+  }
+
+  @bottom-center {
+    content: none;
+  }
+
+  @bottom-left {
+    content: none;
+  }
+
+  @bottom-right {
+    content: none;
+  }
+}
+
+@page :left {
+  margin: 18mm 22mm 20mm 16mm;
+
+  @bottom-left {
+    content: counter(page);
+    font-family: Mulish, "Source Sans 3", "Segoe UI", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    color: #4a4a4a;
+  }
+}
+
+@page :right {
+  @bottom-right {
+    content: counter(page);
+    font-family: Mulish, "Source Sans 3", "Segoe UI", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    color: #4a4a4a;
+  }
+}
+
+@page :first {
+  @top-left {
+    content: none;
+  }
+
+  @top-right {
+    content: none;
+  }
+
+  @bottom-left {
+    content: none;
+  }
+
+  @bottom-right {
+    content: none;
+  }
+}
+
+.sheet + .sheet {
+  break-before: page;
+}
+
+h1,
+h2,
+h3,
+.kicker,
+.masthead {
+  break-after: avoid;
+  break-inside: avoid;
+}
+
+h1 + *,
+h2 + *,
+h3 + *,
+.kicker + * {
+  break-before: avoid;
+}
+
+.highlight,
+.infographic {
+  break-inside: avoid;
+}
+
+.layout-vozes-expediente.sheet {
+  break-inside: avoid;
+}
+
+.cover-hero,
+.cover-hero-logo,
+.folha-rosto-hero,
+.timeline-event,
+.milestone-strip-item,
+.figure,
+.editorial-table,
+.pull-quote,
+.profile-card,
+.layout-vozes-report .vozes-main .profile-card .profile-card-bio,
+.dual-track-node,
+.facts-rail,
+.callout-card {
+  break-inside: avoid;
+}
+
+p {
+  orphans: 3;
+  widows: 3;
+  text-wrap: pretty;
+  hyphenate-limit-lines: 2;
+  hyphenate-limit-last: always;
+}
+
+.layout-vozes-report .vozes-main .detail-list-item,
+.layout-vozes-report .vozes-main li {
+  break-inside: avoid;
+}
+
+html[data-profile="digital"] .preview-banner,
+html[data-profile="print"] .preview-banner {
+  display: none !important;
+}

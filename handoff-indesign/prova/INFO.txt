@@ -1,0 +1,7 @@
+document-digital.pdf
+Gerado: 11/nov/2026
+Perfil: digital A4
+Páginas: 60
+Media box: 595.28 × 841.89 pt (A4)
+Fontes: Roboto Slab + Mulish (embutidas no PDF)
+Comando: npm run build / npm run pdf:digital

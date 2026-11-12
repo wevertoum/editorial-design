@@ -1,6 +1,8 @@
 # Diretriz visual — Levantamento Organizações 2026 (handoff InDesign)
 
-Documento para continuar diagramação no **InDesign** (fonte de verdade visual). Resume o que foi **travado no briefing** e o que o repositório `editorial-design` implementou até nov/2026.
+Documento para continuar diagramação no **InDesign** (fonte de verdade visual no `.indd`). Resume o que foi travado no briefing e o que o repositório `editorial-design` implementou até **11/nov/2026**.
+
+Pacote pronto: pasta `handoff-indesign/` na raiz do repo (ver `00-LEIA-ME.md`).
 
 ---
 
@@ -16,24 +18,23 @@ Documento para continuar diagramação no **InDesign** (fonte de verdade visual)
 | Identidade | **Só Vozes** (paleta + grafismos). Logo Lemann só capa/rodapé quando existir |
 | Cor por país | **Não** |
 
-**Conteúdo:** importado literalmente do Word `4. [v1] Organizações (1).docx` → 26 seções, 5 países, spreads de cruzamento dual-track, 11 figuras em `assets/media/org-*.png`.
+**Conteúdo:** 5 países (AU, US, GB, NG, CL), capa/front matter, spreads de cruzamento dual-track, figuras em `assets/media/org-*.png`.
 
 ---
 
 ## 2. Formato de página (A4)
 
-| Medida | Digital / tela | InDesign (ref. DECISOES) |
-|--------|----------------|---------------------------|
+| Medida | Digital / PDF repo | InDesign (ref. DECISOES) |
+|--------|--------------------|---------------------------|
 | Trim | 210 × 297 mm | A4 |
-| Margem superior | 18 mm (`@page`) | **70 pt** até primeira linha de texto (alinhar no INDD) |
-| Margem inferior | 20 mm | conferir páginar rodapé/fonte |
-| Margem interna (esq.) | 22 mm (digital); **24 mm** no perfil print | espelhar facing se aplicável |
-| Margem externa (dir.) | 16 mm | idem |
-| Sangria (print) | 3 mm (`print.css`, crop marks no PDF) | padrão de produção |
+| Margem superior | 18 mm (`@page`) | **70 pt** até primeira linha (alinhar no INDD) |
+| Margem inferior | 20 mm | conferir rodapé/fonte |
+| Margem interna | 22 mm (digital); **24 mm** print | espelhar facing |
+| Margem externa | 16 mm | idem |
+| Sangria (print) | 3 mm + crop marks | padrão de produção |
 
-**PDF de referência no repo:** `npm run build` → `output/document-digital.pdf` (media 595,28 × 841,89 pt, ~68 págs.).
-
-**Prévia paginada (`npm run dev`):** Vivliostyle com spread e numeração. Edição rápida sem paginação: `npm run dev:edit`. Quebras inteligentes **só** no Vivliostyle (PDF ou `npm run dev`). Não simular paginação por corte de altura em pixels.
+**PDF de prova (kit InDesign):** `handoff-indesign/prova/document-digital.pdf`.  
+No repo web, o mesmo arquivo sai em `output/document-digital.pdf` após `npm run build` — só relevante se ainda mantiver o pipeline React.
 
 ---
 
@@ -41,31 +42,31 @@ Documento para continuar diagramação no **InDesign** (fonte de verdade visual)
 
 | Papel | Família | Uso |
 |-------|---------|-----|
-| Display / anos timeline | **Roboto Slab** Bold | Títulos de abertura de país, anos no dual-track, marcos (anos) |
-| UI e corpo | **Mulish** | Parágrafos, H2/H3 de capítulo, tabelas, tags, notas |
+| Display / anos | **Roboto Slab** Bold | H1 país, anos dual-track, anos MilestoneStrip |
+| UI e corpo | **Mulish** | Parágrafos, H2/H3, tabelas, tags, notas |
 
-### Escala implementada (web/PDF)
+### Escala atual (`tokens.css` + `vozes.css`)
 
 | Estilo | Tamanho | Leading | Peso / notas |
 |--------|---------|---------|----------------|
-| Corpo | 9,5 pt | 1,37 (~13 pt) | Regular; **não justificado**; hifenização ativa |
-| H2 seção (1. O currículo…) | 13 pt | 1,23 | Bold 700, preto |
-| H3 (1.1. …) | 11 pt | 1,27 | Semibold 600, **Roxo 2** `#8146cb` |
+| Corpo | **10 pt** | **1,41** | Regular; **não justificado**; hifenização ativa |
+| H2 seção | 13 pt | 1,23 | Bold 700, **preto** |
+| H3 (sistema, governança…) | 11 pt | 1,27 | Semibold 600, **preto** (`--color-ink`) — **não** Roxo 2 |
+| Rótulo de faixa (`.band-label`) | < H3 | — | Caps, **verde** `#0d6353` + filete |
 | Kicker / país | 8 pt | — | Caps, tracking, Roxo marca |
 | Abertura país (H1) | 28 pt | 1,1 | Slab, preto |
 | Lead país | 10 pt | 1,4 | Mulish |
 | Legenda figura | 7,5 pt | 1,35 | muted |
-| Tabela Vozes | 8 pt | — | ver seção 6 |
+| Tabela Vozes | 8 pt | — | header Roxo 2 |
 | Nota Fonte | 7,5 pt | 1,35 | cinza; fio superior |
-| Ano dual-track | 16 pt | 1,1 | Slab centro, Roxo 2 |
-| Texto nó dual-track | 8 pt | 1,3 | preto |
+| Ano dual-track | ~16 pt (11,5 pt se 5 nós) | 1,1 | Slab, Roxo 2; marcador **1,4 mm** no eixo, **sem cobrir dígitos** |
+| Currículo / Organização | 7,5 pt (7 pt se 5 nós) | 1,3 | preto; tags CURRÍCULO verde / ORGANIZAÇÃO rosa |
+| Síntese (`resumo`) | 8,5 pt Slab | 1,32 | **depois** de Organização |
 
-**Alvo editorial (DECISOES):** prosa **≤ ~65 CPL** → colunas **3/6** na grade, ~52–55 CPL em Mulish 9,5.
+**Alvo editorial:** prosa ≤ ~65 CPL → colunas **3/6** na grade.
 
-### Espaçamento entre blocos
-
-Tabela completa (antes/depois por estilo, blocos MDX, paginação): **`docs/ESPACAMENTO-TIPOGRAFICO.md`**.  
-Implementação: tokens `--stack-*` em `src/styles/tokens.css`.
+Espaçamento completo: `docs/ESPACAMENTO-TIPOGRAFICO.md` / `--stack-*` em `tokens.css`.  
+Bandeira → título país: `--stack-country-code` ≈ **9 mm**.
 
 ---
 
@@ -74,121 +75,103 @@ Implementação: tokens `--stack-*` em `src/styles/tokens.css`.
 | Token | Hex | Uso |
 |-------|-----|-----|
 | Roxo | `#493975` | Marca, kicker, eixo suave |
-| Roxo 2 | `#8146cb` | H3, header tabela, anos, labels perfil, títulos de faixa |
-| Verde | `#0d6353` | Tag trilho “currículo” |
-| Verde vivo | `#01c689` | **Só** linha/gráfico de trilho (não decoração geral) |
-| Rosa | `#ef5ca1` | Tag trilho “organização” |
-| Laranja | `#ff8327` | **Só** bullet de lista detalhe |
-| Marfim | `#f3eee6` | Painel org (1ª pág.), banda timeline, zebra leve de tabela, card perfil |
-| Preto | `#000000` | Corpo principal |
-| Muted | `#4a4a4a` | Legendas, fonte |
+| Roxo 2 | `#8146cb` | Header tabela, anos, labels perfil, UI — **não** H3 de miolo |
+| Verde | `#0d6353` | Tag currículo, band-label, DimensionList, nomes ActorBand |
+| Verde vivo | `#01c689` | **Só** linha/gráfico de trilho |
+| Rosa | `#ef5ca1` | Tag organização |
+| Laranja | `#ff8327` | **Só** bullet DetailList |
+| Marfim | `#f3eee6` | Painel org, banda timeline, zebra, card perfil |
+| Preto | `#000000` | Corpo + H2/H3 miolo |
+| Muted / Folio | `#4a4a4a` | Legendadas, fólio |
 | Regra | `#d9d2c8` | Fios discretos |
 
-**Regra de ouro (InDesign):** **um acento por zona**; T2/T3 em preto salvo H3 roxo; sem tags CAPS inventadas (ATORES, QUEM FAZ O QUÊ, etc.).
+**Regra de ouro:** um acento por zona; sem tags CAPS inventadas; sem cor por país.
 
 ---
 
 ## 5. Grade — 6 colunas lógicas
 
-Dentro da **área útil** (após margens da página):
+Dentro da área útil:
 
-- **Gutter:** 4,5 mm entre colunas lógicas.
-- **6 colunas** de largura igual: `(largura útil − 5×4,5 mm) / 6`.
+- **Gutter:** 4,5 mm.
+- **6 colunas** iguais: `(largura útil − 5×4,5 mm) / 6`.
 
-### Prosa sem rail (`vozes-prose-only`)
+| Layout | Prosa | Respiro | Rail |
+|--------|-------|---------|------|
+| `vozes-prose-only` | 3/6 | 1/6 | 2/6 livres |
+| `vozes-with-rail` | 3/6 | 1/6 | 2/6 aside |
 
-| Faixa | Span | Função |
-|-------|------|--------|
-| Colunas 1–3 | 3/6 | Texto principal |
-| Coluna 4 | 1/6 | **Respiro** (vazio) |
-| Colunas 5–6 | 2/6 | Livres (sem “coluna fantasma” preenchida com texto) |
-
-O miolo **nunca** usa largura full na prosa de introdução/corpo.
-
-### Prosa com rail (`vozes-with-rail`)
-
-| Faixa | Span |
-|-------|------|
-| Prosa | 3/6 |
-| Respiro | 1/6 |
-| Aside / facts | 2/6 |
-
-No documento Organizações importado, o `<VozesRail>` está vazio na maior parte; o layout ainda reserva 3+1+2 para alinhar com o piloto InDesign.
-
-### Intro timeline dual-track
-
-Lede em **50%** da área útil (equivalente ao span 3/6).
+Intro dual-track: lede ~50% da área útil (span 3/6).
 
 ---
 
 ## 6. Componentes ↔ InDesign
 
-| Peça | Comportamento visual |
-|------|----------------------|
-| **Masthead** (só 1ª seção doc) | Título relatório, ano, autor, fio |
-| **Country opening** | Código país caps roxo 2; H1 Slab; lead |
-| **Tabela `variant="vozes"`** | Header fundo Roxo 2, texto branco; zebra Marfim; sem caption visível (acessível) |
-| **Figure** | Largura 100% da coluna prosa; radius 1 mm; sombra leve; legenda 7,5 pt |
-| **Lista detalhe** | Bullet **laranja** explícito; hanging 4 mm |
-| **Painel org** (`org-panel-page`) | Fundo Marfim, padding ~5 mm; **só 1ª página** da org; continuação sem painel |
-| **Profile card** | Marfim; foto circular overlap ½ para fora do card (26 mm); cargo em *itálico* roxo 2 |
-| **Callout / Facts rail** | Callout: tint 10% roxo 2; Facts: Marfim |
-| **Milestone strip** | Ano Slab roxo 2; grade 16 mm + texto; fios 15% preto |
-| **SourceNote / Fonte** | Rodapé da área; fio 0,35 mm 40% preto |
-| **Timeline dual-track** | Spread Hofmann: banda Marfim ~**62%** altura útil, sangra nas margens horizontais da página; eixo roxo; tags CURRÍCULO (verde) / ORGANIZAÇÃO (rosa); **máx. 4 nós** por metade de spread; anos Slab roxo 2 centrados |
+| Peça | Comportamento |
+|------|----------------|
+| **CountryOpening** | Bandeira SVG **inline, só fills (sem stroke)**; H1 nome do país; sem H2 “O currículo…” |
+| **PageStack** | Composição de página com bloco no rodapé (`vozes-page-stack-foot`) |
+| **ActorBand** | `.band-label` verde caps + filete; nomes verdes; notas muted; corpo 10 pt à esquerda; **colunas de largura igual** |
+| **DimensionList** | Cifras grandes verdes (`08`/`07`/`03`); títulos PT verdes; EN itálico verde; corpo preto; **sem** filetes |
+| **DetailList** | Bullet laranja; hanging; processos (Estruturar/Escrever…) — **não** DimensionList |
+| **MilestoneStrip** | Ano Slab roxo; **todas as datas numa dupla (2 págs.), nunca em 3** |
+| **ProfileCard** | Marfim; foto circular; cargo itálico roxo 2; menos destaque que Highlight/Callout |
+| **Figure** | Coluna prosa; `figure--compact` quando combinado; legenda 7,5 pt |
+| **Tabela vozes** | Header Roxo 2 branco; zebra Marfim |
+| **Dual-track** | Spread a/b; banda Marfim; eixo roxo; nós: ano → Currículo → Organização → **resumo**; ~4 nós/página; círculo 1,4 mm no eixo |
 
-Seções de cruzamento: JSON em `content/timelines/*-cruzamento-*-{a,b}.json`, `variant: dual-track`, partes `a`/`b` do spread.
+Cruzamentos: `content/timelines/*-cruzamento-*-{a,b}.json`, `variant: dual-track`.
 
----
+### Austrália pp. 10–11 — FECHADO
 
-## 7. Paginação e quebras (PDF / InDesign)
-
-- Nova **seção** do manifesto → nova página (`break-before: page` entre `.sheet`).
-- Dentro do capítulo (um país = muitas páginas PDF): fluxo contínuo no Vivliostyle.
-- **Órfãs/viúdas:** mínimo 3 linhas.
-- **Evitar quebra interna:** figuras, tabelas, pull quote, dual-track node, itens de lista detalhe, eventos timeline.
-- **Título + primeiro parágrafo:** manter juntos (`break-after` / `break-before avoid`).
-- **Não** quebrar parágrafo “na marra” (o problema da prévia dev por fatiamento de pixels foi **removido**).
-
-Notas de rodapé (InDesign): clearance **32 pt**, fio **0,5 pt** preto 40%, bloco no fundo da área útil.
+Não redesenhar sem pedido explícito. Página 10: PageStack + prosa + ActorBand no rodapé. Página 11: “O que é nacional…” + três DimensionList + Figure `org-image13` compacta no rodapé. Propagar bandeiras/abertura aos outros países; **não** forçar DimensionList fora do padrão AU análogo.
 
 ---
 
-## 8. Arquivos e pastas úteis
+## 7. Paginação e quebras
+
+- Nova seção do manifesto → nova página.
+- Órfãs/viúvas: mín. 3 linhas.
+- Evitar quebra interna: figuras, tabelas, dual-track node, DetailList items, ProfileCard.
+- Título + primeiro parágrafo juntos.
+- Sem running heads no PDF Vozes; fólio cinza.
+
+---
+
+## 8. Arquivos do pacote / repo
 
 | O quê | Onde |
 |-------|------|
-| Briefing / decisões | `/Users/anaterra/Documents/Mapeamento-Organizacoes-Lemann-Vozes/01_Briefing/DECISOES.md` |
-| InDesign piloto | `.../03_InDesign/Mapeamento Organizacoes.indd` |
-| Renders aprovação | `.../03_InDesign/_render/_out/aprovacao-v2-*.jpg` |
-| Manual marca | `.../02_Identidade/manual/manual-identidade.pdf` |
-| Manifesto ordem de leitura | `editorial-design/content/document.json` |
-| Estilos Vozes (CSS = spec) | `editorial-design/src/styles/vozes.css`, `tokens.css`, `paged.css` |
-| Import DOCX → MDX | `editorial-design/scripts/import-organizacoes-docx.py` (`npm run import:organizacoes`) |
-| Fontes embutidas | `editorial-design/assets/fonts/` (Mulish + Roboto Slab) |
+| Pacote handoff | `editorial-design/handoff-indesign/` |
+| Prompt outro agente | `handoff-indesign/PROMPT-AGENTE-CURSOR.md` |
+| Regras fechadas | `handoff-indesign/REGRAS-FECHADAS.md` |
+| Manifesto | `content/document.json` |
+| Capítulos | `content/chapters/*.mdx` |
+| Cruzamentos | `content/timelines/*.json` |
+| CSS = spec | `src/styles/tokens.css`, `vozes.css`, `paged.css` |
+| Fontes | `assets/fonts/` (Mulish + Roboto Slab) |
+| Mídia | `assets/media/` |
+| Workflow agentes | `.cursor/rules/vozes-editorial-workflow.mdc` |
+| Briefing externo | `…/Mapeamento-Organizacoes-Lemann-Vozes/01_Briefing/DECISOES.md` (se existir) |
+| INDD piloto | `…/03_InDesign/` (se existir) |
 
 ---
 
-## 9. O que o outro chat / InDesign deve priorizar
+## 9. Prioridades no InDesign
 
-1. **Medir no INDD** margem superior 70 pt e alinhar com PDF se necessário (web ainda usa 18 mm em `@page`).
-2. Manter **grade 6 cols**, prosa **span 3**, coluna de **ar**, rail **span 2** quando houver aside.
-3. Replicar **hierarquia de cor** (laranja só bullet, verde vivo só trilho, roxo 2 em UI).
-4. **Timelines:** 2 spreads por país, 4 nós por página da banda; fonte na página direita do spread quando houver.
-5. **Org:** painel Marfim apenas na abertura da organização; perfil com overlap de foto.
-6. Usar **PDF digital** gerado pelo repo como prova de paginação, não o scroll do `npm run dev:edit`.
-
----
-
-## 10. Comandos rápidos (repo `editorial-design`)
-
-```bash
-npm run dev                    # spreads + numeração (Vivliostyle)
-npm run dev:edit               # hot reload, sem paginar
-npm run build                  # PDF A4 paginado (referência)
-npm run import:organizacoes    # reimportar do DOCX
-```
+1. Estilos de parágrafo/objeto a partir desta diretriz + `ESPACAMENTO-TIPOGRAFICO.md`.
+2. Grade 6 cols; prosa 3 + ar 1 + rail 2.
+3. Hierarquia de cor atualizada (H3 preto; band-label verde).
+4. Dual-track com **resumo após organização**; marcadores sem cobrir anos.
+5. Respeitar AU pp. 10–11 fechadas.
+6. Usar o **PDF digital** do pacote como prova — não o scroll do modo edição.
 
 ---
 
-*Gerado para handoff InDesign — nov/2026. Atualizar este arquivo se DECISOES ou `vozes.css` mudarem.*
+## 10. Escopo do handoff InDesign
+
+Continuidade no kit = **InDesign** + PDF de prova. Prévia Vivliostyle, npm e regeneração de PDF do pipeline web ficam no repo React — não no prompt do agente InDesign. Commit/push só sob pedido explícito.
+
+---
+
+*Atualizado 11/nov/2026 — handoff InDesign (sem vocabulário de prévia web).*

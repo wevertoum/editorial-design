@@ -1,6 +1,6 @@
 {
   "bundleVersion": 1,
-  "generatedAt": "2026-11-11T19:32:05.787Z",
+  "generatedAt": "2026-11-11T19:44:45.839Z",
   "id": "levantamento-organizacoes-2026",
   "language": "pt-BR",
   "title": "Levantamento Internacional de Instituições de Apoio a Padrões Curriculares",
@@ -1894,26 +1894,30 @@
             {
               "id": "y-1983-a-2005",
               "year": "1983 a 2005",
-              "curriculo": "Avançavam iniciativas de colaboração entre estados sobre um currículo nacional. Forma-se uma comunidade profissional especializada em currículo antes da existência da política nacional atual.",
-              "organizacao": "ACSA se consolida como fórum especializado em estudos curriculares."
+              "curriculo": "Avançavam iniciativas de colaboração entre estados sobre um currículo nacional.",
+              "organizacao": "ACSA se consolida como fórum especializado em estudos curriculares.",
+              "resumo": "Forma-se uma comunidade profissional especializada em currículo antes da existência da política nacional atual."
             },
             {
               "id": "y-2006-1",
               "year": "2006",
-              "curriculo": "Debate político sobre maior consistência e coordenação nacional ganha força. A associação cria seu próprio espaço para reunir atores do sistema e formular princípios para uma futura abordagem nacional.",
-              "organizacao": "ACSA realiza dois *National Approaches to Curriculum Forums*."
+              "curriculo": "Debate político sobre maior consistência e coordenação nacional ganha força.",
+              "organizacao": "ACSA realiza dois *National Approaches to Curriculum Forums*.",
+              "resumo": "A associação cria seu próprio espaço para reunir atores do sistema e formular princípios para uma futura abordagem nacional."
             },
             {
               "id": "y-2007-2",
               "year": "2007",
-              "curriculo": "Senado investiga padrões acadêmicos e discute currículo nacional. A entrada no Parlamento ocorreu por dois canais formais: a contribuição escrita *Submission 63* e uma audiência pública no Senado. Parte dos argumentos apresentados pela ACSA foi incorporada ao registro do relatório final, comprovando sua entrada no debate oficial.",
-              "organizacao": "ACSA participa de audiência no Senado e articula associações profissionais."
+              "curriculo": "Senado investiga padrões acadêmicos e discute currículo nacional.",
+              "organizacao": "ACSA participa de audiência no Senado e articula associações profissionais.",
+              "resumo": "A entrada no Parlamento ocorreu por dois canais formais: a contribuição escrita *Submission 63* e uma audiência pública no Senado. Parte dos argumentos apresentados pela ACSA foi incorporada ao registro do relatório final, comprovando sua entrada no debate oficial."
             },
             {
               "id": "y-2008-a-2010-3",
               "year": "2008 a 2010",
-              "curriculo": "*National Curriculum Board *e depois ACARA começam a construir o *Australian Curriculum.* A atuação ganha escala por meio de coalizões de associações profissionais e interlocução recorrente com as autoridades responsáveis pelo novo currículo. Nesse período, Tony Mackay acumulou a presidência da ACSA e funções na ACARA. Trata-se, porém, de uma sobreposição de liderança individual, e não de um assento institucional da ACSA no órgão.",
-              "organizacao": "Coalizão articulada pela ACSA dialoga com autoridades; liderança da ACSA também ocupa posição na ACARA."
+              "curriculo": "*National Curriculum Board *e depois ACARA começam a construir o *Australian Curriculum.*",
+              "organizacao": "Coalizão articulada pela ACSA dialoga com autoridades; liderança da ACSA também ocupa posição na ACARA.",
+              "resumo": "A atuação ganha escala por meio de coalizões de associações profissionais e interlocução recorrente com as autoridades responsáveis pelo novo currículo. Nesse período, Tony Mackay acumulou a presidência da ACSA e funções na ACARA. Trata-se, porém, de uma sobreposição de liderança individual, e não de um assento institucional da ACSA no órgão."
             }
           ]
         }
@@ -1937,26 +1941,30 @@
             {
               "id": "y-2010",
               "year": "2010",
-              "curriculo": "Primeiros componentes do *Australian Curriculum* estão sendo concluídos. A ACSA apoiava a existência de um currículo nacional, mas levou ao processo preocupações em relação a prazos, participação profissional, transparência, excesso de conteúdo e condições de implementação.",
-              "organizacao": "ACSA assina o *Common View on the Australian Curriculum, *documento que apoiava a criação do currículo nacional."
+              "curriculo": "Primeiros componentes do *Australian Curriculum* estão sendo concluídos.",
+              "organizacao": "ACSA assina o *Common View on the Australian Curriculum, *documento que apoiava a criação do currículo nacional.",
+              "resumo": "A ACSA apoiava a existência de um currículo nacional, mas levou ao processo preocupações em relação a prazos, participação profissional, transparência, excesso de conteúdo e condições de implementação."
             },
             {
               "id": "y-2013-a-2015-1",
               "year": "2013 a 2015",
-              "curriculo": "ACARA desenvolve *Work Studies Years 9 - 10* e amplia o currículo. Contribuição da ACSA: recomendação sobre aprendizagem ao longo da vida, que é registrada na resposta da ACARA e surge posteriormente no documento final.",
-              "organizacao": "ACSA apresenta contribuição escrita à consulta."
+              "curriculo": "ACARA desenvolve *Work Studies Years 9 - 10* e amplia o currículo.",
+              "organizacao": "ACSA apresenta contribuição escrita à consulta.",
+              "resumo": "Contribuição da ACSA: recomendação sobre aprendizagem ao longo da vida, que é registrada na resposta da ACARA e surge posteriormente no documento final."
             },
             {
               "id": "y-2014-a-2018-2",
               "year": "2014 a 2018",
-              "curriculo": "Governo revisa o *Australian Curriculum; Version *8 é consolidada. A relação muda conforme o currículo amadurece. Em 2014, a ACSA aparece formalmente entre os *stakeholders *consultados na revisão. Em 2018, amplia sua atuação por meio da produção de conhecimento e análise crítica da experiência do *Australian Curriculum.*",
-              "organizacao": "ACSA participa como *stakeholder *da revisão e continua produzindo debate e conhecimento."
+              "curriculo": "Governo revisa o *Australian Curriculum; Version *8 é consolidada.",
+              "organizacao": "ACSA participa como *stakeholder *da revisão e continua produzindo debate e conhecimento.",
+              "resumo": "A relação muda conforme o currículo amadurece. Em 2014, a ACSA aparece formalmente entre os *stakeholders *consultados na revisão. Em 2018, amplia sua atuação por meio da produção de conhecimento e análise crítica da experiência do *Australian Curriculum.*"
             },
             {
               "id": "y-2020-a-2022-3",
               "year": "2020 a 2022",
-              "curriculo": "Primeira revisão integral leva à *Version *9.0. A conferência da ACSA ocorreu durante a consulta da *Version *9.0 e contou com a participação da liderança da ACARA, funcionando como espaço de interlocução entre a autoridade curricular e a comunidade profissional.",
-              "organizacao": "ACSA promove conferência curricular durante a consulta pública, com participação da liderança da ACARA."
+              "curriculo": "Primeira revisão integral leva à *Version *9.0.",
+              "organizacao": "ACSA promove conferência curricular durante a consulta pública, com participação da liderança da ACARA.",
+              "resumo": "A conferência da ACSA ocorreu durante a consulta da *Version *9.0 e contou com a participação da liderança da ACARA, funcionando como espaço de interlocução entre a autoridade curricular e a comunidade profissional."
             }
           ]
         }
@@ -1980,14 +1988,16 @@
             {
               "id": "y-2023",
               "year": "2023",
-              "curriculo": "Estados começam a implementar a *Version *9.0. A relação passa a funcionar também no sentido inverso: especialistas da ACARA utilizam o espaço profissional da ACSA para explicar as mudanças do currículo aos educadores. A associação passa, portanto, a atuar também como ponte de tradução, circulação de informação e apoio à implementação.",
-              "organizacao": "ACSA realiza série de atividades com especialistas da ACARA explicando mudanças."
+              "curriculo": "Estados começam a implementar a *Version *9.0.",
+              "organizacao": "ACSA realiza série de atividades com especialistas da ACARA explicando mudanças.",
+              "resumo": "A relação passa a funcionar também no sentido inverso: especialistas da ACARA utilizam o espaço profissional da ACSA para explicar as mudanças do currículo aos educadores. A associação passa, portanto, a atuar também como ponte de tradução, circulação de informação e apoio à implementação."
             },
             {
               "id": "y-2025-a-2026-1",
               "year": "2025 a 2026",
-              "curriculo": "Novo ciclo de dez anos, revisões focalizadas e proposta de reorganização institucional. A incidência volta a se concentrar nas regras e na governança da política curricular. A ACSA questiona participação profissional, evidências, autonomia dos estados e desenho institucional da nova comissão. O processo está em andamento.",
-              "organizacao": "ACSA publica posicionamento crítico sobre processo, evidências, autonomia e participação profissional."
+              "curriculo": "Novo ciclo de dez anos, revisões focalizadas e proposta de reorganização institucional.",
+              "organizacao": "ACSA publica posicionamento crítico sobre processo, evidências, autonomia e participação profissional.",
+              "resumo": "A incidência volta a se concentrar nas regras e na governança da política curricular. A ACSA questiona participação profissional, evidências, autonomia dos estados e desenho institucional da nova comissão. O processo está em andamento."
             }
           ]
         }

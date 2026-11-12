@@ -1,0 +1,1531 @@
+@font-face {
+  font-family: Mulish;
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/Mulish-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Mulish;
+  font-style: italic;
+  font-weight: 400;
+  src: url("/fonts/Mulish-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Mulish;
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/Mulish-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Mulish;
+  font-style: italic;
+  font-weight: 500;
+  src: url("/fonts/Mulish-MediumItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Mulish;
+  font-style: normal;
+  font-weight: 600;
+  src: url("/fonts/Mulish-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Mulish;
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/Mulish-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/RobotoSlab-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/RobotoSlab-Bold.ttf") format("truetype");
+}
+
+/* Capa: só título (document.json) + data (subtitle). */
+.layout-vozes-cover.sheet {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: var(--page-height);
+  padding-top: 22mm;
+  padding-bottom: 28mm;
+}
+
+.layout-vozes-cover .cover-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 20mm;
+  margin: 0;
+  padding: 0;
+  border: none;
+  width: 100%;
+  max-width: 148mm;
+}
+
+.layout-vozes-cover .cover-hero-logo {
+  display: block;
+  width: 68mm;
+  max-width: 100%;
+  height: auto;
+  break-inside: avoid;
+}
+
+.layout-vozes-cover .cover-hero-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.layout-vozes-cover .cover-hero-title {
+  margin: 0 0 10mm;
+  font-family: "Roboto Slab", var(--font-serif);
+  font-size: 22pt;
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: var(--color-vozes-roxo-2);
+  text-wrap: balance;
+}
+
+.layout-vozes-cover .cover-hero-year {
+  margin: 0;
+  font-family: Mulish, var(--font-sans);
+  font-size: 14pt;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--color-vozes-roxo);
+}
+
+.layout-vozes-cover .cover-hero-year::before {
+  display: block;
+  content: "";
+  width: 18mm;
+  height: 1.2mm;
+  margin-bottom: 5mm;
+  background: linear-gradient(
+    90deg,
+    var(--color-vozes-verde-vivo),
+    var(--color-vozes-laranja)
+  );
+  border-radius: 1mm;
+}
+
+/* Expediente: fundo roxo, texto branco, menor que o corpo. */
+.layout-vozes-expediente.sheet {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: var(--page-height);
+  background: var(--color-vozes-roxo);
+  color: #ffffff;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.layout-vozes-expediente .vozes-expediente-inner .vozes-main {
+  max-width: 148mm;
+}
+
+.layout-vozes-expediente .vozes-expediente-inner h2 {
+  margin: 0 0 5mm;
+  font-family: Mulish, var(--font-sans);
+  font-size: 9pt;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.layout-vozes-expediente .vozes-expediente-inner p {
+  margin: 0 0 0.65em;
+  font-family: Mulish, var(--font-sans);
+  font-size: var(--text-small);
+  line-height: 1.45;
+  color: color-mix(in srgb, #ffffff 92%, transparent);
+}
+
+.layout-vozes-expediente .vozes-expediente-inner strong {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Folha de rosto */
+.layout-vozes-folha-rosto.sheet {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: var(--page-height);
+  padding-top: 18mm;
+  padding-bottom: 22mm;
+}
+
+.layout-vozes-folha-rosto .folha-rosto-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 5mm;
+  max-width: 155mm;
+}
+
+.layout-vozes-folha-rosto .folha-rosto-label {
+  margin: 0;
+  font-family: Mulish, var(--font-sans);
+  font-size: var(--text-kicker);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-vozes-roxo);
+}
+
+.layout-vozes-folha-rosto .folha-rosto-title {
+  margin: 0;
+  font-family: "Roboto Slab", var(--font-serif);
+  font-size: 20pt;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-vozes-roxo-2);
+  text-wrap: balance;
+}
+
+.layout-vozes-folha-rosto .folha-rosto-year {
+  margin: 0;
+  font-family: Mulish, var(--font-sans);
+  font-size: 12pt;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--color-vozes-roxo);
+}
+
+.layout-vozes-folha-rosto .folha-rosto-author {
+  margin: 4mm 0 0;
+  font-family: Mulish, var(--font-sans);
+  font-size: 10pt;
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
+.layout-vozes-folha-rosto .folha-rosto-placeholder {
+  margin: 8mm 0 0;
+  font-family: Mulish, var(--font-sans);
+  font-size: var(--text-small);
+  line-height: 1.45;
+  color: var(--color-muted);
+  max-width: 120mm;
+}
+
+/* Página em branco (verso antes da apresentação) */
+.layout-vozes-blank.sheet {
+  min-height: var(--page-height);
+  padding: 0;
+  background: var(--color-paper);
+}
+
+.layout-vozes-blank.sheet::after {
+  content: none;
+}
+
+/* Sumário: tipografia compacta em duas páginas */
+.layout-vozes-report .vozes-page.vozes-sumario .vozes-main h2:first-of-type {
+  font-size: 12pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-vozes-roxo-2);
+  margin-bottom: 5mm;
+}
+
+.layout-vozes-report .vozes-page.vozes-sumario .editorial-table-vozes table {
+  width: 100%;
+  font-family: Mulish, var(--font-sans);
+  font-size: 9pt;
+  line-height: 1.35;
+}
+
+.layout-vozes-report .vozes-page.vozes-sumario .editorial-table-vozes thead {
+  display: none;
+}
+
+.layout-vozes-report .vozes-page.vozes-sumario .editorial-table-vozes td {
+  padding: 1.1mm 0;
+  vertical-align: top;
+  border: none;
+  background: transparent !important;
+}
+
+.layout-vozes-report .vozes-page.vozes-sumario .editorial-table-vozes tr:nth-child(even) td {
+  background: transparent !important;
+}
+
+.layout-vozes-report .vozes-page.vozes-sumario .editorial-table-vozes td:last-child {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-muted);
+  white-space: nowrap;
+  padding-left: 4mm;
+}
+
+/* Grade Vozes: prosa 3/5 · gutter 4.5 mm · rail ou área livre 2/5 */
+.layout-vozes-report {
+  --vozes-grid-gutter: 4.5mm;
+  --vozes-prose-track: minmax(0, 3fr);
+  --vozes-air-track: var(--vozes-grid-gutter);
+  --vozes-rail-track: minmax(0, 2fr);
+}
+
+.layout-vozes-report .vozes-page {
+  align-items: start;
+}
+
+/* Sem rail: mesma grade (3/5 prosa + gutter + 2/5 livres). */
+.layout-vozes-report .vozes-page.vozes-prose-only,
+.layout-vozes-report .vozes-page:not(.vozes-with-rail) {
+  display: grid;
+  grid-template-columns: var(--vozes-prose-track) var(--vozes-air-track) var(--vozes-rail-track);
+  gap: 0;
+}
+
+.layout-vozes-report .vozes-page.vozes-prose-only .vozes-main,
+.layout-vozes-report .vozes-page:not(.vozes-with-rail) .vozes-main {
+  grid-column: 1;
+  width: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.layout-vozes-report .vozes-page.vozes-prose-only .vozes-rail,
+.layout-vozes-report .vozes-page:not(.vozes-with-rail) .vozes-rail {
+  display: none;
+}
+
+/* Capítulos com rail: prosa 3/5 + gutter + rail 2/5 */
+.layout-vozes-report .vozes-page.vozes-with-rail {
+  display: grid;
+  grid-template-columns: var(--vozes-prose-track) var(--vozes-air-track) var(--vozes-rail-track);
+  gap: 0;
+}
+
+.layout-vozes-report .vozes-page.vozes-with-rail .vozes-main {
+  grid-column: 1;
+  min-width: 0;
+}
+
+.layout-vozes-report .vozes-page.vozes-with-rail .vozes-rail {
+  grid-column: 3;
+  padding-left: 0;
+  min-width: 0;
+}
+
+.layout-vozes-report .vozes-main h1,
+.layout-vozes-report .vozes-main h2,
+.layout-vozes-report .vozes-main h3 {
+  font-family: var(--font-sans);
+}
+
+.layout-vozes-report .vozes-main .country-opening h1 {
+  font-family: var(--font-display);
+  font-size: 28pt;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 var(--stack-after-h1);
+  color: var(--color-ink);
+}
+
+.layout-vozes-report .vozes-main h3 {
+  font-weight: 600;
+  font-size: 11pt;
+  line-height: 1.27;
+  /* Títulos de seção do relatório (sistema curricular, governança, etc.) */
+  color: var(--color-ink);
+  margin-top: var(--stack-before-h3);
+}
+
+.layout-vozes-report .vozes-main h2 {
+  font-size: 13pt;
+  font-weight: 700;
+  line-height: 1.23;
+  color: var(--color-ink);
+  margin-top: var(--stack-before-h2-vozes);
+}
+
+.layout-vozes-report .vozes-page.vozes-front-matter .vozes-main h2:first-of-type {
+  margin-top: 0;
+  letter-spacing: 0.04em;
+}
+
+.layout-vozes-report .vozes-main p,
+.layout-vozes-report .vozes-main .detail-list-item {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-leading);
+  text-align: left;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 2;
+  hyphenate-limit-lines: 2;
+  hyphenate-limit-last: always;
+  hyphenate-limit-zone: 8%;
+  text-wrap: pretty;
+  orphans: 3;
+  widows: 3;
+  margin-bottom: var(--stack-paragraph-vozes);
+}
+
+.layout-vozes-report .vozes-main .detail-list-item {
+  margin-bottom: var(--stack-detail-item);
+}
+
+.layout-vozes-report .vozes-main .detail-list-item > p {
+  margin-bottom: var(--stack-detail-item);
+}
+
+.layout-vozes-report .vozes-main .detail-list-item > p:last-child {
+  margin-bottom: 0;
+}
+
+.layout-vozes-report .vozes-main ul:not([class]),
+.layout-vozes-report .vozes-main ol:not([class]) {
+  margin: 0 0 var(--stack-paragraph-vozes);
+  padding-left: calc(var(--vozes-detail-list-indent) + var(--vozes-detail-list-gutter));
+  list-style-position: outside;
+}
+
+.layout-vozes-report .vozes-main ul:not([class]) {
+  list-style-type: disc;
+}
+
+.layout-vozes-report .vozes-main ol:not([class]) {
+  list-style-type: decimal;
+}
+
+.layout-vozes-report .vozes-main :is(ul, ol):not([class]) :is(ul, ol) {
+  margin-top: var(--stack-detail-item);
+  margin-bottom: 0;
+  padding-left: var(--vozes-list-nest-indent);
+}
+
+.layout-vozes-report .vozes-main :is(ul, ol):not([class]) li {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-leading);
+  margin-bottom: var(--stack-detail-item);
+}
+
+.layout-vozes-report .vozes-main :is(ul, ol):not([class]) li:last-child {
+  margin-bottom: 0;
+}
+
+.layout-vozes-report .vozes-main a {
+  font-weight: 500;
+  text-decoration-thickness: 0.07em;
+  text-underline-offset: 0.14em;
+}
+
+.layout-vozes-report .vozes-main a:visited {
+  color: color-mix(in srgb, var(--color-accent) 82%, var(--color-ink));
+}
+
+@media print {
+  .layout-vozes-report .vozes-main a {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+}
+
+.layout-vozes-report .vozes-main h2,
+.layout-vozes-report .vozes-main h3,
+.layout-vozes-report .vozes-main .org-section-title {
+  break-after: avoid;
+  break-inside: avoid;
+}
+
+.layout-vozes-report .vozes-main h2 + p,
+.layout-vozes-report .vozes-main h3 + p,
+.layout-vozes-report .vozes-main .org-section-title + p,
+.layout-vozes-report .vozes-main h2 + .detail-list-item,
+.layout-vozes-report .vozes-main h3 + .detail-list-item {
+  break-before: avoid;
+}
+
+.layout-vozes-report .vozes-main .figure {
+  break-inside: avoid;
+  margin: var(--stack-block-figure-vozes) 0;
+  padding: 0;
+  border: none;
+  line-height: 0;
+}
+
+/* Figuras na faixa direita (2/5), salvo .figure--span */
+.layout-vozes-report .vozes-page:is(.vozes-prose-only, .vozes-with-rail) .vozes-main > .figure:not(.figure--span) {
+  float: right;
+  clear: right;
+  width: calc((2 / 3) * 100%);
+  max-width: calc((2 / 3) * 100%);
+  margin-top: 0;
+  margin-left: var(--vozes-grid-gutter);
+  margin-right: calc(-1 * (var(--vozes-grid-gutter) + (2 / 3) * 100%));
+  shape-outside: margin-box;
+  shape-margin: 0.5mm;
+}
+
+/* Trajetória AU: figura um pouco mais larga → prosa um pouco mais estreita, topo alinhado ao 1º parágrafo. */
+.layout-vozes-report .vozes-page:is(.vozes-prose-only, .vozes-with-rail) .vozes-main > .figure.figure--trajetoria {
+  width: calc((3 / 4) * 100%);
+  max-width: calc((3 / 4) * 100%);
+  margin-top: 0;
+  margin-left: calc(var(--vozes-grid-gutter) + 1.5mm);
+  margin-right: calc(-1 * (var(--vozes-grid-gutter) + 1.5mm + (3 / 4) * 100%));
+  shape-margin: 1mm;
+  break-before: avoid;
+  break-inside: avoid;
+}
+
+.layout-vozes-report .vozes-main h3 + .figure.figure--trajetoria {
+  break-before: avoid;
+}
+
+.layout-vozes-report .vozes-page:is(.vozes-prose-only, .vozes-with-rail) .vozes-main > .figure.figure--span {
+  clear: both;
+  float: none;
+  width: calc(100% + var(--vozes-grid-gutter) + (2 / 3) * 100%);
+  max-width: none;
+  margin-inline: 0;
+}
+
+/* Figura span menor (uso local) — cabe na mesma página que DimensionList. */
+.layout-vozes-report .vozes-page:is(.vozes-prose-only, .vozes-with-rail) .vozes-main .figure.figure--span.figure--compact {
+  width: calc(0.75 * (100% + var(--vozes-grid-gutter) + (2 / 3) * 100%));
+  margin-top: 2mm;
+  break-inside: avoid;
+  break-before: avoid;
+}
+
+/* ActorBand — faixa de atores em colunas (prosa + faixa direita). */
+.layout-vozes-report .vozes-page:is(.vozes-prose-only, .vozes-with-rail) .vozes-main .actor-band {
+  clear: both;
+  float: none;
+  /* Mesma medida do figure--span: aproveitar a faixa direita sem inset artificial. */
+  width: calc(100% + var(--vozes-grid-gutter) + (2 / 3) * 100%);
+  max-width: none;
+  margin: 10mm 0 var(--stack-block);
+  break-inside: avoid;
+  break-before: avoid;
+}
+
+/* Empilha conteúdo de uma página e pinna o último bloco à margem inferior. */
+.layout-vozes-report .vozes-main > .vozes-page-stack {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  min-height: calc(var(--page-height) - var(--margin-top) - var(--margin-bottom));
+  width: 100%;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack + .vozes-page-stack {
+  break-before: page;
+}
+
+.layout-vozes-report .vozes-main .vozes-page-stack-foot {
+  margin-top: auto;
+  margin-bottom: 0;
+  break-inside: avoid;
+}
+
+/* Band label — rótulo de faixa: caixa alta, verde, menor que h3; filete após o texto. */
+.layout-vozes-report .vozes-main .band-label {
+  display: flex;
+  align-items: center;
+  gap: 0.45em;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 8pt;
+  /* Mulish no projeto vai até Bold (700); reforço óptico no traço. */
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-vozes-verde);
+  text-transform: uppercase;
+  letter-spacing: 0.055em;
+  break-after: avoid;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.layout-vozes-report .vozes-main .band-label-text {
+  flex: 0 1 auto;
+  min-width: 0;
+  /* Peso visual um pouco mais firme sem ExtraBold no kit. */
+  text-shadow: 0 0 0.35px currentColor;
+}
+
+.layout-vozes-report .vozes-main .band-label::after {
+  content: "";
+  flex: 1 1 auto;
+  min-width: 8mm;
+  align-self: center;
+  border-top: 1.5pt solid currentColor;
+}
+
+.layout-vozes-report .vozes-main .actor-band-label {
+  /* Ritmo vertical estável: filete → títulos das colunas. */
+  margin: 0 0 6.5mm;
+  padding: 0;
+}
+
+.layout-vozes-report .vozes-main .actor-band-grid {
+  display: grid;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  /* Tracks iguais sempre — nunca auto/max-content por comprimento do texto.
+     minmax(0, 1fr) evita o mínimo intrínseco (auto) que alarga colunas longas. */
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-columns: minmax(0, 1fr);
+  justify-items: stretch;
+  align-items: start;
+  /* Gap uniforme entre colunas (e linhas, se houver wrap). */
+  column-gap: 3.5mm;
+  row-gap: 3.5mm;
+}
+
+.layout-vozes-report .vozes-main .actor-band-grid[data-columns="1"] {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.layout-vozes-report .vozes-main .actor-band-grid[data-columns="2"] {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.layout-vozes-report .vozes-main .actor-band-grid[data-columns="3"] {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.layout-vozes-report .vozes-main .actor-band-grid[data-columns="4"] {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.layout-vozes-report .vozes-main .actor-band-grid[data-columns="5"] {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  column-gap: 2.4mm;
+  row-gap: 2.4mm;
+}
+
+.layout-vozes-report .vozes-main .actor-band-grid[data-columns="6"] {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  column-gap: 2.4mm;
+  row-gap: 2.4mm;
+}
+
+.layout-vozes-report .vozes-main .actor-band-item {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  padding-inline-start: 0;
+  border: none;
+  background: transparent;
+  list-style: none;
+}
+
+/* Neutraliza indent/justificação/hífens herdados — colunas estreitas não suportam justify. */
+.layout-vozes-report .vozes-main .actor-band p,
+.layout-vozes-report .vozes-main .actor-band .actor-band-name,
+.layout-vozes-report .vozes-main .actor-band .actor-band-note,
+.layout-vozes-report .vozes-main .actor-band .actor-band-body {
+  margin: 0;
+  padding: 0;
+  text-indent: 0;
+  text-align: left;
+  text-align-last: left;
+  text-justify: auto;
+  word-spacing: normal;
+  letter-spacing: normal;
+  hanging-punctuation: none;
+}
+
+.layout-vozes-report .vozes-main .actor-band-head {
+  margin: 0 0 3.4mm;
+  padding: 0;
+  break-after: avoid;
+  break-inside: avoid;
+}
+
+.layout-vozes-report .vozes-main .actor-band-name {
+  margin: 0 0 1.2mm;
+  padding: 0;
+  text-indent: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  font-weight: 700;
+  line-height: var(--text-leading);
+  color: var(--color-vozes-verde);
+  hyphens: manual;
+  -webkit-hyphens: manual;
+  /* balance em título longo + coluna estreita gerava quebras estranhas */
+  text-wrap: wrap;
+  overflow-wrap: break-word;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.layout-vozes-report .vozes-main .actor-band-note {
+  margin: 0;
+  padding: 0;
+  text-indent: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-small);
+  font-weight: 400;
+  line-height: 1.28;
+  color: var(--color-muted);
+  hyphens: manual;
+  -webkit-hyphens: manual;
+}
+
+.layout-vozes-report .vozes-main .actor-band-body {
+  margin: 0;
+  padding: 0;
+  text-indent: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-leading);
+  color: var(--color-ink);
+  text-align: left;
+  text-align-last: left;
+  text-justify: auto;
+  word-spacing: normal;
+  letter-spacing: normal;
+  hyphens: manual;
+  -webkit-hyphens: manual;
+  text-wrap: wrap;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+/* Exemplos longos (ex.: marcos ACSA): grade 2×2, sem rótulo; quebra entre linhas ok. */
+.layout-vozes-report .vozes-main .actor-band.actor-band--examples {
+  break-inside: auto;
+}
+
+.layout-vozes-report .vozes-main .actor-band.actor-band--examples .actor-band-grid {
+  /* Mesma regra de tracks iguais; só o ritmo entre células muda. */
+  row-gap: 6mm;
+  column-gap: 5mm;
+}
+
+.layout-vozes-report .vozes-main .actor-band.actor-band--examples .actor-band-item {
+  break-inside: avoid;
+}
+
+/* Título em negrito verde; data (fora do strong/link) sem negrito; link verde com sublinhado. */
+.layout-vozes-report .vozes-main .actor-band.actor-band--examples .actor-band-name {
+  font-weight: 400;
+  color: var(--color-vozes-verde);
+}
+
+.layout-vozes-report .vozes-main .actor-band.actor-band--examples .actor-band-name strong,
+.layout-vozes-report .vozes-main .actor-band.actor-band--examples .actor-band-name a {
+  font-weight: 700;
+  color: var(--color-vozes-verde);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.layout-vozes-report .vozes-main .actor-band.actor-band--examples .actor-band-name a:visited {
+  color: var(--color-vozes-verde);
+}
+
+.layout-vozes-report .vozes-main .figure img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  vertical-align: bottom;
+}
+
+.layout-vozes-report .vozes-main .figure figcaption {
+  margin-top: var(--stack-figcaption);
+  padding: 0;
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 6.5pt;
+  line-height: 1.35;
+  color: var(--color-muted);
+}
+
+.layout-vozes-report .vozes-main .figure figcaption a {
+  color: var(--color-vozes-roxo-2);
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+.layout-vozes-report .vozes-main .figure + .source-note {
+  margin-top: var(--stack-figcaption);
+  padding-top: 0;
+  border-top: none;
+}
+
+.layout-vozes-report .vozes-page.org-panel-page .vozes-main {
+  padding: 5mm 5mm 4mm;
+  background: var(--color-marfim);
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.country-opening {
+  margin-bottom: var(--stack-country-opening);
+}
+
+.country-code {
+  margin: 0 0 var(--stack-country-code);
+  font-family: var(--font-sans);
+  font-size: 9pt;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-vozes-roxo-2);
+}
+
+.country-code--flag {
+  position: relative;
+  line-height: 0;
+  letter-spacing: 0;
+  text-transform: none;
+  color: transparent;
+}
+
+.country-flag {
+  display: block;
+  width: 7.5mm;
+  height: 3.75mm;
+  margin: 0;
+  padding: 0;
+  border: none;
+  overflow: visible;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.country-code-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.country-opening h1 {
+  font-family: var(--font-display);
+  font-size: 28pt;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 var(--stack-after-h1);
+  color: var(--color-ink);
+}
+
+.country-lead {
+  font-size: 10pt;
+  line-height: 1.4;
+  color: var(--color-ink);
+}
+
+.profile-card {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 50mm;
+  margin-top: var(--stack-block-profile);
+  margin-inline: auto;
+  padding: 6mm 5mm 5.5mm;
+  text-align: center;
+  background: var(--profile-card-surface);
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+  container-type: inline-size;
+}
+
+/* Perfil ao lado de «A governança»: topo do card = topo do 1º parágrafo (não do H3). */
+.layout-vozes-report .vozes-page.vozes-with-rail .vozes-main > .profile-card {
+  float: right;
+  clear: right;
+  width: min(50mm, 100%);
+  max-width: 50mm;
+  margin-top: 0;
+  margin-bottom: var(--stack-paragraph-vozes);
+  margin-left: var(--vozes-grid-gutter);
+  /* Desloca o card para a faixa rail (2fr) além do gutter a partir da coluna prosa (3fr). */
+  margin-right: calc(-1 * (var(--vozes-grid-gutter) + (2 / 3) * 100%));
+  shape-outside: margin-box;
+  shape-margin: 1.5mm;
+}
+
+.layout-vozes-report .vozes-main h3 + .profile-card {
+  break-before: avoid;
+}
+
+.profile-card-body {
+  text-align: center;
+}
+
+.profile-card-photo-wrap {
+  position: relative;
+  flex-shrink: 0;
+  width: 24mm;
+  height: 24mm;
+  margin: 0 auto 3.5mm;
+  border-radius: 50%;
+  overflow: hidden;
+  /* Duotone está nos PNG (scripts/apply-profile-duotone.py): #493975 ↔ #FBF9F6 */
+}
+
+.profile-card-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+/* Especificidade acima de `.layout-vozes-report .vozes-main p` (10 pt no corpo). */
+.layout-vozes-report .vozes-main .profile-card .profile-card-name {
+  margin: 0 0 1mm;
+  font-family: "Roboto Slab", var(--font-display);
+  font-size: 11pt;
+  font-weight: 700;
+  line-height: 1.22;
+  text-align: center;
+  color: var(--color-ink);
+}
+
+.layout-vozes-report .vozes-main .profile-card .profile-card-role {
+  margin: 0 0 2mm;
+  font-family: var(--font-sans);
+  font-size: 7.5pt;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.3;
+  color: var(--color-vozes-roxo-2);
+  text-align: center;
+}
+
+/* Nome do perfil citado no miolo, seção «A governança». */
+.layout-vozes-report .vozes-main .profile-name-highlight {
+  padding: 0.04em 0.14em;
+  border-radius: 0.12em;
+  background: var(--profile-card-surface);
+  color: inherit;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.layout-vozes-report .vozes-main .profile-card .profile-card-bio {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 8pt;
+  line-height: 1.44;
+  text-align: justify;
+  text-justify: inter-word;
+  text-align-last: left;
+  text-wrap: pretty;
+  color: var(--color-ink);
+  overflow-wrap: break-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  hyphenate-limit-chars: 5 2 3;
+  hyphenate-limit-lines: 2;
+  hyphenate-limit-last: always;
+  hyphenate-limit-zone: 14%;
+  orphans: 2;
+  widows: 2;
+}
+
+/* Medida muito estreita: justificação plena abre rios — manter leitura contínua. */
+@container (max-width: 44mm) {
+  .layout-vozes-report .vozes-main .profile-card .profile-card-bio {
+    text-align: left;
+    text-align-last: auto;
+    text-wrap: pretty;
+  }
+}
+
+.callout-card,
+.facts-rail {
+  margin-top: var(--stack-block-aside);
+  padding: 4mm;
+  background: color-mix(in srgb, var(--color-vozes-roxo-2) 10%, white);
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.facts-rail {
+  background: var(--color-marfim);
+}
+
+.callout-card-title,
+.facts-rail-title {
+  margin: 0 0 2.5mm;
+  font-family: var(--font-sans);
+  font-size: 8pt;
+  font-weight: 700;
+  color: var(--color-vozes-roxo-2);
+}
+
+.facts-rail-list {
+  margin: 0;
+}
+
+.facts-rail-item {
+  margin-bottom: 2.5mm;
+}
+
+.facts-rail-item dt {
+  margin: 0;
+  font-size: 8pt;
+  font-weight: 700;
+}
+
+.facts-rail-item dd {
+  margin: 0.5mm 0 0;
+  font-size: 8.5pt;
+  line-height: 1.3;
+}
+
+.detail-list-item {
+  margin: 0 0 var(--stack-detail-item);
+  padding-left: calc(var(--vozes-detail-list-indent) + var(--vozes-detail-list-gutter));
+  font-size: var(--text-body);
+  line-height: var(--text-leading);
+}
+
+/* MDX: div > p + p — marcador na grelha, alinhado à primeira linha (Vivliostyle). */
+.detail-list-item:has(> p) {
+  display: grid;
+  grid-template-columns: var(--vozes-detail-list-gutter) minmax(0, 1fr);
+  padding-left: var(--vozes-detail-list-indent);
+}
+
+.detail-list-item:has(> p)::before {
+  content: "•";
+  grid-column: 1;
+  grid-row: 1;
+  align-self: start;
+  text-align: center;
+  line-height: var(--text-leading);
+  color: var(--color-vozes-verde-vivo);
+  font-weight: 700;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.detail-list-item:has(> p) > p {
+  grid-column: 2;
+}
+
+/* Bundle/inventory: strong + texto corrido inline, sem <p>. */
+.detail-list-item:not(:has(> p))::before {
+  content: "•";
+  margin-left: calc(-1 * var(--vozes-detail-list-gutter));
+  padding-right: calc(var(--vozes-detail-list-gutter) - 0.35em);
+  color: var(--color-vozes-verde-vivo);
+  font-weight: 700;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* Ícone editorial no lugar do bullet (ex.: fases do currículo AU). */
+.detail-list-item--icon:has(> p)::before,
+.detail-list-item--icon:not(:has(> p))::before {
+  content: none;
+  display: none;
+}
+
+.detail-list-item--icon {
+  display: grid;
+  grid-template-columns: var(--vozes-detail-list-gutter) minmax(0, 1fr);
+  padding-left: var(--vozes-detail-list-indent);
+}
+
+.detail-list-item--icon > .detail-list-icon {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: start;
+  justify-self: center;
+  display: block;
+  width: 4.2mm;
+  height: 4.2mm;
+  margin-top: 0.35mm;
+  color: var(--color-vozes-verde-vivo);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.detail-list-item--icon > :not(.detail-list-icon) {
+  grid-column: 2;
+}
+
+.layout-vozes-report .vozes-main .detail-list-item strong {
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+/* Quebra de página editorial dentro da folha (ex.: início de subtítulo). */
+.layout-vozes-report .vozes-main .vozes-page-start {
+  break-before: page;
+}
+
+/* DimensionList — cifra na linha de base do título; corpo romano sob o título. */
+.dimension-list-item {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  column-gap: 1.5mm;
+  row-gap: 1.2mm;
+  align-items: baseline;
+  margin: 0;
+  padding: 3.5mm 0;
+  padding-left: var(--vozes-detail-list-indent);
+  break-inside: avoid;
+  font-size: var(--text-body);
+  line-height: var(--text-leading);
+}
+
+.dimension-list-number {
+  grid-column: 1;
+  grid-row: 1;
+  font-family: var(--font-sans);
+  font-size: 16pt;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-vozes-verde);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.dimension-list-title {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+}
+
+.dimension-list-copy {
+  grid-column: 2;
+  grid-row: 2;
+  min-width: 0;
+}
+
+.layout-vozes-report .vozes-main .dimension-list-title > p,
+.layout-vozes-report .vozes-main .dimension-list-copy > p {
+  margin: 0;
+}
+
+.layout-vozes-report .vozes-main .dimension-list-title strong {
+  font-weight: 700;
+  font-style: normal;
+  color: var(--color-vozes-verde);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* Inglês entre parênteses no título: itálico + verde. */
+.layout-vozes-report .vozes-main .dimension-list-title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-vozes-verde);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* Lista de disciplinas: romana (nunca itálico). */
+.layout-vozes-report .vozes-main .dimension-list-copy,
+.layout-vozes-report .vozes-main .dimension-list-copy em {
+  font-style: normal;
+  font-weight: 400;
+  color: var(--color-ink);
+}
+
+.layout-vozes-report .vozes-main h3 + .dimension-list-item,
+.layout-vozes-report .vozes-main .heading-3 + .dimension-list-item {
+  break-before: avoid;
+}
+
+.source-note {
+  margin-top: auto;
+  padding-top: 5mm;
+  border-top: 0.35mm solid color-mix(in srgb, var(--color-ink) 40%, transparent);
+}
+
+.source-note p {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 7.5pt;
+  line-height: 1.35;
+  color: var(--color-muted);
+}
+
+.editorial-table-vozes table {
+  font-size: 8pt;
+}
+
+.editorial-table-vozes .editorial-table-stacked-title {
+  display: block;
+  font-weight: 700;
+}
+
+.editorial-table-vozes .editorial-table-stacked-subtitle {
+  display: block;
+  font-weight: 400;
+  color: var(--color-muted);
+  margin-top: 0.35em;
+}
+
+.editorial-table-vozes th {
+  background: var(--color-vozes-roxo-2);
+  color: white;
+  border-bottom: none;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.editorial-table-vozes tr:nth-child(even) td {
+  background: color-mix(in srgb, var(--color-marfim) 55%, white);
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.editorial-table-vozes caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+/* Trajetória / marcos — cronologia editorial (ano colorido + texto alinhado; sem fundo de tabela).
+ * Sem padding-left: a coluna de anos alinha à esquerda do h3 «A trajetória da organização».
+ * O recuo do marco fica só no grid (coluna do ano + gap).
+ * Densidade: todas as datas cabem em uma dupla (2 págs.), não em 3. */
+.milestone-strip {
+  box-sizing: border-box;
+  margin: 3mm 0 var(--stack-block);
+  padding-left: 0;
+}
+
+/*
+ * Largura quase full prosa+rail: menos wrapping → menos altura vertical (regra da dupla).
+ */
+.layout-vozes-report .vozes-page:is(.vozes-prose-only, .vozes-with-rail) .vozes-main .milestone-strip {
+  clear: both;
+  float: none;
+  width: calc(100% + var(--vozes-grid-gutter) + (2 / 3) * 100%);
+  max-width: none;
+}
+
+.milestone-strip-title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.milestone-strip-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.milestone-strip-item {
+  display: grid;
+  /* Coluna fixa ~um ano (Slab); intervalos empilham na mesma coluna. */
+  grid-template-columns: 12mm minmax(0, 1fr);
+  column-gap: 3mm;
+  align-items: start;
+  padding: 0.85mm 0;
+  border: none;
+  background: none;
+  font-size: var(--text-body);
+  line-height: 1.28;
+  break-inside: avoid;
+}
+
+.milestone-strip-item + .milestone-strip-item {
+  margin-top: 0.25mm;
+}
+
+.layout-vozes-report .vozes-main .milestone-strip-year,
+.milestone-strip-year {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: start;
+  margin: 0;
+  min-width: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--color-vozes-roxo-2);
+  text-align: center;
+  white-space: normal;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.layout-vozes-report .vozes-main .milestone-strip-year-num,
+.milestone-strip-year-num {
+  display: block;
+  font-variant-numeric: tabular-nums;
+}
+
+.layout-vozes-report .vozes-main .milestone-strip-year-rule,
+.milestone-strip-year-rule {
+  display: block;
+  flex-shrink: 0;
+  width: 0.4mm;
+  height: 3mm;
+  margin: 0.4mm 0;
+  background: color-mix(in srgb, var(--color-vozes-roxo-2) 45%, transparent);
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.layout-vozes-report .vozes-main .milestone-strip-label,
+.milestone-strip-label {
+  align-self: start;
+  margin: 0;
+  min-width: 0;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  text-wrap: pretty;
+  hyphens: auto;
+}
+
+.layout-timeline-dual {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(var(--page-height) - var(--margin-top) - var(--margin-bottom));
+}
+
+.layout-timeline-dual > h1.heading-1 {
+  font-size: 18pt;
+  line-height: 1.15;
+  margin-bottom: var(--space-2);
+}
+
+.layout-timeline-dual .dual-track-lede {
+  /* Intro alinhada ao span 3/6 da grade Vozes dentro da área útil. */
+  max-width: 50%;
+  font-size: var(--text-body);
+  line-height: var(--text-leading);
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 2;
+  hyphenate-limit-lines: 2;
+  hyphenate-limit-last: always;
+  text-wrap: pretty;
+  orphans: 3;
+  widows: 3;
+}
+
+.dual-track-lede-right {
+  margin-bottom: var(--space-3);
+}
+
+.dual-track {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.dual-track-band {
+  flex: 1;
+  margin: var(--space-2) calc(-1 * var(--margin-outer)) 0 calc(-1 * var(--margin-inner));
+  padding: 5mm var(--margin-outer) 5mm var(--margin-inner);
+  min-height: 62%;
+  background: var(--color-marfim);
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.dual-track-tag {
+  display: inline;
+  margin: 0 0.8mm 0 0;
+  font-family: var(--font-sans);
+  font-size: 5.5pt;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: inherit;
+  vertical-align: baseline;
+  color: var(--color-vozes-verde);
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.dual-track-nodes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  box-sizing: border-box;
+  width: 100%;
+  /* Tracks iguais (mesmo padrão do ActorBand); inline style reforça o N dinâmico. */
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  grid-auto-columns: minmax(0, 1fr);
+  column-gap: 3.5mm;
+  row-gap: 4mm;
+  justify-items: stretch;
+  align-items: start;
+  position: relative;
+}
+
+.dual-track[data-node-count='2'] .dual-track-nodes {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.dual-track[data-node-count='3'] .dual-track-nodes {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.dual-track[data-node-count='4'] .dual-track-nodes {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.dual-track[data-node-count='5'] .dual-track-nodes {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.dual-track[data-node-count='6'] .dual-track-nodes {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.dual-track[data-node-count='7'] .dual-track-nodes {
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+/* Eixo contínuo ligando todos os anos na horizontal.
+   Alinhado ao centro dos marcadores (::after), abaixo dos algarismos. */
+.dual-track-nodes::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 8.9mm;
+  height: 0.45mm;
+  background: color-mix(in srgb, var(--color-vozes-roxo-2) 55%, transparent);
+  pointer-events: none;
+  z-index: 0;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.dual-track-node {
+  min-width: 0;
+  break-inside: avoid;
+  position: relative;
+  z-index: 1;
+}
+
+.dual-track-year {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  position: relative;
+  margin: 0 0 3.5mm;
+  height: 8mm;
+  font-family: var(--font-display);
+  font-size: 13pt;
+  font-weight: 700;
+  line-height: 1.05;
+  text-align: left;
+  color: var(--color-vozes-roxo-2);
+  font-variant-numeric: tabular-nums;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+/* Marcador no eixo, abaixo do ano — não pode cobrir os dígitos. */
+.dual-track-year::after {
+  content: '';
+  position: absolute;
+  left: 0.1mm;
+  bottom: -1.6mm;
+  width: 1.4mm;
+  height: 1.4mm;
+  border-radius: 50%;
+  background: var(--color-vozes-roxo-2);
+  box-shadow: 0 0 0 0.55mm var(--color-marfim);
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.dual-track[data-node-count='5'] .dual-track-year {
+  font-size: 11.5pt;
+}
+
+.dual-track[data-node-count='5'] .dual-track-curriculo,
+.dual-track[data-node-count='5'] .dual-track-organizacao {
+  font-size: 7pt;
+}
+
+.dual-track[data-node-count='5'] .dual-track-resumo {
+  font-size: 8pt;
+}
+
+.dual-track-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+  min-width: 0;
+}
+
+.dual-track-curriculo,
+.dual-track-organizacao {
+  margin: 0;
+  font-size: 7.5pt;
+  line-height: 1.3;
+  color: var(--color-ink);
+  text-align: left;
+  text-wrap: pretty;
+  hyphens: auto;
+}
+
+.dual-track-resumo {
+  margin: 3.5mm 0 0;
+  font-family: var(--font-display);
+  font-size: 8.5pt;
+  font-weight: 400;
+  line-height: 1.32;
+  color: var(--color-ink);
+  text-wrap: pretty;
+  hyphens: auto;
+}
+
+/* Página B: sem título — a banda sobe para ocupar a dupla. */
+.dual-track[data-spread-part='b'] .dual-track-band {
+  margin-top: 0;
+  min-height: 78%;
+}

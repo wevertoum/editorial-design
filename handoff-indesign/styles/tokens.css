@@ -1,0 +1,73 @@
+:root {
+  --page-width: 210mm;
+  --page-height: 297mm;
+  --margin-top: 18mm;
+  --margin-bottom: 20mm;
+  --margin-inner: 22mm;
+  --margin-outer: 16mm;
+  --bleed: 0mm;
+
+  --font-serif: "Roboto Slab", "Source Serif 4", serif;
+  --font-sans: Mulish, "Source Sans 3", "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-display: "Roboto Slab", Georgia, serif;
+
+  --text-body: 10pt;
+  --text-leading: 1.41;
+  --text-h1: 28pt;
+  --text-h2: 13pt;
+  --text-h3: 11pt;
+  --text-kicker: 8pt;
+  --text-small: 7.5pt;
+
+  --color-ink: #000000;
+  --color-paper: #ffffff;
+  --color-accent: #493975;
+  --color-muted: #4a4a4a;
+  /* Folio / page numbers — cinza escuro (não preto). Literal espelhado em paged.css @page. */
+  --color-folio: #4a4a4a;
+  --color-rule: #d9d2c8;
+  --color-highlight: #f3eee6;
+  --color-desk: #e8e3db;
+
+  --color-vozes-roxo: #493975;
+  --color-vozes-roxo-2: #8146cb;
+  --color-vozes-verde: #0d6353;
+  --color-vozes-verde-vivo: #01c689;
+  --color-vozes-rosa: #ef5ca1;
+  --color-vozes-laranja: #ff8327;
+  --color-marfim: #f3eee6;
+  --profile-card-surface: color-mix(in srgb, var(--color-marfim) 32%, white);
+
+  --space-1: 2mm;
+  --space-2: 4mm;
+  --space-3: 6mm;
+  --space-4: 8mm;
+  --space-5: 12mm;
+  --column-gap: 7mm;
+
+  /* Ritmo vertical — respiro entre blocos (docs/ESPACAMENTO-TIPOGRAFICO.md) */
+  --stack-after-kicker: var(--space-1);
+  --stack-after-h1: var(--space-3);
+  --stack-after-h2: var(--space-2);
+  --stack-after-h3: var(--space-1);
+  --stack-before-h2: var(--space-5);
+  --stack-before-h2-vozes: 6.5mm;
+  --stack-before-h3: var(--space-5);
+  --stack-paragraph: 0.72em;
+  --stack-paragraph-vozes: 0.92em;
+  --stack-block: var(--space-4);
+  --stack-block-figure-vozes: 4.5mm;
+  --stack-block-aside: 5mm;
+  --stack-block-profile: 10mm;
+  --stack-detail-item: var(--space-1);
+  /* Recuo dos itens com bullet (DetailList) em relação ao parágrafo corrido */
+  --vozes-detail-list-indent: var(--space-3);
+  --vozes-detail-list-gutter: var(--space-3);
+  --vozes-list-nest-indent: var(--space-4);
+  /* Respiro generoso entre bandeira/código e o nome do país */
+  --stack-country-code: 9mm;
+  --stack-country-opening: 5.5mm;
+  --stack-figcaption: 1.5mm;
+  --stack-highlight-title: 2mm;
+  --stack-pullquote-attribution: 2.5mm;
+}

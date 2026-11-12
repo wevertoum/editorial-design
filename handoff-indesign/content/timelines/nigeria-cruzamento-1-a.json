@@ -1,0 +1,34 @@
+{
+  "variant": "dual-track",
+  "kicker": "Nigéria",
+  "title": "Onde as trajetórias se cruzam",
+  "lede": [],
+  "spreadPart": "a",
+  "spreadIndex": 1,
+  "nodes": [
+    {
+      "id": "y-1969-a-1982",
+      "year": "1969 a 1982",
+      "curriculo": "A Conferência Nacional de Currículo de 1969 e a *National Policy on Education *de 1977 estabelecem as bases da política curricular nacional. A CON surge após a consolidação das primeiras diretrizes nacionais, como espaço de organização dos especialistas em currículo.",
+      "organizacao": "A CON é criada em 1982 por profissionais da University of Jos, em um contexto de fortalecimento dos estudos curriculares."
+    },
+    {
+      "id": "y-1983-a-1990-1",
+      "year": "1983 a 1990",
+      "curriculo": "O país avança na organização institucional do desenvolvimento curricular. Em 1988, é criado o NERDC. O fortalecimento de uma autoridade técnica nacional ocorre paralelamente à organização de uma comunidade acadêmica especializada.",
+      "organizacao": "A CON estrutura sua rede de associados, realiza encontros profissionais e desenvolve publicações especializadas."
+    },
+    {
+      "id": "y-1991-a-2005-2",
+      "year": "1991 a 2005",
+      "curriculo": "A *Universal Basic Education*, lançada em 1999 e regulamentada em 2004, amplia a necessidade de articulação curricular nos nove anos de educação básica. A CON volta a discutir questões educacionais em um período de ampliação da educação básica.",
+      "organizacao": "Após uma interrupção entre 1991 e 1997, a CON retoma suas atividades e promove seminários, incluindo um encontro sobre os desafios da educação secundária em 2001."
+    },
+    {
+      "id": "y-2008-a-2014-3",
+      "year": "2008 a 2014",
+      "curriculo": "O NERDC desenvolve o currículo de nove anos, implementado em 2008. Após passar por uma revisão, entra em vigor novamente em 2014. A organização contribui para a circulação de conhecimento curricular durante o período de revisão.",
+      "organizacao": "A CON publica, em 2014, o livro Curriculum and Teaching in Nigeria, reunindo estudos curriculares."
+    }
+  ]
+}

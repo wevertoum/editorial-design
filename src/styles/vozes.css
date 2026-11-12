@@ -1426,13 +1426,14 @@
   grid-template-columns: repeat(7, minmax(0, 1fr));
 }
 
-/* Eixo contínuo ligando todos os anos na horizontal. */
+/* Eixo contínuo ligando todos os anos na horizontal.
+   Alinhado ao centro dos marcadores (::after), abaixo dos algarismos. */
 .dual-track-nodes::before {
   content: '';
   position: absolute;
   left: 0;
   right: 0;
-  top: 7.8mm;
+  top: 8.9mm;
   height: 0.45mm;
   background: color-mix(in srgb, var(--color-vozes-roxo-2) 55%, transparent);
   pointer-events: none;
@@ -1466,16 +1467,17 @@
   -webkit-print-color-adjust: exact;
 }
 
+/* Marcador no eixo, abaixo do ano — não pode cobrir os dígitos. */
 .dual-track-year::after {
   content: '';
   position: absolute;
-  left: 0.15mm;
-  bottom: -1.1mm;
-  width: 2.2mm;
-  height: 2.2mm;
+  left: 0.1mm;
+  bottom: -1.6mm;
+  width: 1.4mm;
+  height: 1.4mm;
   border-radius: 50%;
   background: var(--color-vozes-roxo-2);
-  box-shadow: 0 0 0 0.7mm var(--color-marfim);
+  box-shadow: 0 0 0 0.55mm var(--color-marfim);
   print-color-adjust: exact;
   -webkit-print-color-adjust: exact;
 }
