@@ -8,9 +8,8 @@ Você fala **o que quer ver no documento**. O agente implementa e, quando precis
 
 | Você diz | O que acontece |
 | --- | --- |
-| **Visualizar** (ou “abre a prévia”, “quero ver as páginas”) | O agente deixa o relatório no modo **páginas de livro** (como no PDF). No navegador: **http://127.0.0.1:13000** — folhas em spread, numeração. |
-| **Entrar no modo de edição** (ou “só quero ver o texto rápido”) | Prévia **sem paginação**, mais rápida para ler e revisar texto. **http://127.0.0.1:5173** |
-| **Gerar renderização PDF** (ou “gera o PDF”, “exporta o PDF final”) | O agente gera o arquivo para enviar: `output/document-digital.pdf`. Para gráfica com sangria e marcas de corte, diga **“PDF para gráfica”**. |
+| **Visualizar** (ou “abre a prévia”, “quero ver as páginas”, “modo de edição”) | O relatório abre como site. No navegador: **http://127.0.0.1:5173** |
+| **Gerar renderização PDF** (ou “gera o PDF”, “exporta o PDF final”) | O agente gera o arquivo para enviar: `output/document-digital.pdf`. Para a versão com sangria, diga **“PDF para gráfica”**. |
 
 Depois de cada alteração de conteúdo ou layout, pode pedir de novo: **“visualizar”** e ir até o país ou seção que mudou.
 
@@ -40,7 +39,7 @@ Use país ou parte do relatório: “na Austrália”, “no resumo”, “na ca
 ## O que você deve ouvir do agente
 
 - O que mudou, em português de editor (não lista de arquivos).
-- **“Visualize em http://127.0.0.1:13000 e vá até …”** (capa, Apresentação, Austrália, …).
+- **“Visualize em http://127.0.0.1:5173 e vá até …”** (capa, Apresentação, Austrália, …).
 - Se pediu PDF: **caminho do arquivo** e confirmação de que a renderização terminou.
 
 ---
@@ -70,7 +69,7 @@ Ou atualize a página do navegador (F5) se a prévia já estiver aberta.
 
 | Pedido seu | Atalho interno do projeto (agente usa) |
 | --- | --- |
-| Visualizar | `npm run visualizar` (= prévia paginada) |
+| Visualizar / modo de edição | `npm run visualizar` (o site) |
 | Modo de edição | `npm run editar` |
 | Gerar renderização PDF | `npm run gerar-pdf` |
 | PDF para gráfica | `npm run gerar-pdf-grafica` |

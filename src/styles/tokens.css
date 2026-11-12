@@ -3,8 +3,9 @@
   --page-height: 297mm;
   --margin-top: 18mm;
   --margin-bottom: 20mm;
-  --margin-inner: 22mm;
-  --margin-outer: 16mm;
+  /* Laterais iguais: o bloco de texto fica no mesmo lugar em toda página. */
+  --margin-inner: 19mm;
+  --margin-outer: 19mm;
   --bleed: 0mm;
 
   --font-serif: "Roboto Slab", "Source Serif 4", serif;

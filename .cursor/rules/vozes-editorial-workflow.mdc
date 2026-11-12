@@ -45,8 +45,8 @@ Combinado e **fechado** pela editora (“deixar dessa forma” / “salve”). *
 
 | Editora diz | Agente roda | Resposta ao editor |
 | --- | --- | --- |
-| **Visualizar** / abrir prévia / ver páginas / ver como no livro | `npm run visualizar` (ou `dev` — mesmo efeito) | “Abra **http://127.0.0.1:13000**” + seção/país |
-| **Entrar no modo de edição** / ver texto rápido / sem páginas | `npm run editar` (ou `dev:edit`) | “Abra **http://127.0.0.1:5173**” |
+| **Visualizar** / abrir prévia / ver páginas / ver como no livro | `npm run visualizar` (ou `dev`) | “Abra **http://127.0.0.1:5173**” + seção/país |
+| **Entrar no modo de edição** / ver texto rápido | `npm run editar` (ou `dev:edit`) — o mesmo site | “Abra **http://127.0.0.1:5173**” |
 | **Gerar renderização PDF** / gera o PDF / exporta PDF final | `npm run gerar-pdf` (ou `build` / `pdf:digital`) | Caminho `output/document-digital.pdf` |
 | **PDF para gráfica** / com sangria / para impressão | `npm run gerar-pdf-grafica` (ou `pdf:print`) | `output/document-print.pdf` |
 
@@ -71,12 +71,12 @@ Nunca diga ao editor: “rode npm run dev”, “build:digital”, “export:bun
 | Dimensões numeradas (`DimensionList`) | Cifra grande (`number="08"`) + título em verde + corpo; sem bullets nem filetes |
 | Quebra / rodapé de página | `PageStack` + `vozes-page-stack-foot` (Austrália pp. 10–11); ou `vozes-page-start` em heading |
 | Títulos h3 do relatório (sistema, governança…) | Pretos (`--color-ink`) em `.vozes-main h3`; rótulo de faixa (`band-label`) continua verde |
-| Bandeira no lugar do código | `CountryOpening` SVG inline fills-only: AU, US, GB/UK, NG, CL; Vivliostyle falha com SVG em `<img>` |
+| Bandeira no lugar do código | `CountryOpening` SVG inline fills-only: AU, US, GB/UK, NG, CL; SVG externo em `<img>` falha na impressão do PDF |
 | Figura um pouco menor | `className="figure--compact"` no `Figure` (só local) |
 | Caixas: perfil de pessoa (mais discreto) | `ProfileCard` logo após `### A governança` no MDX + `vozes-with-rail` — topo do card alinhado ao 1º parágrafo (CSS em `vozes.css`) |
 | Foto perfil redonda / dual tone | `ProfileCard.tsx` + `.profile-card-photo*` em `vozes.css` |
 | Imagem nova | `assets/media/` + `<Figure src="media/…" />` no MDX (ou prop `photo` no ProfileCard) |
-| Links clicáveis e visíveis | Links no MDX (`[texto](url)`); estilos `a` em `document.css` / `vozes.css` — testar na prévia paginada |
+| Links clicáveis e visíveis | Links no MDX (`[texto](url)`); estilos `a` em `document.css` / `vozes.css` — testar no site |
 
 Não editar `publication.bundle.json` à mão. App lê MDX + manifest; bundle é gerado.
 
@@ -89,8 +89,8 @@ Não editar `publication.bundle.json` à mão. App lê MDX + manifest; bundle é
 | “Altera [trecho]” / país / seção | Localiza seção em `document.json`, edita `.mdx` ou timeline JSON |
 | “Adiciona essa imagem” (+ anexo) | Salva em `assets/media/`, insere `Figure` ou atualiza ProfileCard |
 | “Infográfico na página X” | Identifica seção (país/slug); `strategy: art-directed` + JSON em `infographics/` ou layout existente; não inflar flow |
-| “Alinhar fólio / margens laterais” | Tokens + `@page` + padding `.sheet` / grade Vozes; conferir spread em `npm run dev` |
-| “Links clicáveis e identificados” | URLs válidas no conteúdo + CSS de links; avisar se limitação Vivliostyle/PDF |
+| “Alinhar fólio / margens laterais” | Tokens + `@page` + padding `.sheet` / grade Vozes; conferir no site e, se o fólio mudou, no PDF |
+| “Links clicáveis e identificados” | URLs válidas no conteúdo + CSS de links |
 | “Padrão para os boxes” | Unificar variantes CSS e componentes; documentar visualmente na resposta |
 | “Boxes de perfil com menos destaque” | Reduzir contraste/borda/sombra de `.profile-card` vs `.highlight` / `.callout-card` |
 | “Moldura redonda, dual tone na foto” | CSS/HTML em ProfileCard (border-radius, filtro/mix-blend ou overlay duotone) |
@@ -107,17 +107,17 @@ Se “página X” for ambíguo, use país, título visível ou id de seção �
 npm run export:bundle      # após mudança em content/ (interno)
 npm run validate           # antes de concluir (interno)
 npm run check              # após mudança em src/
-npm run visualizar         # editora: “visualizar” → :13000
-npm run editar             # editora: “modo de edição” → :5173
+npm run visualizar         # editora: “visualizar” → :5173
+npm run editar             # editora: “modo de edição” → o mesmo site, :5173
 npm run gerar-pdf          # editora: “gerar renderização PDF”
-npm run gerar-pdf-grafica  # editora: “PDF para gráfica”
+npm run gerar-pdf-grafica  # editora: “PDF para gráfica” (A4 + sangria, sem marcas de corte)
 ```
 
 ## Checklist interno (não enviar como lista ao editor)
 
 - Nada do **combinado** foi perdido ou revertido sem pedido explícito
 - `validate` exit 0; `export:bundle` se content mudou
-- Layout/paginação: pedir editora a **visualizar** ou rodar `gerar-pdf` se necessário
+- Layout: pedir editora a **visualizar** no site. PDF só quando ela pedir a renderização, ou quando a quebra de página mudou.
 - Resposta curta, sem jargão; link da prévia + “vá até [Austrália / capa / …]”
 - Não commitar `output/*.pdf` sem pedido
 

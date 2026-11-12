@@ -1,6 +1,6 @@
 {
   "bundleVersion": 1,
-  "generatedAt": "2026-11-11T19:44:45.839Z",
+  "generatedAt": "2026-11-12T21:32:25.127Z",
   "id": "levantamento-organizacoes-2026",
   "language": "pt-BR",
   "title": "Levantamento Internacional de Instituições de Apoio a Padrões Curriculares",
@@ -877,14 +877,7 @@
             "type": "paragraph",
             "runs": [
               {
-                "text": "Fonte: "
-              },
-              {
-                "text": "Site",
-                "href": "https://acara.edu.au/curriculum"
-              },
-              {
-                "text": " oficial ACARA."
+                "text": "A imagem a seguir sintetiza os principais marcos desse processo, desde as primeiras iniciativas de coordenação nacional até as revisões mais recentes."
               }
             ]
           },
@@ -1210,6 +1203,13 @@
             "className": "vozes-page-start"
           },
           {
+            "type": "image",
+            "src": "media/org-image11.png",
+            "alt": "Linha do tempo do Australian Curriculum, de 2008 a 2022, com os marcos de implementação e revisão.",
+            "caption": "Fonte: [Site](https://acara.edu.au/curriculum) oficial ACARA.",
+            "className": "figure--trajetoria"
+          },
+          {
             "type": "paragraph",
             "runs": [
               {
@@ -1225,25 +1225,10 @@
             ]
           },
           {
-            "type": "component",
-            "name": "MilestoneStrip",
-            "props": {
-              "title": "Marcos do currículo",
-              "items": "[\n    [\"2008\", \"Todos os governos concordam com a necessidade de um currículo nacional.\"],\n    [\"2010\", \"Primeira versão publicada (F–Y10 em *English*, *Mathematics*, *Science* e *History*).\"],\n    [\"2011 a 2012\", \"Atualizações das quatro primeiras disciplinas.\"],\n    [\"2012\", \"Inclusão de Y11 e Y12 para as quatro primeiras disciplinas.\"],\n    [\"2013\", \"Inclusão de *Geography* e outras áreas (*Health and Physical Education*, HASS, *Languages*, *Technologies*, *The Arts*).\"],\n    [\"2014\", \"Inclusão de mais disciplinas.\"],\n    [\"2015\", \"Revisão de todas as disciplinas F–10 após a revisão independente de 2014. Recomendação de que a ACARA revise o currículo a cada seis anos.\"],\n    [\"2015 a 2020\", \"Atualizações e ajustes menores no currículo.\"],\n    [\"2020\", \"Ministros da Educação aprovam os termos de referência da revisão do currículo F–10.\"],\n    [\"2021\", \"Consulta pública de abril a julho.\"],\n    [\"2022\", \"Ministros endossam o currículo F–10 atualizado. Novo site do *Australian Curriculum* entra no ar; revisão das demais línguas segue até 2023.\"],\n  ]"
-            }
-          },
-          {
             "type": "paragraph",
             "runs": [
               {
-                "text": "Fonte: "
-              },
-              {
-                "text": "Site",
-                "href": "https://acara.edu.au/curriculum"
-              },
-              {
-                "text": " oficial ACARA."
+                "text": "A imagem ao lado sintetiza os principais marcos desse processo, desde as primeiras iniciativas de coordenação nacional até as revisões mais recentes."
               }
             ]
           }
@@ -1299,10 +1284,10 @@
                 "href": "https://acsa.edu.au/about/"
               },
               {
-                "text": ") é uma associação profissional nacional, sem fins lucrativos, especializada em currículo. Sua função é oferecer um espaço para compartilhar e produzir conhecimento, políticas e práticas curriculares. A própria organização afirma exercer"
+                "text": ") é uma associação profissional nacional, sem fins lucrativos, especializada em currículo. Sua função é oferecer um espaço para compartilhar e produzir conhecimento, políticas e práticas curriculares. A própria organização afirma exercer "
               },
               {
-                "text": " “national advocacy and leadership in curriculum”",
+                "text": "“national advocacy and leadership in curriculum”",
                 "italic": true
               },
               {
@@ -1596,10 +1581,10 @@
                 "href": "https://acsa.edu.au/about/"
               },
               {
-                "text": ") é uma associação profissional nacional, sem fins lucrativos, especializada em currículo. Sua função é oferecer um espaço para compartilhar e produzir conhecimento, políticas e práticas curriculares. A própria organização afirma exercer"
+                "text": ") é uma associação profissional nacional, sem fins lucrativos, especializada em currículo. Sua função é oferecer um espaço para compartilhar e produzir conhecimento, políticas e práticas curriculares. A própria organização afirma exercer "
               },
               {
-                "text": " “national advocacy and leadership in curriculum”",
+                "text": "“national advocacy and leadership in curriculum”",
                 "italic": true
               },
               {
@@ -1646,7 +1631,7 @@
             "props": {
               "name": "Anna Ritzema",
               "role": "Executive Director, ACSA",
-              "bio": "Anna Ritzema é uma profissional australiana da área da educação, com mais de 20 anos de experiência na Austrália e no exterior. É diretora executiva da ACSA e possui mestrado em Liderança Educacional pela University of Western Australia. Destaca-se por sua atuação na gestão escolar, no desenvolvimento curricular e pelo incentivo à participação das mulheres nas áreas de ciência, tecnologia, engenharia e matemática.",
+              "bio": "Anna Ritzema é uma profissional australiana da área da educação, com mais de 20 anos de experiência na Austrália e no exterior. É diretora executiva da ACSA e possui mestrado em Liderança Educacional pela University of Western Australia. Destaca-se por sua atuação na gestão escolar, no desenvolvimento curricular e pelo incentivo à participação das mulheres em STEM.",
               "photo": "media/org-image7.png"
             }
           },
@@ -1709,7 +1694,7 @@
             "type": "paragraph",
             "runs": [
               {
-                "text": "A ACSA utiliza diferentes mecanismos de receita, que combina anuidades de membros, atividades formativas, venda de publicações e captação de recursos externos."
+                "text": "A ACSA utiliza diferentes mecanismos de receita, que combinam anuidades de membros, atividades formativas, venda de publicações e captação de recursos externos."
               }
             ]
           },
@@ -1860,7 +1845,7 @@
                 ],
                 [
                   "2008 a 2010",
-                  "A política nacional de currículo ganha forma, já atua como voz profissional organizada no debate que antecede e acompanha esse processo."
+                  "A política nacional de currículo ganha forma; já atua como voz profissional organizada no debate que antecede e acompanha esse processo."
                 ],
                 [
                   "2013",

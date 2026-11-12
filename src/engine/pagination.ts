@@ -1,17 +1,16 @@
 /**
- * Pagination stays outside React. Replace this descriptor together with
- * scripts/build-pdf.ts when adopting another engine.
- * Flags listed here were read from Vivliostyle CLI 11.4.0 `build --help`.
+ * The document is a React site. PDF export prints that site.
+ * Replace this descriptor together with scripts/build-pdf.ts if the exporter changes.
  */
 export const paginationEngine = {
-  id: 'vivliostyle-cli',
-  packageName: '@vivliostyle/cli',
+  id: 'chromium-print',
+  packageName: '@playwright/test',
   digitalCommand: 'npm run build',
   printCommand: 'npm run pdf:print',
   limitations: [
-    'Digital and print PDFs are both rendered by Vivliostyle CLI through Chromium.',
-    'The PDF input is static HTML prerendered from the React tree. Vivliostyle does not reflow a root filled in later by a client script.',
-    'The print command adds crop marks and the bleed distance declared in src/styles/print.css. It does not convert RGB to CMYK, does not embed an ICC profile, and does not run PDF/X preflight.',
-    'The CLI documents --press-ready and --cmyk. This project does not pass them, and a successful build is not a print certification.',
+    'Screen preview is the Vite site. There is no separate paginated viewer.',
+    'Digital and print PDFs are Chromium prints of that site (Playwright page.pdf).',
+    'Page numbers sit on the outer edge. The screen preview lays the same A4 sheets as facing spreads; the digital PDF prints each of those sheets.',
+    'The print PDF enlarges the page by the bleed in src/styles/print.css. It does not draw crop marks, convert RGB to CMYK, embed an ICC profile, or run PDF/X preflight.',
   ],
 } as const

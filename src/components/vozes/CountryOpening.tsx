@@ -8,7 +8,7 @@ type CountryOpeningProps = {
 
 type FlagProps = { className?: string }
 
-/** Vivliostyle often fails to decode external SVG `<img>` — keep flags inline, fills only (no stroke). */
+/** Flags stay inline, fills only (no stroke). External SVG in img fails when the PDF is printed. */
 
 function AustraliaFlag({ className }: FlagProps) {
   return (

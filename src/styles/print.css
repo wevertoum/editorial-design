@@ -1,19 +1,27 @@
 /*
  * Print layout profile. Geometry only.
  * This file does not convert color, embed an ICC profile, or declare PDF/X.
- * scripts/build-pdf.ts reads --bleed for the Vivliostyle --bleed flag.
+ * Page size is A4 plus 3mm bleed on every edge (216mm × 303mm).
+ * scripts/build-pdf.ts repeats that size when it prints the site.
+ * There are no crop marks.
  */
 :root {
   --bleed: 3mm;
-  --margin-inner: 24mm;
+  --margin-inner: 19mm;
+  --margin-outer: 19mm;
   --color-paper: #ffffff;
   --color-highlight: #eef2ef;
 }
 
 @page {
-  margin: 18mm 16mm 20mm 24mm;
+  size: 216mm 303mm;
+  margin: 21mm 22mm 23mm 22mm;
 }
 
 @page :left {
-  margin: 18mm 24mm 20mm 16mm;
+  margin: 21mm 22mm 23mm 22mm;
+}
+
+@page :right {
+  margin: 21mm 22mm 23mm 22mm;
 }

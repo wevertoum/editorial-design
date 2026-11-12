@@ -45,8 +45,8 @@ Combinado e **fechado** pela editora (“deixar dessa forma” / “salve”). *
 
 | Editora diz | Agente roda | Resposta ao editor |
 | --- | --- | --- |
-| **Visualizar** / abrir prévia / ver páginas / ver como no livro | `npm run visualizar` (ou `dev` — mesmo efeito) | “Abra **http://127.0.0.1:13000**” + seção/país |
-| **Entrar no modo de edição** / ver texto rápido / sem páginas | `npm run editar` (ou `dev:edit`) | “Abra **http://127.0.0.1:5173**” |
+| **Visualizar** / abrir prévia / ver páginas / ver como no livro | `npm run visualizar` (ou `dev`) | “Abra **http://127.0.0.1:5173**” + seção/país |
+| **Entrar no modo de edição** / ver texto rápido | `npm run editar` (ou `dev:edit`) — o mesmo site | “Abra **http://127.0.0.1:5173**” |
 | **Gerar renderização PDF** / gera o PDF / exporta PDF final | `npm run gerar-pdf` (ou `build` / `pdf:digital`) | Caminho `output/document-digital.pdf` |
 | **PDF para gráfica** / com sangria / para impressão | `npm run gerar-pdf-grafica` (ou `pdf:print`) | `output/document-print.pdf` |
 
@@ -107,7 +107,7 @@ Se “página X” for ambíguo, use país, título visível ou id de seção �
 npm run export:bundle      # após mudança em content/ (interno)
 npm run validate           # antes de concluir (interno)
 npm run check              # após mudança em src/
-npm run visualizar         # editora: “visualizar” → :13000
+npm run visualizar         # editora: “visualizar” → :5173
 npm run editar             # editora: “modo de edição” → :5173
 npm run gerar-pdf          # editora: “gerar renderização PDF”
 npm run gerar-pdf-grafica  # editora: “PDF para gráfica”

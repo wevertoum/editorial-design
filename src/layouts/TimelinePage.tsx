@@ -16,6 +16,7 @@ type TimelinePageProps = {
 
 export function TimelinePage({ id, content, showMasthead, publication }: TimelinePageProps) {
   const isDual = content.variant === 'dual-track'
+  const reserveHeader = isDual && content.spreadPart === 'b'
 
   return (
     <article
@@ -25,8 +26,16 @@ export function TimelinePage({ id, content, showMasthead, publication }: Timelin
       data-layout="timeline"
     >
       {showMasthead ? <Masthead publication={publication} /> : null}
-      {isDual && content.spreadPart === 'b' ? null : <p className="kicker">{content.kicker}</p>}
-      {isDual && content.spreadPart === 'b' ? null : <Heading level={1}>{content.title}</Heading>}
+      <p className={reserveHeader ? 'kicker dual-track-reserve' : 'kicker'} aria-hidden={reserveHeader ? true : undefined}>
+        {content.kicker}
+      </p>
+      <Heading
+        level={1}
+        className={reserveHeader ? 'dual-track-reserve' : undefined}
+        aria-hidden={reserveHeader ? true : undefined}
+      >
+        {content.title}
+      </Heading>
       {content.lede.length > 0
         ? content.lede.map((paragraph, index) => (
             <Paragraph key={`${id}-lede-${index}`} className={isDual ? 'dual-track-lede' : undefined}>

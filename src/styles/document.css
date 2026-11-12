@@ -204,6 +204,14 @@ h3 {
   margin: var(--stack-block) 0;
 }
 
+.vozes-main > .editorial-table + .editorial-table {
+  margin-top: 0;
+}
+
+.vozes-main > .editorial-table:has(+ .editorial-table) {
+  margin-bottom: 0;
+}
+
 .editorial-table table {
   width: 100%;
   border-collapse: collapse;

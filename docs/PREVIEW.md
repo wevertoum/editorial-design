@@ -1,24 +1,16 @@
 # Prévia e PDF
 
-Dois comandos cobrem o fluxo editorial:
+O relatório é um site. A prévia é esse site. O PDF é a impressão dele, gerada só quando for preciso.
 
-## Ver páginas, spreads e números (como impresso)
+## Ver o relatório
 
 ```bash
 npm run dev
 ```
 
-1. Gera o HTML estático (`build:digital`).
-2. Abre o **visualizador Vivliostyle** com **spread** (duas páginas face a face quando couber).
-3. Mostra **números de página** e cabeçalhos definidos em `src/styles/paged.css`.
+Abra **http://127.0.0.1:5173**. Cada seção é uma folha. Salvar atualiza na hora.
 
-O navegador costuma abrir em **http://127.0.0.1:13000**. O comando fica observando `content/`, `src/`, `assets/` e `vite.config.ts`: ao salvar, roda `build:digital` de novo e o visualizador recarrega a paginação (a primeira compilação pode demorar).
-
-Se `dist/index.html` já existir e você só quiser reabrir o viewer:
-
-```bash
-npm run dev -- --no-build
-```
+`npm run visualizar` e `npm run editar` abrem o mesmo site.
 
 ## PDF final
 
@@ -26,22 +18,18 @@ npm run dev -- --no-build
 npm run build
 ```
 
-Valida o manuscrito, faz o build digital, e grava `output/document-digital.pdf` com a mesma paginação do Vivliostyle. A primeira execução pode demorar (download do Chromium do CLI).
-
-## Edição rápida (opcional)
-
-Para escrever e ajustar componentes com **hot reload**, sem paginação nem numeração:
+Valida o manuscrito, gera o site e grava `output/document-digital.pdf` (A4). A primeira execução pode demorar se o navegador do Playwright ainda não estiver instalado:
 
 ```bash
-npm run dev:edit
+npx playwright install chromium
 ```
 
-Abra **http://127.0.0.1:5173**. Folhas A4 contínuas por capítulo; não substitui `npm run dev` para conferir spreads.
+Para a versão com sangria (sem marcas de corte): `npm run pdf:print` → `output/document-print.pdf`.
 
 ## Resumo
 
 | Objetivo | Comando | Destino |
 | --- | --- | --- |
-| Spreads + número de página | `npm run dev` | http://127.0.0.1:13000 |
+| Prévia (site) | `npm run dev` | http://127.0.0.1:5173 |
 | PDF digital | `npm run build` | `output/document-digital.pdf` |
-| Hot reload (sem paginar) | `npm run dev:edit` | http://127.0.0.1:5173 |
+| PDF com sangria | `npm run pdf:print` | `output/document-print.pdf` |

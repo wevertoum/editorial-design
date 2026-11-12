@@ -8,15 +8,11 @@ import { defineConfig } from 'vite'
 
 const root = path.dirname(fileURLToPath(import.meta.url))
 
-export default defineConfig(({ command, mode }) => {
+export default defineConfig(({ mode }) => {
   const profileStyles = mode === 'print' ? 'src/styles/print.css' : 'src/styles/digital.css'
-  // Vivliostyle CLI 11.4.0 serves the input directory at /vivliostyle
-  // and loads the document inside /__vivliostyle-viewer, so relative
-  // asset URLs 404. PDF builds use that mount path. Dev stays at /.
-  const base = process.env.EDITORIAL_PDF_BASE || (command === 'build' ? '/vivliostyle/' : '/')
 
   return {
-    base,
+    base: '/',
     publicDir: 'assets',
     build: {
       assetsDir: 'static',
