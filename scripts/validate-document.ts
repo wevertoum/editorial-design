@@ -51,6 +51,7 @@ const allowedComponents = new Set([
   'PullQuote',
   'RailItem',
   'SourceNote',
+  'TrajetoriaBox',
   'VozesLayout',
   'VozesMain',
   'VozesRail',

@@ -590,7 +590,7 @@
 /* AU trajetória p. 12 texto · p. 13 infográfico ACARA (folha dedicada, imagem centrada). */
 .layout-vozes-report .vozes-page:has(> .vozes-main > .vozes-page-stack.vozes-page-stack--trajetoria-sheet:only-child) {
   box-sizing: border-box;
-  min-height: calc(var(--page-height) - var(--margin-top) - var(--margin-bottom));
+  min-height: var(--vozes-content-height);
   align-items: center;
 }
 
@@ -686,7 +686,7 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  min-height: calc(var(--page-height) - var(--margin-top) - var(--margin-bottom));
+  min-height: var(--vozes-content-height);
   width: 100%;
 }
 
@@ -1552,6 +1552,37 @@
   break-before: page;
 }
 
+/*
+ * Topo da área útil alinhado em todas as folhas (como as laterais fixas):
+ * o primeiro bloco visível de cada página paginada encosta em --margin-top.
+ */
+.layout-vozes-report .vozes-page .vozes-main > :first-child,
+.layout-vozes-report .vozes-page .vozes-main > .vozes-page-stack > :first-child,
+.layout-vozes-report .vozes-page .vozes-main > .vozes-page-stack > .vozes-page-stack-prelude > :first-child {
+  margin-top: 0;
+}
+
+.layout-vozes-report .vozes-page .vozes-main > :first-child.figure,
+.layout-vozes-report .vozes-page .vozes-main > .vozes-page-stack > :first-child.figure,
+.layout-vozes-report .vozes-page .vozes-main > :first-child.profile-card,
+.layout-vozes-report .vozes-page .vozes-main > :first-child.callout-card,
+.layout-vozes-report .vozes-page .vozes-main > :first-child.highlight-box,
+.layout-vozes-report .vozes-page .vozes-main > :first-child.pull-quote {
+  margin-top: 0;
+}
+
+.layout-vozes-report
+  .vozes-page
+  .vozes-main
+  > :first-child.figure.figure--span.figure--compact,
+.layout-vozes-report
+  .vozes-page
+  .vozes-main
+  > .vozes-page-stack
+  > :first-child.figure.figure--span.figure--compact {
+  margin-top: 0;
+}
+
 /* DimensionList — cifra na linha de base do título; corpo romano sob o título. */
 .dimension-list-item {
   display: grid;
@@ -1678,6 +1709,100 @@
   height: 1px;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
+}
+
+/* «A trajetória do currículo» / «A trajetória da organização» — contorno no fluxo (sem sangrar nem flutuar). */
+.layout-vozes-report .vozes-main .trajetoria-box {
+  box-sizing: border-box;
+  display: flow-root;
+  clear: both;
+  margin: var(--stack-block) 0;
+  padding: var(--trajetoria-box-padding);
+  background: transparent;
+  border: 0.4mm solid var(--trajetoria-box-border);
+  border-radius: 2.5mm;
+  box-shadow: none;
+  min-width: 0;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.layout-vozes-report .vozes-main .trajetoria-box--compact {
+  margin: 0;
+  padding: var(--trajetoria-box-padding-compact);
+  border: 0.35mm solid var(--trajetoria-box-border);
+  border-radius: 2mm;
+  outline: none;
+  box-shadow: none;
+}
+
+/* Cruzamento pp. 16–17: mesma largura da faixa de marcos; marcos ficam 100% da área interna. */
+.layout-vozes-report .vozes-page-stack-prelude > .trajetoria-box--compact {
+  box-sizing: border-box;
+  width: calc(100% + var(--vozes-grid-gutter) + var(--vozes-rail-to-prose) * 100%);
+  max-width: none;
+  margin-inline: 0;
+}
+
+.layout-vozes-report .vozes-main .trajetoria-box > :first-child {
+  margin-top: 0;
+}
+
+.layout-vozes-report .vozes-main .trajetoria-box > h3,
+.layout-vozes-report .vozes-main .trajetoria-box > .heading-3 {
+  margin-bottom: var(--space-2);
+}
+
+.layout-vozes-report .vozes-main .trajetoria-box > .heading-3.vozes-trajetoria-heading {
+  margin-bottom: 0.45em;
+}
+
+.layout-vozes-report .vozes-main .trajetoria-box > .heading-3.vozes-trajetoria-heading + p {
+  margin-bottom: 0;
+}
+
+.layout-vozes-report .vozes-main .trajetoria-box > .milestone-strip {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Dentro da caixa: não replicar o span prosa+rail (evita vazar margem/página). */
+.layout-vozes-report
+  .vozes-page:is(.vozes-prose-only, .vozes-with-rail)
+  .vozes-main
+  .trajetoria-box
+  .milestone-strip {
+  clear: none;
+  float: none;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.layout-vozes-report .vozes-main .trajetoria-box .milestone-strip-item {
+  min-width: 0;
+}
+
+.layout-vozes-report .vozes-main .trajetoria-box .milestone-strip-label {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Mesma largura útil que a faixa de marcos fora da caixa (não altera a grade). */
+.layout-vozes-report .vozes-page:is(.vozes-prose-only, .vozes-with-rail) .vozes-main > .trajetoria-box:not(.trajetoria-box--compact) {
+  width: calc(100% + var(--vozes-grid-gutter) + var(--vozes-rail-to-prose) * 100%);
+  max-width: none;
+  margin-inline: 0;
+}
+
+.layout-vozes-report .vozes-page-stack--dual-track .trajetoria-box--compact .milestone-strip.vozes-milestone--compact {
+  margin-top: 0;
+  margin-bottom: 2mm;
 }
 
 /* Trajetória / marcos — cronologia editorial (ano colorido + texto alinhado; sem fundo de tabela).

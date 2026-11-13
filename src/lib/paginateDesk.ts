@@ -224,6 +224,32 @@ function breakApart(
 
   if (block.matches(ATOMIC)) return [block]
 
+  /* Título + marcos permanecem dentro do contorno ao quebrar página. */
+  if (block.classList.contains('trajetoria-box')) {
+    const strip = block.querySelector(':scope > .milestone-strip')
+    if (strip) {
+      const items = [...strip.querySelectorAll(':scope > .milestone-strip-list > .milestone-strip-item')]
+      if (items.length > 1) {
+        const prefix = elementChildren(block).filter((node) => !node.classList.contains('milestone-strip'))
+        const title = strip.querySelector(':scope > .milestone-strip-title')
+        return items.map((item, index) => {
+          const box = block.cloneNode(false) as HTMLElement
+          if (index === 0) prefix.forEach((node) => box.appendChild(node.cloneNode(true)))
+          const nextStrip = strip.cloneNode(false) as HTMLElement
+          if (index === 0 && title) nextStrip.appendChild(title.cloneNode(true))
+          const list = strip.querySelector(':scope > .milestone-strip-list')
+          const ol = (list ? list.cloneNode(false) : document.createElement('ol')) as HTMLElement
+          if (!list) ol.className = 'milestone-strip-list'
+          ol.appendChild(item.cloneNode(true))
+          nextStrip.appendChild(ol)
+          box.appendChild(nextStrip)
+          return box
+        })
+      }
+    }
+    return [block]
+  }
+
   if (block.classList.contains('milestone-strip')) {
     const items = [...block.querySelectorAll(':scope > .milestone-strip-list > .milestone-strip-item')]
     if (items.length <= 1) return [block]

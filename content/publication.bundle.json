@@ -1,6 +1,6 @@
 {
   "bundleVersion": 1,
-  "generatedAt": "2026-11-13T17:11:35.661Z",
+  "generatedAt": "2026-11-13T17:23:41.747Z",
   "id": "levantamento-organizacoes-2026",
   "language": "pt-BR",
   "title": "Levantamento Internacional de Instituições de Apoio a Padrões Curriculares",
@@ -1202,6 +1202,11 @@
             ]
           },
           {
+            "type": "component",
+            "name": "TrajetoriaBox",
+            "props": {}
+          },
+          {
             "type": "heading",
             "level": 3,
             "text": "A trajetória do currículo australiano",
@@ -1839,6 +1844,13 @@
             }
           },
           {
+            "type": "component",
+            "name": "TrajetoriaBox",
+            "props": {
+              "className": "trajetoria-box--compact"
+            }
+          },
+          {
             "type": "heading",
             "level": 3,
             "text": "A trajetória da organização",
@@ -2468,6 +2480,11 @@
                 "text": "foram submetidos à consulta pública e revisão externa."
               }
             ]
+          },
+          {
+            "type": "component",
+            "name": "TrajetoriaBox",
+            "props": {}
           },
           {
             "type": "heading",
@@ -3255,6 +3272,13 @@
               "part": "us-1-a",
               "title": "Onde as trajetórias se cruzam",
               "className": "vozes-page-stack-foot"
+            }
+          },
+          {
+            "type": "component",
+            "name": "TrajetoriaBox",
+            "props": {
+              "className": "trajetoria-box--compact"
             }
           },
           {
@@ -4184,6 +4208,11 @@
             "caption": "Fonte: [Site](https://schoolsweek.co.uk/new-curriculum-to-be-introduced-in-2028-as-review-published/) Schools Week"
           },
           {
+            "type": "component",
+            "name": "TrajetoriaBox",
+            "props": {}
+          },
+          {
             "type": "heading",
             "level": 3,
             "text": "A trajetória do currículo inglês",
@@ -4736,6 +4765,13 @@
               "part": "eng-1-a",
               "title": "Onde as trajetórias se cruzam",
               "className": "vozes-page-stack-foot"
+            }
+          },
+          {
+            "type": "component",
+            "name": "TrajetoriaBox",
+            "props": {
+              "className": "trajetoria-box--compact"
             }
           },
           {
@@ -5311,6 +5347,13 @@
               "part": "eng-3-a",
               "title": "Onde as trajetórias se cruzam",
               "className": "vozes-page-stack-foot"
+            }
+          },
+          {
+            "type": "component",
+            "name": "TrajetoriaBox",
+            "props": {
+              "className": "trajetoria-box--compact"
             }
           },
           {
@@ -5994,6 +6037,11 @@
             ]
           },
           {
+            "type": "component",
+            "name": "TrajetoriaBox",
+            "props": {}
+          },
+          {
             "type": "heading",
             "level": 3,
             "text": "A trajetória do currículo nigeriano",
@@ -6576,6 +6624,13 @@
               "part": "ng-1-a",
               "title": "Onde as trajetórias se cruzam",
               "className": "vozes-page-stack-foot"
+            }
+          },
+          {
+            "type": "component",
+            "name": "TrajetoriaBox",
+            "props": {
+              "className": "trajetoria-box--compact"
             }
           },
           {
@@ -7316,6 +7371,11 @@
             ]
           },
           {
+            "type": "component",
+            "name": "TrajetoriaBox",
+            "props": {}
+          },
+          {
             "type": "heading",
             "level": 3,
             "text": "A trajetória do currículo chileno",
@@ -7925,6 +7985,13 @@
               "part": "cl-1-a",
               "title": "Onde as trajetórias se cruzam",
               "className": "vozes-page-stack-foot"
+            }
+          },
+          {
+            "type": "component",
+            "name": "TrajetoriaBox",
+            "props": {
+              "className": "trajetoria-box--compact"
             }
           },
           {

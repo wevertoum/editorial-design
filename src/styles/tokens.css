@@ -1,11 +1,14 @@
 :root {
   --page-width: 210mm;
   --page-height: 297mm;
+  /* Topo fixo: miolo começa sempre após 18 mm (espelhado em paged.css / padding da folha). */
   --margin-top: 18mm;
   --margin-bottom: 20mm;
   /* Laterais iguais: o bloco de texto fica no mesmo lugar em toda página. */
   --margin-inner: 19mm;
   --margin-outer: 19mm;
+  /* Altura útil do corpo (A4 − margens verticais). */
+  --vozes-content-height: calc(var(--page-height) - var(--margin-top) - var(--margin-bottom));
   --bleed: 0mm;
 
   --font-serif: "Roboto Slab", "Source Serif 4", serif;
@@ -66,6 +69,10 @@
   --color-vozes-rosa: #ef5ca1;
   --color-vozes-laranja: #ff8327;
   --color-marfim: #f3eee6;
+  /* Contorno «A trajetória…» (só borda — roxo da paleta). */
+  --trajetoria-box-border: color-mix(in srgb, var(--color-vozes-roxo-2) 38%, transparent);
+  --trajetoria-box-padding: 4mm 4.5mm 4.5mm;
+  --trajetoria-box-padding-compact: 3mm 3.25mm 3.25mm;
   --profile-card-surface: color-mix(in srgb, var(--color-marfim) 32%, white);
 
   --space-1: 2mm;
