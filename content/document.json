@@ -60,24 +60,6 @@
       "source": "chapters/australia-org.mdx"
     },
     {
-      "id": "australia-cruzamento-1-a",
-      "strategy": "structured",
-      "layout": "timeline",
-      "source": "timelines/australia-cruzamento-1-a.json"
-    },
-    {
-      "id": "australia-cruzamento-1-b",
-      "strategy": "structured",
-      "layout": "timeline",
-      "source": "timelines/australia-cruzamento-1-b.json"
-    },
-    {
-      "id": "australia-cruzamento-2-a",
-      "strategy": "structured",
-      "layout": "timeline",
-      "source": "timelines/australia-cruzamento-2-a.json"
-    },
-    {
       "id": "usa",
       "strategy": "flow",
       "layout": "standard",

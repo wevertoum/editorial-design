@@ -113,7 +113,7 @@ Intro dual-track: lede ~50% da área útil (span 3/6).
 | **PageStack** | Composição de página com bloco no rodapé (`vozes-page-stack-foot`) |
 | **ActorBand** | `.band-label` verde caps + filete; nomes verdes; notas muted; corpo 10 pt à esquerda; **colunas de largura igual** |
 | **DimensionList** | Cifras grandes verdes (`08`/`07`/`03`); títulos PT verdes; EN itálico verde; corpo preto; **sem** filetes |
-| **DetailList** | Bullet laranja; hanging; processos (Estruturar/Escrever…) — **não** DimensionList |
+| **DetailList** | Bullet verde; título verde em negrito; corpo 9 pt; recuo compacto. Agrupar com **DetailListGrid** (`columns={1\|2}`, `width="narrow\|full"`) quando houver lista após parágrafo introdutório — tokens `--vozes-detail-grid-width`, `--stack-before-detail-grid` |
 | **MilestoneStrip** | Ano Slab roxo; **todas as datas numa dupla (2 págs.), nunca em 3** |
 | **ProfileCard** | Marfim; foto circular; cargo itálico roxo 2; menos destaque que Highlight/Callout |
 | **Figure** | Coluna prosa; `figure--compact` quando combinado; legenda 7,5 pt |

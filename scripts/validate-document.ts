@@ -13,12 +13,21 @@ import { assertDesignTokens, assertLength, readCustomProperty, readText } from '
 const root = process.cwd()
 const contentDir = path.join(root, 'content')
 const errors: string[] = []
+/** Timelines embutidos em capítulos MDX (fora da ordem de leitura do manifesto). */
+const embeddedTimelineSources = new Set([
+  'timelines/australia-cruzamento-1-a.json',
+  'timelines/australia-cruzamento-1-b.json',
+  'timelines/australia-cruzamento-2-a.json',
+])
+
 const allowedComponents = new Set([
   'ActorBand',
   'CalloutCard',
   'Columns',
   'CountryOpening',
   'DetailList',
+  'DetailListGrid',
+  'DualTrackEmbed',
   'DimensionList',
   'EditorialTable',
   'FactsRail',
@@ -100,7 +109,7 @@ if (document) {
 
   guard(() => {
     for (const source of listContentFiles()) {
-      if (!referenced.has(source)) {
+      if (!referenced.has(source) && !embeddedTimelineSources.has(source)) {
         throw new Error(`content/${source} is not listed in content/document.json`)
       }
     }

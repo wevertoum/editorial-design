@@ -61,9 +61,12 @@
   --stack-block-aside: 5mm;
   --stack-block-profile: 10mm;
   --stack-detail-item: var(--space-1);
-  /* Recuo dos itens com bullet (DetailList) em relação ao parágrafo corrido */
-  --vozes-detail-list-indent: var(--space-3);
-  --vozes-detail-list-gutter: var(--space-3);
+  /* DetailList / DetailListGrid — bullets e blocos especiais (relatório Vozes) */
+  --vozes-detail-list-indent: 4mm;
+  --vozes-detail-list-gutter: 3.5mm;
+  --stack-detail-item-vozes: 1.5mm;
+  --vozes-detail-grid-width: 0.76;
+  --stack-before-detail-grid: 5.5mm;
   --vozes-list-nest-indent: var(--space-4);
   /* Respiro generoso entre bandeira/código e o nome do país */
   --stack-country-code: 9mm;

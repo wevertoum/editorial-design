@@ -9,11 +9,13 @@ import { PullQuote } from './components/PullQuote'
 import { CalloutCard } from './components/vozes/CalloutCard'
 import { CountryOpening } from './components/vozes/CountryOpening'
 import { DetailList } from './components/vozes/DetailList'
+import { DetailListGrid } from './components/vozes/DetailListGrid'
 import { DimensionList } from './components/vozes/DimensionList'
 import { FactsRail, RailItem } from './components/vozes/FactsRail'
 import { MilestoneItem, MilestoneStrip } from './components/vozes/MilestoneStrip'
 import { ProfileCard } from './components/vozes/ProfileCard'
 import { ActorBand } from './components/vozes/ActorBand'
+import { DualTrackEmbed } from './components/vozes/DualTrackEmbed'
 import { PageStack } from './components/vozes/PageStack'
 import { SourceNote } from './components/vozes/SourceNote'
 import { VozesLayout, VozesMain, VozesRail } from './components/vozes/VozesLayout'
@@ -47,10 +49,12 @@ export const mdxComponents = {
   FactsRail,
   RailItem,
   DetailList,
+  DetailListGrid,
   DimensionList,
   SourceNote,
   MilestoneStrip,
   MilestoneItem,
   ActorBand,
+  DualTrackEmbed,
   PageStack,
 }

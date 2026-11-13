@@ -274,19 +274,21 @@
   padding-left: 4mm;
 }
 
-/* Grade Vozes: prosa 3/5 · gutter 4.5 mm · rail ou área livre 2/5 */
+/* Grade Vozes (6 colunas lógicas): prosa ~9/11 · gutter 4,5 mm · rail ~2/11 (entre 4/6 e 5/6 de prosa) */
 .layout-vozes-report {
   --vozes-grid-gutter: 4.5mm;
-  --vozes-prose-track: minmax(0, 3fr);
+  --vozes-rail-to-prose: 0.222222;
+  --vozes-prose-track: minmax(0, 9fr);
   --vozes-air-track: var(--vozes-grid-gutter);
   --vozes-rail-track: minmax(0, 2fr);
+  --stack-detail-item: var(--stack-detail-item-vozes);
 }
 
 .layout-vozes-report .vozes-page {
   align-items: start;
 }
 
-/* Sem rail: mesma grade (3/5 prosa + gutter + 2/5 livres). */
+/* Sem rail: mesma grade (prosa larga + gutter + faixa livre). */
 .layout-vozes-report .vozes-page.vozes-prose-only,
 .layout-vozes-report .vozes-page:not(.vozes-with-rail) {
   display: grid;
@@ -307,7 +309,7 @@
   display: none;
 }
 
-/* Capítulos com rail: prosa 3/5 + gutter + rail 2/5 */
+/* Capítulos com rail: prosa + gutter + rail (perfil / figuras). */
 .layout-vozes-report .vozes-page.vozes-with-rail {
   display: grid;
   grid-template-columns: var(--vozes-prose-track) var(--vozes-air-track) var(--vozes-rail-track);
@@ -463,15 +465,15 @@
   line-height: 0;
 }
 
-/* Figuras na faixa direita (2/5), salvo .figure--span */
+/* Figuras na faixa direita (1/6), salvo .figure--span */
 .layout-vozes-report .vozes-page:is(.vozes-prose-only, .vozes-with-rail) .vozes-main > .figure:not(.figure--span) {
   float: right;
   clear: right;
-  width: calc((2 / 3) * 100%);
-  max-width: calc((2 / 3) * 100%);
+  width: calc(var(--vozes-rail-to-prose) * 100%);
+  max-width: calc(var(--vozes-rail-to-prose) * 100%);
   margin-top: 0;
   margin-left: var(--vozes-grid-gutter);
-  margin-right: calc(-1 * (var(--vozes-grid-gutter) + (2 / 3) * 100%));
+  margin-right: calc(-1 * (var(--vozes-grid-gutter) + var(--vozes-rail-to-prose) * 100%));
   shape-outside: margin-box;
   shape-margin: 0.5mm;
 }
@@ -491,14 +493,14 @@
 .layout-vozes-report .vozes-page:is(.vozes-prose-only, .vozes-with-rail) .vozes-main > .figure.figure--span {
   clear: both;
   float: none;
-  width: calc(100% + var(--vozes-grid-gutter) + (2 / 3) * 100%);
+  width: calc(100% + var(--vozes-grid-gutter) + var(--vozes-rail-to-prose) * 100%);
   max-width: none;
   margin-inline: 0;
 }
 
 /* Figura span menor (uso local) — cabe na mesma página que DimensionList. */
 .layout-vozes-report .vozes-page:is(.vozes-prose-only, .vozes-with-rail) .vozes-main .figure.figure--span.figure--compact {
-  width: calc(0.75 * (100% + var(--vozes-grid-gutter) + (2 / 3) * 100%));
+  width: calc(0.75 * (100% + var(--vozes-grid-gutter) + var(--vozes-rail-to-prose) * 100%));
   margin-top: 2mm;
   break-inside: avoid;
   break-before: avoid;
@@ -509,9 +511,9 @@
   clear: both;
   float: none;
   /* Mesma medida do figure--span: aproveitar a faixa direita sem inset artificial. */
-  width: calc(100% + var(--vozes-grid-gutter) + (2 / 3) * 100%);
+  width: calc(100% + var(--vozes-grid-gutter) + var(--vozes-rail-to-prose) * 100%);
   max-width: none;
-  margin: 10mm 0 var(--stack-block);
+  margin: 7mm 0 var(--stack-block);
   break-inside: avoid;
   break-before: avoid;
 }
@@ -525,7 +527,8 @@
   width: 100%;
 }
 
-.layout-vozes-report .vozes-main > .vozes-page-stack + .vozes-page-stack {
+.layout-vozes-report .vozes-main > .vozes-page-stack + .vozes-page-stack,
+.layout-vozes-report .vozes-main > .vozes-page-stack.vozes-page-break {
   break-before: page;
 }
 
@@ -650,7 +653,7 @@
 }
 
 .layout-vozes-report .vozes-main .actor-band-head {
-  margin: 0 0 3.4mm;
+  margin: 0 0 2.5mm;
   padding: 0;
   break-after: avoid;
   break-inside: avoid;
@@ -714,8 +717,8 @@
 
 .layout-vozes-report .vozes-main .actor-band.actor-band--examples .actor-band-grid {
   /* Mesma regra de tracks iguais; só o ritmo entre células muda. */
-  row-gap: 6mm;
-  column-gap: 5mm;
+  row-gap: 4.5mm;
+  column-gap: 4mm;
 }
 
 .layout-vozes-report .vozes-main .actor-band.actor-band--examples .actor-band-item {
@@ -726,6 +729,12 @@
 .layout-vozes-report .vozes-main .actor-band.actor-band--examples .actor-band-name {
   font-weight: 400;
   color: var(--color-vozes-verde);
+  line-height: 1.28;
+}
+
+.layout-vozes-report .vozes-main .actor-band.actor-band--examples .actor-band-body {
+  font-size: 9pt;
+  line-height: 1.36;
 }
 
 .layout-vozes-report .vozes-main .actor-band.actor-band--examples .actor-band-name strong,
@@ -863,14 +872,12 @@
   float: right;
   clear: right;
   width: min(50mm, 100%);
-  max-width: 50mm;
+  max-width: min(50mm, 100%);
   margin-top: 0;
   margin-bottom: var(--stack-paragraph-vozes);
   margin-left: var(--vozes-grid-gutter);
-  /* Desloca o card para a faixa rail (2fr) além do gutter a partir da coluna prosa (3fr). */
-  margin-right: calc(-1 * (var(--vozes-grid-gutter) + (2 / 3) * 100%));
-  shape-outside: margin-box;
-  shape-margin: 1.5mm;
+  margin-right: calc(-1 * (var(--vozes-grid-gutter) + var(--vozes-rail-to-prose) * 100%));
+  shape-outside: none;
 }
 
 .layout-vozes-report .vozes-main h3 + .profile-card {
@@ -1086,6 +1093,72 @@
   color: var(--color-ink);
 }
 
+.layout-vozes-report .vozes-main .detail-list-item > p:first-child {
+  margin-bottom: 0.28em;
+  line-height: 1.26;
+}
+
+.layout-vozes-report .vozes-main .detail-list-item > p:first-child strong,
+.layout-vozes-report .vozes-main .detail-list-item > p:first-child em strong {
+  color: var(--color-vozes-verde);
+  font-weight: 700;
+}
+
+.layout-vozes-report .vozes-main .detail-list-item > p:not(:only-child):last-child {
+  font-size: 9pt;
+  line-height: 1.34;
+  margin-bottom: 0;
+}
+
+.layout-vozes-report .vozes-main p:has(+ .vozes-detail-list-grid),
+.layout-vozes-report .vozes-main p:has(+ .detail-list-item),
+.layout-vozes-report .vozes-main p:has(+ .actor-band) {
+  margin-bottom: calc(var(--stack-paragraph-vozes) + var(--stack-before-detail-grid));
+}
+
+/* DetailList solto (fora de grelha): mesma medida estreita; ícones AU mantêm faixa plena. */
+.layout-vozes-report .vozes-main > .detail-list-item:not(.detail-list-item--icon) {
+  box-sizing: border-box;
+  max-width: calc(
+    var(--vozes-detail-grid-width) * (100% + var(--vozes-grid-gutter) + var(--vozes-rail-to-prose) * 100%)
+  );
+}
+
+.layout-vozes-report .vozes-page:is(.vozes-prose-only, .vozes-with-rail) .vozes-main .vozes-detail-list-grid {
+  --vozes-detail-grid-span: calc(100% + var(--vozes-grid-gutter) + var(--vozes-rail-to-prose) * 100%);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 6mm;
+  row-gap: 3mm;
+  box-sizing: border-box;
+  width: calc(var(--vozes-detail-grid-width) * var(--vozes-detail-grid-span));
+  max-width: calc(var(--vozes-detail-grid-width) * var(--vozes-detail-grid-span));
+  margin: 0 0 var(--stack-block);
+  break-inside: avoid;
+}
+
+.layout-vozes-report .vozes-main .vozes-detail-list-grid--cols-1 {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.layout-vozes-report .vozes-main .vozes-detail-list-grid--full {
+  width: var(--vozes-detail-grid-span);
+  max-width: var(--vozes-detail-grid-span);
+}
+
+.layout-vozes-report .vozes-main .vozes-detail-list-grid .detail-list-item {
+  max-width: none;
+}
+
+.layout-vozes-report .vozes-main .vozes-detail-list-grid .detail-list-item {
+  margin-bottom: 0;
+  padding-left: var(--vozes-detail-list-indent);
+}
+
+.layout-vozes-report .vozes-main .vozes-detail-list-grid .detail-list-item:has(> p) {
+  padding-left: var(--vozes-detail-list-indent);
+}
+
 /* Quebra de página editorial dentro da folha (ex.: início de subtítulo). */
 .layout-vozes-report .vozes-main .vozes-page-start {
   break-before: page;
@@ -1235,7 +1308,7 @@
 .layout-vozes-report .vozes-page:is(.vozes-prose-only, .vozes-with-rail) .vozes-main .milestone-strip {
   clear: both;
   float: none;
-  width: calc(100% + var(--vozes-grid-gutter) + (2 / 3) * 100%);
+  width: calc(100% + var(--vozes-grid-gutter) + var(--vozes-rail-to-prose) * 100%);
   max-width: none;
 }
 
@@ -1401,9 +1474,40 @@
   text-transform: uppercase;
   line-height: inherit;
   vertical-align: baseline;
-  color: var(--color-vozes-verde);
   print-color-adjust: exact;
   -webkit-print-color-adjust: exact;
+}
+
+.dual-track-tag--curriculo {
+  color: var(--color-vozes-verde);
+}
+
+.dual-track-tag--organizacao {
+  color: var(--color-vozes-rosa);
+}
+
+/* Dual-track embutido no capítulo org (faixa bege em largura de página). */
+.layout-vozes-report .vozes-main .dual-track-section {
+  clear: both;
+  float: none;
+  width: calc(100% + var(--vozes-grid-gutter) + var(--vozes-rail-to-prose) * 100%);
+  max-width: none;
+  margin: 8mm 0 0;
+  break-inside: avoid;
+  break-before: avoid;
+}
+
+.layout-vozes-report .vozes-main .dual-track-section.vozes-page-stack-foot {
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+.layout-vozes-report .vozes-main .dual-track-section-title {
+  font-size: 18pt;
+  line-height: 1.15;
+  margin: 0 0 var(--space-2);
+  color: var(--color-ink);
+  break-after: avoid;
 }
 
 .dual-track-nodes {

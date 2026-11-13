@@ -18,10 +18,12 @@ const ATOMIC = [
   '.facts-rail',
   '.country-opening',
   '.dual-track',
+  '.dual-track-section',
   '.infographic',
   '.cover-hero',
   '.folha-rosto-hero',
   '.vozes-page-stack-foot',
+  '.vozes-detail-list-grid',
   '.timeline-event',
   '.milestone-strip-item',
   '.masthead',
@@ -112,6 +114,11 @@ function groupBlocks(
       continue
     }
 
+    if (block.classList.contains('vozes-page-stack') && block.classList.contains('vozes-page-break') && current.length > 0) {
+      groups.push(current)
+      current = []
+    }
+
     if (block.classList.contains('vozes-page-stack')) {
       if (current.length > 0) {
         groups.push(current)
@@ -133,6 +140,22 @@ function groupBlocks(
     }
 
     if (isHeading(block) && next && current.length > 0 && !fits([...current, block, next], withRail)) {
+      const governanceHead = block.matches('h3') && next.classList.contains('profile-card')
+      if (governanceHead) {
+        const bundle = [block, next]
+        let cur = [...current]
+        const peeled: HTMLElement[] = []
+        while (cur.length > 0 && !fits([...cur, ...bundle], withRail)) {
+          peeled.unshift(cur.pop()!)
+          if (peeled.length > 8) break
+        }
+        if (peeled.length > 0 && cur.length > 0 && fits([...cur, ...bundle], withRail)) {
+          current = [...cur, ...bundle]
+          queue.shift()
+          queue.unshift(...peeled)
+          continue
+        }
+      }
       groups.push(current)
       current = []
       queue.unshift(block)
@@ -141,6 +164,19 @@ function groupBlocks(
 
     const candidate = [...current, block]
     if (current.length > 0 && !fits(candidate, withRail)) {
+      if (block.classList.contains('profile-card')) {
+        let cur = [...current]
+        const peeled: HTMLElement[] = []
+        while (cur.length > 0 && !fits([...cur, block], withRail)) {
+          peeled.unshift(cur.pop()!)
+          if (peeled.length > 8) break
+        }
+        if (peeled.length > 0 && cur.length > 0 && fits([...cur, block], withRail)) {
+          current = [...cur, block]
+          queue.unshift(...peeled)
+          continue
+        }
+      }
       const parts = breakApart(block, limit, measure)
       if (parts.length > 1) {
         queue.unshift(...parts)
