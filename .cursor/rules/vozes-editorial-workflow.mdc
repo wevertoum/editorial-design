@@ -29,8 +29,8 @@ Tudo o que a editora pediu e ficou combinado — texto, componentes (`ProfileCar
 Quando a editora ajusta **uma** página (largura de coluna, bullets, quebra, espaço antes de lista, perfil no rail), tratar como **sistema do relatório**, não exceção pontual.
 
 1. **Generalizar primeiro** — tokens (`tokens.css`), grade (`vozes.css`, `--vozes-rail-to-prose`, `--vozes-prose-track`), componente (`DetailListGrid`, `PageStack`, `Heading` + `vozes-page-start`). Evitar CSS ou largura só num parágrafo.
-2. **Repetir onde couber** — após fechar o pedido na página citada, varrer capítulos **parecidos** (`*-org.mdx`, miolos de país `*.mdx`, `resumo-executivo`, etc.) e alinhar ao mesmo padrão quando o conteúdo for do mesmo tipo (lista após intro, financiamento, exemplos de atuação, faixa de atores). **Excluir Austrália** (capítulo fechado), **EUA pp. 18–23** (currículo + Achieve org, folios fechados); não propagar a partir desse bloco.
-3. **Exceções explícitas** — não alterar composições **fechadas** (Austrália pp. 10–11; **EUA pp. 18–19**; **EUA pp. 20–23** Achieve); `DetailList` com `icon=` (processos AU) mantém faixa plena; não forçar `DetailListGrid` onde houver figura ou prosa **entre** itens sem combinar com a editora.
+2. **Repetir onde couber** — após fechar o pedido na página citada, varrer capítulos **parecidos** (`*-org.mdx`, miolos de país `*.mdx`, `resumo-executivo`, etc.) e alinhar ao mesmo padrão quando o conteúdo for do mesmo tipo (lista após intro, financiamento, exemplos de atuação, faixa de atores). **Excluir Austrália** (capítulo fechado), **EUA pp. 18–23** (currículo + Achieve org, folios fechados), **Inglaterra pp. 26–27** (produção + participação); não propagar a partir desses blocos.
+3. **Exceções explícitas** — não alterar composições **fechadas** (Austrália pp. 10–11; **EUA pp. 18–19**; **EUA pp. 20–23** Achieve; **Inglaterra pp. 26–27**); `DetailList` com `icon=` (processos AU) mantém faixa plena; não forçar `DetailListGrid` onde houver figura ou prosa **entre** itens sem combinar com a editora.
 4. **Micro-ajuste vs sistema** — “um pouquinho menor/maior” na coluna → calibrar token/global; “só nesta seção” → só MDX local.
 
 ### Padrões já combinados (referência rápida — Nov/2026)
@@ -124,6 +124,23 @@ Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, simplificar,
 ### EUA — Achieve (`usa-org.mdx`)
 
 O capítulo **Achieve** (organização) está **fechado** nas folhas **20–23**, além do bloco país **18–19** em `usa.mdx`. Sem pedido explícito da editora, não editar texto, layout nem paginação desse trecho; `import:mapeamento` exige reconciliar o combinado.
+
+### Inglaterra — dupla pp. 26–27 (fechada / não alterar)
+
+Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, simplificar, re-quebrar nem redesenhar sem pedido explícito. Fonte: `england.mdx` (trecho após `vozes-england-ks-tree`) + `PageStack` `vozes-page-stack--england-p27` + `trajetoria-box--curriculo-england` em `vozes.css` / `paginateDesk.ts` (folha 27 indivisível).
+
+| Folha | Conteúdo fixo |
+| --- | --- |
+| **26** | Continuação da figura da árvore (`vozes-page-start vozes-england-ks-tree`, `org-image5` span no fluxo) + texto do site institucional; ***Como o currículo nacional é produzido***; introdução à revisão 2024–2025; seis `DetailList` (constituição do painel até **Resposta governamental**) |
+| **27** | `PageStack` `vozes-page-stack--england-p27` (`vozes-page-start`, folha única): `ParticipationBox` compacta (**Canais de participação**); dois parágrafos de encerramento (nov/2025 + planejamento 2027–2028); `TrajetoriaBox` `trajetoria-box--curriculo-england` no mesmo fluxo (`vozes-page-stack-foot`): **A trajetória do currículo inglês** com `MilestoneStrip` **2 colunas** (flex independente, marcos 1988–2028, **sem** alinhar anos na mesma linha); **sem** imagem de captura; ritmo vertical da p. 27 em `vozes.css` |
+
+- **Proibido sem pedido:** mudar ordem de blocos, quebras dessas folhas, texto, caixa de participação, trajetória na 27 (incl. espaçamento entre marcos), reintroduzir imagem, ou fixes globais (paginação/CSS) que desloquem esse miolo para a **p. 25** ou para a **p. 28**.
+- **Paginação global:** ajustes em `paginateDesk.ts` / `vozes.css` / tokens não podem mudar como as folhas 26–27 renderizam; folha 27 permanece **átomo** em `paginateDesk.ts`; se um fix geral afetar, pedir à editora ou isolar o comportamento.
+- **Exceção:** só o que a editora citar por palavras (“muda a página 26…”, “página 27”, canais de participação, trajetória do currículo inglês, folio 26–27 ou trecho visível nessas folhas).
+
+### Inglaterra — capítulo país (`england.mdx`)
+
+A dupla **26–27** (produção do currículo + participação + trajetória na 27) está **fechada**. O capítulo organizações Inglaterra (`england-org.mdx`, …) só muda com pedido explícito; `import:mapeamento` exige reconciliar o combinado nas folhas fechadas.
 
 ## Vocabulário da editora → comando (agente executa; não repassar npm ao editor)
 
