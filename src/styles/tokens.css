@@ -101,6 +101,7 @@
   --stack-block-figure-vozes: 4.5mm;
   --stack-block-aside: 5mm;
   --stack-block-profile: 10mm;
+  --stack-before-profile-flow: 13mm;
   --stack-detail-item: var(--space-1);
   /* DetailList / DetailListGrid — bullets e blocos especiais (relatório Vozes) */
   --vozes-detail-list-indent: 4mm;

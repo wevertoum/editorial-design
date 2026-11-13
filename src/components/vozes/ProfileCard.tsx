@@ -9,14 +9,16 @@ type ProfileCardProps = {
   role: string
   bio: string
   photo: string
+  className?: string
 }
 
-export function ProfileCard({ name, role, bio, photo }: ProfileCardProps) {
+export function ProfileCard({ name, role, bio, photo, className }: ProfileCardProps) {
   const highlightStore = useProfileGovernanceHighlight()
   registerProfileName(highlightStore, name)
+  const extra = className?.trim() ? ` ${className.trim()}` : ''
 
   return (
-    <div className="profile-card" lang="pt-BR">
+    <div className={`profile-card${extra}`} lang="pt-BR">
       <div className="profile-card-photo-wrap">
         <img
           className="profile-card-photo"
