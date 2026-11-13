@@ -1,6 +1,6 @@
 {
   "bundleVersion": 1,
-  "generatedAt": "2026-11-13T18:58:10.663Z",
+  "generatedAt": "2026-11-13T19:20:01.957Z",
   "id": "levantamento-organizacoes-2026",
   "language": "pt-BR",
   "title": "Levantamento Internacional de Instituições de Apoio a Padrões Curriculares",
@@ -3300,6 +3300,7 @@
                   "Encerra suas atividades e transfere projetos e recursos para outras organizações."
                 ]
               ],
+              "columns": 2,
               "className": "vozes-milestone--compact"
             }
           },

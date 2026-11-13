@@ -1494,8 +1494,8 @@
   width: 100%;
   max-width: 100%;
   min-width: 0;
-  margin: 0 0 2mm;
-  padding-bottom: 1.5mm;
+  margin: 0 0 1.5mm;
+  padding-bottom: 0.5mm;
   break-inside: avoid;
 }
 
@@ -1543,8 +1543,8 @@
   .org-hierarchy-flow-arrow {
   display: block;
   width: max-content;
-  margin: 0.2mm 0 0.25mm;
-  margin-left: 5.75mm;
+  margin: 0.05mm 0 0.1mm;
+  margin-left: 4.75mm;
   text-align: left;
   align-self: flex-start;
 }
@@ -1564,13 +1564,13 @@
 
 .layout-vozes-report .vozes-main .org-hierarchy-pill {
   display: grid;
-  grid-template-columns: 11.5mm minmax(0, max-content);
+  grid-template-columns: 10mm minmax(0, max-content);
   align-items: stretch;
   width: max-content;
   max-width: 100%;
   margin-inline: auto;
-  min-height: 9.75mm;
-  border-radius: 5.5mm;
+  min-height: 8.25mm;
+  border-radius: 4.25mm;
   overflow: hidden;
   box-shadow: 0 0.2mm 0.6mm color-mix(in srgb, var(--color-vozes-roxo) 12%, transparent);
   print-color-adjust: exact;
@@ -1581,7 +1581,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 2mm;
+  padding: 0 1.5mm;
   color: #fff;
 }
 
@@ -1606,8 +1606,8 @@
 }
 
 .layout-vozes-report .vozes-main .org-hierarchy-pill-glyph {
-  font-size: 5.75mm;
-  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+  font-size: 4.5mm;
+  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 20;
 }
 
 .layout-vozes-report .vozes-main .org-hierarchy-pill-label {
@@ -1615,7 +1615,7 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  padding: 2.4mm 5mm 2.4mm 4mm;
+  padding: 1.4mm 4mm 1.4mm 3.25mm;
   background: var(--org-hierarchy-label-fill);
   font-family: var(--font-sans);
   font-size: 7.25pt;
@@ -1630,12 +1630,12 @@
 
 .layout-vozes-report .vozes-main .org-hierarchy-flow-arrow {
   display: block;
-  margin: 0.2mm auto 0.25mm;
+  margin: 0.05mm auto 0.08mm;
   text-align: center;
-  font-size: 4.75mm;
-  line-height: 1;
+  font-size: 3.5mm;
+  line-height: 0.85;
   color: color-mix(in srgb, var(--color-vozes-roxo-2) 72%, var(--color-vozes-roxo));
-  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 20;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 18;
 }
 
 .facts-rail-list {
@@ -1757,6 +1757,7 @@
 }
 
 .layout-vozes-report .vozes-main p:has(+ .vozes-detail-list-grid),
+.layout-vozes-report .vozes-main p:has(+ .vozes-detail-list-grid-with-marker),
 .layout-vozes-report .vozes-main p:has(+ .detail-list-item),
 .layout-vozes-report .vozes-main p:has(+ .actor-band) {
   margin-bottom: calc(var(--stack-paragraph-vozes) + var(--stack-before-detail-grid));
@@ -1783,13 +1784,129 @@
   break-inside: avoid;
 }
 
-.layout-vozes-report .vozes-main .vozes-detail-list-grid--cols-1 {
+.layout-vozes-report
+  .vozes-page:is(.vozes-prose-only, .vozes-with-rail)
+  .vozes-main
+  .vozes-detail-list-grid--cols-1 {
   grid-template-columns: minmax(0, 1fr);
 }
 
-.layout-vozes-report .vozes-main .vozes-detail-list-grid--full {
+.layout-vozes-report
+  .vozes-page:is(.vozes-prose-only, .vozes-with-rail)
+  .vozes-main
+  .vozes-detail-list-grid--cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 4.5mm;
+}
+
+.layout-vozes-report
+  .vozes-page:is(.vozes-prose-only, .vozes-with-rail)
+  .vozes-main
+  .vozes-detail-list-grid--full {
   width: var(--vozes-detail-grid-span);
   max-width: var(--vozes-detail-grid-span);
+}
+
+/* Marcador circular (ex.: financiamento — círculo + grelha centrados na faixa prosa). */
+.layout-vozes-report
+  .vozes-page:is(.vozes-prose-only, .vozes-with-rail)
+  .vozes-main
+  .vozes-detail-list-grid-with-marker {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0 0 var(--stack-block);
+  break-inside: avoid;
+}
+
+.layout-vozes-report
+  .vozes-page:is(.vozes-prose-only, .vozes-with-rail)
+  .vozes-main
+  .vozes-detail-list-grid-with-marker--beside {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: 4mm;
+}
+
+.layout-vozes-report
+  .vozes-page:is(.vozes-prose-only, .vozes-with-rail)
+  .vozes-main
+  .vozes-detail-list-grid-with-marker--beside
+  > .vozes-detail-list-grid {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin-bottom: 0;
+}
+
+/* Marcador + três bullets: 4 colunas (ícone | fundação | fundação | fundação). */
+.layout-vozes-report
+  .vozes-page:is(.vozes-prose-only, .vozes-with-rail)
+  .vozes-main
+  .vozes-detail-list-grid-with-marker--four-cols {
+  display: grid;
+  grid-template-columns: 20mm repeat(3, minmax(0, 1fr));
+  align-items: start;
+  column-gap: 2.75mm;
+  row-gap: 0;
+}
+
+.layout-vozes-report
+  .vozes-page:is(.vozes-prose-only, .vozes-with-rail)
+  .vozes-main
+  .vozes-detail-list-grid-with-marker--four-cols
+  > .vozes-detail-list-grid-marker {
+  grid-column: 1;
+  place-self: center;
+}
+
+.layout-vozes-report
+  .vozes-page:is(.vozes-prose-only, .vozes-with-rail)
+  .vozes-main
+  .vozes-detail-list-grid-with-marker--four-cols
+  > .detail-list-item {
+  min-width: 0;
+  align-self: start;
+}
+
+.layout-vozes-report
+  .vozes-page:is(.vozes-prose-only, .vozes-with-rail)
+  .vozes-main
+  .vozes-detail-list-grid-with-marker--four-cols
+  .detail-list-item
+  > p {
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.layout-vozes-report .vozes-main .vozes-detail-list-grid-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4mm;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: 20mm;
+  height: 20mm;
+  border-radius: 50%;
+  background: var(--color-vozes-verde);
+  color: #fff;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.layout-vozes-report .vozes-main .vozes-detail-list-grid-marker-glyph {
+  font-size: 7.25mm;
+  line-height: 1;
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.layout-vozes-report .vozes-main .vozes-detail-list-grid-marker-glyph--alt {
+  font-size: 6.75mm;
+  margin-top: 0.15mm;
+  font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 24;
 }
 
 .layout-vozes-report .vozes-main .vozes-detail-list-grid .detail-list-item {
@@ -2144,6 +2261,65 @@
 }
 
 /* EUA p. 19 — «Como produzidos» + trajetória numa folha. */
+/* Achieve — Financiamento + abertura de A atuação na mesma folha (p. 21). */
+.layout-vozes-report .vozes-main > .vozes-page-stack--usa-org-fin-atuacao {
+  --stack-paragraph-vozes: 0.58em;
+  --stack-before-detail-grid: 3.75mm;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--usa-org-fin-atuacao > h3 {
+  margin-top: 0.5em;
+  margin-bottom: 0.32em;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--usa-org-fin-atuacao > h3:first-child {
+  margin-top: 0;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--usa-org-fin-atuacao > p + h3 {
+  margin-top: 0.72em;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--usa-org-fin-atuacao p {
+  line-height: 1.26;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--usa-org-fin-atuacao
+  .vozes-detail-list-grid-with-marker--four-cols {
+  margin-top: 0.5mm;
+  margin-bottom: 3mm;
+  column-gap: 3.25mm;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--usa-org-fin-atuacao
+  .vozes-detail-list-grid-with-marker--four-cols
+  .detail-list-item
+  > p {
+  font-size: 7.9pt;
+  line-height: 1.22;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--usa-org-fin-atuacao
+  .vozes-detail-list-grid--usa-org-atuacao {
+  margin-top: 1mm;
+  margin-bottom: 0;
+  gap: 4.25mm;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--usa-org-fin-atuacao
+  .vozes-detail-list-grid--usa-org-atuacao
+  .detail-list-item {
+  margin-bottom: 0;
+}
+
 .layout-vozes-report .vozes-main > .vozes-page-stack--usa-producao {
   --stack-paragraph-vozes: 0.62em;
 }
@@ -2344,9 +2520,157 @@
   margin-top: 1.75mm;
 }
 
+/* Achieve p. 23 — trajetória da org em 2 colunas (padrão p. 19, mais compacto) + dual-track. */
+.layout-vozes-report .vozes-main .trajetoria-box--org-usa > .heading-3.vozes-trajetoria-heading {
+  margin-bottom: 0.3em;
+  font-size: 10pt;
+  line-height: 1.2;
+}
+
 .layout-vozes-report
   .vozes-main
-  > .trajetoria-box--compact
+  .trajetoria-box--org-usa
+  > .heading-3.vozes-trajetoria-heading
+  + .milestone-strip {
+  margin-top: 1.25mm;
+  margin-bottom: 0;
+}
+
+.layout-vozes-report
+  .vozes-main
+  .vozes-page-stack--dual-track
+  .trajetoria-box--org-usa
+  .milestone-strip--cols-2
+  .milestone-strip-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(5, minmax(0, auto));
+  width: 100%;
+  column-gap: 3.25mm;
+  row-gap: 0.28mm;
+  align-items: start;
+  box-sizing: border-box;
+}
+
+.layout-vozes-report
+  .vozes-main
+  .trajetoria-box--org-usa
+  .milestone-strip-column {
+  display: contents;
+}
+
+.layout-vozes-report
+  .vozes-main
+  .trajetoria-box--org-usa
+  .milestone-strip-column:first-child
+  > .milestone-strip-item {
+  grid-column: 1;
+}
+
+.layout-vozes-report
+  .vozes-main
+  .trajetoria-box--org-usa
+  .milestone-strip-column:last-child
+  > .milestone-strip-item {
+  grid-column: 2;
+}
+
+.layout-vozes-report
+  .vozes-main
+  .trajetoria-box--org-usa
+  .milestone-strip-column
+  > .milestone-strip-item:nth-child(1) {
+  grid-row: 1;
+}
+.layout-vozes-report
+  .vozes-main
+  .trajetoria-box--org-usa
+  .milestone-strip-column
+  > .milestone-strip-item:nth-child(2) {
+  grid-row: 2;
+}
+.layout-vozes-report
+  .vozes-main
+  .trajetoria-box--org-usa
+  .milestone-strip-column
+  > .milestone-strip-item:nth-child(3) {
+  grid-row: 3;
+}
+.layout-vozes-report
+  .vozes-main
+  .trajetoria-box--org-usa
+  .milestone-strip-column
+  > .milestone-strip-item:nth-child(4) {
+  grid-row: 4;
+}
+.layout-vozes-report
+  .vozes-main
+  .trajetoria-box--org-usa
+  .milestone-strip-column
+  > .milestone-strip-item:nth-child(5) {
+  grid-row: 5;
+}
+
+.layout-vozes-report
+  .vozes-main
+  .trajetoria-box--org-usa
+  .vozes-milestone--compact
+  .milestone-strip-item {
+  font-size: 8.15pt;
+  line-height: 1.17;
+  padding: 0.05mm 0;
+  grid-template-columns: 10.5mm minmax(0, 1fr);
+  column-gap: 2.2mm;
+  align-items: start;
+  align-self: start;
+}
+
+.layout-vozes-report
+  .vozes-main
+  .trajetoria-box--org-usa
+  .vozes-milestone--compact
+  .milestone-strip-item
+  + .milestone-strip-item {
+  margin-top: 0;
+}
+
+.layout-vozes-report
+  .vozes-main
+  .trajetoria-box--org-usa
+  .vozes-milestone--compact
+  .milestone-strip-year-num {
+  font-size: 8.15pt;
+  line-height: 1.15;
+}
+
+.layout-vozes-report
+  .vozes-main
+  .trajetoria-box--org-usa
+  .vozes-milestone--compact
+  .milestone-strip-label {
+  font-size: 8.15pt;
+  line-height: 1.17;
+}
+
+.layout-vozes-report
+  .vozes-main
+  .trajetoria-box--org-usa
+  .vozes-milestone--compact
+  .milestone-strip-year-stack
+  .milestone-strip-year-rule {
+  height: 1.45mm;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--dual-track:has(.trajetoria-box--org-usa)
+  .vozes-prelude--compact-milestone {
+  --vozes-milestone-compact-item-gap: 0.35mm;
+}
+
+.layout-vozes-report
+  .vozes-main
+  .trajetoria-box--compact
   .vozes-milestone--compact
   .milestone-strip-item--range
   .milestone-strip-label {

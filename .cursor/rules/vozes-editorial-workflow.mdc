@@ -29,8 +29,8 @@ Tudo o que a editora pediu e ficou combinado — texto, componentes (`ProfileCar
 Quando a editora ajusta **uma** página (largura de coluna, bullets, quebra, espaço antes de lista, perfil no rail), tratar como **sistema do relatório**, não exceção pontual.
 
 1. **Generalizar primeiro** — tokens (`tokens.css`), grade (`vozes.css`, `--vozes-rail-to-prose`, `--vozes-prose-track`), componente (`DetailListGrid`, `PageStack`, `Heading` + `vozes-page-start`). Evitar CSS ou largura só num parágrafo.
-2. **Repetir onde couber** — após fechar o pedido na página citada, varrer capítulos **parecidos** (`*-org.mdx`, miolos de país `*.mdx`, `resumo-executivo`, etc.) e alinhar ao mesmo padrão quando o conteúdo for do mesmo tipo (lista após intro, financiamento, exemplos de atuação, faixa de atores). **Excluir Austrália** (capítulo fechado), **EUA pp. 18–19** e **EUA pp. 20–21** (Achieve, fechadas).
-3. **Exceções explícitas** — não alterar composições **fechadas** (Austrália pp. 10–11; **EUA pp. 18–19**; **EUA pp. 20–21**); `DetailList` com `icon=` (processos AU) mantém faixa plena; não forçar `DetailListGrid` onde houver figura ou prosa **entre** itens sem combinar com a editora.
+2. **Repetir onde couber** — após fechar o pedido na página citada, varrer capítulos **parecidos** (`*-org.mdx`, miolos de país `*.mdx`, `resumo-executivo`, etc.) e alinhar ao mesmo padrão quando o conteúdo for do mesmo tipo (lista após intro, financiamento, exemplos de atuação, faixa de atores). **Excluir Austrália** (capítulo fechado), **EUA pp. 18–19**, **EUA p. 20** (Achieve abertura), **EUA p. 21** (Financiamento + abertura de A atuação) e propagar com cuidado perto de **EUA p. 22+**.
+3. **Exceções explícitas** — não alterar composições **fechadas** (Austrália pp. 10–11; **EUA pp. 18–19**; **EUA p. 20**); `DetailList` com `icon=` (processos AU) mantém faixa plena; não forçar `DetailListGrid` onde houver figura ou prosa **entre** itens sem combinar com a editora.
 4. **Micro-ajuste vs sistema** — “um pouquinho menor/maior” na coluna → calibrar token/global; “só nesta seção” → só MDX local.
 
 ### Padrões já combinados (referência rápida — Nov/2026)
@@ -84,18 +84,36 @@ Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, simplificar,
 - **Paginação global:** ajustes em `paginateDesk.ts` / tokens não podem mudar como as folhas 18–19 renderizam; se um fix geral afetar EUA abertura, pedir à editora ou isolar o comportamento.
 - **Exceção:** só o que a editora citar por palavras (“muda a página 18…”, “EUA”, folio ou trecho visível).
 
-### EUA — Achieve, folios 20–21 (fechadas / não alterar)
+### EUA — Achieve, folio 20 (fechada / não alterar)
 
-Combinado **por hora** pela editora (Nov/2026) — ainda sujeita a ajustes dela; não “congelar” layout além do combinado em cada pedido. Referência: `usa-org.mdx` (abertura até meio do capítulo) + `OrgHierarchyFlow` / paginação atual das folios 20–21.
+Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, simplificar, re-quebrar nem redesenhar sem pedido explícito. Fonte: `usa-org.mdx` (até fim do `OrgHierarchyFlow`) + `ProfileCard` no rail + `OrgHierarchyFlow` compacto (`vozes.css`).
 
-| Folha | Conteúdo / tratamento (referência) |
+| Folha | Conteúdo fixo |
 | --- | --- |
-| **20** | *Achieve*; *O que foi*; **A governança** + `ProfileCard` **Michael Cohen** no **padrão com rail** (logo após o H3); `OrgHierarchyFlow` |
-| **21** | Continuação *Financiamento* / miolo conforme diagramação atual da prévia (sem requebrar sem pedido) |
+| **20** | *Achieve*; *O que foi*; **A governança** (parágrafo integral); frase «A estrutura pode ser simplificada…»; `OrgHierarchyFlow` (quatro pílulas) abaixo da governança; `ProfileCard` **Michael Cohen** no **padrão com rail** na mesma folha |
 
-- **Proibido sem pedido:** requebrar 20↔21, import que apague tratamento editorial, ou fixes globais que mudem essas folios sem combinar.
-- **Paginação global:** fixes em `paginateDesk.ts` / tokens não podem alterar folios 20–21; isolar ou pedir à editora.
-- **Exceção:** pedido explícito citando página 20/21, Achieve ou trecho visível. A partir da folha seguinte (`usa-org` miolo / financiamento pleno, cruzamento, etc.) segue editável até novo combinado.
+- **Proibido sem pedido:** mudar ordem de blocos, quebras, altura do diagrama, posição do perfil, texto desses trechos, ou fixes globais (paginação/CSS) que desloquem esse conteúdo para a p. 21.
+- **Paginação global:** ajustes em `paginateDesk.ts` / `vozes.css` do diagrama não podem mudar como a folha 20 renderiza; se um fix geral afetar Achieve abertura, pedir à editora ou isolar o comportamento.
+- **Exceção:** só o que a editora citar por palavras (“muda a página 20…”, Achieve abertura, folio 20 ou trecho visível nessa folha).
+
+### EUA — Achieve, folio 21 (fechada / não alterar)
+
+Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, simplificar, re-quebrar nem redesenhar sem pedido explícito. Fonte: `usa-org.mdx` (`vozes-page-stack--usa-org-fin-atuacao`) + `DetailListGrid` (financiamento: círculo + 3 colunas; atuação: coluna única estreita, 3 exemplos) + `vozes.css` + `paginateDesk.ts` (stack indivisível).
+
+| Folha | Conteúdo fixo |
+| --- | --- |
+| **21** | **Financiamento** (texto + receita 2019/2020); grelha 4 colunas (ícone `payments` + Hewlett, Gates, GE); parágrafo de encerramento da receita; **A atuação** (intro); três exemplos (ADP, Common Core, PARCC) em `DetailListGrid` estreito, tipografia padrão dos bullets |
+
+- **Proibido sem pedido:** mudar ordem de blocos, espaçamento compacto desta folha, layout do financiamento ou dos exemplos de atuação, ou fixes globais (paginação/CSS) que desloquem conteúdo da **p. 20** ou para a **p. 22**.
+- **Paginação global:** ajustes em `paginateDesk.ts` / `vozes.css` deste stack não podem mudar como a folha 21 renderiza; se um fix geral afetar, pedir à editora ou isolar o comportamento.
+- **Exceção:** só o que a editora citar por palavras (“muda a página 21…”, Financiamento, A atuação, folio 21 ou trecho visível nessa folha).
+
+### EUA — Achieve, folio 22 em diante (editável)
+
+A partir do segundo bloco de **A atuação** (`usa-org.mdx`: NGSS, EQuIP, cruzamento, trajetória), o capítulo segue aberto até novo combinado da editora.
+
+- **Cuidado na paginação:** mudanças no miolo não devem puxar conteúdo da **p. 21** para a 22 (nem o inverso) sem pedido explícito.
+- **Exceções fechadas:** folios **18–21** permanecem protegidos conforme seções anteriores.
 
 ## Vocabulário da editora → comando (agente executa; não repassar npm ao editor)
 

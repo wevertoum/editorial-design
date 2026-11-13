@@ -25,6 +25,7 @@ const ATOMIC = [
   '.vozes-page-stack-foot',
   '.org-hierarchy-flow',
   '.vozes-detail-list-grid',
+  '.vozes-detail-list-grid-with-marker',
   '.timeline-event',
   '.milestone-strip-item',
   '.masthead',
@@ -132,7 +133,8 @@ function groupBlocks(
         block.classList.contains('vozes-page-stack--dual-track') ||
         block.classList.contains('vozes-page-stack--trajetoria-sheet') ||
         block.classList.contains('vozes-page-stack--usa-opening') ||
-        block.classList.contains('vozes-page-stack--usa-producao')
+        block.classList.contains('vozes-page-stack--usa-producao') ||
+        block.classList.contains('vozes-page-stack--usa-org-fin-atuacao')
       ) {
         groups.push([block])
         continue
@@ -763,6 +765,7 @@ function prepareStackMeasure(slot: HTMLElement): void {
       node.classList.contains('vozes-page-stack--trajetoria-sheet') ||
       node.classList.contains('vozes-page-stack--usa-opening') ||
       node.classList.contains('vozes-page-stack--usa-producao') ||
+      node.classList.contains('vozes-page-stack--usa-org-fin-atuacao') ||
       node.classList.contains('vozes-page-break')
     ) {
       return
