@@ -27,5 +27,28 @@
       "organizacao": "Após uma interrupção entre 1991 e 1997, a CON retoma suas atividades e promove seminários, incluindo um encontro sobre os desafios da educação secundária em 2001.",
       "resumo": "A CON volta a discutir questões educacionais em um período de ampliação da educação básica."
     }
+  ],
+  "overflowNodes": [
+    {
+      "id": "y-2008-a-2014-3",
+      "year": "2008 a 2014",
+      "curriculo": "O NERDC desenvolve o currículo de nove anos, implementado em 2008. Após passar por uma revisão, entra em vigor novamente em 2014.",
+      "organizacao": "A CON publica, em 2014, o livro Curriculum and Teaching in Nigeria, reunindo estudos curriculares.",
+      "resumo": "A organização contribui para a circulação de conhecimento curricular durante o período de revisão."
+    },
+    {
+      "id": "y-2018-a-2020",
+      "year": "2018 a 2020",
+      "curriculo": "O país inicia discussões e consultas para revisar o currículo do ensino secundário superior.",
+      "organizacao": "A CON realiza conferências sobre desenvolvimento curricular e mantém a publicação de estudos especializados.",
+      "resumo": "Os temas debatidos pela CON dialogam com problemas da política curricular. O NERDC realizou consultas com associações e sociedade civil em 2020."
+    },
+    {
+      "id": "y-2020-a-2025-1",
+      "year": "2020 a 2025",
+      "curriculo": "O NERDC coordena uma ampla revisão dos currículos da educação básica e secundária, apresentada pelo governo em 2025.",
+      "organizacao": "Chima Egbujuo, identificado oficialmente como membro ativo da CON, atua como líder técnico do projeto nacional de revisão curricular.",
+      "resumo": "Presença de profissionais vinculados à associação nos processos nacionais de desenvolvimento curricular."
+    }
   ]
 }

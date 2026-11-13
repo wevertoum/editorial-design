@@ -5,6 +5,8 @@ sheetVariant: vozes-report
 <VozesLayout className="vozes-prose-only">
 <VozesMain>
 
+<PageStack className="vozes-page-stack--chile-p40">
+
 <CountryOpening code="CL" title="Chile" />
 
 ### O sistema curricular chileno
@@ -15,7 +17,7 @@ A elaboração técnica é conduzida pela *Unidad de Currículum y Evaluación *
 
 <ActorBand
   title={"Principais atores e seus papéis"}
-  columns={5}
+  columns={3}
   items={[
     ["Ministerio de Educación (MINEDUC)\nGoverno nacional", "Define prioridades educacionais, apresenta propostas curriculares e formaliza as Bases Curriculares por decreto."],
     ["Unidad de Currículum y Evaluación (UCE)\nUnidade técnica do Ministério", "Desenvolve propostas de Bases Curriculares, planos, programas e orientações para sua implementação."],
@@ -25,11 +27,13 @@ A elaboração técnica é conduzida pela *Unidad de Currículum y Evaluación *
   ]}
 />
 
-<PageStack className="vozes-page-stack--chile-organizado">
-
 ### Como o currículo é organizado
 
 As [Bases Curriculares](https://www.curriculumnacional.cl/614/w3-propertyvalue-469042.html?__noredirect=1) são o principal documento do currículo nacional chileno. Elas estabelecem os *Objetivos de Aprendizaje* (OA), ou seja, o que os estudantes devem aprender em cada disciplina e etapa escolar, considerando conhecimentos, habilidades e atitudes.
+
+</PageStack>
+
+<PageStack className="vozes-page-break vozes-page-stack--chile-organizado">
 
 <Figure
   src="media/org-image16.png"
@@ -58,6 +62,8 @@ O [processo](https://cned.cl/preguntas-frecuentes) de desenvolvimento curricular
 Depois da elaboração técnica, as propostas são encaminhadas ao *Consejo Nacional de Educación* (CNED), que pode aprová-las, apresentar observações ou rejeitá-las. A aprovação do conselho é necessária para que as Bases sejam formalizadas por decreto. 
 
 O processo funciona da seguinte forma:
+
+<DetailListGrid columns={3} width="full">
 
 <DetailList>
 
@@ -99,9 +105,7 @@ As Bases aprovadas são estabelecidas por decreto. O Ministério desenvolve prog
 
 </DetailList>
 
-</PageStack>
-
-<PageStack className="vozes-page-break vozes-page-stack--chile-participacao-traj">
+</DetailListGrid>
 
 <ParticipationBox className="participation-box--compact">
 
@@ -112,6 +116,10 @@ O Chile possui [mecanismos](https://www.curriculumnacional.cl/actualizacion-curr
 Consulta Pública da Atualização Curricular: Mais de 115 mil pessoas participaram da avaliação da proposta, incluindo professores, gestores e outros atores educacionais. O processo buscou identificar problemas de clareza, pertinência e viabilidade de implementação.
 
 </ParticipationBox>
+
+</PageStack>
+
+<PageStack className="vozes-page-break vozes-page-stack--chile-participacao-traj">
 
 A consulta não equivale à aprovação do currículo. Após a sistematização das contribuições e a preparação da proposta pelo Ministério, o CNED realiza sua própria análise. As consultas públicas, os debates técnicos e as deliberações do CNED constituem momentos em que organizações externas podem tentar influenciar a política curricular.
 

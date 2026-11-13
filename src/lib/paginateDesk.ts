@@ -7,9 +7,6 @@ const SLOP = 4
 /** CON abertura: grelha + financiamento no fim da f. 37 (~120px de tolerância medida). */
 const NIGERIA_ORG_INTRO_SLOP = 168
 
-/** Reimagina — fecho de Financiamento + intro de A atuação na f. 44; três exemplos na f. 45. */
-const CHILE_ORG_PRE_ATUACAO_SLOP = 280
-
 /** BCF — último parágrafo de Financiamento: a medição ignora espaço livre ao lado do float do perfil. */
 const BCF_FIN_TAIL_SLOP = 52
 
@@ -150,6 +147,9 @@ function groupBlocks(
         block.classList.contains('vozes-page-stack--nigeria-p34') ||
         block.classList.contains('vozes-page-stack--nigeria-producao') ||
         block.classList.contains('vozes-page-stack--nigeria-p36') ||
+        block.classList.contains('vozes-page-stack--chile-p40') ||
+        block.classList.contains('vozes-page-stack--chile-organizado') ||
+        block.classList.contains('vozes-page-stack--chile-producao') ||
         block.classList.contains('vozes-page-stack--nigeria-org-atuacao-traj') ||
         block.classList.contains('vozes-page-stack--nigeria-org-cruzamento') ||
         block.classList.contains('vozes-page-stack--chile-participacao-traj') ||
@@ -199,23 +199,6 @@ function groupBlocks(
           continue
         }
       }
-      const chileOrgAtuacaoPending = queue.some(
-        (node) =>
-          node.classList.contains('vozes-page-stack') &&
-          node.classList.contains('vozes-page-stack--chile-org-atuacao-tres'),
-      )
-      if (
-        chileOrgAtuacaoPending &&
-        block.matches('h3') &&
-        /A atuação/.test(block.textContent ?? '')
-      ) {
-        const bundle = [...current, block, next]
-        if (measure(bundle, withRail) <= limit + CHILE_ORG_PRE_ATUACAO_SLOP) {
-          current = [...current, block, next]
-          queue.shift()
-          continue
-        }
-      }
       groups.push(current)
       current = []
       queue.unshift(block)
@@ -246,29 +229,12 @@ function groupBlocks(
         }
       }
       if (
-        current.some((node) => node.classList.contains('vozes-nigeria-org-gov-grid')) &&
+        (current.some((node) => node.classList.contains('vozes-nigeria-org-gov-grid')) ||
+          current.some((node) => node.classList.contains('vozes-chile-org-gov-grid'))) &&
         (block.classList.contains('vozes-nigeria-org-gov-grid') || block.matches('h3, p'))
       ) {
         const overflow = measure(candidate, withRail) - limit
         if (overflow > 0 && overflow <= NIGERIA_ORG_INTRO_SLOP) {
-          current = candidate
-          continue
-        }
-      }
-      const chileOrgAtuacaoPending = queue.some(
-        (node) =>
-          node.classList.contains('vozes-page-stack') &&
-          node.classList.contains('vozes-page-stack--chile-org-atuacao-tres'),
-      )
-      const inChileOrgFinAtuacaoTail = current.some(
-        (node) =>
-          (node.matches('h3') && /Financiamento|A atuação/.test(node.textContent ?? '')) ||
-          (node.matches('p') &&
-            /Equivalence Determination|BHP Foundation|transparência|Cinco exemplos/.test(node.textContent ?? '')),
-      )
-      if (chileOrgAtuacaoPending && inChileOrgFinAtuacaoTail && block.matches('h3, p')) {
-        const overflow = measure(candidate, withRail) - limit
-        if (overflow > 0 && overflow <= CHILE_ORG_PRE_ATUACAO_SLOP) {
           current = candidate
           continue
         }
@@ -868,6 +834,9 @@ function prepareStackMeasure(slot: HTMLElement): void {
       node.classList.contains('vozes-page-stack--nigeria-p34') ||
       node.classList.contains('vozes-page-stack--nigeria-producao') ||
       node.classList.contains('vozes-page-stack--nigeria-p36') ||
+      node.classList.contains('vozes-page-stack--chile-p40') ||
+      node.classList.contains('vozes-page-stack--chile-organizado') ||
+      node.classList.contains('vozes-page-stack--chile-producao') ||
       node.classList.contains('vozes-page-stack--nigeria-org-atuacao-traj') ||
       node.classList.contains('vozes-page-stack--nigeria-org-cruzamento') ||
       node.classList.contains('vozes-page-stack--chile-participacao-traj') ||
