@@ -3,7 +3,7 @@
  * The PDF prints those same pages, so the desk and the file match.
  */
 
-const SLOP = 2
+const SLOP = 4
 
 const ATOMIC = [
   '.figure',
@@ -23,6 +23,7 @@ const ATOMIC = [
   '.cover-hero',
   '.folha-rosto-hero',
   '.vozes-page-stack-foot',
+  '.org-hierarchy-flow',
   '.vozes-detail-list-grid',
   '.timeline-event',
   '.milestone-strip-item',
@@ -174,6 +175,21 @@ function groupBlocks(
 
     const candidate = [...current, block]
     if (current.length > 0 && !fits(candidate, withRail)) {
+      if (block.classList.contains('org-hierarchy-flow')) {
+        const intro = current[current.length - 1]
+        if (intro?.matches('p')) {
+          if (current.length > 1) {
+            groups.push(current.slice(0, -1))
+            if (fits([intro, block], withRail)) {
+              current = [intro, block]
+              continue
+            }
+          }
+          groups.push(current)
+          current = [intro, block]
+          continue
+        }
+      }
       if (block.classList.contains('profile-card')) {
         let cur = [...current]
         const peeled: HTMLElement[] = []
@@ -671,7 +687,9 @@ function createProbe(sheet: HTMLElement): {
       if (slot === probe) probe.replaceChildren(...clones)
       else slot.replaceChildren(...clones)
       if (rail) rail.hidden = !withRail
-      return probe.scrollHeight
+      /* min-height: 100% na prévia só enfileira o rodapé; na medição usamos altura real. */
+      prepareStackMeasure(slot)
+      return slot === probe ? probe.scrollHeight : contentExtent(slot)
     },
     destroy() {
       probe.remove()
@@ -683,12 +701,36 @@ function pageLimitPx(): number {
   const ruler = document.createElement('div')
   ruler.style.position = 'absolute'
   ruler.style.visibility = 'hidden'
-  ruler.style.height = 'var(--page-height)'
   ruler.style.width = '0'
   document.body.appendChild(ruler)
+  ruler.style.height = 'var(--vozes-content-height)'
   const height = ruler.offsetHeight
   ruler.remove()
   return height
+}
+
+function prepareStackMeasure(slot: HTMLElement): void {
+  slot.querySelectorAll('.vozes-page-stack').forEach((node) => {
+    if (!(node instanceof HTMLElement)) return
+    if (
+      node.classList.contains('vozes-page-stack--dual-track') ||
+      node.classList.contains('vozes-page-stack--trajetoria-sheet') ||
+      node.classList.contains('vozes-page-break')
+    ) {
+      return
+    }
+    node.style.minHeight = '0'
+  })
+}
+
+/** Flutuantes (ex.: profile-card) podem esticar filhos além de scrollHeight. */
+function contentExtent(container: HTMLElement): number {
+  let extent = container.scrollHeight
+  for (const child of elementChildren(container)) {
+    const mb = parseFloat(getComputedStyle(child).marginBottom) || 0
+    extent = Math.max(extent, child.offsetTop + child.offsetHeight + mb)
+  }
+  return extent
 }
 
 function elementChildren(parent: Element): HTMLElement[] {

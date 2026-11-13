@@ -1,6 +1,6 @@
 {
   "bundleVersion": 1,
-  "generatedAt": "2026-11-13T17:52:16.606Z",
+  "generatedAt": "2026-11-13T18:39:42.170Z",
   "id": "levantamento-organizacoes-2026",
   "language": "pt-BR",
   "title": "Levantamento Internacional de Instituições de Apoio a Padrões Curriculares",
@@ -1209,8 +1209,7 @@
               {
                 "text": "A trajetória do currículo australiano"
               }
-            ],
-            "className": "vozes-trajetoria-heading"
+            ]
           },
           {
             "type": "paragraph",
@@ -2732,14 +2731,7 @@
             "type": "paragraph",
             "runs": [
               {
-                "text": "Em 2019, a organização "
-              },
-              {
-                "text": "registrou",
-                "href": "https://projects.propublica.org/nonprofits/organizations/522006429"
-              },
-              {
-                "text": " US$ 5,6 milhões em receita, dos quais aproximadamente 91,8% vieram de contribuições. Em 2020, foram US$ 3,9 milhões em receitas, com 87,4% provenientes de contribuições."
+                "text": "Em 2019, a organização registrou US$ 5,6 milhões em receita, dos quais aproximadamente 91,8% vieram de contribuições. Em 2020, foram US$ 3,9 milhões em receitas, com 87,4% provenientes de contribuições."
               }
             ]
           },
@@ -2776,14 +2768,7 @@
             "type": "paragraph",
             "runs": [
               {
-                "text": "A "
-              },
-              {
-                "text": "receita",
-                "href": "https://projects.propublica.org/nonprofits/organizations/522006429"
-              },
-              {
-                "text": " caiu significativamente nos últimos anos de funcionamento. Ainda assim, não seria correto concluir que a Achieve encerrou exclusivamente por dificuldades financeiras. Em seu anúncio oficial, a organização menciona conjuntamente seu impacto, o trabalho ainda necessário, a capacidade de outras organizações e o ambiente político e financeiro."
+                "text": "A receita caiu significativamente nos últimos anos de funcionamento. Ainda assim, não seria correto concluir que a Achieve encerrou exclusivamente por dificuldades financeiras. Em seu anúncio oficial, a organização menciona conjuntamente seu impacto, o trabalho ainda necessário, a capacidade de outras organizações e o ambiente político e financeiro."
               }
             ]
           },
@@ -2801,7 +2786,14 @@
             "type": "paragraph",
             "runs": [
               {
-                "text": "A Achieve combinava produção de evidências, assistência técnica, articulação de estados, advocacy, desenvolvimento de standards, gestão de projetos e apoio à implementação."
+                "text": "A "
+              },
+              {
+                "text": "receita",
+                "href": "https://projects.propublica.org/nonprofits/organizations/522006429"
+              },
+              {
+                "text": " caiu significativamente nos últimos anos de funcionamento. Ainda assim, não seria correto concluir que a Achieve encerrou exclusivamente por dificuldades financeiras. Em seu anúncio oficial, a organização menciona conjuntamente seu impacto, o trabalho ainda necessário, a capacidade de outras organizações e o ambiente político e financeiro."
               }
             ]
           },
@@ -3040,58 +3032,59 @@
             ]
           },
           {
-            "type": "paragraph",
-            "runs": [
-              {
-                "text": "BOARD OF DIRECTORS"
-              }
-            ]
+            "type": "component",
+            "name": "OrgHierarchyFlow",
+            "props": {}
+          },
+          {
+            "type": "component",
+            "name": "OrgHierarchyStep",
+            "props": {}
           },
           {
             "type": "paragraph",
             "runs": [
               {
-                "text": "↓"
+                "text": "Board of directors"
               }
             ]
+          },
+          {
+            "type": "component",
+            "name": "OrgHierarchyStep",
+            "props": {}
           },
           {
             "type": "paragraph",
             "runs": [
               {
-                "text": "PRESIDENT"
+                "text": "President"
               }
             ]
+          },
+          {
+            "type": "component",
+            "name": "OrgHierarchyStep",
+            "props": {}
           },
           {
             "type": "paragraph",
             "runs": [
               {
-                "text": "↓"
+                "text": "Equipes técnicas"
               }
             ]
+          },
+          {
+            "type": "component",
+            "name": "OrgHierarchyStep",
+            "props": {}
           },
           {
             "type": "paragraph",
             "runs": [
               {
-                "text": "EQUIPES TÉCNICAS"
-              }
-            ]
-          },
-          {
-            "type": "paragraph",
-            "runs": [
-              {
-                "text": "↓"
-              }
-            ]
-          },
-          {
-            "type": "paragraph",
-            "runs": [
-              {
-                "text": "PROJETOS E REDES"
+                "text": "Projetos e redes"
               }
             ]
           },

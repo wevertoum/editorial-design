@@ -1430,6 +1430,147 @@
   color: var(--color-vozes-roxo-2);
 }
 
+/* Hierarquia org — pílula ícone + rótulo (referência editorial Achieve). */
+.layout-vozes-report .vozes-main > p:has(+ .org-hierarchy-flow) {
+  margin-bottom: 1.5mm;
+}
+
+.layout-vozes-report .vozes-main > .org-hierarchy-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  box-sizing: border-box;
+  clear: none;
+  float: none;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0 0 2mm;
+  padding-bottom: 1.5mm;
+  break-inside: avoid;
+}
+
+/*
+ * Com ProfileCard flutuando à direita: bloco a 100% invade a faixa do float
+ * e o motor desloca o diagrama para baixo do card — sobra branco e o fluxo vaza da página.
+ */
+.layout-vozes-report .vozes-page.vozes-with-rail .vozes-main > .profile-card ~ .org-hierarchy-flow {
+  width: fit-content;
+  max-width: calc(100% - 50mm - var(--vozes-grid-gutter));
+  margin-top: 4mm;
+  margin-inline: 0;
+  align-items: flex-start;
+}
+
+.layout-vozes-report .vozes-page.vozes-with-rail .vozes-main > .profile-card ~ .org-hierarchy-flow .org-hierarchy-flow-item {
+  align-items: flex-start;
+  width: auto;
+  max-width: 100%;
+}
+
+.layout-vozes-report .vozes-page.vozes-with-rail .vozes-main > .profile-card ~ .org-hierarchy-flow .org-hierarchy-pill {
+  margin-inline: 0;
+}
+
+.layout-vozes-report .vozes-page.vozes-with-rail .vozes-main > .profile-card ~ .org-hierarchy-flow .org-hierarchy-flow-arrow {
+  display: block;
+  width: max-content;
+  margin: 0.2mm 0 0.25mm;
+  margin-left: 5.75mm;
+  text-align: left;
+  align-self: flex-start;
+}
+
+.layout-vozes-report .vozes-main > .org-hierarchy-flow + .heading-3 {
+  clear: both;
+}
+
+.layout-vozes-report .vozes-main .org-hierarchy-flow-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.layout-vozes-report .vozes-main .org-hierarchy-pill {
+  display: grid;
+  grid-template-columns: 11.5mm minmax(0, max-content);
+  align-items: stretch;
+  width: max-content;
+  max-width: 100%;
+  margin-inline: auto;
+  min-height: 9.75mm;
+  border-radius: 5.5mm;
+  overflow: hidden;
+  box-shadow: 0 0.2mm 0.6mm color-mix(in srgb, var(--color-vozes-roxo) 12%, transparent);
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.layout-vozes-report .vozes-main .org-hierarchy-pill-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2mm;
+  color: #fff;
+}
+
+.layout-vozes-report .vozes-main .org-hierarchy-pill--0 .org-hierarchy-pill-icon {
+  background: var(--org-hierarchy-icon-tone-0);
+}
+
+.layout-vozes-report .vozes-main .org-hierarchy-pill--1 .org-hierarchy-pill-icon {
+  background: var(--org-hierarchy-icon-tone-1);
+}
+
+.layout-vozes-report .vozes-main .org-hierarchy-pill--2 .org-hierarchy-pill-icon {
+  background: var(--org-hierarchy-icon-tone-2);
+}
+
+.layout-vozes-report .vozes-main .org-hierarchy-pill--3 .org-hierarchy-pill-icon {
+  background: var(--org-hierarchy-icon-tone-3);
+}
+
+.layout-vozes-report .vozes-main .org-hierarchy-flow-item:last-child .org-hierarchy-pill {
+  box-shadow: none;
+}
+
+.layout-vozes-report .vozes-main .org-hierarchy-pill-glyph {
+  font-size: 5.75mm;
+  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+}
+
+.layout-vozes-report .vozes-main .org-hierarchy-pill-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 2.4mm 5mm 2.4mm 4mm;
+  background: var(--org-hierarchy-label-fill);
+  font-family: var(--font-sans);
+  font-size: 7.25pt;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.045em;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--color-vozes-roxo);
+  white-space: nowrap;
+}
+
+.layout-vozes-report .vozes-main .org-hierarchy-flow-arrow {
+  display: block;
+  margin: 0.2mm auto 0.25mm;
+  text-align: center;
+  font-size: 4.75mm;
+  line-height: 1;
+  color: color-mix(in srgb, var(--color-vozes-roxo-2) 72%, var(--color-vozes-roxo));
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 20;
+}
+
 .facts-rail-list {
   margin: 0;
 }

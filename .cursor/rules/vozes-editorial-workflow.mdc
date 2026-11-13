@@ -29,7 +29,7 @@ Tudo o que a editora pediu e ficou combinado — texto, componentes (`ProfileCar
 Quando a editora ajusta **uma** página (largura de coluna, bullets, quebra, espaço antes de lista, perfil no rail), tratar como **sistema do relatório**, não exceção pontual.
 
 1. **Generalizar primeiro** — tokens (`tokens.css`), grade (`vozes.css`, `--vozes-rail-to-prose`, `--vozes-prose-track`), componente (`DetailListGrid`, `PageStack`, `Heading` + `vozes-page-start`). Evitar CSS ou largura só num parágrafo.
-2. **Repetir onde couber** — após fechar o pedido na página citada, varrer capítulos **parecidos** (`*-org.mdx`, miolos de país `*.mdx`, `resumo-executivo`, etc.) e alinhar ao mesmo padrão quando o conteúdo for do mesmo tipo (lista após intro, financiamento, exemplos de atuação, faixa de atores).
+2. **Repetir onde couber** — após fechar o pedido na página citada, varrer capítulos **parecidos** (`*-org.mdx`, miolos de país `*.mdx`, `resumo-executivo`, etc.) e alinhar ao mesmo padrão quando o conteúdo for do mesmo tipo (lista após intro, financiamento, exemplos de atuação, faixa de atores). **Excluir Austrália** (capítulo fechado).
 3. **Exceções explícitas** — não alterar composições **fechadas** (Austrália pp. 10–11); `DetailList` com `icon=` (processos AU) mantém faixa plena; não forçar `DetailListGrid` onde houver figura ou prosa **entre** itens sem combinar com a editora.
 4. **Micro-ajuste vs sistema** — “um pouquinho menor/maior” na coluna → calibrar token/global; “só nesta seção” → só MDX local.
 
@@ -61,6 +61,15 @@ Combinado e **fechado** pela editora (“deixar dessa forma” / “salve”). *
 | Processos | Continuar com `DetailList` (Estruturar/Escrever…), **não** DimensionList |
 
 **Propagação:** bandeiras US/GB/NG/CL; remoção do H2 “O currículo…”; `PageStack`+ActorBand no rodapé nas aberturas dos outros países. **Não** forçar DimensionList nem segundo PageStack de figura fora da composição australiana análoga.
+
+### Austrália — capítulo fechado (Nov/2026)
+
+A editora combinou: **Austrália não recebe mais alterações** sem pedido explícito dela.
+
+- **Escopo:** `australia.mdx`, `australia-org.mdx`, timelines/figuras da Austrália, CSS/JS **só** aplicável a essas folhas.
+- **Proibido sem pedido:** mudar ordem de páginas, quebras, layout, componentes, texto, import que regenere o capítulo, “propagação” a partir de outros países ou fixes globais de paginação pensados para outra seção.
+- **Paginação global:** ajustes em `paginateDesk.ts` / tokens não podem mudar como as folhas AU renderizam; se um fix geral afetar AU, pedir à editora ou isolar o comportamento (não tocar no resultado AU).
+- **Exceção:** só o que a editora citar por palavras (“muda a Austrália…”, país + página ou trecho visível).
 
 ## Vocabulário da editora → comando (agente executa; não repassar npm ao editor)
 

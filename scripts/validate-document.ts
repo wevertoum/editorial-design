@@ -45,6 +45,8 @@ const allowedComponents = new Set([
   'HighlightBox',
   'MilestoneItem',
   'MilestoneStrip',
+  'OrgHierarchyFlow',
+  'OrgHierarchyStep',
   'PageStack',
   'ParticipationBox',
   'ProfileCard',

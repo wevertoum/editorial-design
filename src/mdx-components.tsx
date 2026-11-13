@@ -19,6 +19,7 @@ import { DualTrackEmbed } from './components/vozes/DualTrackEmbed'
 import { PageStack } from './components/vozes/PageStack'
 import { ParticipationBox } from './components/vozes/ParticipationBox'
 import { TrajetoriaBox } from './components/vozes/TrajetoriaBox'
+import { OrgHierarchyFlow, OrgHierarchyStep } from './components/vozes/OrgHierarchyFlow'
 import { SourceNote } from './components/vozes/SourceNote'
 import { VozesLayout, VozesMain, VozesRail } from './components/vozes/VozesLayout'
 
@@ -61,4 +62,6 @@ export const mdxComponents = {
   PageStack,
   ParticipationBox,
   TrajetoriaBox,
+  OrgHierarchyFlow,
+  OrgHierarchyStep,
 }

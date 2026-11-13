@@ -64,6 +64,11 @@
   --color-vozes-roxo: #493975;
   --color-vozes-roxo-2: #8146cb;
   --color-vozes-participation-fill: color-mix(in srgb, var(--color-vozes-roxo-2) 14%, white);
+  --org-hierarchy-label-fill: color-mix(in srgb, var(--color-vozes-roxo-2) 11%, white);
+  --org-hierarchy-icon-tone-0: var(--color-vozes-roxo);
+  --org-hierarchy-icon-tone-1: color-mix(in srgb, var(--color-vozes-roxo) 38%, var(--color-vozes-roxo-2));
+  --org-hierarchy-icon-tone-2: color-mix(in srgb, var(--color-vozes-roxo-2) 58%, white);
+  --org-hierarchy-icon-tone-3: color-mix(in srgb, var(--color-vozes-roxo-2) 32%, white);
   --color-vozes-verde: #0d6353;
   --color-vozes-verde-vivo: #01c689;
   --color-vozes-rosa: #ef5ca1;
