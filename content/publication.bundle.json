@@ -1,6 +1,6 @@
 {
   "bundleVersion": 1,
-  "generatedAt": "2026-11-13T15:13:24.868Z",
+  "generatedAt": "2026-11-13T17:11:35.661Z",
   "id": "levantamento-organizacoes-2026",
   "language": "pt-BR",
   "title": "Levantamento Internacional de Instituições de Apoio a Padrões Curriculares",
@@ -3608,6 +3608,14 @@
             "type": "paragraph",
             "runs": [
               {
+                "text": "Pessoas externas podem contribuir em diferentes momentos da política curricular, apresentando pesquisas, recomendações e posicionamentos ou participando de reuniões e eventos. Em 2024, por exemplo, qualquer interessado podia apresentar contribuições por meio de formulário on-line ou canais alternativos."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "runs": [
+              {
                 "text": "Em novembro de 2025, o governo anunciou a intenção de "
               },
               {
@@ -3631,14 +3639,6 @@
               },
               {
                 "text": " a participação de educadores no desenvolvimento de uma versão digital e navegável do currículo, para facilitar o acesso e a organização dos conteúdos pelas escolas."
-              }
-            ]
-          },
-          {
-            "type": "paragraph",
-            "runs": [
-              {
-                "text": "Em novembro de 2025, o governo anunciou a intenção de atualizar o currículo, mantendo sua estrutura geral e revisando conteúdos e abordagens. Entre os temas contemplados estão letramento digital e inteligência artificial, educação financeira, cidadania, inclusão, diversidade e preparação para a vida e o trabalho."
               }
             ]
           },
@@ -4118,17 +4118,24 @@
             }
           },
           {
+            "type": "component",
+            "name": "ParticipationBox",
+            "props": {
+              "className": "participation-box--compact"
+            }
+          },
+          {
             "type": "paragraph",
             "runs": [
               {
-                "text": "Canais de participação Pessoas externas podem "
+                "text": "Pessoas externas podem "
               },
               {
                 "text": "contribuir",
                 "href": "https://www.gov.uk/government/groups/curriculum-and-assessment-review"
               },
               {
-                "text": " em diferentes momentos da política curricular, apresentando pesquisas, recomendações e posicionamentos ou participando de reuniões e eventos. Em 2024, por exemplo, qualquer interessado podia apresentar contribuições por meio de formulário on-line ou canais alternativos. O painel também promoveu dois webinars, nove eventos com mais de 3.600 participantes e reuniões direcionadas, ampliando a participação para além das contribuições escritas."
+                "text": " em diferentes momentos da política curricular, apresentando pesquisas, recomendações e posicionamentos ou participando de reuniões e eventos. Em 2024, por exemplo, qualquer interessado podia apresentar contribuições por meio de formulário on-line ou canais alternativos."
               }
             ]
           },
@@ -4136,14 +4143,7 @@
             "type": "paragraph",
             "runs": [
               {
-                "text": "Canais de participação Pessoas externas podem "
-              },
-              {
-                "text": "contribuir",
-                "href": "https://www.gov.uk/government/groups/curriculum-and-assessment-review"
-              },
-              {
-                "text": " em diferentes momentos da política curricular, apresentando pesquisas, recomendações e posicionamentos ou participando de reuniões e eventos. Em 2024, por exemplo, qualquer interessado podia apresentar contribuições por meio de formulário on-line ou canais alternativos. O painel também promoveu dois webinars, nove eventos com mais de 3.600 participantes e reuniões direcionadas, ampliando a participação para além das contribuições escritas."
+                "text": "O painel também promoveu dois webinars, nove eventos com mais de 3.600 participantes e reuniões direcionadas, ampliando a participação para além das contribuições escritas."
               }
             ]
           },
@@ -5593,14 +5593,7 @@
             "type": "paragraph",
             "runs": [
               {
-                "text": "Canais de participação O NERDC utiliza consultas e encontros com diferentes públicos para subsidiar as revisões. Um "
-              },
-              {
-                "text": "exemplo",
-                "href": "https://nerdc.gov.ng/content_manager/nsd.html"
-              },
-              {
-                "text": " documentado ocorreu em 11 de março de 2020, quando a instituição realizou, na região Sudeste da Nigéria, um diálogo sobre a revisão do currículo do ensino secundário superior. Participaram representantes de ministérios estaduais, professores, estudantes, associações de pais e organizações da sociedade civil. O encontro buscou identificar problemas no currículo existente e registrar sugestões para orientar a revisão."
+                "text": "Além do processo técnico do NERDC, propostas de política educacional podem passar por comitês especializados, que analisam recomendações antes de encaminhá-las ao NCE. O conselho reúne autoridades federais e estaduais para deliberar sobre diretrizes nacionais; segundo o Ministério da Educação, suas decisões são encaminhadas ao Federal Executive Council para aprovação final."
               }
             ]
           },
@@ -5971,17 +5964,17 @@
             ]
           },
           {
+            "type": "component",
+            "name": "ParticipationBox",
+            "props": {
+              "className": "participation-box--compact"
+            }
+          },
+          {
             "type": "paragraph",
             "runs": [
               {
-                "text": "Canais de participação O NERDC utiliza consultas e encontros com diferentes públicos para subsidiar as revisões. Um "
-              },
-              {
-                "text": "exemplo",
-                "href": "https://nerdc.gov.ng/content_manager/nsd.html"
-              },
-              {
-                "text": " documentado ocorreu em 11 de março de 2020, quando a instituição realizou, na região Sudeste da Nigéria, um diálogo sobre a revisão do currículo do ensino secundário superior. Participaram representantes de ministérios estaduais, professores, estudantes, associações de pais e organizações da sociedade civil. O encontro buscou identificar problemas no currículo existente e registrar sugestões para orientar a revisão."
+                "text": "O NERDC utiliza consultas e encontros com diferentes públicos para subsidiar as revisões."
               }
             ]
           },
@@ -5989,7 +5982,7 @@
             "type": "paragraph",
             "runs": [
               {
-                "text": "Canais de participação O NERDC utiliza consultas e encontros com diferentes públicos para subsidiar as revisões. Um "
+                "text": "Um "
               },
               {
                 "text": "exemplo",
@@ -7273,24 +7266,24 @@
             }
           },
           {
+            "type": "component",
+            "name": "ParticipationBox",
+            "props": {
+              "className": "participation-box--compact"
+            }
+          },
+          {
             "type": "paragraph",
             "runs": [
               {
-                "text": "Canais de participação O Chile possui "
+                "text": "O Chile possui "
               },
               {
                 "text": "mecanismos",
                 "href": "https://www.curriculumnacional.cl/actualizacion-curricular"
               },
               {
-                "text": " de participação pública na construção curricular. Um exemplo importante é a atualização das Bases Curriculares do 1º básico ao 2º médio, desenvolvida nos últimos anos. "
-              },
-              {
-                "text": "Congreso Pedagógico y Curricula",
-                "italic": true
-              },
-              {
-                "text": "r: Organizado pelo Ministério da Educação em parceria com a UNESCO, reuniu mais de 800 mil participantes em discussões sobre o que, como, quando e onde aprender. As contribuições serviram como referência para a elaboração da proposta curricular. Consulta Pública da Atualização Curricular: Mais de 115 mil pessoas participaram da avaliação da proposta, incluindo professores, gestores e outros atores educacionais. O processo buscou identificar problemas de clareza, pertinência e viabilidade de implementação."
+                "text": " de participação pública na construção curricular. Um exemplo importante é a atualização das Bases Curriculares do 1º básico ao 2º médio, desenvolvida nos últimos anos."
               }
             ]
           },
@@ -7298,21 +7291,19 @@
             "type": "paragraph",
             "runs": [
               {
-                "text": "Canais de participação O Chile possui "
-              },
-              {
-                "text": "mecanismos",
-                "href": "https://www.curriculumnacional.cl/actualizacion-curricular"
-              },
-              {
-                "text": " de participação pública na construção curricular. Um exemplo importante é a atualização das Bases Curriculares do 1º básico ao 2º médio, desenvolvida nos últimos anos. "
-              },
-              {
-                "text": "Congreso Pedagógico y Curricula",
+                "text": "Congreso Pedagógico y Curricular",
                 "italic": true
               },
               {
-                "text": "r: Organizado pelo Ministério da Educação em parceria com a UNESCO, reuniu mais de 800 mil participantes em discussões sobre o que, como, quando e onde aprender. As contribuições serviram como referência para a elaboração da proposta curricular. Consulta Pública da Atualização Curricular: Mais de 115 mil pessoas participaram da avaliação da proposta, incluindo professores, gestores e outros atores educacionais. O processo buscou identificar problemas de clareza, pertinência e viabilidade de implementação."
+                "text": ": Organizado pelo Ministério da Educação em parceria com a UNESCO, reuniu mais de 800 mil participantes em discussões sobre o que, como, quando e onde aprender. As contribuições serviram como referência para a elaboração da proposta curricular."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "runs": [
+              {
+                "text": "Consulta Pública da Atualização Curricular: Mais de 115 mil pessoas participaram da avaliação da proposta, incluindo professores, gestores e outros atores educacionais. O processo buscou identificar problemas de clareza, pertinência e viabilidade de implementação."
               }
             ]
           },

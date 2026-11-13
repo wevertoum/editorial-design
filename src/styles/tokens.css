@@ -60,6 +60,7 @@
 
   --color-vozes-roxo: #493975;
   --color-vozes-roxo-2: #8146cb;
+  --color-vozes-participation-fill: color-mix(in srgb, var(--color-vozes-roxo-2) 14%, white);
   --color-vozes-verde: #0d6353;
   --color-vozes-verde-vivo: #01c689;
   --color-vozes-rosa: #ef5ca1;
@@ -92,6 +93,9 @@
   /* DetailList / DetailListGrid — bullets e blocos especiais (relatório Vozes) */
   --vozes-detail-list-indent: 4mm;
   --vozes-detail-list-gutter: 3.5mm;
+  --vozes-detail-list-icon-gutter: 6.5mm;
+  --vozes-detail-list-icon-gap: 7.5mm;
+  --vozes-detail-list-icon-size: 6mm;
   --stack-detail-item-vozes: 1.5mm;
   --vozes-detail-grid-width: 0.76;
   --stack-before-detail-grid: 5.5mm;

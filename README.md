@@ -7,6 +7,8 @@ A React and TypeScript document. You edit it as a website, then print that site 
 - Node.js 20 or newer
 - npm
 
+This repo ships `.nvmrc` (Node 24). With [nvm](https://github.com/nvm-sh/nvm), run `nvm use` in the project folder (or install: `nvm install`).
+
 The PDF step uses Playwright's Chromium. Install it once:
 
 ```bash
