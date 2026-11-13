@@ -29,8 +29,8 @@ Tudo o que a editora pediu e ficou combinado — texto, componentes (`ProfileCar
 Quando a editora ajusta **uma** página (largura de coluna, bullets, quebra, espaço antes de lista, perfil no rail), tratar como **sistema do relatório**, não exceção pontual.
 
 1. **Generalizar primeiro** — tokens (`tokens.css`), grade (`vozes.css`, `--vozes-rail-to-prose`, `--vozes-prose-track`), componente (`DetailListGrid`, `PageStack`, `Heading` + `vozes-page-start`). Evitar CSS ou largura só num parágrafo.
-2. **Repetir onde couber** — após fechar o pedido na página citada, varrer capítulos **parecidos** (`*-org.mdx`, miolos de país `*.mdx`, `resumo-executivo`, etc.) e alinhar ao mesmo padrão quando o conteúdo for do mesmo tipo (lista após intro, financiamento, exemplos de atuação, faixa de atores). **Excluir Austrália** (capítulo fechado), **EUA pp. 18–23** (currículo + Achieve org, folios fechados), **Inglaterra pp. 26–27** (produção + participação), **Inglaterra pp. 30–31** (cruzamento CF + abertura BCF); não propagar a partir desses blocos.
-3. **Exceções explícitas** — não alterar composições **fechadas** (Austrália pp. 10–11; **EUA pp. 18–19**; **EUA pp. 20–23** Achieve; **Inglaterra pp. 26–27**; **Inglaterra pp. 30–31**); `DetailList` com `icon=` (processos AU) mantém faixa plena; não forçar `DetailListGrid` onde houver figura ou prosa **entre** itens sem combinar com a editora.
+2. **Repetir onde couber** — após fechar o pedido na página citada, varrer capítulos **parecidos** (`*-org.mdx`, miolos de país `*.mdx`, `resumo-executivo`, etc.) e alinhar ao mesmo padrão quando o conteúdo for do mesmo tipo (lista após intro, financiamento, exemplos de atuação, faixa de atores). **Excluir Austrália** (capítulo fechado), **EUA pp. 18–23** (currículo + Achieve org, folios fechados), **Inglaterra pp. 26–27** (produção + participação), **Inglaterra pp. 30–33** (cruzamento CF + BCF completo), **Nigéria pp. 34–36** (abertura + produção + participação/trajetória); não propagar a partir desses blocos.
+3. **Exceções explícitas** — não alterar composições **fechadas** (Austrália pp. 10–11; **EUA pp. 18–19**; **EUA pp. 20–23** Achieve; **Inglaterra pp. 26–27**; **Inglaterra pp. 30–33**; **Nigéria pp. 34–36**); `DetailList` com `icon=` (processos AU) mantém faixa plena; não forçar `DetailListGrid` onde houver figura ou prosa **entre** itens sem combinar com a editora.
 4. **Micro-ajuste vs sistema** — “um pouquinho menor/maior” na coluna → calibrar token/global; “só nesta seção” → só MDX local.
 
 ### Padrões já combinados (referência rápida — Nov/2026)
@@ -179,9 +179,89 @@ Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, simplificar,
 - **Paginação global:** ajustes em `paginateDesk.ts` / `vozes.css` / tokens não podem mudar como a folha 31 renderiza; o slop `vozes-bcf-fin-tail` permanece **só** para este encaixe; se um fix geral afetar BCF abertura, pedir à editora ou isolar o comportamento.
 - **Exceção:** só o que a editora citar por palavras (“muda a página 31…”, BCF governança, Grace Healy, financiamento BCF, folio 31 ou trecho visível nessa folha).
 
+### Inglaterra — British Curriculum Forum, folha 32 (fechada / não alterar)
+
+Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, simplificar, re-quebrar nem redesenhar sem pedido explícito. Fonte: `england-2.mdx` + `PageStack` `vozes-page-stack--england-bcf-atuacao-traj` + quatro `DetailList` + `TrajetoriaBox` `trajetoria-box--curriculo-england` no rodapé + ritmo em `vozes.css` (`--stack-detail-item` 2,85 mm, marcos) / `paginateDesk.ts` (átomo de atuação+trajetória).
+
+| Folha | Conteúdo fixo |
+| --- | --- |
+| **32** | **A atuação** (`vozes-page-start`); dois parágrafos de intro; quatro exemplos em `DetailList` (com espaçamento entre itens combinado); `TrajetoriaBox` no rodapé: **A trajetória da organização** com `MilestoneStrip` **2 colunas independentes** (regras p. 27 / CF) |
+
+- **Proibido sem pedido:** mudar ordem de blocos, texto, espaçamento dos exemplos ou da trajetória, quebrar o `PageStack`, ou fixes globais (paginação/CSS/tokens de lista) que desloquem *A atuação* para a **p. 31** ou a trajetória para a **p. 33**.
+- **Paginação global:** ajustes em `paginateDesk.ts` / `vozes.css` não podem mudar como a folha 32 renderiza; o stack permanece **átomo**; se um fix geral afetar BCF atuação, pedir à editora ou isolar o comportamento.
+- **Exceção:** só o que a editora citar por palavras (“muda a página 32…”, BCF atuação, trajetória BCF, folio 32 ou trecho visível nessa folha).
+
+### Inglaterra — British Curriculum Forum, folha 33 (fechada / não alterar)
+
+Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, simplificar, re-quebrar nem redesenhar sem pedido explícito. Fonte: `england-2.mdx` + `PageStack` `vozes-page-stack--england-bcf-cruzamento` + `DualTrackEmbed` parte **a** (`england-cruzamento-3-a.json` / `part="eng-3-a"`) + `vozes.css` (faixa marfim / dual-track) / `paginateDesk.ts` (átomo de cruzamento).
+
+| Folha | Conteúdo fixo |
+| --- | --- |
+| **33** | *Onde as trajetórias se cruzam* (parte **a** BCF): faixa marfim em folha cheia; cartões com blocos currículo / organização conforme `england-cruzamento-3-a.json`; overflow na mesma folha |
+
+- **Proibido sem pedido:** mudar ordem de nós, texto dos blocos, layout da faixa dual-track, ou fixes globais (paginação/CSS/timelines) que desloquem o cruzamento para a **p. 32** ou para a **p. 34**.
+- **Paginação global:** ajustes em `paginateDesk.ts` / `vozes.css` / JSON de cruzamento não podem mudar como a folha 33 renderiza; se um fix geral afetar BCF cruzamento, pedir à editora ou isolar o comportamento.
+- **Exceção:** só o que a editora citar por palavras (“muda a página 33…”, cruzamento BCF, folio 33 ou trecho visível nessa folha).
+
 ### Inglaterra — Curriculum Foundation (`england-org.mdx`)
 
-Folhas **28–30** fechadas. Capítulo **BCF** (`england-2.mdx`): folha **31** fechada; folhas **32+** (atuação, trajetória, cruzamento BCF) só mudam com pedido explícito; `import:mapeamento` exige reconciliar o combinado nas folhas fechadas.
+Folhas **28–30** fechadas. Capítulo **BCF** (`england-2.mdx`): folhas **31–33** fechadas (abertura + atuação/trajetória + cruzamento); sem pedido explícito, não editar texto, layout nem paginação de `england-2.mdx`; `import:mapeamento` exige reconciliar o combinado nas folhas fechadas.
+
+### Nigéria — folha 34 (fechada / não alterar)
+
+Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, simplificar, re-quebrar nem redesenhar sem pedido explícito. Fonte: `nigeria.mdx` + `PageStack` `vozes-page-stack--nigeria-p34` + `CountryOpening` + faixa de atores no fluxo + *O currículo nacional* (`paginateDesk.ts` átomo).
+
+| Folha | Conteúdo fixo |
+| --- | --- |
+| **34** | Abertura **Nigéria**; *O sistema curricular nigeriano*; `ActorBand` **Principais atores** (sem rodapé fixo); ***O currículo nacional*** + parágrafo de abertura (BEC / ensino secundário) |
+
+- **Proibido sem pedido:** mudar ordem de blocos, texto, quebras, ou fixes globais (paginação/CSS) que desloquem a faixa de atores ou o currículo para a **p. 33** ou para a **p. 35**.
+- **Paginação global:** ajustes em `paginateDesk.ts` / `vozes.css` / tokens não podem mudar como a folha 34 renderiza; o stack permanece **átomo**; se um fix geral afetar abertura NG, pedir à editora ou isolar o comportamento.
+- **Exceção:** só o que a editora citar por palavras (“muda a página 34…”, Nigéria abertura, folio 34 ou trecho visível nessa folha).
+
+### Nigéria — folha 35 (fechada / não alterar)
+
+Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, simplificar, re-quebrar nem redesenhar sem pedido explícito. Fonte: `nigeria.mdx` + `PageStack` `vozes-page-stack--nigeria-producao` + ritmo em `vozes.css` (`--stack-paragraph-vozes`, espaço antes do parágrafo NCE) + `paginateDesk.ts` átomo.
+
+| Folha | Conteúdo fixo |
+| --- | --- |
+| **35** | Parágrafos da revisão 2025 e implementação progressiva; ***Como o currículo nacional é produzido*** + introdução; cinco `DetailList` (etapas NERDC); parágrafo **«Além do processo técnico do NERDC…»** (NCE / *Federal Executive Council*); **sem** `ParticipationBox` nem trajetória nesta folha |
+
+- **Proibido sem pedido:** mudar ordem de blocos, texto, espaçamento combinado desta folha, ou fixes globais (paginação/CSS/tokens) que desloquem etapas para a **p. 34** ou empurrem participação/trajetória para a **p. 35**.
+- **Paginação global:** ajustes em `paginateDesk.ts` / `vozes.css` não podem mudar como a folha 35 renderiza; o stack permanece **átomo**; se um fix geral afetar NG produção, pedir à editora ou isolar o comportamento.
+- **Exceção:** só o que a editora citar por palavras (“muda a página 35…”, produção currículo Nigéria, folio 35 ou trecho visível nessa folha).
+
+### Nigéria — folha 36 (fechada / não alterar)
+
+Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, simplificar, re-quebrar nem redesenhar sem pedido explícito. Fonte: `nigeria.mdx` + `PageStack` `vozes-page-stack--nigeria-p36` + `ParticipationBox` compacta + `TrajetoriaBox` `trajetoria-box--curriculo-england` no rodapé (`vozes-page-stack-foot`) + `paginateDesk.ts` átomo.
+
+| Folha | Conteúdo fixo |
+| --- | --- |
+| **36** | `ParticipationBox` **compacta** (consultas NERDC / diálogo março 2020); **`TrajetoriaBox`** no rodapé: **A trajetória do currículo nigeriano** com `MilestoneStrip` **2 colunas** (`vozes-milestone--compact`); box **sem** alongar à altura da folha (`flex: 0 0 auto`, `margin-top: auto`) |
+
+- **Proibido sem pedido:** mudar ordem de blocos, texto, layout participação/trajetória, reintroduzir imagens removidas, ou fixes globais (paginação/CSS) que desloquem a trajetória para a **p. 37** ou o parágrafo NCE para a **p. 36**.
+- **Paginação global:** ajustes em `paginateDesk.ts` / `vozes.css` não podem mudar como a folha 36 renderiza; o stack permanece **átomo**; se um fix geral afetar NG participação+trajetória, pedir à editora ou isolar o comportamento.
+- **Exceção:** só o que a editora citar por palavras (“muda a página 36…”, canais de participação, trajetória currículo nigeriano, folio 36 ou trecho visível nessa folha).
+
+### Nigéria — capítulo país (`nigeria.mdx`)
+
+Folhas **34–36** fechadas (abertura + produção + participação e trajetória do currículo). Sem pedido explícito, não editar texto, layout nem paginação desse trecho; `import:mapeamento` exige reconciliar o combinado nas folhas fechadas.
+
+### Nigéria — CON, folha 37 (fechada / não alterar)
+
+Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, simplificar, re-quebrar nem redesenhar sem pedido explícito. Fonte: `nigeria-org.mdx` (abertura até 2.º parágrafo de *Financiamento*) + `vozes-nigeria-org-gov-grid` + perfil no rail (`vozes.css` ao lado do `ProfileCard`) + ritmo `vozes-chapter--nigeria-org`.
+
+| Folha | Conteúdo fixo |
+| --- | --- |
+| **37** | Título **Curriculum Organization of Nigeria**; *O que é a CON* (três parágrafos); ***A governança*** + `ProfileCard` **Aisha Isa** no rail; intro + `DetailListGrid` **uma coluna** estreita ao lado do perfil (AGM, NEC, Chapters, Board of Fellows); ***Financiamento*** + parágrafos de taxas/associação e quadro de membros **até** “faculdades e órgãos públicos associados” — **sem** fecho mérito/inscrição nem *A atuação* nesta folha |
+
+- **Proibido sem pedido:** mudar ordem de blocos, texto, quebras, largura da grelha de governança, compactação desta folha, ou fixes globais (paginação/CSS/tokens) que desloquem conteúdo da **p. 38** para a **37** ou antecipem o stack `vozes-page-stack--nigeria-org-fin-atuacao` para a **37**.
+- **Paginação global:** ajustes em `paginateDesk.ts` / `vozes.css` não podem mudar como a folha 37 renderiza; se um fix geral afetar CON abertura, pedir à editora ou isolar o comportamento.
+- **Exceção:** só o que a editora citar por palavras (“muda a página 37…”, CON abertura, folio 37 ou trecho visível nessa folha).
+
+### Nigéria — organização CON (`nigeria-org.mdx`)
+
+Folha **37** fechada (combinado acima). Folha **38+** (fecho de *Financiamento*, *A atuação*, cruzamento, trajetória): só muda com pedido explícito; ao ajustar pp. 38–39, **preservar** o fechamento da **37**.
 
 ## Vocabulário da editora → comando (agente executa; não repassar npm ao editor)
 

@@ -115,7 +115,7 @@
 .folio {
   position: absolute;
   bottom: 8mm;
-  z-index: 1;
+  z-index: 12;
   font-family: var(--font-sans);
   font-size: 9pt;
   font-weight: 600;

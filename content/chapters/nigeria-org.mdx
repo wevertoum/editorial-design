@@ -3,7 +3,7 @@ kicker: "Nigéria"
 sheetVariant: vozes-report
 ---
 
-<VozesLayout className="vozes-with-rail">
+<VozesLayout className="vozes-with-rail vozes-chapter--nigeria-org">
 <VozesMain>
 
 ## Curriculum Organization of Nigeria
@@ -25,9 +25,9 @@ Diferentemente do *Nigerian Educational Research and Development Council *(NERDC
   photo="media/org-image6.png"
 />
 
-A CON possui uma estrutura associativa, com órgãos responsáveis pelas decisões institucionais, administração e representação dos membros. A organização identifica as seguintes instâncias formais: 
+A CON possui uma estrutura associativa, com órgãos responsáveis pelas decisões institucionais, administração e representação dos membros. A organização identifica as seguintes instâncias formais:
 
-<DetailListGrid columns={2}>
+<DetailListGrid columns={1} className="vozes-nigeria-org-gov-grid">
 
 <DetailList>
 
@@ -67,17 +67,21 @@ Reúne membros reconhecidos como fellows e realiza encontros para discutir quest
 
 A CON possui um modelo de [associação](https://con.org.ng/membership.html) que prevê taxas de inscrição, anuidades e outras contribuições dos membros. Os valores são definidos periodicamente pelo Comitê Executivo Nacional e aprovados pela Assembleia Geral.
 
-O quadro de membros da CON é aberto a estudantes, profissionais e instituições da área educacional, dividindo-se em categorias que acompanham a evolução acadêmica. O fluxo inicial atende estudantes e recém-graduados com taxas reduzidas e suporte de transição para a carreira. O núcleo da organização é formado por professores e pesquisadores estabelecidos com direito a voto, além de faculdades e órgãos públicos associados. No topo da estrutura, estão os títulos honoríficos de mérito, voltado para a mentoria de educadores sêniores de destaque nacional, e filantropos ou ministros externos de grande impacto na educação.
+O quadro de membros da CON é aberto a estudantes, profissionais e instituições da área educacional, dividindo-se em categorias que acompanham a evolução acadêmica. O fluxo inicial atende estudantes e recém-graduados com taxas reduzidas e suporte de transição para a carreira. O núcleo da organização é formado por professores e pesquisadores estabelecidos com direito a voto, além de faculdades e órgãos públicos associados.
+
+<PageStack className="vozes-page-break vozes-page-stack--nigeria-org-atuacao-dual">
+
+No topo da estrutura, estão os títulos honoríficos de mérito, voltado para a mentoria de educadores sêniores de destaque nacional, e filantropos ou ministros externos de grande impacto na educação.
 
 Para ingressar nas categorias regulares, é preciso preencher o formulário oficial e pagar a taxa de registro estipulada pelo comitê. A inscrição pode ser feita online pelo site oficial.
-
-<PageStack className="vozes-page-break">
 
 ### A atuação
 
 A CON atua principalmente por meio da produção e divulgação de conhecimento curricular, organização de encontros profissionais e articulação de pesquisadores e educadores. Suas atividades documentadas concentram-se em conferências, seminários, periódicos e livros especializados.
 
-Quatro [exemplos](https://con.org.ng/) mostram como essa atuação acontece. 
+Quatro [exemplos](https://con.org.ng/) mostram como essa atuação acontece.
+
+<DetailListGrid columns={2} width="full">
 
 <DetailList>
 
@@ -86,12 +90,6 @@ Quatro [exemplos](https://con.org.ng/) mostram como essa atuação acontece.
 A CON organiza conferências para reunir pesquisadores, professores e especialistas em torno de problemas do desenvolvimento e da implementação curricular. Em 2019, a 32ª Conferência Anual, por exemplo, discutiu o papel do currículo na construção de uma sociedade livre de corrupção.
 
 </DetailList>
-
-<Figure src="media/org-image2.png" alt={"Ilustração do documento (org-image2.png)."} className="figure--compact vozes-page-stack-foot" />
-
-</PageStack>
-
-<PageStack className="vozes-page-break">
 
 <DetailList>
 
@@ -117,6 +115,8 @@ A CON também organiza seminários temáticos no campo curricular. O primeiro oc
 
 </DetailList>
 
+</DetailListGrid>
+
 <DualTrackEmbed
   part="ng-1-a"
   title="Onde as trajetórias se cruzam"
@@ -125,13 +125,13 @@ A CON também organiza seminários temáticos no campo curricular. O primeiro oc
 
 </PageStack>
 
-<PageStack className="vozes-page-break vozes-prelude--compact-milestone">
+<PageStack className="vozes-page-break vozes-prelude--compact-milestone vozes-page-stack--nigeria-org-traj">
 
 <TrajetoriaBox className="trajetoria-box--compact">
 
 <Heading level={3} className="vozes-trajetoria-heading">A trajetória da organização</Heading>
 
-<MilestoneStrip className="vozes-milestone--compact" title="Marcos da organização" items={[["1982", "Fundação em 24 de setembro, durante a conferência internacional realizada na University of Jos. Eleição do primeiro Comitê Executivo."], ["1983", "Início do* Nigerian Journal of Curriculum Studies*, conforme registros bibliográficos."], ["1991 a 1997", "Período de interrupção das atividades, seguido de retomada institucional."], ["1999", "Realização do primeiro seminário bienal e concessão dos primeiros reconhecimentos de especialistas."], ["2001 a 2005", "Continuidade dos seminários temáticos sobre educação secundária e qualidade educacional."], ["2009", "Produção de dois livros especializados em teoria e diversificação curricular."], ["2014", "Publicação de *Curriculum and Teaching in Nigeria.*"], ["2018", "Conferência anual sobre desenvolvimento curricular e educação privada."], ["2019", "Conferência sobre currículo e construção de uma sociedade livre de corrupção."], ["2020 a 2023", "Publicação de novas edições do periódico acadêmico, conforme o acervo institucional."]]} />
+<MilestoneStrip columns={2} className="vozes-milestone--compact" title="Marcos da organização" items={[["1982", "Fundação em 24 de setembro, durante a conferência internacional realizada na University of Jos. Eleição do primeiro Comitê Executivo."], ["1983", "Início do* Nigerian Journal of Curriculum Studies*, conforme registros bibliográficos."], ["1991 a 1997", "Período de interrupção das atividades, seguido de retomada institucional."], ["1999", "Realização do primeiro seminário bienal e concessão dos primeiros reconhecimentos de especialistas."], ["2001 a 2005", "Continuidade dos seminários temáticos sobre educação secundária e qualidade educacional."], ["2009", "Produção de dois livros especializados em teoria e diversificação curricular."], ["2014", "Publicação de *Curriculum and Teaching in Nigeria.*"], ["2018", "Conferência anual sobre desenvolvimento curricular e educação privada."], ["2019", "Conferência sobre currículo e construção de uma sociedade livre de corrupção."], ["2020 a 2023", "Publicação de novas edições do periódico acadêmico, conforme o acervo institucional."]]} />
 
 </TrajetoriaBox>
 
