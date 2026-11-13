@@ -1,6 +1,6 @@
 {
   "bundleVersion": 1,
-  "generatedAt": "2026-11-13T12:17:58.137Z",
+  "generatedAt": "2026-11-13T12:32:07.043Z",
   "id": "levantamento-organizacoes-2026",
   "language": "pt-BR",
   "title": "Levantamento Internacional de Instituições de Apoio a Padrões Curriculares",
@@ -1788,20 +1788,30 @@
             "props": {
               "items": [
                 [
-                  "**National Approaches to Curriculum Forum** (2006)",
-                  "ACSA organizou dois fóruns em 2006, reunindo autoridades curriculares, órgãos estaduais e territoriais e associações profissionais, para orientarem uma possível aproximação curricular nacional. Desse [processo](https://www.aph.gov.au/~/media/wopapub/senate/committee/eet_ctte/completed_inquiries/2004_07/academic_standards/submissions/sub63_pdf) surgiu o *A Guide to Productive National Curriculum Work for the Twenty-first Century*, com princípios sobre evidências, participação docente, implementação e avaliação."
-                ],
-                [
-                  "**Senado australiano** (2007)",
-                  "Em 2007, durante investigação parlamentar sobre qualidade e padrões da educação escolar, a ACSA participou de [audiência](https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Education_Employment_and_Workplace_Relations/Completed%20inquiries/2004-07/academic_standards/info) pública no Senado. Entre os argumentos estavam a necessidade de maior participação profissional, transparência, fundamentação em evidências e cautela em reduzir qualidade educacional apenas ao que pode ser medido por testes."
-                ],
-                [
                   "[**Work Studies Years 9 and 10**](https://docs.acara.edu.au/resources/Work_Studies_Years_9-_10_Consultation_Report.pdf) (2013)",
                   "A ACARA abriu [consulta](https://www.acara.edu.au/curriculum/foundation-year-10/learning-areas-subjects/work-studies-years) sobre o novo componente curricular. A ACSA apresentou sugestões específicas, como explicitar aprendizagem ao longo da vida, ampliar a noção de mundo do trabalho e fortalecer numeracia e orientações para implementação."
                 ],
                 [
                   "**Teaching and Learning Commission** (2026)",
                   "Diante da proposta de criação de uma nova comissão nacional, a ACSA [publicou](https://www.instagram.com/p/DQd0klqk6Q1/) um [posicionamento](https://acsa.edu.au/wp-content/uploads/2026/03/ACSAs-position-statement.pdf) institucional, defendendo maior participação de professores e especialistas, autonomia dos estados e territórios, uso transparente de evidências e consulta mais ampla."
+                ]
+              ],
+              "columns": 2,
+              "className": "actor-band--examples"
+            }
+          },
+          {
+            "type": "component",
+            "name": "ActorBand",
+            "props": {
+              "items": [
+                [
+                  "**National Approaches to Curriculum Forum** (2006)",
+                  "ACSA organizou dois fóruns em 2006, reunindo autoridades curriculares, órgãos estaduais e territoriais e associações profissionais, para orientarem uma possível aproximação curricular nacional. Desse [processo](https://www.aph.gov.au/~/media/wopapub/senate/committee/eet_ctte/completed_inquiries/2004_07/academic_standards/submissions/sub63_pdf) surgiu o *A Guide to Productive National Curriculum Work for the Twenty-first Century*, com princípios sobre evidências, participação docente, implementação e avaliação."
+                ],
+                [
+                  "**Senado australiano** (2007)",
+                  "Em 2007, durante investigação parlamentar sobre qualidade e padrões da educação escolar, a ACSA participou de [audiência](https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Education_Employment_and_Workplace_Relations/Completed%20inquiries/2004-07/academic_standards/info) pública no Senado. Entre os argumentos estavam a necessidade de maior participação profissional, transparência, fundamentação em evidências e cautela em reduzir qualidade educacional apenas ao que pode ser medido por testes."
                 ]
               ],
               "columns": 2,

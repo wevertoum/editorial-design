@@ -24,6 +24,27 @@ Tudo o que a editora pediu e ficou combinado — texto, componentes (`ProfileCar
 - Pedido novo de **conteúdo** upstream: atualizar texto **sem** desfazer tratamento editorial salvo indicação contrária.
 - Incerteza se algo pode apagar trabalho anterior: **perguntar** ou preservar e reportar o que foi mantido.
 
+## Propagação editorial (aprender e repetir no documento)
+
+Quando a editora ajusta **uma** página (largura de coluna, bullets, quebra, espaço antes de lista, perfil no rail), tratar como **sistema do relatório**, não exceção pontual.
+
+1. **Generalizar primeiro** — tokens (`tokens.css`), grade (`vozes.css`, `--vozes-rail-to-prose`, `--vozes-prose-track`), componente (`DetailListGrid`, `PageStack`, `Heading` + `vozes-page-start`). Evitar CSS ou largura só num parágrafo.
+2. **Repetir onde couber** — após fechar o pedido na página citada, varrer capítulos **parecidos** (`*-org.mdx`, miolos de país `*.mdx`, `resumo-executivo`, etc.) e alinhar ao mesmo padrão quando o conteúdo for do mesmo tipo (lista após intro, financiamento, exemplos de atuação, faixa de atores).
+3. **Exceções explícitas** — não alterar composições **fechadas** (Austrália pp. 10–11); `DetailList` com `icon=` (processos AU) mantém faixa plena; não forçar `DetailListGrid` onde houver figura ou prosa **entre** itens sem combinar com a editora.
+4. **Micro-ajuste vs sistema** — “um pouquinho menor/maior” na coluna → calibrar token/global; “só nesta seção” → só MDX local.
+
+### Padrões já combinados (referência rápida — Nov/2026)
+
+| Tema | Onde | Como |
+| --- | --- | --- |
+| Largura do corpo | `vozes.css` `.layout-vozes-report` | Grade **9fr prosa · gutter · 2fr rail** (`--vozes-rail-to-prose`); figuras/perfil/milestone usam o mesmo fator |
+| Bullets / listas especiais | MDX + CSS | Agrupar `DetailList` em **`DetailListGrid`** (default 2 colunas, `width` estreita ~76%); `columns={1}` para itens longos; `width="full"` se precisar |
+| Respiro parágrafo → lista | `tokens.css` | `--stack-before-detail-grid`, `--vozes-detail-grid-width`, corpo do item 9 pt compacto |
+| Novo subtítulo em folha nova | MDX | `<Heading level={3} className="vozes-page-start">…</Heading>` (ex.: Financiamento) |
+| Org + cruzamento | `australia-org.mdx` (modelo) | `PageStack`, `DualTrackEmbed`, `vozes-page-stack-foot` — replicar nos outros `*-org` quando a página for organizada |
+
+Nos próximos pedidos da editora: **aplicar o padrão na página pedida e, em seguida, alinhar trechos equivalentes no resto do livro**, citando na resposta só o que foi estendido (país/seção), sem jargão técnico.
+
 ### Austrália — dupla pp. 10–11 (fechada / não alterar)
 
 Combinado e **fechado** pela editora (“deixar dessa forma” / “salve”). **Não** reverter, simplificar nem redesenhar sem pedido explícito. Fonte: `australia.mdx` + `CountryOpening` / `ActorBand` / `DimensionList` / `PageStack` / `vozes.css`.
@@ -63,7 +84,10 @@ Nunca diga ao editor: “rode npm run dev”, “build:digital”, “export:bun
 | Linha do tempo / cruzamento | `content/timelines/<slug>.json` |
 | Página art-directed / infográfico | `content/infographics/<slug>.json` + seção em `document.json` |
 | Capa | `document.json` + `chapters/capa.mdx` + `CoverHero.tsx` + `vozes.css` |
-| Margens, fólio, numeração, grid | `tokens.css`, `paged.css`, `screen.css`, `vozes.css` |
+| Margens, fólio, numeração, grid | `tokens.css`, `paged.css`, `screen.css`, `vozes.css` — prosa **9fr : 2fr rail**; não voltar a 3/5 sem pedido |
+| Bullets agrupados (financiamento, exemplos, órgãos) | `DetailList` dentro de **`DetailListGrid`** (`columns`, `width`); tokens `--stack-before-detail-grid`, `--vozes-detail-grid-width` |
+| Subtítulo que deve abrir folha nova | `Heading` + `className="vozes-page-start"` no MDX |
+| Cruzamento currículo/org no capítulo org | `DualTrackEmbed` + `PageStack` (ver `australia-org.mdx`) |
 | Caixas: destaque geral | `HighlightBox`, `CalloutCard` + `vozes.css` |
 | Faixa de atores em colunas (`ActorBand`) | `ActorBand` no MDX — rótulo de faixa (`.band-label`) + nomes em verde + papel abaixo; atravessa prosa e faixa direita; **colunas lado a lado = larguras iguais** (nunca `fr` desiguais por conteúdo) |
 | Rótulo de faixa (`.band-label`) | Título curto em caixa alta e verde, menor que `h3`; usado no `ActorBand` e reutilizável em outras faixas |
@@ -116,6 +140,7 @@ npm run gerar-pdf-grafica  # editora: “PDF para gráfica” (A4 + sangria, sem
 ## Checklist interno (não enviar como lista ao editor)
 
 - Nada do **combinado** foi perdido ou revertido sem pedido explícito
+- Pedido de layout em **uma** página: padrão generalizado e **propagado** a seções equivalentes quando fizer sentido
 - `validate` exit 0; `export:bundle` se content mudou
 - Layout: pedir editora a **visualizar** no site. PDF só quando ela pedir a renderização, ou quando a quebra de página mudou.
 - Resposta curta, sem jargão; link da prévia + “vá até [Austrália / capa / …]”

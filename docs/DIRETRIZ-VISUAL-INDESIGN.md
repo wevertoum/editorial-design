@@ -63,7 +63,7 @@ No repo web, o mesmo arquivo sai em `output/document-digital.pdf` após `npm run
 | Currículo / Organização | 7,5 pt (7 pt se 5 nós) | 1,3 | preto; tags CURRÍCULO verde / ORGANIZAÇÃO rosa |
 | Síntese (`resumo`) | 8,5 pt Slab | 1,32 | **depois** de Organização |
 
-**Alvo editorial:** prosa ≤ ~65 CPL → colunas **3/6** na grade.
+**Alvo editorial:** prosa confortável na referência PDF → trilho **~9/11** da grade lógica (entre 4/6 e 5/6 de prosa); listas especiais mais estreitas (~76% do span prosa+rail).
 
 Espaçamento completo: `docs/ESPACAMENTO-TIPOGRAFICO.md` / `--stack-*` em `tokens.css`.  
 Bandeira → título país: `--stack-country-code` ≈ **9 mm**.
@@ -98,8 +98,10 @@ Dentro da área útil:
 
 | Layout | Prosa | Respiro | Rail |
 |--------|-------|---------|------|
-| `vozes-prose-only` | 3/6 | 1/6 | 2/6 livres |
-| `vozes-with-rail` | 3/6 | 1/6 | 2/6 aside |
+| `vozes-prose-only` | **9fr** (~82% útil) | gutter 4,5 mm | **2fr** livre |
+| `vozes-with-rail` | **9fr** | gutter 4,5 mm | **2fr** aside (perfil, figura) |
+
+Implementação: `--vozes-prose-track` / `--vozes-rail-track` em `vozes.css`; spans full-page (`MilestoneStrip`, `ActorBand`, `dual-track`) usam `--vozes-rail-to-prose`.
 
 Intro dual-track: lede ~50% da área útil (span 3/6).
 
