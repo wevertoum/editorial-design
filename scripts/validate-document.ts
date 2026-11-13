@@ -126,6 +126,33 @@ if (document) {
 }
 
 guard(() => {
+  const spreadPairs = new Map<string, { a?: { nodes: unknown[] }; b?: { nodes: unknown[]; overflowNodes?: unknown[] } }>()
+  for (const source of embeddedTimelineSources) {
+    const absolute = path.join(contentDir, source)
+    if (!existsSync(absolute)) continue
+    const json = readJson(absolute) as { nodes?: unknown[]; overflowNodes?: unknown[]; spreadPart?: string }
+    const m = source.match(/^timelines\/(.+)-cruzamento-(\d+)-([ab])\.json$/)
+    if (!m || !Array.isArray(json?.nodes)) continue
+    const key = `${m[1]}-cruzamento-${m[2]}`
+    const slot = spreadPairs.get(key) ?? {}
+    if (m[3] === 'a') slot.a = { nodes: json.nodes }
+    else slot.b = { nodes: json.nodes, overflowNodes: json.overflowNodes }
+    spreadPairs.set(key, slot)
+  }
+  for (const [key, pair] of spreadPairs) {
+    if (!pair.a || !pair.b) continue
+    const overflow = pair.b.overflowNodes?.length ?? 0
+    if (overflow > 0) continue
+    const total = pair.a.nodes.length + pair.b.nodes.length
+    if (total === 6 && (pair.a.nodes.length !== 3 || pair.b.nodes.length !== 3)) {
+      throw new Error(
+        `content/timelines/${key}: dual-track spread with 6 dates must use 3 nodes on part a and 3 on part b (got ${pair.a.nodes.length}+${pair.b.nodes.length})`,
+      )
+    }
+  }
+})
+
+guard(() => {
   for (const asset of referencedAssets) {
     const relative = resolveAsset(asset)
     if (!existsSync(path.join(root, relative))) {

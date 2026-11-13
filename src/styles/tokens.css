@@ -21,8 +21,11 @@
   /* ~62% da área útil A4 (297 − 18 − 20 mm); ref. print 2 pp. 16–17. */
   /* +14mm vs 162: segunda fileira overflow (2023 / 2025–26) sem corte na p. 17; eixo Y igual nas duas folhas. */
   --dual-track-zone-height: 176mm;
+  /* Uma fileira (≤3 marcos, sem overflow): zona menor que 176mm, mesma altura Y na dupla (eixo alinhado). */
+  --dual-track-zone-height-compact: 118mm;
   /* Reserva de título + eixo — mesma profundidade na parte A e B do spread embutido. */
   --dual-track-band-pad-top-embedded: 7mm;
+  --dual-track-band-pad-bottom-embedded: 9mm;
   --dual-track-title-gap: 5mm;
   --dual-track-matrix-gap: 2.5mm;
   --dual-track-year-height: 7mm;

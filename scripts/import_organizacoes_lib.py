@@ -604,11 +604,18 @@ def segment_flow_to_mdx(seg: Segment, image_map: dict[str, str]) -> str:
     return "".join(parts)
 
 
+def dual_track_spread_chunks(nodes: list[dict[str, str]]) -> list[list[dict[str, str]]]:
+    """Six milestones: 3 on spread A and 3 on spread B (embedded org chapters)."""
+    if len(nodes) == 6:
+        return [nodes[:3], nodes[3:]]
+    return [nodes[i : i + NODES_PER_SPREAD] for i in range(0, len(nodes), NODES_PER_SPREAD)]
+
+
 def write_dual_track_timelines(
     seg: Segment, country_slug: str, spread_index: int, sections: list[dict]
 ) -> None:
     nodes = cross_table_to_nodes(seg.cross_rows)
-    chunks = [nodes[i : i + NODES_PER_SPREAD] for i in range(0, len(nodes), NODES_PER_SPREAD)]
+    chunks = dual_track_spread_chunks(nodes)
     for part_index, chunk in enumerate(chunks):
         part = "a" if part_index % 2 == 0 else "b"
         spread = spread_index + part_index // 2

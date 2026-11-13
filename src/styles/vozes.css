@@ -559,6 +559,18 @@
   align-content: stretch;
 }
 
+/* Fileira única enxuta: mesma altura de zona nas duas folhas — eixo e textos alinhados na dupla. */
+.layout-vozes-report .vozes-main > .vozes-page-stack--dual-track:has(.dual-track-section--compact-zone) {
+  grid-template-rows: minmax(0, 1fr) var(--dual-track-zone-height-compact);
+  align-content: stretch;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--dual-track:has(.dual-track-section--compact-zone)
+  .vozes-page-stack-prelude {
+  min-height: 0;
+  overflow: visible;
+}
+
 .layout-vozes-report .vozes-main > .vozes-page-stack--dual-track .vozes-page-stack-prelude {
   grid-row: 1;
   align-self: start;
@@ -577,6 +589,13 @@
   height: var(--dual-track-zone-height);
   max-height: var(--dual-track-zone-height);
   margin: 0;
+  overflow: visible;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--dual-track .dual-track-section--compact-zone.vozes-page-stack-foot {
+  min-height: var(--dual-track-zone-height-compact);
+  height: var(--dual-track-zone-height-compact);
+  max-height: var(--dual-track-zone-height-compact);
   overflow: visible;
 }
 
@@ -1668,8 +1687,23 @@
   display: flex;
   flex-direction: column;
   margin-top: 0;
+  margin-right: calc(-1 * var(--margin-outer));
+  margin-left: calc(-1 * var(--margin-inner));
   padding-top: var(--dual-track-band-pad-top-embedded);
-  padding-bottom: 6mm;
+  padding-right: var(--margin-outer);
+  padding-bottom: var(--dual-track-band-pad-bottom-embedded);
+  padding-left: var(--margin-inner);
+}
+
+.sheet-page[data-page-side='left']
+  .layout-vozes-report
+  .vozes-main
+  .dual-track-section.vozes-page-stack-foot
+  .dual-track-band {
+  margin-left: calc(-1 * var(--margin-outer));
+  margin-right: calc(-1 * var(--margin-inner));
+  padding-left: var(--margin-outer);
+  padding-right: var(--margin-inner);
 }
 
 .layout-vozes-report .vozes-main .dual-track-section.vozes-page-stack-foot .dual-track-matrix {

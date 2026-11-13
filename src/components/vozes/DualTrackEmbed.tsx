@@ -78,10 +78,12 @@ export function DualTrackEmbed({ part, title, spreadPart, className }: DualTrack
   const isStackFoot = extra.includes('vozes-page-stack-foot')
   const reserveTitle = spread === 'b' && isStackFoot
   const hasOverflow = (overflowNodes?.length ?? 0) > 0
+  const hasResumo = [...nodes, ...(overflowNodes ?? [])].some((n) => n.resumo?.trim())
+  const compactZone = !hasOverflow && nodes.length <= 3 && !hasResumo
 
   return (
     <section
-      className={`dual-track-section${extra}${hasOverflow ? ' dual-track-section--overflow' : ''}`}
+      className={`dual-track-section${extra}${hasOverflow ? ' dual-track-section--overflow' : ''}${compactZone ? ' dual-track-section--compact-zone' : ''}`}
       data-spread-part={spread}
       aria-label={title?.trim() || 'Onde as trajetórias se cruzam'}
     >
