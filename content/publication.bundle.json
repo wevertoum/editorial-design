@@ -1,6 +1,6 @@
 {
   "bundleVersion": 1,
-  "generatedAt": "2026-11-13T14:33:01.955Z",
+  "generatedAt": "2026-11-13T14:46:48.304Z",
   "id": "levantamento-organizacoes-2026",
   "language": "pt-BR",
   "title": "Levantamento Internacional de Instituições de Apoio a Padrões Curriculares",
@@ -1212,15 +1212,22 @@
               {
                 "text": "A trajetória do currículo australiano"
               }
-            ],
-            "className": "vozes-page-start"
+            ]
           },
           {
-            "type": "image",
-            "src": "media/org-image11.png",
-            "alt": "Linha do tempo do Australian Curriculum, de 2008 a 2022, com os marcos de implementação e revisão.",
-            "caption": "Fonte: [Site](https://acara.edu.au/curriculum) oficial ACARA.",
-            "className": "figure--trajetoria"
+            "type": "paragraph",
+            "runs": [
+              {
+                "text": "Linha do tempo do "
+              },
+              {
+                "text": "Australian Curriculum",
+                "italic": true
+              },
+              {
+                "text": ", de 2008 a 2022, com os marcos de implementação e revisão."
+              }
+            ]
           },
           {
             "type": "paragraph",
@@ -1241,9 +1248,17 @@
             "type": "paragraph",
             "runs": [
               {
-                "text": "A imagem ao lado sintetiza os principais marcos desse processo, desde as primeiras iniciativas de coordenação nacional até as revisões mais recentes."
+                "text": "A imagem na página seguinte sintetiza os principais marcos desse processo, desde as primeiras iniciativas de coordenação nacional até as revisões mais recentes."
               }
             ]
+          },
+          {
+            "type": "image",
+            "src": "media/org-image11.png",
+            "alt": "Linha do tempo do Australian Curriculum, de 2008 a 2022, com os marcos de implementação e revisão.",
+            "caption": "Fonte: [Site](https://acara.edu.au/curriculum) oficial ACARA.",
+            "placement": "span",
+            "className": "figure--trajetoria-sheet"
           }
         ]
       }

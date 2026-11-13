@@ -504,6 +504,31 @@
   break-before: avoid;
 }
 
+/* AU p. 13: infográfico ACARA em folha inteira (proporção preservada, área útil). */
+.layout-vozes-report .vozes-page:is(.vozes-prose-only, .vozes-with-rail) .vozes-main .figure.figure--trajetoria-sheet {
+  clear: both;
+  float: none;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  break-inside: avoid;
+}
+
+.layout-vozes-report .vozes-main .figure.figure--trajetoria-sheet img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: calc(var(--page-height) - var(--margin-top) - var(--margin-bottom) - 11mm);
+  margin-inline: auto;
+  object-fit: contain;
+  object-position: center top;
+}
+
+.layout-vozes-report .vozes-main .figure.figure--trajetoria-sheet figcaption {
+  margin-top: var(--space-2);
+}
+
 .layout-vozes-report .vozes-page:is(.vozes-prose-only, .vozes-with-rail) .vozes-main > .figure.figure--span {
   clear: both;
   float: none;
