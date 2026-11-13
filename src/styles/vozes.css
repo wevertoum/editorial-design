@@ -3319,7 +3319,12 @@
 }
 
 .layout-vozes-report .vozes-main > .vozes-page-stack--chile-org-atuacao-tres > p {
-  margin-bottom: 0.5em;
+  margin-bottom: 2.75mm;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--chile-org-atuacao-tres > p + h3 {
+  margin-top: 3mm;
+  margin-bottom: 0.28em;
 }
 
 .layout-vozes-report
