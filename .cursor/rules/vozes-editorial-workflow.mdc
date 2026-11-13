@@ -29,8 +29,8 @@ Tudo o que a editora pediu e ficou combinado — texto, componentes (`ProfileCar
 Quando a editora ajusta **uma** página (largura de coluna, bullets, quebra, espaço antes de lista, perfil no rail), tratar como **sistema do relatório**, não exceção pontual.
 
 1. **Generalizar primeiro** — tokens (`tokens.css`), grade (`vozes.css`, `--vozes-rail-to-prose`, `--vozes-prose-track`), componente (`DetailListGrid`, `PageStack`, `Heading` + `vozes-page-start`). Evitar CSS ou largura só num parágrafo.
-2. **Repetir onde couber** — após fechar o pedido na página citada, varrer capítulos **parecidos** (`*-org.mdx`, miolos de país `*.mdx`, `resumo-executivo`, etc.) e alinhar ao mesmo padrão quando o conteúdo for do mesmo tipo (lista após intro, financiamento, exemplos de atuação, faixa de atores). **Excluir Austrália** (capítulo fechado), **EUA pp. 18–23** (currículo + Achieve org, folios fechados), **Inglaterra pp. 26–27** (produção + participação), **Inglaterra pp. 30–33** (cruzamento CF + BCF completo), **Nigéria pp. 34–36** (abertura + produção + participação/trajetória); não propagar a partir desses blocos.
-3. **Exceções explícitas** — não alterar composições **fechadas** (Austrália pp. 10–11; **EUA pp. 18–19**; **EUA pp. 20–23** Achieve; **Inglaterra pp. 26–27**; **Inglaterra pp. 30–33**; **Nigéria pp. 34–36**); `DetailList` com `icon=` (processos AU) mantém faixa plena; não forçar `DetailListGrid` onde houver figura ou prosa **entre** itens sem combinar com a editora.
+2. **Repetir onde couber** — após fechar o pedido na página citada, varrer capítulos **parecidos** (`*-org.mdx`, miolos de país `*.mdx`, `resumo-executivo`, etc.) e alinhar ao mesmo padrão quando o conteúdo for do mesmo tipo (lista após intro, financiamento, exemplos de atuação, faixa de atores). **Excluir Austrália** (capítulo fechado), **EUA pp. 18–23** (currículo + Achieve org, folios fechados), **Inglaterra pp. 26–27** (produção + participação), **Inglaterra pp. 30–33** (cruzamento CF + BCF completo), **Nigéria pp. 34–36** (abertura + produção + participação/trajetória), **Nigéria CON p. 38** (financiamento + atuação + trajetória org); não propagar a partir desses blocos.
+3. **Exceções explícitas** — não alterar composições **fechadas** (Austrália pp. 10–11; **EUA pp. 18–19**; **EUA pp. 20–23** Achieve; **Inglaterra pp. 26–27**; **Inglaterra pp. 30–33**; **Nigéria pp. 34–36**; **Nigéria CON p. 37–38**); `DetailList` com `icon=` (processos AU) mantém faixa plena; não forçar `DetailListGrid` onde houver figura ou prosa **entre** itens sem combinar com a editora.
 4. **Micro-ajuste vs sistema** — “um pouquinho menor/maior” na coluna → calibrar token/global; “só nesta seção” → só MDX local.
 
 ### Padrões já combinados (referência rápida — Nov/2026)
@@ -259,9 +259,21 @@ Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, simplificar,
 - **Paginação global:** ajustes em `paginateDesk.ts` / `vozes.css` não podem mudar como a folha 37 renderiza; se um fix geral afetar CON abertura, pedir à editora ou isolar o comportamento.
 - **Exceção:** só o que a editora citar por palavras (“muda a página 37…”, CON abertura, folio 37 ou trecho visível nessa folha).
 
+### Nigéria — CON, folha 38 (fechada / não alterar)
+
+Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, simplificar, re-quebrar nem redesenhar sem pedido explícito. Fonte: `nigeria-org.mdx` (`PageStack` `vozes-page-stack--nigeria-org-atuacao-traj`) + ritmo em `vozes.css` (`--stack-paragraph-vozes`, `DetailListGrid`, `trajetoria-box--compact`) + `paginateDesk.ts` (átomo).
+
+| Folha | Conteúdo fixo |
+| --- | --- |
+| **38** | Fecho de ***Financiamento*** (mérito + inscrição/on-line); ***A atuação*** (intro + quatro exemplos em `DetailListGrid` 2 colunas, `width="full"`); `TrajetoriaBox` compacto no rodapé: **A trajetória da organização** + `MilestoneStrip` 2 colunas (`vozes-milestone--compact`) — **sem** abrir o cruzamento nesta folha |
+
+- **Proibido sem pedido:** mudar ordem de blocos, texto, espaçamento desta folha, grelha de exemplos, trajetória compacta no rodapé, ou fixes globais (paginação/CSS/tokens) que desloquem conteúdo da **p. 37** para a **38** ou antecipem `vozes-page-stack--nigeria-org-cruzamento` para a **38**.
+- **Paginação global:** ajustes em `paginateDesk.ts` / `vozes.css` não podem mudar como a folha 38 renderiza; o stack permanece **átomo**; se um fix geral afetar CON atuação+trajetória, pedir à editora ou isolar o comportamento.
+- **Exceção:** só o que a editora citar por palavras (“muda a página 38…”, CON atuação, trajetória da organização CON, folio 38 ou trecho visível nessa folha).
+
 ### Nigéria — organização CON (`nigeria-org.mdx`)
 
-Folha **37** fechada (combinado acima). Folha **38+** (fecho de *Financiamento*, *A atuação*, cruzamento, trajetória): só muda com pedido explícito; ao ajustar pp. 38–39, **preservar** o fechamento da **37**.
+Folhas **37–38** fechadas (combinado acima). Folha **39+** (cruzamento): só muda com pedido explícito; ao ajustar a **39**, **preservar** o fechamento da **37** e da **38**.
 
 ## Vocabulário da editora → comando (agente executa; não repassar npm ao editor)
 

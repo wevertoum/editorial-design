@@ -92,20 +92,20 @@
   print-color-adjust: exact;
 }
 
-/* Capa com faixa de grafismos vetoriais + corpo marfim (document.json). */
+/* Capa — faixa de grafismos (referência) + RELATÓRIO, título, logos. */
 .layout-vozes-cover.sheet {
   display: block;
   padding: 0;
   min-height: var(--page-height);
   height: var(--page-height);
   overflow: hidden;
-  background: var(--color-marfim);
+  background: var(--color-paper);
 }
 
 .layout-vozes-cover .cover-hero--grafismo {
   box-sizing: border-box;
   display: grid;
-  grid-template-columns: 50mm 1fr;
+  grid-template-columns: 52.5mm 1fr;
   width: var(--page-width);
   min-height: var(--page-height);
   height: var(--page-height);
@@ -116,40 +116,56 @@
 
 .layout-vozes-cover .cover-grafismo-rail {
   display: block;
-  width: 50mm;
+  width: 52.5mm;
   height: var(--page-height);
-  flex: 0 0 50mm;
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
 }
 
 .cover-hero-main {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   min-height: 0;
   height: 100%;
-  padding: 24mm 20mm 22mm 16mm;
-  background: var(--color-marfim);
+  padding: 20mm 24mm 18mm 16mm;
+  background: var(--color-paper);
 }
 
-.layout-vozes-cover .cover-hero-edition {
-  margin: 0 0 14mm;
+.cover-hero-title-wrap {
+  display: flex;
+  align-items: center;
+  min-height: 0;
+  padding: 4mm 0;
+}
+
+.cover-hero-kicker-row {
+  display: flex;
+  align-items: center;
+  gap: 5mm;
+  margin: 0 0 16mm;
+}
+
+.layout-vozes-cover .cover-hero-kicker {
+  margin: 0;
   font-family: Mulish, var(--font-sans);
-  font-size: 13pt;
+  font-size: 12pt;
   font-weight: 800;
   line-height: 1;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   color: var(--color-vozes-roxo);
 }
 
-.layout-vozes-cover .cover-hero-edition-dash {
-  font-weight: 800;
-  color: var(--color-vozes-laranja);
+.cover-hero-kicker-rule {
+  flex: 0 0 14mm;
+  height: 1.4mm;
+  border-radius: 1mm;
+  background: var(--color-vozes-laranja);
 }
 
 .layout-vozes-cover .cover-hero-title {
   margin: 0;
-  max-width: 132mm;
+  max-width: 124mm;
   font-family: "Roboto Slab", var(--font-serif);
   font-size: 30pt;
   font-weight: 700;
@@ -161,10 +177,10 @@
 
 .cover-hero-foot {
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   gap: 7mm;
-  margin-top: auto;
-  padding-top: 8mm;
+  padding-bottom: 2mm;
 }
 
 .cover-hero-foot-rule {
@@ -429,6 +445,16 @@
   line-height: 1.23;
   color: var(--color-ink);
   margin-top: var(--stack-before-h2-vozes);
+}
+
+/* Nome da fundação / instituição (só o título principal do capítulo org). */
+.layout-vozes-report .vozes-with-rail .vozes-main > h2:first-of-type,
+.layout-vozes-report .vozes-with-rail .vozes-main > h2.org-section-title:first-of-type {
+  display: inline-block;
+  width: fit-content;
+  max-width: 100%;
+  border-bottom: 2pt solid var(--color-vozes-laranja);
+  padding-bottom: 0.12em;
 }
 
 .layout-vozes-report .vozes-page.vozes-front-matter .vozes-main h2:first-of-type {
@@ -960,18 +986,26 @@
 }
 
 /*
- * Cruzamento em folha dedicada (stack em flex, não grid): align-self:end alinha à direita
- * da prosa e corta a faixa marfim à esquerda (pp. 30, 39, …).
+ * Cruzamento em stack flex (não grid): largura total da prosa + rail; não usar align-self:end do grid.
+ * Nigéria f. 39: parte B no rodapé — altura pelo conteúdo. Demais folhas dedicadas: marfim na altura útil.
  */
-.layout-vozes-report .vozes-main > .vozes-page-stack--england-org-cruzamento.vozes-page-stack--dual-track .dual-track-section.vozes-page-stack-foot,
-.layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-org-cruzamento.vozes-page-stack--dual-track .dual-track-section.vozes-page-stack-foot,
-.layout-vozes-report .vozes-main > .vozes-page-stack--chile-org-cruzamento.vozes-page-stack--dual-track .dual-track-section.vozes-page-stack-foot,
-.layout-vozes-report .vozes-main > .vozes-page-stack--england-bcf-cruzamento.vozes-page-stack--dual-track .dual-track-section.vozes-page-stack-foot {
-  align-self: start;
+.layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-org-cruzamento.vozes-page-stack--dual-track .dual-track-section.vozes-page-stack-foot {
+  align-self: stretch;
   grid-row: auto;
   flex: 1 1 auto;
   min-height: 0;
   height: auto;
+  max-height: none;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--england-org-cruzamento.vozes-page-stack--dual-track .dual-track-section.vozes-page-stack-foot,
+.layout-vozes-report .vozes-main > .vozes-page-stack--chile-org-cruzamento.vozes-page-stack--dual-track .dual-track-section.vozes-page-stack-foot,
+.layout-vozes-report .vozes-main > .vozes-page-stack--england-bcf-cruzamento.vozes-page-stack--dual-track .dual-track-section.vozes-page-stack-foot {
+  align-self: stretch;
+  grid-row: auto;
+  flex: 1 1 auto;
+  min-height: 100%;
+  height: 100%;
   max-height: none;
 }
 
@@ -2282,7 +2316,16 @@
   color: var(--color-muted);
 }
 
-.editorial-table-vozes table {
+.editorial-table.editorial-table-vozes,
+.editorial-table.editorial-table-vozes table,
+.editorial-table.editorial-table-vozes th,
+.editorial-table.editorial-table-vozes td {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.editorial-table.editorial-table-vozes table {
   font-size: 8pt;
 }
 
@@ -2298,10 +2341,17 @@
   margin-top: 0.35em;
 }
 
-.editorial-table-vozes th {
+.editorial-table-vozes th .editorial-table-stacked-title {
+  color: white;
+}
+
+.editorial-table-vozes th .editorial-table-stacked-subtitle {
+  color: color-mix(in srgb, white 92%, var(--color-vozes-roxo-2));
+}
+
+.editorial-table.editorial-table-vozes th {
   background: var(--color-vozes-roxo-2);
   color: white;
-  border-bottom: none;
   print-color-adjust: exact;
   -webkit-print-color-adjust: exact;
 }
@@ -2946,15 +2996,21 @@
 
 .layout-vozes-report .vozes-main > .vozes-page-stack--england-org-cruzamento.vozes-page-stack--dual-track,
 .layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-org-cruzamento.vozes-page-stack--dual-track,
-.layout-vozes-report .vozes-main > .vozes-page-stack--chile-org-cruzamento.vozes-page-stack--dual-track {
+.layout-vozes-report .vozes-main > .vozes-page-stack--chile-org-cruzamento.vozes-page-stack--dual-track,
+.layout-vozes-report .vozes-main > .vozes-page-stack--england-bcf-cruzamento.vozes-page-stack--dual-track {
+  position: relative;
+  isolation: isolate;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-content: stretch;
+  width: calc(100% + var(--vozes-grid-gutter) + var(--vozes-rail-to-prose) * 100%);
+  max-width: none;
   min-height: var(--vozes-content-height);
+  height: var(--vozes-content-height);
 }
 
 .layout-vozes-report .vozes-main > .vozes-page-stack--england-org-cruzamento .vozes-page-stack-prelude,
-.layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-org-cruzamento .vozes-page-stack-prelude,
 .layout-vozes-report .vozes-main > .vozes-page-stack--chile-org-cruzamento .vozes-page-stack-prelude,
 .layout-vozes-report .vozes-main > .vozes-page-stack--england-org-cruzamento .vozes-dual-track-prelude-spacer,
 .layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-org-cruzamento .vozes-dual-track-prelude-spacer,
@@ -2970,7 +3026,7 @@
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  align-self: start;
+  align-self: stretch;
   box-sizing: border-box;
   min-height: 100%;
   height: auto;
@@ -2978,30 +3034,50 @@
   margin-top: 0;
 }
 
-.layout-vozes-report .vozes-main > .vozes-page-stack--england-org-cruzamento .dual-track-section.vozes-page-stack-foot .dual-track,
-.layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-org-cruzamento .dual-track-section.vozes-page-stack-foot .dual-track,
-.layout-vozes-report .vozes-main > .vozes-page-stack--chile-org-cruzamento .dual-track-section.vozes-page-stack-foot .dual-track {
+.layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-org-cruzamento .dual-track-section.vozes-page-stack-foot .dual-track {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   min-height: 0;
 }
 
-.layout-vozes-report .vozes-main > .vozes-page-stack--england-org-cruzamento .dual-track-section.vozes-page-stack-foot .dual-track-band,
-.layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-org-cruzamento .dual-track-section.vozes-page-stack-foot .dual-track-band,
-.layout-vozes-report .vozes-main > .vozes-page-stack--chile-org-cruzamento .dual-track-section.vozes-page-stack-foot .dual-track-band {
+.layout-vozes-report .vozes-main > .vozes-page-stack--england-org-cruzamento .dual-track-section.vozes-page-stack-foot .dual-track,
+.layout-vozes-report .vozes-main > .vozes-page-stack--chile-org-cruzamento .dual-track-section.vozes-page-stack-foot .dual-track,
+.layout-vozes-report .vozes-main > .vozes-page-stack--england-bcf-cruzamento .dual-track-section.vozes-page-stack-foot .dual-track {
   flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
   min-height: 100%;
+  height: 100%;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-org-cruzamento .dual-track-section.vozes-page-stack-foot .dual-track-band {
+  flex: 1 1 auto;
+  min-height: 0;
   margin-top: 0;
 }
 
+.layout-vozes-report .vozes-main > .vozes-page-stack--england-org-cruzamento .dual-track-section.vozes-page-stack-foot .dual-track-band,
+.layout-vozes-report .vozes-main > .vozes-page-stack--chile-org-cruzamento .dual-track-section.vozes-page-stack-foot .dual-track-band,
+.layout-vozes-report .vozes-main > .vozes-page-stack--england-bcf-cruzamento .dual-track-section.vozes-page-stack-foot .dual-track-band {
+  flex: 1 1 auto;
+  min-height: 100%;
+  height: 100%;
+}
+
 .layout-vozes-report .vozes-main > .vozes-page-stack--england-org-cruzamento .dual-track-section.vozes-page-stack-foot .dual-track-matrix,
-.layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-org-cruzamento .dual-track-section.vozes-page-stack-foot .dual-track-matrix,
 .layout-vozes-report .vozes-main > .vozes-page-stack--chile-org-cruzamento .dual-track-section.vozes-page-stack-foot .dual-track-matrix {
   flex: 1 1 auto;
   min-height: 0;
   justify-content: flex-start;
   gap: 9.5mm;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-org-cruzamento .dual-track-section.vozes-page-stack-foot .dual-track-matrix {
+  flex: 0 0 auto;
+  min-height: 0;
+  justify-content: flex-start;
+  gap: var(--dual-track-matrix-gap);
 }
 
 .layout-vozes-report .vozes-main > .vozes-page-stack--england-org-cruzamento .dual-track-matrix .dual-track-nodes--overflow,
@@ -3131,6 +3207,52 @@
   flex: 0 0 auto;
 }
 
+/* Reimagina — abertura/Financiamento/intro de A atuação na f. 44; três exemplos na f. 45. */
+.layout-vozes-report .vozes-chapter--chile-org .vozes-main {
+  --stack-paragraph-vozes: 0.41em;
+}
+
+.layout-vozes-report .vozes-chapter--chile-org .vozes-main > h3 {
+  margin-top: 0.48em;
+  margin-bottom: 0.28em;
+}
+
+.layout-vozes-report .vozes-chapter--chile-org .vozes-main > h2 + h3 {
+  margin-top: 0;
+}
+
+.layout-vozes-report .vozes-chapter--chile-org .vozes-main > p {
+  line-height: 1.32;
+}
+
+.layout-vozes-report .vozes-chapter--chile-org .vozes-main > .profile-card {
+  padding: 4mm 4mm 3.5mm;
+  margin-bottom: 0.32em;
+}
+
+.layout-vozes-report .vozes-chapter--chile-org .vozes-main > .profile-card .profile-card-bio {
+  font-size: 8.25pt;
+  line-height: 1.22;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--chile-org-atuacao-tres {
+  --stack-detail-item: 2.35mm;
+  --stack-paragraph-vozes: 0.5em;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--chile-org-atuacao-tres > p {
+  margin-bottom: 0.55em;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--chile-org-atuacao-tres .vozes-detail-list-grid {
+  margin-top: 0;
+  gap: 2.65mm;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--chile-org-atuacao-tres .detail-list-item > p {
+  line-height: 1.3;
+}
+
 /* CON — grelha + Financiamento: subir conteúdo da f. 38 para a 37 (perfil no rail). */
 .layout-vozes-report .vozes-chapter--nigeria-org .vozes-main {
   --stack-paragraph-vozes: 0.44em;
@@ -3187,52 +3309,61 @@
   line-height: var(--text-leading);
 }
 
-/* CON — f. 38: fecho financiamento + A atuação + exemplos + cruzamento A; f. 39 trajetória + cruzamento B. */
-.layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-org-atuacao-dual {
-  --stack-paragraph-vozes: 0.38em;
-  --stack-before-detail-grid: 1.5mm;
-  --stack-detail-item: 1.85mm;
+/* CON — f. 38: fecho financiamento + A atuação + exemplos + trajetória; f. 39 cruzamento. */
+.layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-org-atuacao-traj {
+  --stack-paragraph-vozes: 0.32em;
+  --stack-before-detail-grid: 1.1mm;
+  --stack-detail-item: 1.55mm;
 }
 
 .layout-vozes-report
   .vozes-main
-  > .vozes-page-stack--nigeria-org-atuacao-dual
+  > .vozes-page-stack--nigeria-org-atuacao-traj
   .vozes-page-stack-prelude
   > h3 {
-  margin-top: 0.45em;
-  margin-bottom: 0.2em;
+  margin-top: 0.38em;
+  margin-bottom: 0.15em;
 }
 
 .layout-vozes-report
   .vozes-main
-  > .vozes-page-stack--nigeria-org-atuacao-dual
+  > .vozes-page-stack--nigeria-org-atuacao-traj
+  .vozes-page-stack-prelude
+  > h3:first-child {
+  margin-top: 0;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--nigeria-org-atuacao-traj
   .vozes-page-stack-prelude
   > p
   + h3 {
-  margin-top: 0.42em;
+  margin-top: 0.36em;
 }
 
 .layout-vozes-report
   .vozes-main
-  > .vozes-page-stack--nigeria-org-atuacao-dual
+  > .vozes-page-stack--nigeria-org-atuacao-traj
   .vozes-page-stack-prelude
   > p {
-  line-height: 1.24;
+  margin-bottom: var(--stack-paragraph-vozes);
+  line-height: 1.2;
 }
 
 .layout-vozes-report
   .vozes-main
-  > .vozes-page-stack--nigeria-org-atuacao-dual
+  > .vozes-page-stack--nigeria-org-atuacao-traj
   .vozes-page-stack-prelude
   .vozes-detail-list-grid {
   margin-top: 0;
   margin-bottom: 0;
-  row-gap: 1.75mm;
+  row-gap: 1.35mm;
 }
 
 .layout-vozes-report
   .vozes-main
-  > .vozes-page-stack--nigeria-org-atuacao-dual
+  > .vozes-page-stack--nigeria-org-atuacao-traj
   .vozes-page-stack-prelude
   .detail-list-item {
   margin-bottom: var(--stack-detail-item);
@@ -3240,7 +3371,7 @@
 
 .layout-vozes-report
   .vozes-main
-  > .vozes-page-stack--nigeria-org-atuacao-dual
+  > .vozes-page-stack--nigeria-org-atuacao-traj
   .vozes-page-stack-prelude
   .detail-list-item
   > p:not(:only-child):last-child {
@@ -3250,14 +3381,14 @@
 
 .layout-vozes-report
   .vozes-main
-  > .vozes-page-stack--nigeria-org-atuacao-dual
+  > .vozes-page-stack--nigeria-org-atuacao-traj
   .vozes-page-stack-prelude
   .detail-list-item
   > p:first-child
   strong,
 .layout-vozes-report
   .vozes-main
-  > .vozes-page-stack--nigeria-org-atuacao-dual
+  > .vozes-page-stack--nigeria-org-atuacao-traj
   .vozes-page-stack-prelude
   .detail-list-item
   > p:first-child
@@ -3267,104 +3398,244 @@
   line-height: 1.2;
 }
 
-/* CON — «Onde as trajetórias se cruzam» (pp. 38–39): colado à margem inferior; eixo alinhado na dupla. */
+/* CON — f. 38: trajetória no rodapé; f. 39: cruzamento (parte A + B). */
 .layout-vozes-report .vozes-chapter--nigeria-org {
-  --nigeria-org-cruzamento-zone: var(--dual-track-zone-height);
   --nigeria-org-cruzamento-band-pad-bottom: 0;
+  --nigeria-org-cruzamento-band-pad-top: var(--dual-track-band-pad-top-embedded);
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--nigeria-org-atuacao-traj
+  .trajetoria-box--compact.vozes-page-stack-foot {
+  flex: 0 0 auto;
+  margin-top: 2mm;
+  width: calc(100% + var(--vozes-grid-gutter) + var(--vozes-rail-to-prose) * 100%);
+  max-width: none;
+  margin-inline: 0;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-org-atuacao-traj .trajetoria-box--compact {
+  margin-top: 0;
+  padding: 2.1mm 3mm 2.35mm;
+}
+
+/* Trajetória compacta no rodapé da f. 38 */
+.layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-org-atuacao-traj .trajetoria-box--compact .heading-3.vozes-trajetoria-heading {
+  margin-bottom: 0.28em;
+  font-size: 10pt;
+  line-height: 1.18;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--nigeria-org-atuacao-traj
+  .trajetoria-box--compact
+  .milestone-strip--cols-2
+  .milestone-strip-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(5, minmax(0, auto));
+  column-gap: 3.25mm;
+  row-gap: 0.22mm;
+  align-items: start;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--nigeria-org-atuacao-traj
+  .trajetoria-box--compact
+  .milestone-strip-column {
+  display: contents;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--nigeria-org-atuacao-traj
+  .trajetoria-box--compact
+  .milestone-strip-column:first-child
+  > .milestone-strip-item {
+  grid-column: 1;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--nigeria-org-atuacao-traj
+  .trajetoria-box--compact
+  .milestone-strip-column:last-child
+  > .milestone-strip-item {
+  grid-column: 2;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--nigeria-org-atuacao-traj
+  .trajetoria-box--compact
+  .milestone-strip-column
+  > .milestone-strip-item:nth-child(1) {
+  grid-row: 1;
+}
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--nigeria-org-atuacao-traj
+  .trajetoria-box--compact
+  .milestone-strip-column
+  > .milestone-strip-item:nth-child(2) {
+  grid-row: 2;
+}
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--nigeria-org-atuacao-traj
+  .trajetoria-box--compact
+  .milestone-strip-column
+  > .milestone-strip-item:nth-child(3) {
+  grid-row: 3;
+}
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--nigeria-org-atuacao-traj
+  .trajetoria-box--compact
+  .milestone-strip-column
+  > .milestone-strip-item:nth-child(4) {
+  grid-row: 4;
+}
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--nigeria-org-atuacao-traj
+  .trajetoria-box--compact
+  .milestone-strip-column
+  > .milestone-strip-item:nth-child(5) {
+  grid-row: 5;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--nigeria-org-atuacao-traj
+  .trajetoria-box--compact
+  .vozes-milestone--compact
+  .milestone-strip-item {
+  font-size: 8.05pt;
+  line-height: 1.15;
+  padding: 0.02mm 0;
+  grid-template-columns: 10.5mm minmax(0, 1fr);
+  column-gap: 2.1mm;
 }
 
 .layout-vozes-report
   .vozes-chapter--nigeria-org
   .vozes-main
-  > .vozes-page-stack--nigeria-org-atuacao-dual.vozes-page-stack--dual-track,
-.layout-vozes-report
-  .vozes-chapter--nigeria-org
-  .vozes-main
-  > .vozes-page-stack--nigeria-org-traj.vozes-page-stack--dual-track {
-  box-sizing: border-box;
-  height: var(--vozes-content-height);
-  min-height: var(--vozes-content-height);
-  max-height: var(--vozes-content-height);
-  grid-template-rows: minmax(0, 1fr) var(--nigeria-org-cruzamento-zone);
-}
-
-.layout-vozes-report
-  .vozes-chapter--nigeria-org
-  .vozes-main
-  > .vozes-page-stack--nigeria-org-atuacao-dual.vozes-page-stack--dual-track
-  .vozes-page-stack-prelude,
-.layout-vozes-report
-  .vozes-chapter--nigeria-org
-  .vozes-main
-  > .vozes-page-stack--nigeria-org-traj.vozes-page-stack--dual-track
+  > .vozes-page-stack--nigeria-org-cruzamento
   .vozes-page-stack-prelude {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
   min-height: 0;
-  max-height: calc(var(--vozes-content-height) - var(--nigeria-org-cruzamento-zone));
+  margin: 0;
+  padding: 0;
+}
+
+.layout-vozes-report
+  .vozes-chapter--nigeria-org
+  .vozes-main
+  > .vozes-page-stack--nigeria-org-cruzamento.vozes-page-stack--dual-track {
+  position: relative;
+  isolation: isolate;
+  box-sizing: border-box;
+  width: calc(100% + var(--vozes-grid-gutter) + var(--vozes-rail-to-prose) * 100%);
+  max-width: none;
+  min-height: var(--vozes-content-height);
+  height: var(--vozes-content-height);
+}
+
+.layout-vozes-report
+  .vozes-chapter--nigeria-org
+  .vozes-main
+  > .vozes-page-stack--nigeria-org-cruzamento
+  .vozes-page-stack-prelude
+  .dual-track-section {
+  margin-top: 0;
+  margin-bottom: 0;
+  flex: 0 0 auto;
+}
+
+.layout-vozes-report
+  .vozes-chapter--nigeria-org
+  .vozes-main
+  > .vozes-page-stack--nigeria-org-cruzamento
+  .dual-track-section.vozes-page-stack-foot {
+  flex: 0 0 auto;
+  margin-top: 0;
+}
+
+.layout-vozes-report
+  .vozes-chapter--nigeria-org
+  .vozes-main
+  > .vozes-page-stack--nigeria-org-cruzamento
+  .dual-track-section.vozes-page-stack-foot
+  .dual-track {
+  justify-content: flex-start;
+}
+
+.layout-vozes-report
+  .vozes-chapter--nigeria-org
+  .vozes-main
+  > .vozes-page-stack--nigeria-org-cruzamento
+  .vozes-page-stack-prelude
+  .dual-track-section
+  .dual-track-band {
+  margin-top: calc(-1 * var(--margin-top));
+  padding-top: calc(var(--dual-track-band-pad-top-embedded) + var(--margin-top));
+}
+
+.layout-vozes-report
+  .vozes-chapter--nigeria-org
+  .vozes-main
+  > .vozes-page-stack--nigeria-org-cruzamento
+  .dual-track-section.vozes-page-stack-foot
+  .dual-track-band {
+  flex: 0 0 auto;
+  min-height: 0;
+  height: auto;
+  margin-top: var(--dual-track-matrix-gap);
+  padding-top: var(--nigeria-org-cruzamento-band-pad-top);
+  padding-bottom: var(--nigeria-org-cruzamento-band-pad-bottom);
+}
+
+.layout-vozes-report
+  .vozes-chapter--nigeria-org
+  .vozes-main
+  > .vozes-page-stack--nigeria-org-cruzamento
+  .dual-track-section.vozes-page-stack-foot
+  .dual-track-section-title.dual-track-reserve {
+  margin: 0;
+  height: 0;
   overflow: hidden;
 }
 
 .layout-vozes-report
   .vozes-chapter--nigeria-org
   .vozes-main
-  > .vozes-page-stack--nigeria-org-traj.vozes-page-stack--dual-track
-  .vozes-page-stack-prelude.vozes-prelude--compact-milestone {
-  max-height: calc(var(--vozes-content-height) - var(--nigeria-org-cruzamento-zone));
-}
-
-.layout-vozes-report
-  .vozes-chapter--nigeria-org
-  .vozes-main
-  > .vozes-page-stack--nigeria-org-atuacao-dual.vozes-page-stack--dual-track
-  .dual-track-section.vozes-page-stack-foot,
-.layout-vozes-report
-  .vozes-chapter--nigeria-org
-  .vozes-main
-  > .vozes-page-stack--nigeria-org-traj.vozes-page-stack--dual-track
-  .dual-track-section.vozes-page-stack-foot {
-  align-self: end;
-  grid-row: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  min-height: var(--nigeria-org-cruzamento-zone);
-  height: var(--nigeria-org-cruzamento-zone);
-  max-height: var(--nigeria-org-cruzamento-zone);
-  margin: 0;
-}
-
-.layout-vozes-report
-  .vozes-chapter--nigeria-org
-  .vozes-main
-  > .vozes-page-stack--nigeria-org-atuacao-dual.vozes-page-stack--dual-track
+  > .vozes-page-stack--nigeria-org-cruzamento
   .dual-track-section.vozes-page-stack-foot
-  .dual-track,
-.layout-vozes-report
-  .vozes-chapter--nigeria-org
-  .vozes-main
-  > .vozes-page-stack--nigeria-org-traj.vozes-page-stack--dual-track
-  .dual-track-section.vozes-page-stack-foot
-  .dual-track {
+  .dual-track-matrix {
   flex: 0 0 auto;
-  min-height: 0;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .layout-vozes-report
   .vozes-chapter--nigeria-org
   .vozes-main
-  > .vozes-page-stack--nigeria-org-atuacao-dual.vozes-page-stack--dual-track
-  .dual-track-section.vozes-page-stack-foot
-  .dual-track-band,
+  > .vozes-page-stack--nigeria-org-cruzamento
+  .dual-track-body {
+  gap: 1.4mm;
+}
+
 .layout-vozes-report
   .vozes-chapter--nigeria-org
   .vozes-main
-  > .vozes-page-stack--nigeria-org-traj.vozes-page-stack--dual-track
-  .dual-track-section.vozes-page-stack-foot
-  .dual-track-band {
-  flex: 0 0 auto;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-bottom: var(--nigeria-org-cruzamento-band-pad-bottom);
+  > .vozes-page-stack--nigeria-org-cruzamento
+  .dual-track-resumo {
+  margin-top: 1.4mm;
 }
 
 /* BCF — atuação (4 exemplos) + trajetória no rodapé; cruzamento em folha cheia. */
@@ -3404,13 +3675,6 @@
   width: calc(100% + var(--vozes-grid-gutter) + var(--vozes-rail-to-prose) * 100%);
   max-width: none;
   margin-inline: 0;
-}
-
-.layout-vozes-report .vozes-main > .vozes-page-stack--england-bcf-cruzamento.vozes-page-stack--dual-track {
-  display: flex;
-  flex-direction: column;
-  align-content: stretch;
-  min-height: var(--vozes-content-height);
 }
 
 .layout-vozes-report
@@ -3468,7 +3732,6 @@
   .dual-track-band {
   flex: 1 1 auto;
   min-height: 100%;
-  margin-top: 0;
 }
 
 .layout-vozes-report
@@ -3961,6 +4224,72 @@
   margin-right: calc(-1 * var(--margin-inner));
   padding-left: var(--margin-outer);
   padding-right: var(--margin-inner);
+}
+
+/*
+ * Folhas só de cruzamento (CF p. 30, BCF p. 33, Chile org, CON p. 39): marfim contínuo topo → rodapé.
+ * Australia/US/AU dupla embutida (pp. 16–17, 22–23) ficam de fora — zona marfim fixa no rodapé.
+ */
+.layout-vozes-report .vozes-main > :is(
+    .vozes-page-stack--england-org-cruzamento,
+    .vozes-page-stack--england-bcf-cruzamento,
+    .vozes-page-stack--chile-org-cruzamento,
+    .vozes-page-stack--nigeria-org-cruzamento
+  ).vozes-page-stack--dual-track::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: calc(-1 * var(--margin-top));
+  right: calc(-1 * var(--margin-outer));
+  bottom: calc(-1 * var(--margin-bottom));
+  left: calc(-1 * var(--margin-inner));
+  background: var(--color-marfim);
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.sheet-page[data-page-side='left']
+  .layout-vozes-report
+  .vozes-main
+  > :is(
+      .vozes-page-stack--england-org-cruzamento,
+      .vozes-page-stack--england-bcf-cruzamento,
+      .vozes-page-stack--chile-org-cruzamento,
+      .vozes-page-stack--nigeria-org-cruzamento
+    ).vozes-page-stack--dual-track::before {
+  right: calc(-1 * var(--margin-inner));
+  left: calc(-1 * var(--margin-outer));
+}
+
+.layout-vozes-report .vozes-main > :is(
+    .vozes-page-stack--england-org-cruzamento,
+    .vozes-page-stack--england-bcf-cruzamento,
+    .vozes-page-stack--chile-org-cruzamento,
+    .vozes-page-stack--nigeria-org-cruzamento
+  )
+  .dual-track-band {
+  background: transparent;
+}
+
+.layout-vozes-report .vozes-main > :is(
+    .vozes-page-stack--england-org-cruzamento,
+    .vozes-page-stack--england-bcf-cruzamento,
+    .vozes-page-stack--chile-org-cruzamento,
+    .vozes-page-stack--nigeria-org-cruzamento
+  )
+  .dual-track-band::after {
+  display: none;
+}
+
+.layout-vozes-report .vozes-main > :is(
+    .vozes-page-stack--england-org-cruzamento,
+    .vozes-page-stack--england-bcf-cruzamento,
+    .vozes-page-stack--chile-org-cruzamento
+  )
+  .dual-track-section.vozes-page-stack-foot
+  .dual-track-band {
+  margin-top: calc(-1 * var(--margin-top));
+  padding-top: calc(var(--dual-track-band-pad-top-embedded) + var(--margin-top));
 }
 
 .layout-vozes-report .vozes-main .dual-track-section.vozes-page-stack-foot .dual-track-matrix {

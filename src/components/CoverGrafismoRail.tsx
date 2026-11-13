@@ -1,116 +1,82 @@
-/** Faixa vertical de grafismos (8 ladrilhos) — paleta Vozes, vetorial para tela e PDF. */
+/** Faixa esquerda da capa — 5 faixas iguais, composição da referência editorial. */
 export function CoverGrafismoRail() {
-  const h = 37.125
-  const w = 50
+  const w = 52.5
+  const bands = 5
+  const hTotal = 297
+  const h = hTotal / bands
+  const y2 = h * 2
+  const y3 = h * 3
+  const y4 = h * 4
+  const half = w / 2
+  const domeR = 26
 
   return (
     <svg
       className="cover-grafismo-rail"
-      viewBox={`0 0 ${w} ${h * 8}`}
+      viewBox={`0 0 ${w} ${hTotal}`}
       width={w}
-      height={h * 8}
+      height={hTotal}
       preserveAspectRatio="none"
       aria-hidden="true"
       focusable="false"
     >
+      {/* Faixa 2 e 5 — laranja (desenhar antes dos recortes) */}
+      <rect x="0" y={h} width={w} height={h} fill="var(--color-vozes-laranja)" />
+      <rect x="0" y={y4} width={w} height={h} fill="var(--color-vozes-laranja)" />
+
+      {/* Faixa 1 — roxo + globo + recorte inferior em arco (mostra laranja) */}
+      <path
+        fill="var(--color-vozes-roxo)"
+        d={`M 0 0 H ${w} V ${h} H ${half + domeR} A ${domeR} ${domeR} 0 0 0 ${half - domeR} ${h} H 0 Z`}
+      />
+      <g transform="translate(5, 8)">
+        <circle cx="9.5" cy="9.5" r="9" fill="none" stroke="var(--color-paper)" strokeWidth="1.15" />
+        <ellipse cx="9.5" cy="9.5" rx="9" ry="4" fill="none" stroke="var(--color-paper)" strokeWidth="0.95" />
+        <ellipse cx="9.5" cy="9.5" rx="3.6" ry="9" fill="none" stroke="var(--color-paper)" strokeWidth="0.95" />
+        <line x1="9.5" y1="0.5" x2="9.5" y2="18.5" stroke="var(--color-paper)" strokeWidth="0.85" />
+      </g>
       <defs>
-        {Array.from({ length: 8 }, (_, i) => (
-          <clipPath key={i} id={`cover-tile-clip-${i}`}>
-            <rect x="0" y={i * h} width={w} height={h} />
-          </clipPath>
-        ))}
+        <clipPath id="cover-rail-dome-clip">
+          <rect x="0" y={h} width={w} height={h} />
+        </clipPath>
+        <clipPath id="cover-rail-green-clip">
+          <rect x="0" y={y2} width={half} height={h} />
+        </clipPath>
       </defs>
+      {/* Domo roxo só na faixa laranja */}
+      <circle
+        cx={half}
+        cy={h}
+        r={domeR}
+        fill="var(--color-vozes-roxo)"
+        clipPath="url(#cover-rail-dome-clip)"
+      />
 
-      {/* 1 — quartos de círculo */}
-      <g clipPath="url(#cover-tile-clip-0)">
-        <rect x="0" y="0" width={w} height={h} fill="var(--color-vozes-roxo)" />
-        <circle cx="0" cy="0" r="34" fill="var(--color-vozes-laranja)" />
-        <circle cx={w} cy={h} r="36" fill="var(--color-marfim)" />
-      </g>
+      {/* Faixa 3 — metade branca + semicírculo verde | metade roxa */}
+      <rect x="0" y={y2} width={half} height={h} fill="var(--color-paper)" />
+      <rect x={half} y={y2} width={half} height={h} fill="var(--color-vozes-roxo)" />
+      <circle
+        cx={half}
+        cy={y2 + h / 2}
+        r={h * 0.58}
+        fill="var(--color-vozes-verde-vivo)"
+        clipPath="url(#cover-rail-green-clip)"
+      />
 
-      {/* 2 — globo */}
-      <g clipPath="url(#cover-tile-clip-1)">
-        <rect x="0" y={h} width={w} height={h} fill="var(--color-vozes-roxo)" />
-        <circle cx={w / 2} cy={h + h / 2} r="14" fill="none" stroke="var(--color-paper)" strokeWidth="1.35" />
-        <ellipse
-          cx={w / 2}
-          cy={h + h / 2}
-          rx="14"
-          ry="6.5"
-          fill="none"
-          stroke="var(--color-paper)"
-          strokeWidth="1.2"
-        />
-        <ellipse
-          cx={w / 2}
-          cy={h + h / 2}
-          rx="6"
-          ry="14"
-          fill="none"
-          stroke="var(--color-paper)"
-          strokeWidth="1.2"
-        />
-        <line
-          x1={w / 2}
-          y1={h + h / 2 - 14}
-          x2={w / 2}
-          y2={h + h / 2 + 14}
-          stroke="var(--color-paper)"
-          strokeWidth="1.1"
-        />
-      </g>
-
-      {/* 3 — círculo grande */}
-      <g clipPath="url(#cover-tile-clip-2)">
-        <rect x="0" y={h * 2} width={w} height={h} fill="var(--color-vozes-roxo)" />
-        <circle cx={w / 2} cy={h * 2 + h / 2 + 4} r="30" fill="var(--color-vozes-laranja)" />
-      </g>
-
-      {/* 4 — estrela de quatro pontas */}
-      <g clipPath="url(#cover-tile-clip-3)">
-        <rect x="0" y={h * 3} width={w} height={h} fill="var(--color-vozes-roxo)" />
-        <path
-          fill="var(--color-paper)"
-          d={`M ${w / 2} ${h * 3 + 10}
-            Q ${w / 2 + 9} ${h * 3 + 16} ${w - 8} ${h * 3 + h / 2}
-            Q ${w / 2 + 9} ${h * 3 + h - 16} ${w / 2} ${h * 3 + h - 10}
-            Q ${w / 2 - 9} ${h * 3 + h - 16} 8 ${h * 3 + h / 2}
-            Q ${w / 2 - 9} ${h * 3 + 16} ${w / 2} ${h * 3 + 10} Z`}
-        />
-      </g>
-
-      {/* 5 — meio círculo em marfim */}
-      <g clipPath="url(#cover-tile-clip-4)">
-        <rect x="0" y={h * 4} width={w} height={h} fill="var(--color-marfim)" />
-        <circle cx={w / 2} cy={h * 5} r="26" fill="var(--color-vozes-laranja)" />
-      </g>
-
-      {/* 6 — arcos concêntricos */}
-      <g clipPath="url(#cover-tile-clip-5)">
-        <rect x="0" y={h * 5} width={w} height={h} fill="var(--color-marfim)" />
-        {[22, 17, 12].map((radius, i) => (
+      {/* Faixa 4 — lilás + três arcos (grafismo) */}
+      <rect x="0" y={y3} width={w} height={h} fill="var(--color-vozes-participation-fill)" />
+      {[22, 15.5, 9].map((radius, i) => {
+        const yBase = y4 - 4
+        return (
           <path
             key={radius}
-            d={`M ${w / 2 - radius} ${h * 5 + h - 2} A ${radius} ${radius} 0 0 1 ${w / 2 + radius} ${h * 5 + h - 2}`}
+            d={`M 0 ${yBase} A ${radius} ${radius} 0 0 1 ${radius} ${yBase - radius}`}
             fill="none"
             stroke="var(--color-vozes-roxo)"
-            strokeWidth={2.6 - i * 0.35}
+            strokeWidth={2.2 - i * 0.26}
           />
-        ))}
-      </g>
-
-      {/* 7 — semicírculo superior */}
-      <g clipPath="url(#cover-tile-clip-6)">
-        <rect x="0" y={h * 6} width={w} height={h} fill="var(--color-vozes-roxo)" />
-        <circle cx={w / 2} cy={h * 6} r="24" fill="var(--color-vozes-laranja)" />
-      </g>
-
-      {/* 8 — quarto de círculo + fatia */}
-      <g clipPath="url(#cover-tile-clip-7)">
-        <rect x="0" y={h * 7} width={w} height={h} fill="var(--color-vozes-roxo)" />
-        <circle cx={w} cy={h * 8} r="30" fill="var(--color-marfim)" />
-        <circle cx={w - 6} cy={h * 8 - 4} r="16" fill="var(--color-vozes-laranja)" />
-      </g>
+        )
+      })}
     </svg>
   )
 }

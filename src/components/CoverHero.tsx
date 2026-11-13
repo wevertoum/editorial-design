@@ -11,15 +11,14 @@ export function CoverHero({ publication }: CoverHeroProps) {
       <CoverGrafismoRail />
 
       <div className="cover-hero-main">
-        <p className="cover-hero-edition">
-          <span className="cover-hero-edition-year">{publication.subtitle}</span>
-          <span className="cover-hero-edition-dash" aria-hidden="true">
-            {' '}
-            —
-          </span>
-        </p>
+        <div className="cover-hero-kicker-row">
+          <p className="cover-hero-kicker">Relatório</p>
+          <span className="cover-hero-kicker-rule" aria-hidden="true" />
+        </div>
 
-        <h1 className="cover-hero-title">{publication.title}</h1>
+        <div className="cover-hero-title-wrap">
+          <h1 className="cover-hero-title">{publication.title}</h1>
+        </div>
 
         <footer className="cover-hero-foot" aria-label="Realização">
           <img
