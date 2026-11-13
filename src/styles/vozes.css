@@ -563,16 +563,47 @@
   break-after: avoid;
 }
 
-/* AU trajetória p. 12 texto · p. 13 infográfico ACARA (folha dedicada). */
-.layout-vozes-report .vozes-main > .vozes-page-stack.vozes-page-stack--trajetoria-sheet {
-  break-inside: avoid;
+/* AU trajetória p. 12 texto · p. 13 infográfico ACARA (folha dedicada, imagem centrada). */
+.layout-vozes-report .vozes-page:has(> .vozes-main > .vozes-page-stack.vozes-page-stack--trajetoria-sheet:only-child) {
+  box-sizing: border-box;
   min-height: calc(var(--page-height) - var(--margin-top) - var(--margin-bottom));
+  align-items: center;
 }
 
-.layout-vozes-report .vozes-main > .vozes-page-stack.vozes-page-stack--trajetoria-sheet .figure.figure--trajetoria-sheet.vozes-page-stack-foot {
-  margin-top: auto;
+.layout-vozes-report
+  .vozes-page:has(> .vozes-main > .vozes-page-stack.vozes-page-stack--trajetoria-sheet:only-child)
+  .vozes-main {
+  width: 100%;
+  min-height: 0;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack.vozes-page-stack--trajetoria-sheet {
+  display: flex;
+  flex-direction: column;
+  break-inside: avoid;
+  min-height: 0;
+  width: 100%;
+  margin-block: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.layout-vozes-report
+  .vozes-page:is(.vozes-prose-only, .vozes-with-rail)
+  .vozes-main
+  > .vozes-page-stack.vozes-page-stack--trajetoria-sheet
+  .figure.figure--trajetoria-sheet.vozes-page-stack-foot {
+  margin-top: 0;
   margin-bottom: 0;
   break-inside: avoid;
+  clear: both;
+  float: none;
+  width: calc(100% + var(--vozes-grid-gutter) + var(--vozes-rail-to-prose) * 100%);
+  max-width: none;
+  margin-inline: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .layout-vozes-report
@@ -581,12 +612,21 @@
   .figure.figure--trajetoria-sheet.vozes-page-stack-foot
   img {
   display: block;
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   height: auto;
   max-height: calc(var(--page-height) - var(--margin-top) - var(--margin-bottom) - 12mm);
   margin-inline: auto;
   object-fit: contain;
-  object-position: center top;
+  object-position: center center;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack.vozes-page-stack--trajetoria-sheet
+  .figure.figure--trajetoria-sheet.vozes-page-stack-foot
+  figcaption {
+  text-align: center;
 }
 
 .layout-vozes-report .vozes-page:is(.vozes-prose-only, .vozes-with-rail) .vozes-main > .figure.figure--span {
@@ -635,6 +675,11 @@
   margin-top: auto;
   margin-bottom: 0;
   break-inside: avoid;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--trajetoria-sheet .vozes-page-stack-foot,
+.layout-vozes-report .vozes-main > .figure.figure--trajetoria-sheet.vozes-page-stack-foot {
+  margin-top: 0;
 }
 
 /* Dupla dual-track embutida: reserva zona fixa — evita sobreposição e alinha marfim/eixo (pp. 16–17). */

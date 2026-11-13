@@ -127,7 +127,10 @@ function groupBlocks(
         current = []
       }
       /* Faixa marfim + overflow na mesma folha: não partir prelúdio do dual-track. */
-      if (block.classList.contains('vozes-page-stack--dual-track')) {
+      if (
+        block.classList.contains('vozes-page-stack--dual-track') ||
+        block.classList.contains('vozes-page-stack--trajetoria-sheet')
+      ) {
         groups.push([block])
         continue
       }
