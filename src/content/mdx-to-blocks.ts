@@ -1,7 +1,14 @@
 import type { FlowBlock, FlowSectionPayload } from './bundle-types'
 import { parseInlineRuns } from './inline-markdown'
 
-const LAYOUT_TAGS = new Set(['VozesLayout', 'VozesMain', 'VozesRail', 'PageStack', 'DetailListGrid'])
+const LAYOUT_TAGS = new Set([
+  'VozesLayout',
+  'VozesMain',
+  'VozesRail',
+  'PageStack',
+  'DetailListGrid',
+  'TrajetoriaBox',
+])
 /** Inner text is stored on the component, not reparsed as prose blocks. */
 const JSX_BODY_COMPONENTS = new Set(['SourceNote', 'Heading'])
 const HEADING_LEVEL = [1, 2, 3, 4, 5, 6] as const
@@ -332,6 +339,8 @@ function componentToBlocks(name: string, props: Record<string, unknown>): FlowBl
         props: {
           title: typeof props.title === 'string' ? props.title : undefined,
           items: props.items as string[][],
+          columns: props.columns === 2 ? 2 : props.columns === 1 ? 1 : undefined,
+          className: typeof props.className === 'string' ? props.className : undefined,
         },
       },
     ]

@@ -224,33 +224,17 @@ function breakApart(
 
   if (block.matches(ATOMIC)) return [block]
 
-  /* Título + marcos permanecem dentro do contorno ao quebrar página. */
+  /* Título + marcos permanecem dentro do contorno ao quebrar página (blocos por folha, não um marco por caixa). */
   if (block.classList.contains('trajetoria-box')) {
     const strip = block.querySelector(':scope > .milestone-strip')
     if (strip) {
-      const items = [...strip.querySelectorAll(':scope > .milestone-strip-list > .milestone-strip-item')]
-      if (items.length > 1) {
-        const prefix = elementChildren(block).filter((node) => !node.classList.contains('milestone-strip'))
-        const title = strip.querySelector(':scope > .milestone-strip-title')
-        return items.map((item, index) => {
-          const box = block.cloneNode(false) as HTMLElement
-          if (index === 0) prefix.forEach((node) => box.appendChild(node.cloneNode(true)))
-          const nextStrip = strip.cloneNode(false) as HTMLElement
-          if (index === 0 && title) nextStrip.appendChild(title.cloneNode(true))
-          const list = strip.querySelector(':scope > .milestone-strip-list')
-          const ol = (list ? list.cloneNode(false) : document.createElement('ol')) as HTMLElement
-          if (!list) ol.className = 'milestone-strip-list'
-          ol.appendChild(item.cloneNode(true))
-          nextStrip.appendChild(ol)
-          box.appendChild(nextStrip)
-          return box
-        })
-      }
+      const split = splitTrajetoriaBox(block, limit, measure)
+      if (split.length > 0) return split
     }
     return [block]
   }
 
-  if (block.classList.contains('milestone-strip')) {
+  if (block.classList.contains('milestone-strip') && !block.closest('.trajetoria-box')) {
     const items = [...block.querySelectorAll(':scope > .milestone-strip-list > .milestone-strip-item')]
     if (items.length <= 1) return [block]
     const title = block.querySelector(':scope > .milestone-strip-title')
@@ -284,6 +268,143 @@ function breakApart(
   if (kids.length > 1) return kids.map((kid) => kid.cloneNode(true) as HTMLElement)
   if (kids.length === 1) return [kids[0].cloneNode(true) as HTMLElement]
   return splitText(block, limit, measure)
+}
+
+function milestoneItemsInStrip(strip: HTMLElement): HTMLElement[] {
+  const nested = [...strip.querySelectorAll(':scope .milestone-strip-columns .milestone-strip-item')]
+  if (nested.length > 0) {
+    return nested.filter((node): node is HTMLElement => node instanceof HTMLElement)
+  }
+  return [...strip.querySelectorAll(':scope > .milestone-strip-list > .milestone-strip-item')].filter(
+    (node): node is HTMLElement => node instanceof HTMLElement,
+  )
+}
+
+function appendMilestoneItemsToStrip(
+  strip: HTMLElement,
+  stripTemplate: HTMLElement,
+  stripTitle: Element | null,
+  itemNodes: HTMLElement[],
+  columnSplitAt: number,
+  itemOffset: number,
+): void {
+  if (stripTitle) strip.appendChild(stripTitle.cloneNode(true))
+  const twoColumn =
+    stripTemplate.classList.contains('milestone-strip--cols-2') ||
+    stripTemplate.querySelector(':scope .milestone-strip-columns') !== null
+  if (twoColumn && itemNodes.length > 0) {
+    const left: HTMLElement[] = []
+    const right: HTMLElement[] = []
+    for (let i = 0; i < itemNodes.length; i++) {
+      const globalIndex = itemOffset + i
+      const clone = itemNodes[i].cloneNode(true) as HTMLElement
+      if (globalIndex < columnSplitAt) left.push(clone)
+      else right.push(clone)
+    }
+    const wrapper = document.createElement('div')
+    wrapper.className = 'milestone-strip-columns'
+    for (const colItems of [left, right]) {
+      const list = document.createElement('ol')
+      list.className = 'milestone-strip-list milestone-strip-column'
+      for (const item of colItems) list.appendChild(item)
+      wrapper.appendChild(list)
+    }
+    strip.appendChild(wrapper)
+    return
+  }
+  const list = document.createElement('ol')
+  list.className = 'milestone-strip-list'
+  for (const item of itemNodes) list.appendChild(item.cloneNode(true))
+  strip.appendChild(list)
+}
+
+function buildTrajetoriaBoxPart(
+  template: HTMLElement,
+  prefixNodes: HTMLElement[],
+  stripTemplate: HTMLElement,
+  stripTitle: Element | null,
+  itemNodes: HTMLElement[],
+  options: { includePrefix: boolean; continued: boolean; columnSplitAt: number; itemOffset: number },
+): HTMLElement {
+  const box = template.cloneNode(false) as HTMLElement
+  if (options.continued) box.classList.add('trajetoria-box--continued')
+  if (options.includePrefix) {
+    for (const node of prefixNodes) box.appendChild(node.cloneNode(true))
+  }
+  const strip = stripTemplate.cloneNode(false) as HTMLElement
+  appendMilestoneItemsToStrip(strip, stripTemplate, stripTitle, itemNodes, options.columnSplitAt, options.itemOffset)
+  box.appendChild(strip)
+  return box
+}
+
+function splitTrajetoriaBox(
+  block: HTMLElement,
+  limit: number,
+  measure: (nodes: HTMLElement[], withRail: boolean) => number,
+): HTMLElement[] {
+  const stripEl = block.querySelector(':scope > .milestone-strip')
+  if (!(stripEl instanceof HTMLElement)) return [block]
+  const strip = stripEl
+
+  const items = milestoneItemsInStrip(strip)
+  if (items.length === 0) return [block]
+  if (items.length === 1 && measure([block], false) <= limit + SLOP) return [block]
+
+  const prefix = elementChildren(block).filter((node) => !node.classList.contains('milestone-strip'))
+  const stripTitle = strip.querySelector(':scope > .milestone-strip-title')
+  const columnSplitAt = Math.ceil(items.length / 2)
+
+  const parts: HTMLElement[] = []
+  let index = 0
+  let continued = false
+
+  while (index < items.length) {
+    const includePrefix = !continued && prefix.length > 0
+    let lo = 1
+    let hi = items.length - index
+    let best = 1
+
+    while (lo <= hi) {
+      const mid = Math.floor((lo + hi) / 2)
+      const trialTitle = includePrefix ? stripTitle : null
+      const trial = buildTrajetoriaBoxPart(block, prefix, strip, trialTitle, items.slice(index, index + mid), {
+        includePrefix,
+        continued,
+        columnSplitAt,
+        itemOffset: index,
+      })
+      if (measure([trial], false) <= limit + SLOP) {
+        best = mid
+        lo = mid + 1
+      } else {
+        hi = mid - 1
+      }
+    }
+
+    if (best < 1) best = 1
+
+    let part = buildTrajetoriaBoxPart(block, prefix, strip, includePrefix ? stripTitle : null, items.slice(index, index + best), {
+      includePrefix,
+      continued,
+      columnSplitAt,
+      itemOffset: index,
+    })
+
+    if (measure([part], false) > limit + SLOP && best === 1 && includePrefix) {
+      part = buildTrajetoriaBoxPart(block, prefix, strip, null, items.slice(index, index + 1), {
+        includePrefix: false,
+        continued: true,
+        columnSplitAt,
+        itemOffset: index,
+      })
+    }
+
+    parts.push(part)
+    index += best
+    continued = true
+  }
+
+  return parts.length > 0 ? parts : [block]
 }
 
 function splitTable(block: HTMLElement): HTMLElement[] {

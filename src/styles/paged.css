@@ -95,7 +95,14 @@ h3 + *,
 .dual-track-node,
 .facts-rail,
 .callout-card,
-.participation-box {
+.participation-box,
+.layout-vozes-report .vozes-main .trajetoria-box {
+  break-inside: avoid;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.layout-vozes-report .vozes-main .trajetoria-box--compact {
   break-inside: avoid;
 }
 

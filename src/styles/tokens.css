@@ -72,7 +72,7 @@
   /* Contorno «A trajetória…» (só borda — roxo da paleta). */
   --trajetoria-box-border: color-mix(in srgb, var(--color-vozes-roxo-2) 38%, transparent);
   --trajetoria-box-padding: 4mm 4.5mm 4.5mm;
-  --trajetoria-box-padding-compact: 3mm 3.25mm 3.25mm;
+  --trajetoria-box-padding-compact: 2.5mm 3mm 2.75mm;
   --profile-card-surface: color-mix(in srgb, var(--color-marfim) 32%, white);
 
   --space-1: 2mm;

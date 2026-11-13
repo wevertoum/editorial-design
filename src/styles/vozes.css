@@ -806,7 +806,8 @@
   margin-bottom: 2mm;
 }
 
-.layout-vozes-report .vozes-page-stack--dual-track .vozes-milestone--compact .milestone-strip-item {
+.layout-vozes-report .vozes-page-stack--dual-track .vozes-milestone--compact .milestone-strip-item,
+.layout-vozes-report .vozes-main .vozes-milestone--compact .milestone-strip-item {
   grid-template-columns: 12mm minmax(0, 1fr);
   column-gap: 3mm;
   padding: 0.65mm 0;
@@ -814,11 +815,13 @@
   line-height: 1.28;
 }
 
-.layout-vozes-report .vozes-page-stack--dual-track .vozes-milestone--compact .milestone-strip-item + .milestone-strip-item {
+.layout-vozes-report .vozes-page-stack--dual-track .vozes-milestone--compact .milestone-strip-item + .milestone-strip-item,
+.layout-vozes-report .vozes-main .vozes-milestone--compact .milestone-strip-item + .milestone-strip-item {
   margin-top: var(--vozes-milestone-compact-item-gap, 1.15mm);
 }
 
-.layout-vozes-report .vozes-page-stack--dual-track .vozes-milestone--compact .milestone-strip-year-num {
+.layout-vozes-report .vozes-page-stack--dual-track .vozes-milestone--compact .milestone-strip-year-num,
+.layout-vozes-report .vozes-main .vozes-milestone--compact .milestone-strip-year-num {
   font-size: var(--text-milestone-year-compact);
   line-height: var(--vozes-milestone-line-height, 1.26);
 }
@@ -827,11 +830,17 @@
   .vozes-page-stack--dual-track
   .vozes-milestone--compact
   .milestone-strip-year-stack
+  .milestone-strip-year-rule,
+.layout-vozes-report
+  .vozes-main
+  .vozes-milestone--compact
+  .milestone-strip-year-stack
   .milestone-strip-year-rule {
   height: var(--vozes-milestone-range-rule-height-compact, 1.8mm);
 }
 
-.layout-vozes-report .vozes-page-stack--dual-track .vozes-milestone--compact .milestone-strip-label {
+.layout-vozes-report .vozes-page-stack--dual-track .vozes-milestone--compact .milestone-strip-label,
+.layout-vozes-report .vozes-main .vozes-milestone--compact .milestone-strip-label {
   font-size: var(--text-milestone-compact);
   line-height: var(--vozes-milestone-line-height, 1.26);
 }
@@ -1006,6 +1015,47 @@
   text-wrap: wrap;
   overflow-wrap: break-word;
   word-break: normal;
+}
+
+/* Faixa 2 col. mais estreita (ex.: pp. abertura EUA) — mesma medida do DetailListGrid. */
+.layout-vozes-report .vozes-main .actor-band.actor-band--narrow .actor-band-grid {
+  box-sizing: border-box;
+  width: calc(var(--vozes-detail-grid-width) * 100%);
+  max-width: calc(var(--vozes-detail-grid-width) * 100%);
+}
+
+/* Com ícones: ocupa a faixa plena (prosa + rail) e distribui colunas no espaço. */
+.layout-vozes-report .vozes-main .actor-band.actor-band--icons .actor-band-grid {
+  width: 100%;
+  max-width: 100%;
+  column-gap: 8mm;
+  row-gap: 5mm;
+}
+
+.layout-vozes-report .vozes-main .actor-band-item--icon {
+  display: grid;
+  grid-template-columns: var(--vozes-detail-list-icon-gutter) minmax(0, 1fr);
+  column-gap: var(--vozes-detail-list-icon-gap);
+  align-items: start;
+}
+
+.layout-vozes-report .vozes-main .actor-band-item--icon > .actor-band-icon {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: start;
+  justify-self: start;
+  display: block;
+  margin-top: 0.15mm;
+  font-size: var(--vozes-detail-list-icon-size);
+  line-height: 1;
+  color: var(--color-vozes-roxo);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.layout-vozes-report .vozes-main .actor-band-item--icon > .actor-band-item-main {
+  grid-column: 2;
+  min-width: 0;
 }
 
 /* Exemplos longos (ex.: marcos ACSA): grade 2×2, sem rótulo; quebra entre linhas ok. */
@@ -1736,6 +1786,19 @@
   box-shadow: none;
 }
 
+/* Continuação na folha seguinte: mesmo contorno, sem repetir o título visível. */
+.layout-vozes-report .vozes-main .trajetoria-box--continued {
+  margin-top: 0;
+  break-before: auto;
+  border-radius: 2.5mm;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.layout-vozes-report .vozes-main > .trajetoria-box + .trajetoria-box--continued {
+  margin-top: 0;
+}
+
 /* Cruzamento pp. 16–17: mesma largura da faixa de marcos; marcos ficam 100% da área interna. */
 .layout-vozes-report .vozes-page-stack-prelude > .trajetoria-box--compact {
   box-sizing: border-box;
@@ -1805,6 +1868,233 @@
   margin-bottom: 2mm;
 }
 
+/* Caixa «A trajetória do currículo» compacta no fluxo do país (ex. EUA p. 19). */
+.layout-vozes-report
+  .vozes-page:is(.vozes-prose-only, .vozes-with-rail)
+  .vozes-main
+  > .trajetoria-box--compact {
+  width: calc(100% + var(--vozes-grid-gutter) + var(--vozes-rail-to-prose) * 100%);
+  max-width: none;
+  margin-inline: 0;
+  margin-top: 2.5mm;
+  margin-bottom: 0;
+}
+
+.layout-vozes-report .vozes-main > .trajetoria-box--compact .heading-3.vozes-trajetoria-heading {
+  margin-bottom: 0.35em;
+  font-size: 10.5pt;
+  line-height: 1.22;
+}
+
+.layout-vozes-report .vozes-main > .trajetoria-box--compact .vozes-milestone--compact {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.layout-vozes-report .vozes-main > .trajetoria-box--compact .vozes-milestone--compact .milestone-strip-item {
+  padding: 0.2mm 0;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .trajetoria-box--compact
+  .vozes-milestone--compact
+  .milestone-strip-item
+  + .milestone-strip-item {
+  margin-top: 0.4mm;
+}
+
+/* Rodapé da folha (EUA p. 19): caixa de trajetória alinhada à margem inferior dentro do PageStack. */
+/* EUA — trajetória do currículo cabe na p. 19 (prévia + PDF). */
+.layout-vozes-report .vozes-main .trajetoria-box--curriculo-usa {
+  margin-top: 2mm;
+}
+
+/* Respiro entre o último parágrafo de «Como os standards…» e a caixa de trajetória (p. 19). */
+.layout-vozes-report
+  .vozes-main
+  .vozes-page-stack
+  > p:has(+ .trajetoria-box--curriculo-usa) {
+  margin-bottom: calc(var(--stack-paragraph-vozes) + 8.5mm);
+}
+
+.layout-vozes-report .vozes-main .trajetoria-box--curriculo-usa.trajetoria-box--compact {
+  padding: 4mm 3.25mm;
+}
+
+/* PageStack: caixa encosta na margem inferior; marcos com espaço entre linhas (não só após o último). */
+.layout-vozes-report .vozes-main .vozes-page-stack .trajetoria-box--curriculo-usa.vozes-page-stack-foot {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  margin-top: auto;
+}
+
+.layout-vozes-report
+  .vozes-main
+  .vozes-page-stack
+  .trajetoria-box--curriculo-usa.vozes-page-stack-foot
+  > .milestone-strip {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.layout-vozes-report
+  .vozes-main
+  .vozes-page-stack
+  .trajetoria-box--curriculo-usa
+  > .milestone-strip.milestone-strip--cols-2
+  .milestone-strip-columns {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.layout-vozes-report .vozes-main .trajetoria-box--curriculo-usa .vozes-milestone--compact .milestone-strip-item {
+  font-size: 8.5pt;
+  line-height: 1.22;
+  padding: 0.1mm 0;
+  grid-template-columns: 11mm minmax(0, 1fr);
+  column-gap: 2.5mm;
+  align-items: start;
+  align-self: start;
+}
+
+.layout-vozes-report .vozes-main .trajetoria-box--curriculo-usa .vozes-milestone--compact .milestone-strip-year-num {
+  font-size: 8.5pt;
+}
+
+/* EUA p. 19: sempre duas colunas lado a lado (1.ª até 2001, 2.ª desde 2008). */
+.layout-vozes-report
+  .vozes-page
+  .vozes-main
+  .trajetoria-box--curriculo-usa
+  .milestone-strip
+  .milestone-strip-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
+  column-gap: 3.5mm;
+  box-sizing: border-box;
+}
+
+/* Grade em 6 faixas: marcos da coluna 1 e 2 alinhados na mesma linha (1983 ↔ 2008, …). */
+.layout-vozes-report
+  .vozes-main
+  .vozes-page-stack
+  .trajetoria-box--curriculo-usa
+  .milestone-strip-columns,
+.layout-vozes-report
+  .vozes-page
+  .vozes-main
+  .trajetoria-box--curriculo-usa
+  .milestone-strip
+  .milestone-strip-columns {
+  /* 5 linhas pares (1983↔2008 … 1990–2000↔2015–2026) absorvem o vazio; 2001 fica na 6.ª sem vão extra */
+  grid-template-rows: repeat(5, minmax(0, 1fr)) auto;
+  row-gap: 0.45mm;
+  align-items: start;
+}
+
+.layout-vozes-report
+  .vozes-main
+  .vozes-page-stack
+  .trajetoria-box--curriculo-usa
+  .milestone-strip-column,
+.layout-vozes-report
+  .vozes-page
+  .vozes-main
+  .trajetoria-box--curriculo-usa
+  .milestone-strip-column {
+  display: contents;
+}
+
+.layout-vozes-report
+  .vozes-main
+  .trajetoria-box--curriculo-usa
+  .milestone-strip-column:first-child
+  > .milestone-strip-item {
+  grid-column: 1;
+}
+
+.layout-vozes-report
+  .vozes-main
+  .trajetoria-box--curriculo-usa
+  .milestone-strip-column:last-child
+  > .milestone-strip-item {
+  grid-column: 2;
+}
+
+.layout-vozes-report
+  .vozes-main
+  .trajetoria-box--curriculo-usa
+  .milestone-strip-column
+  > .milestone-strip-item:nth-child(1) {
+  grid-row: 1;
+}
+.layout-vozes-report
+  .vozes-main
+  .trajetoria-box--curriculo-usa
+  .milestone-strip-column
+  > .milestone-strip-item:nth-child(2) {
+  grid-row: 2;
+}
+.layout-vozes-report
+  .vozes-main
+  .trajetoria-box--curriculo-usa
+  .milestone-strip-column
+  > .milestone-strip-item:nth-child(3) {
+  grid-row: 3;
+}
+.layout-vozes-report
+  .vozes-main
+  .trajetoria-box--curriculo-usa
+  .milestone-strip-column
+  > .milestone-strip-item:nth-child(4) {
+  grid-row: 4;
+}
+.layout-vozes-report
+  .vozes-main
+  .trajetoria-box--curriculo-usa
+  .milestone-strip-column
+  > .milestone-strip-item:nth-child(5) {
+  grid-row: 5;
+}
+.layout-vozes-report
+  .vozes-main
+  .trajetoria-box--curriculo-usa
+  .milestone-strip-column
+  > .milestone-strip-item:nth-child(6) {
+  grid-row: 6;
+}
+
+.layout-vozes-report .vozes-main .trajetoria-box--curriculo-usa > .heading-3.vozes-trajetoria-heading {
+  margin-bottom: 0.55em;
+  font-size: 10.25pt;
+  flex-shrink: 0;
+}
+
+.layout-vozes-report
+  .vozes-main
+  .trajetoria-box--curriculo-usa
+  > .heading-3.vozes-trajetoria-heading
+  + .milestone-strip {
+  margin-top: 1.75mm;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .trajetoria-box--compact
+  .vozes-milestone--compact
+  .milestone-strip-item--range
+  .milestone-strip-label {
+  line-height: 1.22;
+}
+
 /* Trajetória / marcos — cronologia editorial (ano colorido + texto alinhado; sem fundo de tabela).
  * Sem padding-left: a coluna de anos alinha à esquerda do h3 «A trajetória da organização».
  * O recuo do marco fica só no grid (coluna do ano + gap).
@@ -1837,6 +2127,24 @@
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.layout-vozes-report .vozes-main .milestone-strip--cols-2 .milestone-strip-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 4mm;
+  align-items: start;
+}
+
+.layout-vozes-report .vozes-main .milestone-strip--cols-2 .milestone-strip-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35mm;
+  min-width: 0;
+}
+
+.layout-vozes-report .vozes-main .milestone-strip--cols-2 .milestone-strip-column .milestone-strip-item + .milestone-strip-item {
+  margin-top: 0;
 }
 
 .milestone-strip-item {

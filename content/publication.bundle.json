@@ -1,6 +1,6 @@
 {
   "bundleVersion": 1,
-  "generatedAt": "2026-11-13T17:23:41.747Z",
+  "generatedAt": "2026-11-13T17:52:16.606Z",
   "id": "levantamento-organizacoes-2026",
   "language": "pt-BR",
   "title": "Levantamento Internacional de Instituições de Apoio a Padrões Curriculares",
@@ -1202,11 +1202,6 @@
             ]
           },
           {
-            "type": "component",
-            "name": "TrajetoriaBox",
-            "props": {}
-          },
-          {
             "type": "heading",
             "level": 3,
             "text": "A trajetória do currículo australiano",
@@ -1844,13 +1839,6 @@
             }
           },
           {
-            "type": "component",
-            "name": "TrajetoriaBox",
-            "props": {
-              "className": "trajetoria-box--compact"
-            }
-          },
-          {
             "type": "heading",
             "level": 3,
             "text": "A trajetória da organização",
@@ -1858,7 +1846,8 @@
               {
                 "text": "A trajetória da organização"
               }
-            ]
+            ],
+            "className": "vozes-trajetoria-heading"
           },
           {
             "type": "component",
@@ -1890,7 +1879,8 @@
                   "2026",
                   "Publica posicionamento sobre a proposta de nova *Teaching and Learning Commission*, cobrando consulta mais ampla a professores, entidades profissionais e pesquisadores."
                 ]
-              ]
+              ],
+              "className": "vozes-milestone--compact"
             }
           },
           {
@@ -1963,7 +1953,15 @@
             "type": "paragraph",
             "runs": [
               {
-                "text": "A tabela abaixo apresenta os principais atores e seus respectivos papéis."
+                "text": "Os "
+              },
+              {
+                "text": "standards",
+                "italic": true,
+                "href": "https://www.cde.ca.gov/be/st/ss/index.asp"
+              },
+              {
+                "text": " determinam o que os estudantes devem saber e ser capazes de fazer em cada etapa. O currículo define como esses conhecimentos serão organizados, ensinados e trabalhados pelas redes e escolas."
               }
             ]
           },
@@ -2008,28 +2006,7 @@
             "type": "paragraph",
             "runs": [
               {
-                "text": "Em 2010, por exemplo, o estado da "
-              },
-              {
-                "text": "Califórnia",
-                "href": "https://www.cde.ca.gov/RE/cc/ccssfaqs.asp"
-              },
-              {
-                "text": " criou uma comissão responsável por analisar os "
-              },
-              {
-                "text": "Common Core",
-                "italic": true
-              },
-              {
-                "text": " e autorizada a recomendar sua aprovação e adicionar até 15% de conteúdos. A comissão se reuniu quatro vezes, apresentou sua recomendação e os "
-              },
-              {
-                "text": "standards ",
-                "italic": true
-              },
-              {
-                "text": "foram aprovados em agosto daquele ano."
+                "text": "Os standards determinam o que os estudantes devem saber e ser capazes de fazer em cada etapa. O currículo define como esses conhecimentos serão organizados, ensinados e trabalhados pelas redes e escolas."
               }
             ]
           },
@@ -2241,33 +2218,6 @@
             ]
           },
           {
-            "type": "component",
-            "name": "ActorBand",
-            "props": {
-              "title": "Principais atores e seus papéis",
-              "items": [
-                [
-                  "Governo Federal",
-                  "Define requisitos federais ligados a financiamento, avaliação e transparência."
-                ],
-                [
-                  "Estados",
-                  "Definem e aprovam os padrões acadêmicos, requisitos de conclusão e sistemas de avaliação. O desenho institucional varia entre os estados."
-                ],
-                [
-                  "Conselhos e agências estaduais de educação",
-                  "Transformam a referência nacional em currículo efetivamente utilizado. Definem cronogramas, adaptam conteúdos e desenvolvem orientações."
-                ],
-                [
-                  "Redes e escolas",
-                  "Traduzem os padrões em currículos, materiais, programas de ensino e decisões locais. Realizam a implementação no cotidiano escolar."
-                ]
-              ],
-              "columns": 4,
-              "className": "vozes-page-stack-foot"
-            }
-          },
-          {
             "type": "heading",
             "level": 3,
             "text": "Os *Standards*",
@@ -2366,6 +2316,33 @@
                 "text": "foram aprovados em agosto daquele ano."
               }
             ]
+          },
+          {
+            "type": "component",
+            "name": "ActorBand",
+            "props": {
+              "title": "Principais atores e seus papéis",
+              "items": [
+                [
+                  "Governo Federal",
+                  "Define requisitos federais ligados a financiamento, avaliação e transparência."
+                ],
+                [
+                  "Estados",
+                  "Definem e aprovam os padrões acadêmicos, requisitos de conclusão e sistemas de avaliação. O desenho institucional varia entre os estados."
+                ],
+                [
+                  "Conselhos e agências estaduais de educação",
+                  "Transformam a referência nacional em currículo efetivamente utilizado. Definem cronogramas, adaptam conteúdos e desenvolvem orientações."
+                ],
+                [
+                  "Redes e escolas",
+                  "Traduzem os padrões em currículos, materiais, programas de ensino e decisões locais. Realizam a implementação no cotidiano escolar."
+                ]
+              ],
+              "columns": 4,
+              "className": "vozes-page-stack-foot"
+            }
           },
           {
             "type": "heading",
@@ -2482,11 +2459,6 @@
             ]
           },
           {
-            "type": "component",
-            "name": "TrajetoriaBox",
-            "props": {}
-          },
-          {
             "type": "heading",
             "level": 3,
             "text": "A trajetória do currículo",
@@ -2494,7 +2466,8 @@
               {
                 "text": "A trajetória do currículo"
               }
-            ]
+            ],
+            "className": "vozes-trajetoria-heading"
           },
           {
             "type": "component",
@@ -2546,7 +2519,9 @@
                   "2015 a 2026",
                   "Os estados seguem com autonomia sobre *standards*, ainda que muitos mantenham elementos do Common Core e de outras referências comuns."
                 ]
-              ]
+              ],
+              "columns": 2,
+              "className": "vozes-milestone--compact"
             }
           }
         ]
@@ -3275,13 +3250,6 @@
             }
           },
           {
-            "type": "component",
-            "name": "TrajetoriaBox",
-            "props": {
-              "className": "trajetoria-box--compact"
-            }
-          },
-          {
             "type": "heading",
             "level": 3,
             "text": "A trajetória da organização",
@@ -3289,7 +3257,8 @@
               {
                 "text": "A trajetória da organização"
               }
-            ]
+            ],
+            "className": "vozes-trajetoria-heading"
           },
           {
             "type": "component",
@@ -3337,7 +3306,8 @@
                   "2020",
                   "Encerra suas atividades e transfere projetos e recursos para outras organizações."
                 ]
-              ]
+              ],
+              "className": "vozes-milestone--compact"
             }
           },
           {
@@ -4208,11 +4178,6 @@
             "caption": "Fonte: [Site](https://schoolsweek.co.uk/new-curriculum-to-be-introduced-in-2028-as-review-published/) Schools Week"
           },
           {
-            "type": "component",
-            "name": "TrajetoriaBox",
-            "props": {}
-          },
-          {
             "type": "heading",
             "level": 3,
             "text": "A trajetória do currículo inglês",
@@ -4220,7 +4185,8 @@
               {
                 "text": "A trajetória do currículo inglês"
               }
-            ]
+            ],
+            "className": "vozes-trajetoria-heading"
           },
           {
             "type": "component",
@@ -4768,13 +4734,6 @@
             }
           },
           {
-            "type": "component",
-            "name": "TrajetoriaBox",
-            "props": {
-              "className": "trajetoria-box--compact"
-            }
-          },
-          {
             "type": "heading",
             "level": 3,
             "text": "A trajetória da organização",
@@ -4782,7 +4741,8 @@
               {
                 "text": "A trajetória da organização"
               }
-            ]
+            ],
+            "className": "vozes-trajetoria-heading"
           },
           {
             "type": "component",
@@ -4814,7 +4774,8 @@
                   "2025 a 2026",
                   "Publicações sobre temas curriculares e continuidade de sua atuação internacional."
                 ]
-              ]
+              ],
+              "className": "vozes-milestone--compact"
             }
           },
           {
@@ -5350,13 +5311,6 @@
             }
           },
           {
-            "type": "component",
-            "name": "TrajetoriaBox",
-            "props": {
-              "className": "trajetoria-box--compact"
-            }
-          },
-          {
             "type": "heading",
             "level": 3,
             "text": "A trajetória da organização",
@@ -5364,7 +5318,8 @@
               {
                 "text": "A trajetória da organização"
               }
-            ]
+            ],
+            "className": "vozes-trajetoria-heading"
           },
           {
             "type": "component",
@@ -5400,7 +5355,8 @@
                   "2025 a 2026",
                   "Continuidade dos programas de pesquisa, eventos e publicações, em um contexto de novas revisões curriculares."
                 ]
-              ]
+              ],
+              "className": "vozes-milestone--compact"
             }
           },
           {
@@ -6037,11 +5993,6 @@
             ]
           },
           {
-            "type": "component",
-            "name": "TrajetoriaBox",
-            "props": {}
-          },
-          {
             "type": "heading",
             "level": 3,
             "text": "A trajetória do currículo nigeriano",
@@ -6049,7 +6000,8 @@
               {
                 "text": "A trajetória do currículo nigeriano"
               }
-            ]
+            ],
+            "className": "vozes-trajetoria-heading"
           },
           {
             "type": "component",
@@ -6627,13 +6579,6 @@
             }
           },
           {
-            "type": "component",
-            "name": "TrajetoriaBox",
-            "props": {
-              "className": "trajetoria-box--compact"
-            }
-          },
-          {
             "type": "heading",
             "level": 3,
             "text": "A trajetória da organização",
@@ -6641,7 +6586,8 @@
               {
                 "text": "A trajetória da organização"
               }
-            ]
+            ],
+            "className": "vozes-trajetoria-heading"
           },
           {
             "type": "component",
@@ -6689,7 +6635,8 @@
                   "2020 a 2023",
                   "Publicação de novas edições do periódico acadêmico, conforme o acervo institucional."
                 ]
-              ]
+              ],
+              "className": "vozes-milestone--compact"
             }
           },
           {
@@ -7371,11 +7318,6 @@
             ]
           },
           {
-            "type": "component",
-            "name": "TrajetoriaBox",
-            "props": {}
-          },
-          {
             "type": "heading",
             "level": 3,
             "text": "A trajetória do currículo chileno",
@@ -7383,7 +7325,8 @@
               {
                 "text": "A trajetória do currículo chileno"
               }
-            ]
+            ],
+            "className": "vozes-trajetoria-heading"
           },
           {
             "type": "component",
@@ -7988,13 +7931,6 @@
             }
           },
           {
-            "type": "component",
-            "name": "TrajetoriaBox",
-            "props": {
-              "className": "trajetoria-box--compact"
-            }
-          },
-          {
             "type": "heading",
             "level": 3,
             "text": "A trajetória da organização",
@@ -8002,7 +7938,8 @@
               {
                 "text": "A trajetória da organização"
               }
-            ]
+            ],
+            "className": "vozes-trajetoria-heading"
           },
           {
             "type": "component",
@@ -8038,7 +7975,8 @@
                   "2026",
                   "Publica pesquisas com a Brookings sobre currículo, oportunidades de aprendizagem e condições de implementação das competências amplas no Chile."
                 ]
-              ]
+              ],
+              "className": "vozes-milestone--compact"
             }
           },
           {

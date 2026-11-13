@@ -11,6 +11,7 @@ import { DimensionList } from '../components/vozes/DimensionList'
 import { ProfileCard } from '../components/vozes/ProfileCard'
 import { ActorBand } from '../components/vozes/ActorBand'
 import { MilestoneStrip } from '../components/vozes/MilestoneStrip'
+import { TrajetoriaBox } from '../components/vozes/TrajetoriaBox'
 import type { FlowBlock } from './bundle-types'
 import { parseInlineRuns } from './inline-markdown'
 import { renderRuns } from './renderRuns'
@@ -18,6 +19,55 @@ import { renderRuns } from './renderRuns'
 const RAIL_COMPONENTS = new Set(['ProfileCard', 'FactsRail', 'CalloutCard'])
 
 const GOVERNANCA_HEADING = 'A governança'
+const TRAJETORIA_HEADING = /^A trajetória (do currículo|da organização)/i
+
+function isTrajetoriaHeading(block: FlowBlock): boolean {
+  if (block.type !== 'heading' || block.level !== 3) return false
+  return TRAJETORIA_HEADING.test((block.text ?? '').trim())
+}
+
+/** Inventário/bundle: agrupa título + marcos na mesma caixa do MDX. */
+function wrapTrajetoriaBoxes(blocks: FlowBlock[]): FlowBlock[] {
+  const out: FlowBlock[] = []
+  let index = 0
+  while (index < blocks.length) {
+    const block = blocks[index]
+    if (!isTrajetoriaHeading(block)) {
+      out.push(block)
+      index += 1
+      continue
+    }
+
+    const group: FlowBlock[] = [block]
+    index += 1
+    while (index < blocks.length) {
+      const next = blocks[index]
+      if (next.type === 'heading' && next.level <= 3) break
+      group.push(next)
+      index += 1
+      if (next.type === 'component' && next.name === 'MilestoneStrip') break
+    }
+
+    if (group.length === 1) {
+      out.push(block)
+      continue
+    }
+
+    const hasMilestone = group.some(
+      (item) => item.type === 'component' && item.name === 'MilestoneStrip',
+    )
+    const isOrg = /da organização/i.test(block.type === 'heading' ? block.text : '')
+    out.push({
+      type: 'component',
+      name: 'TrajetoriaBox',
+      props: {
+        className: isOrg && hasMilestone ? 'trajetoria-box--compact' : undefined,
+        blocks: group,
+      },
+    })
+  }
+  return out
+}
 
 function isGovernancaHeading(block: FlowBlock): boolean {
   if (block.type !== 'heading' || block.level !== 3) return false
@@ -183,24 +233,38 @@ export function renderFlowBlock(block: FlowBlock, key: string): ReactNode {
       if (block.name === 'ActorBand' && Array.isArray(block.props.items)) {
         const columns =
           typeof block.props.columns === 'number' ? block.props.columns : 4
+        const icons = Array.isArray(block.props.icons) ? (block.props.icons as string[]) : undefined
         return (
           <ActorBand
             key={key}
             title={typeof block.props.title === 'string' ? block.props.title : undefined}
             columns={columns}
             items={block.props.items as string[][]}
+            icons={icons}
             className={typeof block.props.className === 'string' ? block.props.className : undefined}
           />
         )
       }
       if (block.name === 'MilestoneStrip' && Array.isArray(block.props.items)) {
+        const columns =
+          block.props.columns === 2 ? 2 : block.props.columns === 1 ? 1 : 1
         return (
           <MilestoneStrip
             key={key}
             title={typeof block.props.title === 'string' ? block.props.title : undefined}
             items={block.props.items as string[][]}
+            columns={columns}
             className={typeof block.props.className === 'string' ? block.props.className : undefined}
           />
+        )
+      }
+      if (block.name === 'TrajetoriaBox' && Array.isArray(block.props.blocks)) {
+        const nested = block.props.blocks as FlowBlock[]
+        const boxClass = typeof block.props.className === 'string' ? block.props.className : undefined
+        return (
+          <TrajetoriaBox key={key} className={boxClass}>
+            {nested.map((child, childIndex) => renderFlowBlock(child, `${key}-${childIndex}`))}
+          </TrajetoriaBox>
         )
       }
       return (
@@ -215,6 +279,7 @@ export function renderFlowBlock(block: FlowBlock, key: string): ReactNode {
 
 export function renderFlowBlocks(blocks: FlowBlock[], sectionId: string): ReactNode {
   const { main, rail, hasProfile } = splitFlowBlocks(blocks)
+  const mainBlocks = wrapTrajetoriaBoxes(main)
   const isFront = sectionId === 'apresentacao' || sectionId === 'resumo-executivo'
   const layoutClass = [
     hasProfile || rail.length > 0 ? 'vozes-with-rail' : 'vozes-prose-only',
@@ -226,7 +291,7 @@ export function renderFlowBlocks(blocks: FlowBlock[], sectionId: string): ReactN
   return (
     <VozesLayout className={layoutClass}>
       <VozesMain>
-        {main.map((block, index) => renderFlowBlock(block, `${sectionId}-${index}`))}
+        {mainBlocks.map((block, index) => renderFlowBlock(block, `${sectionId}-${index}`))}
       </VozesMain>
       {rail.length > 0 ? (
         <VozesRail>
