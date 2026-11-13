@@ -2045,6 +2045,56 @@
   margin-top: 0.4mm;
 }
 
+/* EUA p. 18 — sistema + standards inteiros + ActorBand (folha única, sem partir corpo). */
+.layout-vozes-report .vozes-main > .vozes-page-stack--usa-opening {
+  --stack-paragraph-vozes: 0.58em;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--usa-opening h3 {
+  margin-top: 0.55em;
+  margin-bottom: 0.35em;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--usa-opening p {
+  line-height: 1.28;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--usa-opening .country-opening {
+  margin-bottom: calc(var(--stack-country-code) - 1.5mm);
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--usa-opening .actor-band {
+  margin-top: 2.5mm;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--usa-opening .actor-band-item {
+  font-size: 8.25pt;
+  line-height: 1.26;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--usa-opening .actor-band-name {
+  font-size: 8.5pt;
+}
+
+/* EUA p. 19 — «Como produzidos» + trajetória numa folha. */
+.layout-vozes-report .vozes-main > .vozes-page-stack--usa-producao {
+  --stack-paragraph-vozes: 0.62em;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--usa-producao h3 {
+  margin-top: 0;
+  margin-bottom: 0.35em;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--usa-producao p {
+  line-height: 1.28;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--usa-producao
+  > p:has(+ .trajetoria-box--curriculo-usa) {
+  margin-bottom: calc(var(--stack-paragraph-vozes) + 3mm);
+}
+
 /* Rodapé da folha (EUA p. 19): caixa de trajetória alinhada à margem inferior dentro do PageStack. */
 /* EUA — trajetória do currículo cabe na p. 19 (prévia + PDF). */
 .layout-vozes-report .vozes-main .trajetoria-box--curriculo-usa {

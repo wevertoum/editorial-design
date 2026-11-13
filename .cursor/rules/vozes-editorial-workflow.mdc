@@ -29,8 +29,8 @@ Tudo o que a editora pediu e ficou combinado — texto, componentes (`ProfileCar
 Quando a editora ajusta **uma** página (largura de coluna, bullets, quebra, espaço antes de lista, perfil no rail), tratar como **sistema do relatório**, não exceção pontual.
 
 1. **Generalizar primeiro** — tokens (`tokens.css`), grade (`vozes.css`, `--vozes-rail-to-prose`, `--vozes-prose-track`), componente (`DetailListGrid`, `PageStack`, `Heading` + `vozes-page-start`). Evitar CSS ou largura só num parágrafo.
-2. **Repetir onde couber** — após fechar o pedido na página citada, varrer capítulos **parecidos** (`*-org.mdx`, miolos de país `*.mdx`, `resumo-executivo`, etc.) e alinhar ao mesmo padrão quando o conteúdo for do mesmo tipo (lista após intro, financiamento, exemplos de atuação, faixa de atores). **Excluir Austrália** (capítulo fechado).
-3. **Exceções explícitas** — não alterar composições **fechadas** (Austrália pp. 10–11); `DetailList` com `icon=` (processos AU) mantém faixa plena; não forçar `DetailListGrid` onde houver figura ou prosa **entre** itens sem combinar com a editora.
+2. **Repetir onde couber** — após fechar o pedido na página citada, varrer capítulos **parecidos** (`*-org.mdx`, miolos de país `*.mdx`, `resumo-executivo`, etc.) e alinhar ao mesmo padrão quando o conteúdo for do mesmo tipo (lista após intro, financiamento, exemplos de atuação, faixa de atores). **Excluir Austrália** (capítulo fechado) e **EUA pp. 18–19** (dupla fechada).
+3. **Exceções explícitas** — não alterar composições **fechadas** (Austrália pp. 10–11; **EUA pp. 18–19**); `DetailList` com `icon=` (processos AU) mantém faixa plena; não forçar `DetailListGrid` onde houver figura ou prosa **entre** itens sem combinar com a editora.
 4. **Micro-ajuste vs sistema** — “um pouquinho menor/maior” na coluna → calibrar token/global; “só nesta seção” → só MDX local.
 
 ### Padrões já combinados (referência rápida — Nov/2026)
@@ -70,6 +70,19 @@ A editora combinou: **Austrália não recebe mais alterações** sem pedido expl
 - **Proibido sem pedido:** mudar ordem de páginas, quebras, layout, componentes, texto, import que regenere o capítulo, “propagação” a partir de outros países ou fixes globais de paginação pensados para outra seção.
 - **Paginação global:** ajustes em `paginateDesk.ts` / tokens não podem mudar como as folhas AU renderizam; se um fix geral afetar AU, pedir à editora ou isolar o comportamento (não tocar no resultado AU).
 - **Exceção:** só o que a editora citar por palavras (“muda a Austrália…”, país + página ou trecho visível).
+
+### EUA — dupla pp. 18–19 (fechada / não alterar)
+
+Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, simplificar, re-quebrar nem redesenhar sem pedido explícito. Fonte: `usa.mdx` (dois `PageStack`) + `paginateDesk.ts` (classes `vozes-page-stack--usa-opening` / `--usa-producao`) + `vozes.css` (compactação e `trajetoria-box--curriculo-usa`).
+
+| Folha | Conteúdo fixo |
+| --- | --- |
+| **18** | Abertura EUA; *O sistema curricular*; bloco completo *Os Standards* (Common Core, Califórnia); `ActorBand` **Principais atores** no rodapé (`vozes-page-stack--usa-opening`) |
+| **19** | *Como os standards são produzidos* (texto integral); `TrajetoriaBox` + marcos do currículo no rodapé (`vozes-page-stack--usa-producao`) |
+
+- **Proibido sem pedido:** mudar ordem de parágrafos, quebras, espaçamento compacto dessas folhas, split da paginação que reabra a 18 ou 19, `import:mapeamento` que regenere trechos sem reconciliar, ou fixes globais de paginação que alterem o resultado dessas folhas.
+- **Paginação global:** ajustes em `paginateDesk.ts` / tokens não podem mudar como as folhas 18–19 renderizam; se um fix geral afetar EUA abertura, pedir à editora ou isolar o comportamento.
+- **Exceção:** só o que a editora citar por palavras (“muda a página 18…”, “EUA”, folio ou trecho visível). A partir da p. 20 (`usa-org` etc.) segue editável normalmente.
 
 ## Vocabulário da editora → comando (agente executa; não repassar npm ao editor)
 

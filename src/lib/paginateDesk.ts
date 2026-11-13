@@ -130,13 +130,22 @@ function groupBlocks(
       /* Faixa marfim + overflow na mesma folha: não partir prelúdio do dual-track. */
       if (
         block.classList.contains('vozes-page-stack--dual-track') ||
-        block.classList.contains('vozes-page-stack--trajetoria-sheet')
+        block.classList.contains('vozes-page-stack--trajetoria-sheet') ||
+        block.classList.contains('vozes-page-stack--usa-opening') ||
+        block.classList.contains('vozes-page-stack--usa-producao')
       ) {
         groups.push([block])
         continue
       }
       if (fits([block], false)) {
         groups.push([block])
+        continue
+      }
+      const footSplit = splitPageStackWithFoot(block, limit, measure)
+      if (footSplit) {
+        for (const nodes of footSplit) {
+          groups.push(coalesceTables(nodes))
+        }
         continue
       }
       const stackClass = block.className
@@ -229,6 +238,43 @@ function groupBlocks(
 
   if (current.length > 0) groups.push(coalesceTables(current))
   return groups.map(coalesceTables)
+}
+
+/** Mantém `.vozes-page-stack-foot` na mesma folha que o máximo de corpo couber (aberturas de país). */
+function splitPageStackWithFoot(
+  block: HTMLElement,
+  limit: number,
+  measure: (nodes: HTMLElement[], withRail: boolean) => number,
+): HTMLElement[][] | null {
+  const foot = block.querySelector(':scope > .vozes-page-stack-foot')
+  if (!(foot instanceof HTMLElement)) return null
+
+  const kids = elementChildren(block)
+  const footEl = kids.find((node) => node === foot)
+  if (!footEl) return null
+
+  const bodyKids = kids.filter((node) => node !== footEl)
+  if (bodyKids.length === 0) return null
+
+  const buildStack = (body: HTMLElement[]) => {
+    const stack = block.cloneNode(false) as HTMLElement
+    for (const node of body) stack.appendChild(node.cloneNode(true) as HTMLElement)
+    stack.appendChild(footEl.cloneNode(true) as HTMLElement)
+    return stack
+  }
+
+  let body = [...bodyKids]
+  const overflow: HTMLElement[] = []
+  while (body.length > 0) {
+    if (measure([buildStack(body)], false) <= limit + SLOP) break
+    overflow.unshift(body.pop()!)
+  }
+
+  if (body.length === 0) return null
+
+  const stacks: HTMLElement[][] = [[buildStack(body)]]
+  if (overflow.length > 0) stacks.push(overflow.map((node) => node.cloneNode(true) as HTMLElement))
+  return stacks
 }
 
 function breakApart(
@@ -715,6 +761,8 @@ function prepareStackMeasure(slot: HTMLElement): void {
     if (
       node.classList.contains('vozes-page-stack--dual-track') ||
       node.classList.contains('vozes-page-stack--trajetoria-sheet') ||
+      node.classList.contains('vozes-page-stack--usa-opening') ||
+      node.classList.contains('vozes-page-stack--usa-producao') ||
       node.classList.contains('vozes-page-break')
     ) {
       return
