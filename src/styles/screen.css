@@ -46,6 +46,15 @@
     transform: scale(min(1, 100cqi / var(--spread-natural)));
   }
 
+  /* Eixo dual-track contínuo na prévia em dupla (fecha o vão de 2px entre folhas). */
+  .spread .dual-track[data-spread-part='a'] .dual-track-nodes::before {
+    right: calc(-1 * var(--dual-track-axis-gutter-bleed) - var(--spread-gutter));
+  }
+
+  .spread .dual-track[data-spread-part='b'] .dual-track-nodes::before {
+    left: calc(-1 * var(--dual-track-axis-gutter-bleed) - var(--spread-gutter));
+  }
+
   .spread-pad {
     display: block;
     width: var(--page-width);

@@ -11,6 +11,15 @@
   --font-serif: "Roboto Slab", "Source Serif 4", serif;
   --font-sans: Mulish, "Source Sans 3", "Segoe UI", Helvetica, Arial, sans-serif;
   --font-display: "Roboto Slab", Georgia, serif;
+  /* Anos e eixo do bloco “Onde as trajetórias se cruzam” (PDF). */
+  --font-trajectory: "Roboto", Mulish, "Source Sans 3", sans-serif;
+
+  --dual-track-axis-offset: 8.9mm;
+  /* Sangria do eixo roxo na lombada da dupla (spread a → direita, b → esquerda). */
+  --dual-track-axis-gutter-bleed: var(--margin-inner);
+  /* Zona fixa do bloco marfim na dupla embutida (pp. 16–17) — mesma altura Y nas duas folhas. */
+  /* ~62% da área útil A4 (297 − 18 − 20 mm); ref. print 2 pp. 16–17. */
+  --dual-track-zone-height: 162mm;
 
   --text-body: 10pt;
   --text-leading: 1.41;

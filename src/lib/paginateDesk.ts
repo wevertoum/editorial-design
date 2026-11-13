@@ -30,11 +30,6 @@ const ATOMIC = [
   'table',
 ].join(', ')
 
-type FolioContext = {
-  /** Physical page indices of unnumbered blank spreads (e.g. verso before apresentação). */
-  blankPhysicalPages: number[]
-}
-
 export function paginateInto(source: HTMLElement, desk: HTMLElement): () => void {
   let cancelled = false
 
@@ -42,10 +37,9 @@ export function paginateInto(source: HTMLElement, desk: HTMLElement): () => void
     if (cancelled) return
     const sheets = [...source.children].filter((node): node is HTMLElement => node instanceof HTMLElement && node.classList.contains('sheet'))
     const pages: HTMLElement[] = []
-    const folioCtx: FolioContext = { blankPhysicalPages: [] }
     let pageNumber = 1
     for (const sheet of sheets) {
-      const built = paginateSheet(sheet, pageNumber, folioCtx)
+      const built = paginateSheet(sheet, pageNumber)
       pages.push(...built)
       pageNumber += built.length
     }
@@ -67,7 +61,7 @@ export function paginateInto(source: HTMLElement, desk: HTMLElement): () => void
   }
 }
 
-function paginateSheet(sheet: HTMLElement, startPage: number, folioCtx: FolioContext): HTMLElement[] {
+function paginateSheet(sheet: HTMLElement, startPage: number): HTMLElement[] {
   const limit = pageLimitPx()
   const main = sheet.querySelector(':scope > .vozes-page > .vozes-main')
   const probe = createProbe(sheet)
@@ -75,21 +69,21 @@ function paginateSheet(sheet: HTMLElement, startPage: number, folioCtx: FolioCon
     if (main) {
       const blocks = elementChildren(main).map((node) => node.cloneNode(true) as HTMLElement)
       if (probe.measure(blocks, true) <= limit + SLOP) {
-        return [cloneWhole(sheet, startPage, folioCtx)]
+        return [cloneWhole(sheet, startPage)]
       }
       const groups = groupBlocks(blocks, limit, probe.measure)
       return groups.map((nodes, index) =>
-        renderGroup(sheet, nodes, startPage + index, index === 0, index === 0, folioCtx),
+        renderGroup(sheet, nodes, startPage + index, index === 0, index === 0),
       )
     }
 
     const blocks = elementChildren(sheet).map((node) => node.cloneNode(true) as HTMLElement)
     if (probe.measure(blocks, false) <= limit + SLOP) {
-      return [cloneWhole(sheet, startPage, folioCtx)]
+      return [cloneWhole(sheet, startPage)]
     }
     const groups = groupBlocks(blocks, limit, probe.measure)
     return groups.map((nodes, index) =>
-      renderGroup(sheet, nodes, startPage + index, false, index === 0, folioCtx),
+      renderGroup(sheet, nodes, startPage + index, false, index === 0),
     )
   } finally {
     probe.destroy()
@@ -397,9 +391,9 @@ function snapWhitespace(text: string, index: number): number {
   return index
 }
 
-function cloneWhole(sheet: HTMLElement, pageNumber: number, folioCtx: FolioContext): HTMLElement {
+function cloneWhole(sheet: HTMLElement, pageNumber: number): HTMLElement {
   const page = sheet.cloneNode(true) as HTMLElement
-  decorate(page, pageNumber, folioCtx, false)
+  decorate(page, pageNumber, false)
   return page
 }
 
@@ -409,7 +403,6 @@ function renderGroup(
   pageNumber: number,
   withRail: boolean,
   withSectionId: boolean,
-  folioCtx: FolioContext,
 ): HTMLElement {
   const page = sheet.cloneNode(false) as HTMLElement
   page.removeAttribute('id')
@@ -429,7 +422,7 @@ function renderGroup(
     nodes.forEach((node) => page.appendChild(node))
   }
   if (withSectionId && sheet.id) page.id = sheet.id
-  decorate(page, pageNumber, folioCtx, true)
+  decorate(page, pageNumber, true)
   return page
 }
 
@@ -463,26 +456,19 @@ function spreadPad(): HTMLElement {
   return pad
 }
 
-function isUnnumberedBlank(page: HTMLElement): boolean {
-  return page.classList.contains('layout-vozes-blank')
-}
-
-function decorate(page: HTMLElement, pageNumber: number, folioCtx: FolioContext, stripExistingFolio: boolean) {
+function decorate(page: HTMLElement, pageNumber: number, stripExistingFolio: boolean) {
   page.classList.add('sheet-page')
   page.dataset.pageSide = pageNumber % 2 === 1 ? 'right' : 'left'
   page.dataset.page = String(pageNumber)
   if (stripExistingFolio) page.querySelectorAll(':scope > .folio').forEach((node) => node.remove())
   if (page.querySelector(':scope > .folio')) return
-  if (page.classList.contains('layout-vozes-cover') || isUnnumberedBlank(page)) {
+  if (page.classList.contains('layout-vozes-cover')) {
     page.dataset.folio = 'off'
-    if (isUnnumberedBlank(page)) folioCtx.blankPhysicalPages.push(pageNumber)
     return
   }
-  const blanksBefore = folioCtx.blankPhysicalPages.filter((n) => n < pageNumber).length
-  const folioNumber = pageNumber - blanksBefore
   const folio = document.createElement('span')
   folio.className = 'folio'
-  folio.textContent = String(folioNumber)
+  folio.textContent = String(pageNumber)
   page.appendChild(folio)
 }
 

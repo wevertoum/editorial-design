@@ -1,5 +1,4 @@
 import type { DualTrackNode } from '../../content/types'
-import { Heading } from '../Heading'
 import { DualTrackTimeline } from './DualTrackTimeline'
 import part1a from '../../../content/timelines/australia-cruzamento-1-a.json'
 import part1b from '../../../content/timelines/australia-cruzamento-1-b.json'
@@ -28,15 +27,21 @@ export function DualTrackEmbed({ part, title, spreadPart, className }: DualTrack
   const nodes = SOURCES[part]
   const spread = spreadPart ?? (part === 'au-1-b' ? 'b' : 'a')
   const extra = className?.trim() ? ` ${className.trim()}` : ''
+  const isStackFoot = extra.includes('vozes-page-stack-foot')
+  const reserveTitle = spread === 'b' && isStackFoot
 
   return (
-    <section className={`dual-track-section${extra}`} aria-label={title?.trim() || 'Onde as trajetórias se cruzam'}>
-      {title?.trim() ? (
-        <Heading level={2} className="dual-track-section-title">
-          {title.trim()}
-        </Heading>
-      ) : null}
-      <DualTrackTimeline nodes={nodes} spreadPart={spread} />
+    <section
+      className={`dual-track-section${extra}`}
+      data-spread-part={spread}
+      aria-label={title?.trim() || 'Onde as trajetórias se cruzam'}
+    >
+      <DualTrackTimeline
+        nodes={nodes}
+        spreadPart={spread}
+        title={reserveTitle ? undefined : title}
+        reserveTitle={reserveTitle}
+      />
     </section>
   )
 }
