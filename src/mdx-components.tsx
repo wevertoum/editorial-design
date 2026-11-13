@@ -17,6 +17,7 @@ import { ProfileCard } from './components/vozes/ProfileCard'
 import { ActorBand } from './components/vozes/ActorBand'
 import { DualTrackEmbed } from './components/vozes/DualTrackEmbed'
 import { PageStack } from './components/vozes/PageStack'
+import { ParticipationBox } from './components/vozes/ParticipationBox'
 import { SourceNote } from './components/vozes/SourceNote'
 import { VozesLayout, VozesMain, VozesRail } from './components/vozes/VozesLayout'
 
@@ -57,4 +58,5 @@ export const mdxComponents = {
   ActorBand,
   DualTrackEmbed,
   PageStack,
+  ParticipationBox,
 }

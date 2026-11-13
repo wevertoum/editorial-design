@@ -529,6 +529,66 @@
   margin-top: var(--space-2);
 }
 
+/* Caixa de participação compacta (AU — libera folha da trajetória). */
+.layout-vozes-report .vozes-main .participation-box.participation-box--compact {
+  padding: 3.5mm 5.5mm 4mm;
+}
+
+.layout-vozes-report .vozes-main .participation-box.participation-box--compact .participation-box-body > p {
+  margin-bottom: 0.55em;
+}
+
+.layout-vozes-report .vozes-main .participation-box.participation-box--compact .participation-box-body > p:last-child {
+  margin-bottom: 0;
+}
+
+/* Fases do processo AU — grelha 2 colunas mais enxuta (libera p. 12 para texto da trajetória). */
+.layout-vozes-report .vozes-main .vozes-detail-list-grid--process-au {
+  row-gap: 2mm;
+  margin-bottom: 3mm;
+}
+
+.layout-vozes-report .vozes-main .vozes-detail-list-grid--process-au .detail-list-item > p:not(:only-child):last-child {
+  font-size: 8.5pt;
+  line-height: 1.28;
+}
+
+.layout-vozes-report .vozes-main .heading-3.vozes-trajetoria-heading {
+  margin-bottom: 0.45em;
+  break-after: avoid;
+}
+
+.layout-vozes-report .vozes-main .heading-3.vozes-trajetoria-heading + p {
+  margin-bottom: 0;
+  break-after: avoid;
+}
+
+/* AU trajetória p. 12 texto · p. 13 infográfico ACARA (folha dedicada). */
+.layout-vozes-report .vozes-main > .vozes-page-stack.vozes-page-stack--trajetoria-sheet {
+  break-inside: avoid;
+  min-height: calc(var(--page-height) - var(--margin-top) - var(--margin-bottom));
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack.vozes-page-stack--trajetoria-sheet .figure.figure--trajetoria-sheet.vozes-page-stack-foot {
+  margin-top: auto;
+  margin-bottom: 0;
+  break-inside: avoid;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack.vozes-page-stack--trajetoria-sheet
+  .figure.figure--trajetoria-sheet.vozes-page-stack-foot
+  img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: calc(var(--page-height) - var(--margin-top) - var(--margin-bottom) - 12mm);
+  margin-inline: auto;
+  object-fit: contain;
+  object-position: center top;
+}
+
 .layout-vozes-report .vozes-page:is(.vozes-prose-only, .vozes-with-rail) .vozes-main > .figure.figure--span {
   clear: both;
   float: none;
@@ -1161,6 +1221,72 @@
   font-family: var(--font-sans);
   font-size: 8pt;
   font-weight: 700;
+  color: var(--color-vozes-roxo-2);
+}
+
+/* Canais de participação — caixa no fluxo (referência editorial). */
+.layout-vozes-report .vozes-main .participation-box {
+  position: relative;
+  margin: var(--stack-block) 0;
+  padding: 5mm 6mm 7mm 5.5mm;
+  border-radius: 3.5mm;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--color-vozes-roxo-2) 14%, white);
+  color: var(--color-vozes-roxo);
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.layout-vozes-report .vozes-main .participation-box::after {
+  content: "";
+  position: absolute;
+  right: -7mm;
+  bottom: -7mm;
+  width: 17mm;
+  height: 17mm;
+  border-radius: 50%;
+  background: var(--color-vozes-laranja);
+  pointer-events: none;
+}
+
+.layout-vozes-report .vozes-main .participation-box-icon {
+  display: block;
+  width: 7.5mm;
+  height: 7.5mm;
+  margin-bottom: 3mm;
+  color: var(--color-vozes-roxo);
+}
+
+.layout-vozes-report .vozes-main .participation-box-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 92%;
+}
+
+.layout-vozes-report .vozes-main .participation-box-title {
+  margin: 0 0 2.5mm;
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  font-weight: 700;
+  line-height: var(--text-leading);
+  color: var(--color-vozes-roxo);
+}
+
+.layout-vozes-report .vozes-main .participation-box-body {
+  font-size: var(--text-body);
+  line-height: var(--text-leading);
+  text-align: left;
+}
+
+.layout-vozes-report .vozes-main .participation-box-body > p {
+  margin: 0 0 var(--stack-paragraph-vozes);
+}
+
+.layout-vozes-report .vozes-main .participation-box-body > p:last-child {
+  margin-bottom: 0;
+}
+
+.layout-vozes-report .vozes-main .participation-box a {
   color: var(--color-vozes-roxo-2);
 }
 

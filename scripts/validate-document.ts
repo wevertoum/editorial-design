@@ -46,6 +46,7 @@ const allowedComponents = new Set([
   'MilestoneItem',
   'MilestoneStrip',
   'PageStack',
+  'ParticipationBox',
   'ProfileCard',
   'PullQuote',
   'RailItem',

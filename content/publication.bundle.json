@@ -1,6 +1,6 @@
 {
   "bundleVersion": 1,
-  "generatedAt": "2026-11-13T14:46:48.304Z",
+  "generatedAt": "2026-11-13T15:04:17.338Z",
   "id": "levantamento-organizacoes-2026",
   "language": "pt-BR",
   "title": "Levantamento Internacional de Instituições de Apoio a Padrões Curriculares",
@@ -1165,14 +1165,11 @@
             }
           },
           {
-            "type": "heading",
-            "level": 3,
-            "text": "Canais de participação",
-            "runs": [
-              {
-                "text": "Canais de participação"
-              }
-            ]
+            "type": "component",
+            "name": "ParticipationBox",
+            "props": {
+              "className": "participation-box--compact"
+            }
           },
           {
             "type": "paragraph",
@@ -1212,7 +1209,8 @@
               {
                 "text": "A trajetória do currículo australiano"
               }
-            ]
+            ],
+            "className": "vozes-trajetoria-heading"
           },
           {
             "type": "paragraph",
@@ -1225,30 +1223,14 @@
                 "italic": true
               },
               {
-                "text": ", de 2008 a 2022, com os marcos de implementação e revisão."
-              }
-            ]
-          },
-          {
-            "type": "paragraph",
-            "runs": [
-              {
-                "text": "O "
+                "text": ", de 2008 a 2022, com os marcos de implementação e revisão. O "
               },
               {
                 "text": "Australian Curriculum",
                 "italic": true
               },
               {
-                "text": " foi resultado de um processo gradual de aproximação entre os sistemas educacionais dos estados e territórios. A Austrália avançou em objetivos e referências comuns até chegar, em 2008, à criação de uma estrutura nacional de currículo. Desde então, o documento passou por diferentes versões e revisões, mantendo o equilíbrio entre coordenação nacional e autonomia local."
-              }
-            ]
-          },
-          {
-            "type": "paragraph",
-            "runs": [
-              {
-                "text": "A imagem na página seguinte sintetiza os principais marcos desse processo, desde as primeiras iniciativas de coordenação nacional até as revisões mais recentes."
+                "text": " foi resultado de um processo gradual de aproximação entre os sistemas educacionais dos estados e territórios. A Austrália avançou em objetivos e referências comuns até chegar, em 2008, à criação de uma estrutura nacional de currículo. Desde então, o documento passou por diferentes versões e revisões, mantendo o equilíbrio entre coordenação nacional e autonomia local. A imagem na página seguinte sintetiza os principais marcos desse processo, desde as primeiras iniciativas de coordenação nacional até as revisões mais recentes."
               }
             ]
           },
@@ -1258,7 +1240,7 @@
             "alt": "Linha do tempo do Australian Curriculum, de 2008 a 2022, com os marcos de implementação e revisão.",
             "caption": "Fonte: [Site](https://acara.edu.au/curriculum) oficial ACARA.",
             "placement": "span",
-            "className": "figure--trajetoria-sheet"
+            "className": "figure--trajetoria-sheet vozes-page-stack-foot"
           }
         ]
       }

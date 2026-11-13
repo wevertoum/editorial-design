@@ -94,7 +94,8 @@ h3 + *,
 .layout-vozes-report .vozes-main .profile-card .profile-card-bio,
 .dual-track-node,
 .facts-rail,
-.callout-card {
+.callout-card,
+.participation-box {
   break-inside: avoid;
 }
 
