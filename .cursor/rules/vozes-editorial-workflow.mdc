@@ -87,11 +87,11 @@ Nunca diga ao editor: “rode npm run dev”, “build:digital”, “export:bun
 | Margens, fólio, numeração, grid | `tokens.css`, `paged.css`, `screen.css`, `vozes.css` — prosa **9fr : 2fr rail**; não voltar a 3/5 sem pedido |
 | Bullets agrupados (financiamento, exemplos, órgãos) | `DetailList` dentro de **`DetailListGrid`** (`columns`, `width`); tokens `--stack-before-detail-grid`, `--vozes-detail-grid-width` |
 | Subtítulo que deve abrir folha nova | `Heading` + `className="vozes-page-start"` no MDX |
-| Cruzamento currículo/org no capítulo org | `DualTrackEmbed` + `PageStack` (ver `australia-org.mdx`) |
+| Cruzamento currículo/org no capítulo org | Em **todos** os `*-org` (e `england-2`): dupla de `PageStack` — (A) miolo da atuação + `DualTrackEmbed` parte **a** no `vozes-page-stack-foot`; (B) `vozes-prelude--compact-milestone` + «A trajetória da organização» + `MilestoneStrip` `vozes-milestone--compact` + `DualTrackEmbed` parte **b**. JSON em `content/timelines/*-cruzamento-*`; **não** listar cruzamento solto em `document.json`. Modelo: `australia-org.mdx`. |
 | Caixas: destaque geral | `HighlightBox`, `CalloutCard` + `vozes.css` |
 | Faixa de atores em colunas (`ActorBand`) | `ActorBand` no MDX — rótulo de faixa (`.band-label`) + nomes em verde + papel abaixo; atravessa prosa e faixa direita; **colunas lado a lado = larguras iguais** (nunca `fr` desiguais por conteúdo) |
 | Rótulo de faixa (`.band-label`) | Título curto em caixa alta e verde, menor que `h3`; usado no `ActorBand` e reutilizável em outras faixas |
-| Trajetória da organização / do currículo (`MilestoneStrip`) | Ano em roxo (Slab) + marco alinhado à frente; recuo; **sem** fundo/zebra de tabela; **todas as datas em uma dupla (2 págs.), nunca em 3** — densificar CSS/largura antes de cortar texto |
+| Trajetória da organização / do currículo (`MilestoneStrip`) | Ano em roxo (Slab) na **base da 1.ª linha** do texto; intervalos com anos empilhados + filete; org com cruzamento: `vozes-milestone--compact` no prelúdio da dupla; **sem** fundo/zebra; **todas as datas org+cruzamento em 2 págs., nunca 3** |
 | Dimensões numeradas (`DimensionList`) | Cifra grande (`number="08"`) + título em verde + corpo; sem bullets nem filetes |
 | Quebra / rodapé de página | `PageStack` + `vozes-page-stack-foot` (Austrália pp. 10–11); ou `vozes-page-start` em heading |
 | Títulos h3 do relatório (sistema, governança…) | Pretos (`--color-ink`) em `.vozes-main h3`; rótulo de faixa (`band-label`) continua verde |

@@ -1,6 +1,6 @@
 {
   "bundleVersion": 1,
-  "generatedAt": "2026-11-13T13:26:00.320Z",
+  "generatedAt": "2026-11-13T14:15:18.759Z",
   "id": "levantamento-organizacoes-2026",
   "language": "pt-BR",
   "title": "Levantamento Internacional de Instituições de Apoio a Padrões Curriculares",
@@ -167,7 +167,20 @@
                 "",
                 ""
               ],
-              "rows": "[\n[\"Apresentação\", \"00\"],\n[\"Resumo executivo\", \"00\"],\n[\"Austrália\", \"00\"],\n[\"Austrália — organização\", \"00\"],\n[\"Austrália — cruzamento I\", \"00\"],\n[\"Austrália — cruzamento II\", \"00\"],\n[\"Estados Unidos\", \"00\"],\n[\"Estados Unidos — organização\", \"00\"],\n[\"Estados Unidos — cruzamento\", \"00\"],\n[\"Inglaterra\", \"00\"],\n[\"Inglaterra — organização\", \"00\"],\n[\"Inglaterra — cruzamento I\", \"00\"],\n[\"Inglaterra — cruzamento II\", \"00\"],\n[\"Inglaterra (complemento)\", \"00\"],\n[\"Inglaterra — cruzamento III\", \"00\"],\n[\"Nigéria\", \"00\"],\n[\"Nigéria — organização\", \"00\"],\n[\"Nigéria — cruzamento I\", \"00\"],\n[\"Nigéria — cruzamento II\", \"00\"],\n[\"Chile\", \"00\"],\n[\"Chile — organização\", \"00\"],\n[\"Chile — cruzamento I\", \"00\"],\n[\"Chile — cruzamento II\", \"00\"],\n[\"Lorem ipsum dolor sit amet\", \"00\"],\n[\"Consectetur adipiscing elit\", \"00\"],\n[\"Sed do eiusmod tempor\", \"00\"],\n[\"Incididunt ut labore\", \"00\"],\n[\"Dolore magna aliqua\", \"00\"],\n[\"Ut enim ad minim veniam\", \"00\"],\n[\"Quis nostrud exercitation\", \"00\"],\n[\"Ullamco laboris nisi\", \"00\"],\n[\"Ut aliquip ex ea commodo\", \"00\"],\n[\"Consequat duis aute irure\", \"00\"],\n[\"Dolor in reprehenderit\", \"00\"],\n[\"Voluptate velit esse\", \"00\"],\n[\"Cillum dolore eu fugiat\", \"00\"],\n[\"Nulla pariatur excepteur\", \"00\"],\n[\"Sint occaecat cupidatat\", \"00\"],\n[\"Non proident sunt in culpa\", \"00\"],\n[\"Qui officia deserunt\", \"00\"],\n[\"Mollit anim id est laborum\", \"00\"],\n[\"Placeholder sumário I\", \"00\"],\n[\"Placeholder sumário II\", \"00\"],\n[\"Placeholder sumário III\", \"00\"],\n]"
+              "rows": "[\n[\"Apresentação\", \"00\"],\n[\"Resumo executivo\", \"00\"],\n[\"Austrália\", \"00\"],\n[\"Austrália — organização\", \"00\"],\n[\"Austrália — cruzamento I\", \"00\"],\n[\"Austrália — cruzamento II\", \"00\"],\n[\"Estados Unidos\", \"00\"],\n[\"Estados Unidos — organização\", \"00\"],\n[\"Estados Unidos — cruzamento\", \"00\"],\n[\"Inglaterra\", \"00\"],\n[\"Inglaterra — organização\", \"00\"],\n[\"Inglaterra — cruzamento I\", \"00\"],\n]"
+            }
+          },
+          {
+            "type": "component",
+            "name": "EditorialTable",
+            "props": {
+              "variant": "vozes",
+              "caption": "",
+              "columns": [
+                "",
+                ""
+              ],
+              "rows": "[\n[\"Inglaterra — cruzamento II\", \"00\"],\n[\"Inglaterra (complemento)\", \"00\"],\n[\"Inglaterra — cruzamento III\", \"00\"],\n[\"Nigéria\", \"00\"],\n[\"Nigéria — organização\", \"00\"],\n[\"Nigéria — cruzamento I\", \"00\"],\n[\"Nigéria — cruzamento II\", \"00\"],\n[\"Chile\", \"00\"],\n[\"Chile — organização\", \"00\"],\n[\"Chile — cruzamento I\", \"00\"],\n[\"Chile — cruzamento II\", \"00\"],\n]"
             }
           }
         ]
@@ -3246,6 +3259,15 @@
             }
           },
           {
+            "type": "component",
+            "name": "DualTrackEmbed",
+            "props": {
+              "part": "us-1-a",
+              "title": "Onde as trajetórias se cruzam",
+              "className": "vozes-page-stack-foot"
+            }
+          },
+          {
             "type": "heading",
             "level": 3,
             "text": "A trajetória da organização",
@@ -3303,109 +3325,17 @@
                 ]
               ]
             }
+          },
+          {
+            "type": "component",
+            "name": "DualTrackEmbed",
+            "props": {
+              "part": "us-1-b",
+              "spreadPart": "b",
+              "className": "vozes-page-stack-foot"
+            }
           }
         ]
-      }
-    },
-    {
-      "id": "usa-cruzamento-1-a",
-      "strategy": "structured",
-      "layout": "timeline",
-      "source": "timelines/usa-cruzamento-1-a.json",
-      "payload": {
-        "kind": "structured",
-        "timeline": {
-          "variant": "dual-track",
-          "kicker": "Estados Unidos",
-          "title": "Onde as trajetórias se cruzam",
-          "lede": [],
-          "spreadPart": "a",
-          "spreadIndex": 1,
-          "nodes": [
-            {
-              "id": "y-1996",
-              "year": "1996",
-              "curriculo": "Governadores e empresas discutem *standards* e responsabilidades no *National Education Summit*.",
-              "organizacao": "A Achieve é criada como organização independente para apoiar os estados nessa agenda.",
-              "resumo": "Achieve nasce de uma articulação de governadores e lideranças empresariais já envolvidas na agenda de reforma estadual."
-            },
-            {
-              "id": "y-1998-a-2004",
-              "year": "1998 a 2004",
-              "curriculo": "Estados desenvolvem e revisam seus próprios *standards* e sistemas de avaliação.",
-              "organizacao": "Achieve compara *standards* estaduais, presta assistência técnica e desenvolve o *American Diploma Project*.",
-              "resumo": "A organização constrói sua legitimidade principalmente por *benchmarking* e expertise técnica. Em estados como Indiana, realizou avaliações de *standards* e avaliações a pedido das próprias autoridades estaduais."
-            },
-            {
-              "id": "y-2005-a-2008",
-              "year": "2005 a 2008",
-              "curriculo": "Cresce a busca por maior alinhamento entre ensino médio, faculdade e mercado de trabalho.",
-              "organizacao": "A ADP *Network* conecta dezenas de estados em torno de uma agenda comum de preparação para o ensino superior e carreira.",
-              "resumo": "Achieve passa de prestadora de análises para articuladora de uma rede interestadual. Em paralelo, seus relatórios passam a comparar publicamente o avanço dos estados em padrões, graduação e avaliação."
-            },
-            {
-              "id": "y-2008-a-2010",
-              "year": "2008 a 2010",
-              "curriculo": "Movimento por *standards* comuns culmina no desenvolvimento do *Common Core*.",
-              "organizacao": "Achieve produz estudos preparatórios, torna-se parceira da NGA e CCSSO e participa tecnicamente das equipes de redação e revisão.",
-              "resumo": "NGA, CCSSO e Achieve publicam recomendações de *standards* comuns e internacionalmente comparáveis. No ano seguinte, a Achieve passa da construção de agenda para participação direta no processo técnico de formulação."
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": "usa-cruzamento-1-b",
-      "strategy": "structured",
-      "layout": "timeline",
-      "source": "timelines/usa-cruzamento-1-b.json",
-      "payload": {
-        "kind": "structured",
-        "timeline": {
-          "variant": "dual-track",
-          "kicker": "Estados Unidos",
-          "title": "Onde as trajetórias se cruzam",
-          "lede": [],
-          "spreadPart": "b",
-          "spreadIndex": 1,
-          "nodes": [
-            {
-              "id": "y-2010-a-2014",
-              "year": "2010 a 2014",
-              "curriculo": "Estados adotam e começam a implementar *Common Core* e constroem avaliações alinhadas.",
-              "organizacao": "Achieve coordena a articulação inicial do PARCC e atua como *Project Management Partner*.",
-              "resumo": "Depois de participar do desenvolvimento dos *standards*, a organização assume responsabilidades operacionais na construção de uma infraestrutura de avaliação comum entre estados."
-            },
-            {
-              "id": "y-2011-a-2013",
-              "year": "2011 a 2013",
-              "curriculo": "Estados desenvolvem uma nova geração de *standards* comuns de Ciências.",
-              "organizacao": "Achieve gerencia o processo de elaboração dos NGSS com 26 estados e redatores.",
-              "resumo": "Diferentemente do *Common Core*, no NGSS há documentação externa explícita de que o processo de desenvolvimento dos *standards* foi administrado pela Achieve, embora a adoção continuasse sendo decisão de cada estado."
-            },
-            {
-              "id": "y-2013-a-2017",
-              "year": "2013 a 2017",
-              "curriculo": "Implementação dos novos *standards* convive com crescente reação política ao *Common Core* e revisões em diversos estados.",
-              "organizacao": "Achieve cria ferramentas de implementação, revisa *standards* estaduais e participa do debate público.",
-              "resumo": "A atuação se adapta ao novo contexto. A organização também passa a avaliar *standards* revisados pelos estados. Em 2017, analisou os *standards* de 24 estados que haviam realizado mudanças após a adoção inicial do *Common Core*."
-            },
-            {
-              "id": "y-2015-a-2019",
-              "year": "2015 a 2019",
-              "curriculo": "A ESSA devolve maior flexibilidade aos estados e reforça limites à interferência federal sobre *standards*.",
-              "organizacao": "Achieve continua oferecendo assistência técnica, análises e apoio a estados na implementação da nova legislação.",
-              "resumo": "A organização adapta sua atuação a um ambiente mais descentralizado. Um subsídio de US$ 2,5 milhões da *Gates Foundation* em 2016, por exemplo, destinou-se explicitamente a apoiar a qualidade de *standards* e ações de coalizão e advocacy na implementação estadual da ESSA."
-            },
-            {
-              "id": "y-2020",
-              "year": "2020",
-              "curriculo": "*Standards* permanecem responsabilidade estadual e a política entra em nova fase, sem uma organização nacional responsável por dirigir o processo.",
-              "organizacao": "Achieve encerra as atividades e distribui parte de seus projetos e ativos para outras organizações.",
-              "resumo": "A organização decidiu interromper as atividades após avaliar seu impacto, as necessidades do campo e o ambiente político e financeiro. A equipe de Ciências e a gestão de recursos ligados ao NGSS migraram para a WestEd, organização de pesquisa e apoio à educação nos EUA, enquanto outros materiais permaneceram publicamente disponíveis."
-            }
-          ]
-        }
       }
     },
     {
@@ -4810,6 +4740,15 @@
             }
           },
           {
+            "type": "component",
+            "name": "DualTrackEmbed",
+            "props": {
+              "part": "eng-1-a",
+              "title": "Onde as trajetórias se cruzam",
+              "className": "vozes-page-stack-foot"
+            }
+          },
+          {
             "type": "heading",
             "level": 3,
             "text": "A trajetória da organização",
@@ -4851,76 +4790,17 @@
                 ]
               ]
             }
+          },
+          {
+            "type": "component",
+            "name": "DualTrackEmbed",
+            "props": {
+              "part": "eng-1-b",
+              "spreadPart": "b",
+              "className": "vozes-page-stack-foot"
+            }
           }
         ]
-      }
-    },
-    {
-      "id": "england-cruzamento-1-a",
-      "strategy": "structured",
-      "layout": "timeline",
-      "source": "timelines/england-cruzamento-1-a.json",
-      "payload": {
-        "kind": "structured",
-        "timeline": {
-          "variant": "dual-track",
-          "kicker": "Inglaterra",
-          "title": "Onde as trajetórias se cruzam",
-          "lede": [],
-          "spreadPart": "a",
-          "spreadIndex": 1,
-          "nodes": [
-            {
-              "id": "y-2009-a-2010",
-              "year": "2009 a 2010",
-              "curriculo": "O National Curriculum permanece em vigor, enquanto cresce a discussão sobre autonomia escolar e futuras reformas. A Curriculum Foundation surge mais de vinte anos após a criação do National Curriculum. Sua proposta inicial já está associada à oferta de conhecimentos e serviços técnicos de desenvolvimento curricular.",
-              "organizacao": "A Curriculum Foundation é criada, em 2009, como organização especializada em desenvolvimento e revisão curricular."
-            },
-            {
-              "id": "y-2011-a-2014-1",
-              "year": "2011 a 2014",
-              "curriculo": "O governo revisa o National Curriculum, com publicação da nova versão em 2013 e início de implementação em 2014. O período coincide com a construção de uma nova versão do currículo inglês, um cenário de intenso debate sobre o papel do conhecimento e da estrutura curricular. Nesse contexto, a Curriculum Foundation consolida sua identidade técnica.",
-              "organizacao": "A organização amplia sua trajetória de apoio técnico a escolas e sistemas educacionais, inclusive internacionalmente."
-            },
-            {
-              "id": "y-2018-a-2019-2",
-              "year": "2018 a 2019",
-              "curriculo": "A atenção à qualidade dos currículos escolares ganha destaque no debate sobre o novo modelo de inspeção do Ofsted A atuação da organização se concentra no debate público e na elaboração de currículos nas escolas, ou seja, no nível da implementação, onde o currículo nacional se traduz em prática.",
-              "organizacao": "A Curriculum Foundation publica um posicionamento sobre o modelo de inspeção e promove formação e desenvolvimento curricular em escolas britânicas."
-            },
-            {
-              "id": "y-2020-a-2023-3",
-              "year": "2020 a 2023",
-              "curriculo": "O currículo de 2014 permanece como referência nacional, com diferentes iniciativas de desenvolvimento curricular pelas escolas. A Curriculum Foundation amplia sua atuação para reformas curriculares internacionais, participando da elaboração de programas, orientações e instrumentos de avaliação.",
-              "organizacao": "A organização divulga trabalhos de revisão curricular e avaliação realizados para governos estrangeiros, como o Sudão do Sul."
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": "england-cruzamento-1-b",
-      "strategy": "structured",
-      "layout": "timeline",
-      "source": "timelines/england-cruzamento-1-b.json",
-      "payload": {
-        "kind": "structured",
-        "timeline": {
-          "variant": "dual-track",
-          "kicker": "Inglaterra",
-          "title": "Onde as trajetórias se cruzam",
-          "lede": [],
-          "spreadPart": "b",
-          "spreadIndex": 1,
-          "nodes": [
-            {
-              "id": "y-2024-a-2026",
-              "year": "2024 a 2026",
-              "curriculo": "O governo conduz uma nova revisão nacional, publica recomendações e inicia a preparação das futuras mudanças curriculares. A Inglaterra vive uma nova revisão e a organização segue ativa como referência no campo, desenvolvendo e divulgando trabalhos relacionados a currículo.",
-              "organizacao": "A Curriculum Foundation permanece ativa, desenvolvendo e divulgando trabalhos relacionados ao currículo."
-            }
-          ]
-        }
       }
     },
     {
@@ -5435,6 +5315,15 @@
             }
           },
           {
+            "type": "component",
+            "name": "DualTrackEmbed",
+            "props": {
+              "part": "eng-3-a",
+              "title": "Onde as trajetórias se cruzam",
+              "className": "vozes-page-stack-foot"
+            }
+          },
+          {
             "type": "heading",
             "level": 3,
             "text": "A trajetória da organização",
@@ -5480,82 +5369,17 @@
                 ]
               ]
             }
+          },
+          {
+            "type": "component",
+            "name": "DualTrackEmbed",
+            "props": {
+              "part": "eng-3-b",
+              "spreadPart": "b",
+              "className": "vozes-page-stack-foot"
+            }
           }
         ]
-      }
-    },
-    {
-      "id": "england-cruzamento-3-a",
-      "strategy": "structured",
-      "layout": "timeline",
-      "source": "timelines/england-cruzamento-3-a.json",
-      "payload": {
-        "kind": "structured",
-        "timeline": {
-          "variant": "dual-track",
-          "kicker": "Inglaterra",
-          "title": "Onde as trajetórias se cruzam",
-          "lede": [],
-          "spreadPart": "a",
-          "spreadIndex": 3,
-          "nodes": [
-            {
-              "id": "y-1988-a-1990",
-              "year": "1988 a 1990",
-              "curriculo": "O National Curriculum é criado pela Education Reform Act, estabelecendo conteúdos e expectativas nacionais. A criação de The Curriculum Journal, em 1990, estabeleceu um veículo especializado de pesquisa e análise curricular no período inicial do National Curriculum",
-              "organizacao": "A organização predecessora lança, em 1990, The Curriculum Journal, revista de pesquisa e discussão curricular."
-            },
-            {
-              "id": "y-2011-a-2014-1",
-              "year": "2011 a 2014",
-              "curriculo": "O governo conduz revisão nacional que resulta no currículo publicado em 2013 e implementado a partir de 2014. Mary James, integrante da direção da British Curriculum Foundation entre 1989 e 2014, foi nomeada para o painel de especialistas responsável por formular recomendações para a revisão de 2011.",
-              "organizacao": "A Direção da British Curriculum Foundation participa do painel oficial de especialistas da revisão. Em 2014, a entidade é incorporada à BERA."
-            },
-            {
-              "id": "y-2019-a-2020-2",
-              "year": "2019 a 2020",
-              "curriculo": "O currículo de 2014 permanece em vigor e as escolas discutem organização curricular, conhecimentos e práticas de ensino. BCF reuniu professores, pesquisadores e lideranças escolares para discutir a elaboração de currículos nas próprias instituições. O encontro gerou um relatório publicado em 2020.",
-              "organizacao": "O BCF realiza eventos que aproximam professores e pesquisadores e publica relatório sobre desenvolvimento curricular nas escolas."
-            },
-            {
-              "id": "y-2021-a-2023-3",
-              "year": "2021 a 2023",
-              "curriculo": "Escolas continuam desenvolvendo e contextualizando seus currículos, considerando as exigências nacionais. Por meio do *Curriculum Investigation Grant*, o BCF passou a apoiar pesquisas conduzidas por escolas sobre seus próprios currículos. A iniciativa promove investigação, experimentação e divulgação de práticas curriculares.",
-              "organizacao": "O BCF financia investigações escolares sobre diversidade, sustentabilidade, inclusão e outros desafios curriculares."
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": "england-cruzamento-3-b",
-      "strategy": "structured",
-      "layout": "timeline",
-      "source": "timelines/england-cruzamento-3-b.json",
-      "payload": {
-        "kind": "structured",
-        "timeline": {
-          "variant": "dual-track",
-          "kicker": "Inglaterra",
-          "title": "Onde as trajetórias se cruzam",
-          "lede": [],
-          "spreadPart": "b",
-          "spreadIndex": 3,
-          "nodes": [
-            {
-              "id": "y-2024-a-2025",
-              "year": "2024 a 2025",
-              "curriculo": "Tem início uma nova Curriculum and Assessment Review, com consulta pública, painel de especialistas e recomendações. BERA criou um espaço institucional para reunir pesquisas, análises e discussões sobre o processo. Paralelamente, o BCF participou da publicação *Curriculum in a Changing World*, com 50 textos de especialistas.",
-              "organizacao": "O BCF publica *Curriculum in a Changing World* em parceria com a BERA; a BERA também reúne e divulga pesquisas e debates sobre a revisão nacional."
-            },
-            {
-              "id": "y-2025-a-2026-1",
-              "year": "2025 a 2026",
-              "curriculo": "O governo prepara o desenvolvimento do currículo revisado e as futuras etapas de implementação. A organização mantém sua atuação por meio de publicações, financiamento de pesquisas e articulação entre profissionais, enquanto a reforma nacional segue em desenvolvimento.",
-              "organizacao": "O BCF renova sua liderança e mantém projetos de pesquisa e espaços de discussão curricular."
-            }
-          ]
-        }
       }
     },
     {
@@ -6762,6 +6586,15 @@
             }
           },
           {
+            "type": "component",
+            "name": "DualTrackEmbed",
+            "props": {
+              "part": "ng-1-a",
+              "title": "Onde as trajetórias se cruzam",
+              "className": "vozes-page-stack-foot"
+            }
+          },
+          {
             "type": "heading",
             "level": 3,
             "text": "A trajetória da organização",
@@ -6819,82 +6652,17 @@
                 ]
               ]
             }
+          },
+          {
+            "type": "component",
+            "name": "DualTrackEmbed",
+            "props": {
+              "part": "ng-1-b",
+              "spreadPart": "b",
+              "className": "vozes-page-stack-foot"
+            }
           }
         ]
-      }
-    },
-    {
-      "id": "nigeria-cruzamento-1-a",
-      "strategy": "structured",
-      "layout": "timeline",
-      "source": "timelines/nigeria-cruzamento-1-a.json",
-      "payload": {
-        "kind": "structured",
-        "timeline": {
-          "variant": "dual-track",
-          "kicker": "Nigéria",
-          "title": "Onde as trajetórias se cruzam",
-          "lede": [],
-          "spreadPart": "a",
-          "spreadIndex": 1,
-          "nodes": [
-            {
-              "id": "y-1969-a-1982",
-              "year": "1969 a 1982",
-              "curriculo": "A Conferência Nacional de Currículo de 1969 e a *National Policy on Education *de 1977 estabelecem as bases da política curricular nacional. A CON surge após a consolidação das primeiras diretrizes nacionais, como espaço de organização dos especialistas em currículo.",
-              "organizacao": "A CON é criada em 1982 por profissionais da University of Jos, em um contexto de fortalecimento dos estudos curriculares."
-            },
-            {
-              "id": "y-1983-a-1990-1",
-              "year": "1983 a 1990",
-              "curriculo": "O país avança na organização institucional do desenvolvimento curricular. Em 1988, é criado o NERDC. O fortalecimento de uma autoridade técnica nacional ocorre paralelamente à organização de uma comunidade acadêmica especializada.",
-              "organizacao": "A CON estrutura sua rede de associados, realiza encontros profissionais e desenvolve publicações especializadas."
-            },
-            {
-              "id": "y-1991-a-2005-2",
-              "year": "1991 a 2005",
-              "curriculo": "A *Universal Basic Education*, lançada em 1999 e regulamentada em 2004, amplia a necessidade de articulação curricular nos nove anos de educação básica. A CON volta a discutir questões educacionais em um período de ampliação da educação básica.",
-              "organizacao": "Após uma interrupção entre 1991 e 1997, a CON retoma suas atividades e promove seminários, incluindo um encontro sobre os desafios da educação secundária em 2001."
-            },
-            {
-              "id": "y-2008-a-2014-3",
-              "year": "2008 a 2014",
-              "curriculo": "O NERDC desenvolve o currículo de nove anos, implementado em 2008. Após passar por uma revisão, entra em vigor novamente em 2014. A organização contribui para a circulação de conhecimento curricular durante o período de revisão.",
-              "organizacao": "A CON publica, em 2014, o livro Curriculum and Teaching in Nigeria, reunindo estudos curriculares."
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": "nigeria-cruzamento-1-b",
-      "strategy": "structured",
-      "layout": "timeline",
-      "source": "timelines/nigeria-cruzamento-1-b.json",
-      "payload": {
-        "kind": "structured",
-        "timeline": {
-          "variant": "dual-track",
-          "kicker": "Nigéria",
-          "title": "Onde as trajetórias se cruzam",
-          "lede": [],
-          "spreadPart": "b",
-          "spreadIndex": 1,
-          "nodes": [
-            {
-              "id": "y-2018-a-2020",
-              "year": "2018 a 2020",
-              "curriculo": "O país inicia discussões e consultas para revisar o currículo do ensino secundário superior. Os temas debatidos pela CON dialogam com problemas da política curricular. O NERDC realizou consultas com associações e sociedade civil em 2020.",
-              "organizacao": "A CON realiza conferências sobre desenvolvimento curricular e mantém a publicação de estudos especializados."
-            },
-            {
-              "id": "y-2020-a-2025-1",
-              "year": "2020 a 2025",
-              "curriculo": "O NERDC coordena uma ampla revisão dos currículos da educação básica e secundária, apresentada pelo governo em 2025. Presença de profissionais vinculados à associação nos processos nacionais de desenvolvimento curricular.",
-              "organizacao": "Chima Egbujuo, identificado oficialmente como membro ativo da CON, atua como líder técnico do projeto nacional de revisão curricular."
-            }
-          ]
-        }
       }
     },
     {
@@ -8169,6 +7937,15 @@
             }
           },
           {
+            "type": "component",
+            "name": "DualTrackEmbed",
+            "props": {
+              "part": "cl-1-a",
+              "title": "Onde as trajetórias se cruzam",
+              "className": "vozes-page-stack-foot"
+            }
+          },
+          {
             "type": "heading",
             "level": 3,
             "text": "A trajetória da organização",
@@ -8214,51 +7991,17 @@
                 ]
               ]
             }
+          },
+          {
+            "type": "component",
+            "name": "DualTrackEmbed",
+            "props": {
+              "part": "cl-1-b",
+              "spreadPart": "b",
+              "className": "vozes-page-stack-foot"
+            }
           }
         ]
-      }
-    },
-    {
-      "id": "chile-cruzamento-1-a",
-      "strategy": "structured",
-      "layout": "timeline",
-      "source": "timelines/chile-cruzamento-1-a.json",
-      "payload": {
-        "kind": "structured",
-        "timeline": {
-          "variant": "dual-track",
-          "kicker": "Chile",
-          "title": "Onde as trajetórias se cruzam",
-          "lede": [],
-          "spreadPart": "a",
-          "spreadIndex": 1,
-          "nodes": [
-            {
-              "id": "y-2020-a-2022",
-              "year": "2020 a 2022",
-              "curriculo": "Durante a pandemia, o Ministério adota a priorização curricular para orientar o ensino e a recuperação das aprendizagens. As iniciativas da fundação buscavam apoiar o trabalho pedagógico e ampliar o acesso a oportunidades de aprendizagem durante a crise.",
-              "organizacao": "A Reimagina é criada em 2020 e desenvolve iniciativas como *Aprendo en** Casa,* redes colaborativas e formação de educadores."
-            },
-            {
-              "id": "y-2023-1",
-              "year": "2023",
-              "curriculo": "O MINEDUC e a UNESCO promovem o Congresso Pedagógico e Curricular, e a proposta de atualização das Bases Curriculares do 1º básico ao 2º médio é submetida à consulta pública, A Reimagina estabeleceu um canal formal de colaboração com um órgão público responsável pela administração e pelo fortalecimento da educação pública. O objetivo era levar práticas e inovações educacionais às escolas, produzindo evidências que pudessem contribuir para políticas educacionais.",
-              "organizacao": "A fundação amplia sua atuação em inovação educacional e articulação de organizações, incluindo o lançamento do* Efecto Colectivo*. A Reimagina estabelece um acordo de colaboração com a *Dirección de Educación Pública *(DEP), voltado à ampliação de iniciativas educacionais."
-            },
-            {
-              "id": "y-2025-2",
-              "year": "2025",
-              "curriculo": "O MINEDUC encaminha e ajusta a proposta de atualização curricular a partir das observações do CNED. A fundação identificou dificuldades de articulação entre as competências previstas no currículo, os sistemas de avaliação, a formação docente e as práticas escolares. Com base nessas evidências, apresentou recomendações como flexibilizar o currículo, ampliar a avaliação de competências transversais, fortalecer a formação docente e melhorar a articulação entre políticas e práticas educacionais.",
-              "organizacao": "A fundação desenvolve análises sobre competências amplas nas Bases Curriculares vigentes e na proposta de atualização."
-            },
-            {
-              "id": "y-2026-3",
-              "year": "2026",
-              "curriculo": "A atualização curricular permanece em análise institucional, com decisões e ajustes específicos por componente. A pesquisa analisou os objetivos de aprendizagem das Bases vigentes e da proposta de atualização do 1º básico ao 2º médio. Também contou com entrevistas de representantes do MINEDUC, da *Agencia de Calidad de la Educación e da Dirección de Educación Públic*a, além de apoio da DEP e de Serviços Locais de Educação Pública para o acesso às escolas.",
-              "organizacao": "A Reimagina publica pesquisas com a *Brookings *sobre as Bases Curriculares, sua implementação nas escolas e as condições necessárias ao desenvolvimento de competências amplas."
-            }
-          ]
-        }
       }
     }
   ]

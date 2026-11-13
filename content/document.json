@@ -72,18 +72,6 @@
       "source": "chapters/usa-org.mdx"
     },
     {
-      "id": "usa-cruzamento-1-a",
-      "strategy": "structured",
-      "layout": "timeline",
-      "source": "timelines/usa-cruzamento-1-a.json"
-    },
-    {
-      "id": "usa-cruzamento-1-b",
-      "strategy": "structured",
-      "layout": "timeline",
-      "source": "timelines/usa-cruzamento-1-b.json"
-    },
-    {
       "id": "england",
       "strategy": "flow",
       "layout": "standard",
@@ -96,34 +84,10 @@
       "source": "chapters/england-org.mdx"
     },
     {
-      "id": "england-cruzamento-1-a",
-      "strategy": "structured",
-      "layout": "timeline",
-      "source": "timelines/england-cruzamento-1-a.json"
-    },
-    {
-      "id": "england-cruzamento-1-b",
-      "strategy": "structured",
-      "layout": "timeline",
-      "source": "timelines/england-cruzamento-1-b.json"
-    },
-    {
       "id": "england-2",
       "strategy": "flow",
       "layout": "standard",
       "source": "chapters/england-2.mdx"
-    },
-    {
-      "id": "england-cruzamento-3-a",
-      "strategy": "structured",
-      "layout": "timeline",
-      "source": "timelines/england-cruzamento-3-a.json"
-    },
-    {
-      "id": "england-cruzamento-3-b",
-      "strategy": "structured",
-      "layout": "timeline",
-      "source": "timelines/england-cruzamento-3-b.json"
     },
     {
       "id": "nigeria",
@@ -138,18 +102,6 @@
       "source": "chapters/nigeria-org.mdx"
     },
     {
-      "id": "nigeria-cruzamento-1-a",
-      "strategy": "structured",
-      "layout": "timeline",
-      "source": "timelines/nigeria-cruzamento-1-a.json"
-    },
-    {
-      "id": "nigeria-cruzamento-1-b",
-      "strategy": "structured",
-      "layout": "timeline",
-      "source": "timelines/nigeria-cruzamento-1-b.json"
-    },
-    {
       "id": "chile",
       "strategy": "flow",
       "layout": "standard",
@@ -160,12 +112,6 @@
       "strategy": "flow",
       "layout": "standard",
       "source": "chapters/chile-org.mdx"
-    },
-    {
-      "id": "chile-cruzamento-1-a",
-      "strategy": "structured",
-      "layout": "timeline",
-      "source": "timelines/chile-cruzamento-1-a.json"
     }
   ]
 }

@@ -1,0 +1,22 @@
+{
+  "variant": "dual-track",
+  "kicker": "Chile",
+  "title": "Onde as trajetórias se cruzam",
+  "lede": [],
+  "spreadPart": "b",
+  "spreadIndex": 1,
+  "nodes": [
+    {
+      "id": "y-2025-2",
+      "year": "2025",
+      "curriculo": "O MINEDUC encaminha e ajusta a proposta de atualização curricular a partir das observações do CNED. A fundação identificou dificuldades de articulação entre as competências previstas no currículo, os sistemas de avaliação, a formação docente e as práticas escolares. Com base nessas evidências, apresentou recomendações como flexibilizar o currículo, ampliar a avaliação de competências transversais, fortalecer a formação docente e melhorar a articulação entre políticas e práticas educacionais.",
+      "organizacao": "A fundação desenvolve análises sobre competências amplas nas Bases Curriculares vigentes e na proposta de atualização."
+    },
+    {
+      "id": "y-2026-3",
+      "year": "2026",
+      "curriculo": "A atualização curricular permanece em análise institucional, com decisões e ajustes específicos por componente. A pesquisa analisou os objetivos de aprendizagem das Bases vigentes e da proposta de atualização do 1º básico ao 2º médio. Também contou com entrevistas de representantes do MINEDUC, da *Agencia de Calidad de la Educación e da Dirección de Educación Públic*a, além de apoio da DEP e de Serviços Locais de Educação Pública para o acesso às escolas.",
+      "organizacao": "A Reimagina publica pesquisas com a *Brookings *sobre as Bases Curriculares, sua implementação nas escolas e as condições necessárias ao desenvolvimento de competências amplas."
+    }
+  ]
+}

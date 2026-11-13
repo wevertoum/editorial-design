@@ -33,37 +33,31 @@ type MilestoneItemProps = {
   label: string
 }
 
-/** Separa "2008 a 2010" / "2007 e 2008" em ano 1 + filete vertical + ano 2. */
-function renderYearParts(year: string): ReactNode {
-  const trimmed = year.trim()
-  const range = trimmed.match(/^(\d{4})\s+(?:a|e)\s+(\d{4})(?:\s*\([^)]+\))?$/i)
-  if (!range) {
-    return <span className="milestone-strip-year-num">{trimmed}</span>
-  }
-  const [, start, end] = range
-  return (
-    <>
-      <span className="milestone-strip-year-num">{start}</span>
-      <span className="milestone-strip-year-rule" aria-hidden="true" />
-      <span className="milestone-strip-year-num">{end}</span>
-    </>
-  )
-}
+const RANGE_YEAR = /^(\d{4})\s+(?:a|e)\s+(\d{4})(?:\s*\([^)]+\))?$/i
 
 export function MilestoneItem({ year, label }: MilestoneItemProps) {
   const trimmedYear = year.trim()
-  const isRange = /^(\d{4})\s+(?:a|e)\s+(\d{4})(?:\s*\([^)]+\))?$/i.test(trimmedYear)
+  const range = trimmedYear.match(RANGE_YEAR)
+  const body = <p className="milestone-strip-label">{renderInlineText(label)}</p>
+
+  if (range) {
+    const [, start, end] = range
+    return (
+      <li className="milestone-strip-item milestone-strip-item--range" aria-label={trimmedYear}>
+        <div className="milestone-strip-year-stack">
+          <span className="milestone-strip-year-num">{start}</span>
+          <span className="milestone-strip-year-rule" aria-hidden="true" />
+          <span className="milestone-strip-year-num">{end}</span>
+        </div>
+        {body}
+      </li>
+    )
+  }
+
   return (
     <li className="milestone-strip-item">
-      <p
-        className={
-          isRange ? 'milestone-strip-year milestone-strip-year--range' : 'milestone-strip-year'
-        }
-        {...(isRange ? { 'aria-label': trimmedYear } : {})}
-      >
-        {renderYearParts(year)}
-      </p>
-      <p className="milestone-strip-label">{renderInlineText(label)}</p>
+      <span className="milestone-strip-year-num">{trimmedYear}</span>
+      {body}
     </li>
   )
 }

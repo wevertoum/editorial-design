@@ -467,7 +467,7 @@ function decorate(page: HTMLElement, pageNumber: number, stripExistingFolio: boo
   page.dataset.page = String(pageNumber)
   if (stripExistingFolio) page.querySelectorAll(':scope > .folio').forEach((node) => node.remove())
   if (page.querySelector(':scope > .folio')) return
-  if (page.classList.contains('layout-vozes-cover')) {
+  if (page.classList.contains('layout-vozes-cover') || page.classList.contains('layout-vozes-blank')) {
     page.dataset.folio = 'off'
     return
   }

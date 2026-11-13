@@ -645,26 +645,22 @@
   margin-top: var(--vozes-milestone-compact-item-gap, 1.15mm);
 }
 
+.layout-vozes-report .vozes-page-stack--dual-track .vozes-milestone--compact .milestone-strip-year-num {
+  font-size: var(--text-milestone-year-compact);
+  line-height: var(--vozes-milestone-line-height, 1.26);
+}
+
 .layout-vozes-report
   .vozes-page-stack--dual-track
   .vozes-milestone--compact
-  .milestone-strip-item:has(.milestone-strip-year--range)
-  + .milestone-strip-item {
-  margin-top: calc(var(--vozes-milestone-compact-item-gap, 1.15mm) + 0.6mm);
-}
-
-.layout-vozes-report .vozes-page-stack--dual-track .vozes-milestone--compact .milestone-strip-year {
-  font-size: var(--text-milestone-year-compact);
-  line-height: 1.15;
-}
-
-.layout-vozes-report .vozes-page-stack--dual-track .vozes-milestone--compact .milestone-strip-year-rule {
-  height: 2.8mm;
-  margin: 0.35mm 0;
+  .milestone-strip-year-stack
+  .milestone-strip-year-rule {
+  height: var(--vozes-milestone-range-rule-height-compact, 1.8mm);
 }
 
 .layout-vozes-report .vozes-page-stack--dual-track .vozes-milestone--compact .milestone-strip-label {
-  line-height: 1.26;
+  font-size: var(--text-milestone-compact);
+  line-height: var(--vozes-milestone-line-height, 1.26);
 }
 
 /* Band label — rótulo de faixa: caixa alta, verde, menor que h3; filete após o texto. */
@@ -1460,47 +1456,54 @@
   /* Coluna fixa ~um ano (Slab); intervalos empilham na mesma coluna. */
   grid-template-columns: 12mm minmax(0, 1fr);
   column-gap: 3mm;
-  align-items: start;
+  align-items: baseline;
   padding: 0.85mm 0;
   border: none;
   background: none;
   font-size: var(--text-body);
-  line-height: 1.28;
+  line-height: var(--vozes-milestone-line-height, 1.28);
   break-inside: avoid;
+}
+
+/* Intervalo: anos empilhados com filete; 1.º ano alinha à 1.ª linha do texto. */
+.milestone-strip-year-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+  gap: var(--vozes-milestone-range-stack-gap);
+  min-width: 0;
+}
+
+.milestone-strip-year-stack .milestone-strip-year-num {
+  line-height: 1.05;
+}
+
+.milestone-strip-year-stack .milestone-strip-year-rule {
+  height: var(--vozes-milestone-range-rule-height);
+  margin: 0;
 }
 
 .milestone-strip-item + .milestone-strip-item {
   margin-top: 0.25mm;
 }
 
-/* Intervalo (2008 a 2010): texto centrado na pilha de anos — evita vazio ao lado do 2.º ano. */
-.milestone-strip-item:has(.milestone-strip-year--range) {
-  align-items: center;
-}
-
-.layout-vozes-report .vozes-main .milestone-strip-year,
-.milestone-strip-year {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-self: start;
+.layout-vozes-report .vozes-main .milestone-strip-item > .milestone-strip-year-num,
+.milestone-strip-item > .milestone-strip-year-num,
+.milestone-strip-item--range .milestone-strip-year-num {
+  justify-self: center;
   margin: 0;
   min-width: 0;
   font-family: var(--font-display);
   font-size: var(--text-body);
   font-weight: 700;
-  line-height: 1.15;
+  line-height: var(--vozes-milestone-line-height, 1.28);
   color: var(--color-vozes-roxo-2);
   text-align: center;
-  white-space: normal;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
   print-color-adjust: exact;
   -webkit-print-color-adjust: exact;
-}
-
-.layout-vozes-report .vozes-main .milestone-strip-year-num,
-.milestone-strip-year-num {
-  display: block;
-  font-variant-numeric: tabular-nums;
 }
 
 .layout-vozes-report .vozes-main .milestone-strip-year-rule,
@@ -1508,19 +1511,21 @@
   display: block;
   flex-shrink: 0;
   width: 0.4mm;
-  height: 3mm;
-  margin: 0.4mm 0;
+  height: var(--vozes-milestone-range-rule-height);
+  margin: 0;
   background: color-mix(in srgb, var(--color-vozes-roxo-2) 45%, transparent);
   print-color-adjust: exact;
   -webkit-print-color-adjust: exact;
 }
 
+.layout-vozes-report .vozes-main p.milestone-strip-label,
 .layout-vozes-report .vozes-main .milestone-strip-label,
 .milestone-strip-label {
-  align-self: start;
   margin: 0;
   min-width: 0;
   font-family: var(--font-sans);
+  font-size: inherit;
+  line-height: var(--vozes-milestone-line-height, 1.28);
   color: var(--color-ink);
   text-wrap: pretty;
   hyphens: auto;

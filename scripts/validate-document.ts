@@ -17,6 +17,16 @@ const errors: string[] = []
 const embeddedTimelineSources = new Set([
   'timelines/australia-cruzamento-1-a.json',
   'timelines/australia-cruzamento-1-b.json',
+  'timelines/usa-cruzamento-1-a.json',
+  'timelines/usa-cruzamento-1-b.json',
+  'timelines/england-cruzamento-1-a.json',
+  'timelines/england-cruzamento-1-b.json',
+  'timelines/england-cruzamento-3-a.json',
+  'timelines/england-cruzamento-3-b.json',
+  'timelines/nigeria-cruzamento-1-a.json',
+  'timelines/nigeria-cruzamento-1-b.json',
+  'timelines/chile-cruzamento-1-a.json',
+  'timelines/chile-cruzamento-1-b.json',
 ])
 
 const allowedComponents = new Set([

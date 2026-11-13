@@ -32,6 +32,10 @@
   --text-milestone-compact: 9pt;
   --text-milestone-year-compact: 9pt;
   --vozes-milestone-compact-item-gap: 1.15mm;
+  /* Intervalo de anos empilhados (ex. 2008–2010). */
+  --vozes-milestone-range-stack-gap: 0.15mm;
+  --vozes-milestone-range-rule-height: 2mm;
+  --vozes-milestone-range-rule-height-compact: 1.7mm;
 
   --text-body: 10pt;
   --text-leading: 1.41;
