@@ -172,7 +172,7 @@ Não redesenhar sem pedido explícito. Página 10: PageStack + prosa + ActorBand
 
 ## 10. Escopo do handoff InDesign
 
-Continuidade no kit = **InDesign** + PDF de prova. Prévia Vivliostyle, npm e regeneração de PDF do pipeline web ficam no repo React — não no prompt do agente InDesign. Commit/push só sob pedido explícito.
+Continuidade no kit = **InDesign** + PDF de prova. Prévia Vite, npm e regeneração de PDF do pipeline web (React + Chromium) ficam no repo na raiz — não no prompt do agente InDesign. Commit/push só sob pedido explícito.
 
 ---
 

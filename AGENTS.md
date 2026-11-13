@@ -2,7 +2,7 @@
 
 This repository builds one editorial document as a React site (Vite) and exports a PDF by printing that site with Chromium. Read this file before changing the pipeline, the page model, or the sample.
 
-**Operational workflow (every agent turn):** follow `.cursor/rules/vozes-editorial-workflow.mdc` (`alwaysApply`) — interpret plain-language edit requests; run bundle/validate without asking editors to name those steps. **Preserve every editor-agreed treatment** (MDX components, layout classes, CSS, assets) until they ask to change it; the site and the PDF render from MDX, so inventory-only state is not enough. After `import:mapeamento`, reconcile editorial patterns before claiming done. **Human editors (non-technical):** `docs/EDITAR-COM-AGENTE.md` — examples in natural Portuguese only.
+**Operational workflow (every agent turn):** follow `.cursor/rules/vozes-editorial-workflow.mdc` (`alwaysApply`) — interpret plain-language edit requests; work in the Vite preview (`visualizar` / http://127.0.0.1:5173). **Do not** auto-run `export:bundle`, `validate`, `check`, or any PDF/build script when finishing a task; the team runs those manually when they want. **Preserve every editor-agreed treatment** (MDX components, layout classes, CSS, assets) until they ask to change it; the live site reads MDX + manifest. After `import:mapeamento` (only when asked), reconcile editorial patterns before claiming done. **Human editors (non-technical):** `docs/EDITAR-COM-AGENTE.md` — examples in natural Portuguese only.
 
 ## Architecture
 
@@ -14,7 +14,7 @@ Three composition strategies stay separate:
 
 `content/document.json` is the only reading order. Files that are not listed there fail `npm run validate`.
 
-**Source of truth for page content.** Reading order and metadata live in `content/document.json` (title, subtitle, section list). Section bodies live in the paths listed there (`content/chapters/*.mdx`, `content/timelines/*.json`, …). After changing any of those, run `npm run export:bundle` so `content/publication.bundle.json` stays aligned (required by `npm run validate`). Mapeamento upstream edits may also flow through `content/mapeamento/inventory.json` and `npm run import:mapeamento`. Layout and cover treatment (`sheetVariant: vozes-cover` on `chapters/capa.mdx`) live in MDX frontmatter and React/CSS — not in the old specimen masthead on the first chapter.
+**Source of truth for page content.** Reading order and metadata live in `content/document.json` (title, subtitle, section list). Section bodies live in the paths listed there (`content/chapters/*.mdx`, `content/timelines/*.json`, …). The dev site loads MDX directly; `publication.bundle.json` is optional alignment for bundle-proof and validation — regenerate with `npm run export:bundle` only when someone asks. Mapeamento upstream edits may flow through `content/mapeamento/inventory.json` and `npm run import:mapeamento` on request. Layout and cover treatment (`sheetVariant: vozes-cover` on `chapters/capa.mdx`) live in MDX frontmatter and React/CSS — not in the old specimen masthead on the first chapter.
 
 Content does not own trim, margins, or color. Those live in `src/styles/tokens.css`, with profile overrides in `src/styles/digital.css` and `src/styles/print.css`.
 
@@ -87,11 +87,10 @@ IDs are lowercase slugs. Section ids and event ids share the document, so they m
 ## When you change something
 
 1. Keep the strategy and the layout paired. The schema rejects mismatches.
-2. Run `npm run validate` after content or token edits.
-3. Run `npm run dev` and look at the affected sheet if the change is visual. For UI, exercise the page, not only a single screenshot.
-4. Run `npm run build` when page breaks or type in the PDF could change. Run `npm run pdf:print` when bleed or print margins change.
-5. Do not claim a command succeeded unless it exited 0 and you read its page count and media box.
-6. Do not commit generated `output/*.pdf` unless the user asks. `output/` is gitignored except `.gitkeep`.
+2. Use `npm run dev` / visualizar and look at the affected sheet if the change is visual. For UI, exercise the page, not only a single screenshot.
+3. Run `validate`, `export:bundle`, or PDF export (`build` / `gerar-pdf`) **only when explicitly requested** — not as a default step after edits.
+4. If you do run a PDF command, do not claim it succeeded unless it exited 0 and you read its page count and media box.
+5. Do not commit generated `output/*.pdf` unless the user asks. `output/` is gitignored except `.gitkeep`.
 
 ## PDF check
 

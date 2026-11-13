@@ -1019,7 +1019,7 @@
   line-height: var(--text-leading);
 }
 
-/* MDX: div > p + p — marcador na grelha, alinhado à primeira linha (Vivliostyle). */
+/* MDX: div > p + p — marcador na grelha, alinhado à primeira linha (impressão/PDF). */
 .detail-list-item:has(> p) {
   display: grid;
   grid-template-columns: var(--vozes-detail-list-gutter) minmax(0, 1fr);

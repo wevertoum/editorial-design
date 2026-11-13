@@ -1,7 +1,7 @@
 @page {
   size: 210mm 297mm;
   margin: 18mm 16mm 20mm 22mm;
-  /* Folio: Mulish + cinza escuro (--font-sans / --color-folio). Literals — Vivliostyle @page. */
+  /* Folio: Mulish + cinza escuro (--font-sans / --color-folio). Literals — Chromium @page (sem var()). */
   font-family: Mulish, "Source Sans 3", "Segoe UI", Helvetica, Arial, sans-serif;
   font-size: 9pt;
   color: #4a4a4a;

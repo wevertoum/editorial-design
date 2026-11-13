@@ -1,5 +1,5 @@
 ---
-description: Relatório Vozes — interpretar pedidos em português natural e publicar mudanças com bundle/validate
+description: Relatório Vozes — interpretar pedidos em português natural; prévia web (Vite); PDF/bundle/validate só se pedirem
 alwaysApply: true
 ---
 
@@ -9,17 +9,17 @@ Leia `AGENTS.md` (arquitetura/PDF). **Editores falam em português editorial** �
 
 ## Regra de ouro
 
-1. Entender o pedido como pedido de **página/PDF**, não de arquivo.
+1. Entender o pedido como pedido de **página**, não de arquivo.
 2. Implementar na **fonte de verdade** (tabela abaixo).
-3. Rodar você mesmo: `npm run export:bundle` (se `content/` mudou) e `npm run validate` (sempre antes de “pronto”).
-4. Responder em português simples: o que mudou + convite a **visualizar** (link, não nome de comando). Só mencione arquivos se o editor pedir detalhe técnico.
+3. **Não** rodar `export:bundle`, `validate`, `check`, `build`, `build:digital`, `build:print`, `gerar-pdf` nem `gerar-pdf-grafica` por conta própria ao concluir uma tarefa — a equipe dispara isso **manualmente** quando quiser. Só executar esses comandos se a editora **pedir explicitamente** (ex.: “gera o PDF”, “roda validate”, “atualiza o bundle”).
+4. Responder em português simples: o que mudou + convite a **visualizar** no site (link, não nome de comando). Só mencione arquivos se o editor pedir detalhe técnico.
 
 ## Preservação do combinado (obrigatório)
 
 Tudo o que a editora pediu e ficou combinado — texto, componentes (`ProfileCard`, `Figure`, tabelas), layout (`vozes-with-rail`), tipografia, caixas, links, imagens em `assets/media/`, destaques de nome, capa, margens — **permanece** até ela pedir **explicitamente** outra coisa.
 
 - **Não reverter**, “simplificar” nem apagar decisões anteriores por conveniência, import em massa ou refactor.
-- **Prévia e PDF** renderizam o **MDX** (e CSS/React afetados). O inventário/bundle serve para texto/links cruzados, não substitui componentes editoriais no MDX.
+- A **prévia web** (Vite) lê **MDX + `document.json`** direto; é aí que se valida layout e texto no dia a dia. **PDF** (Chromium/Playwright) só quando pedirem exportar. `publication.bundle.json` e `validate` são **manutenção opcional** (diff com inventário, prova de bundle) — não fazem parte do fluxo normal de edição.
 - **`npm run import:mapeamento`** pode regerar capítulos como parágrafos crus: depois do import, **reconciliar** com o combinado (perfis, layout, fotos publicadas) antes de dizer “pronto”.
 - Pedido novo de **conteúdo** upstream: atualizar texto **sem** desfazer tratamento editorial salvo indicação contrária.
 - Incerteza se algo pode apagar trabalho anterior: **perguntar** ou preservar e reportar o que foi mantido.
@@ -29,8 +29,8 @@ Tudo o que a editora pediu e ficou combinado — texto, componentes (`ProfileCar
 Quando a editora ajusta **uma** página (largura de coluna, bullets, quebra, espaço antes de lista, perfil no rail), tratar como **sistema do relatório**, não exceção pontual.
 
 1. **Generalizar primeiro** — tokens (`tokens.css`), grade (`vozes.css`, `--vozes-rail-to-prose`, `--vozes-prose-track`), componente (`DetailListGrid`, `PageStack`, `Heading` + `vozes-page-start`). Evitar CSS ou largura só num parágrafo.
-2. **Repetir onde couber** — após fechar o pedido na página citada, varrer capítulos **parecidos** (`*-org.mdx`, miolos de país `*.mdx`, `resumo-executivo`, etc.) e alinhar ao mesmo padrão quando o conteúdo for do mesmo tipo (lista após intro, financiamento, exemplos de atuação, faixa de atores). **Excluir Austrália** (capítulo fechado), **EUA pp. 18–23** (currículo + Achieve org, folios fechados), **Inglaterra pp. 26–27** (produção + participação); não propagar a partir desses blocos.
-3. **Exceções explícitas** — não alterar composições **fechadas** (Austrália pp. 10–11; **EUA pp. 18–19**; **EUA pp. 20–23** Achieve; **Inglaterra pp. 26–27**); `DetailList` com `icon=` (processos AU) mantém faixa plena; não forçar `DetailListGrid` onde houver figura ou prosa **entre** itens sem combinar com a editora.
+2. **Repetir onde couber** — após fechar o pedido na página citada, varrer capítulos **parecidos** (`*-org.mdx`, miolos de país `*.mdx`, `resumo-executivo`, etc.) e alinhar ao mesmo padrão quando o conteúdo for do mesmo tipo (lista após intro, financiamento, exemplos de atuação, faixa de atores). **Excluir Austrália** (capítulo fechado), **EUA pp. 18–23** (currículo + Achieve org, folios fechados), **Inglaterra pp. 26–27** (produção + participação), **Inglaterra pp. 30–31** (cruzamento CF + abertura BCF); não propagar a partir desses blocos.
+3. **Exceções explícitas** — não alterar composições **fechadas** (Austrália pp. 10–11; **EUA pp. 18–19**; **EUA pp. 20–23** Achieve; **Inglaterra pp. 26–27**; **Inglaterra pp. 30–31**); `DetailList` com `icon=` (processos AU) mantém faixa plena; não forçar `DetailListGrid` onde houver figura ou prosa **entre** itens sem combinar com a editora.
 4. **Micro-ajuste vs sistema** — “um pouquinho menor/maior” na coluna → calibrar token/global; “só nesta seção” → só MDX local.
 
 ### Padrões já combinados (referência rápida — Nov/2026)
@@ -142,16 +142,57 @@ Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, simplificar,
 
 A dupla **26–27** (produção do currículo + participação + trajetória na 27) está **fechada**. O capítulo organizações Inglaterra (`england-org.mdx`, …) só muda com pedido explícito; `import:mapeamento` exige reconciliar o combinado nas folhas fechadas.
 
+### Inglaterra — Curriculum Foundation, folhas 28–29 (fechada / não alterar)
+
+Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, simplificar, re-quebrar nem redesenhar sem pedido explícito. Fonte: `england-org.mdx` + `vozes-page-stack--england-org-atuacao-traj` + `trajetoria-box--curriculo-england` em `vozes.css` / `paginateDesk.ts` (split rodapé trajetória).
+
+| Folha | Conteúdo fixo |
+| --- | --- |
+| **28** | Abertura **Curriculum Foundation**; *O que é*; *A governança* + `ProfileCard` Victoria Pendry; parágrafos de governança; *Financiamento* (dois parágrafos, inclusive Sudão do Sul / GPE) |
+| **29** | `PageStack` `vozes-page-stack--england-org-atuacao-traj`: parágrafo jurídico (*company limited by guarantee*); **A atuação** (intro + três exemplos em `DetailListGrid` **coluna única**); `TrajetoriaBox` no rodapé (`vozes-page-stack-foot`): **A trajetória da organização** com `MilestoneStrip` **2 colunas independentes** (regras p. 27) |
+
+- **Proibido sem pedido:** mudar ordem de blocos, quebras, texto, bullets em coluna única, caixa de trajetória no rodapé da 29, ou fixes globais (paginação/CSS) que desloquem conteúdo da **p. 28** para a **27** ou da trajetória para fora da **p. 29** (ou para a **p. 30**).
+- **Paginação global:** ajustes em `paginateDesk.ts` / `vozes.css` / tokens não podem mudar como as folhas 28–29 renderizam; se um fix geral afetar CF abertura+atuação+trajetória, pedir à editora ou isolar o comportamento.
+- **Exceção:** só o que a editora citar por palavras (“muda a página 28…”, “página 29”, Curriculum Foundation, trajetória da organização CF, folio 28–29 ou trecho visível nessas folhas).
+
+### Inglaterra — Curriculum Foundation, folha 30 (fechada / não alterar)
+
+Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, simplificar, re-quebrar nem redesenhar sem pedido explícito. Fonte: `england-org.mdx` + `PageStack` `vozes-page-stack--england-org-cruzamento` + `DualTrackEmbed` parte **a** (`england-cruzamento-1-a.json`) + `vozes.css` (faixa marfim / dual-track) / `paginateDesk.ts` (átomo de cruzamento).
+
+| Folha | Conteúdo fixo |
+| --- | --- |
+| **30** | *Onde as trajetórias se cruzam* (parte **a**): faixa marfim em folha cheia; cartões com três blocos distintos — currículo, organização e **resumo** (terceiro parágrafo **abaixo** da organização, **não** fundido ao currículo); overflow conforme `england-cruzamento-1-a.json` |
+
+- **Proibido sem pedido:** mudar ordem de nós, texto dos três blocos, layout da faixa dual-track, reagrupar `resumo` em `curriculo`/`organizacao`, ou fixes globais (paginação/CSS/timelines) que desloquem o cruzamento para a **p. 29** ou para a **p. 31**.
+- **Paginação global:** ajustes em `paginateDesk.ts` / `vozes.css` / JSON de cruzamento não podem mudar como a folha 30 renderiza; se um fix geral afetar CF cruzamento, pedir à editora ou isolar o comportamento.
+- **Exceção:** só o que a editora citar por palavras (“muda a página 30…”, cruzamento Curriculum Foundation, folio 30 ou trecho visível nessa folha).
+
+### Inglaterra — British Curriculum Forum, folha 31 (fechada / não alterar)
+
+Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, simplificar, re-quebrar nem redesenhar sem pedido explícito. Fonte: `england-2.mdx` (`vozes-chapter--bcf`, `vozes-with-rail`) + `ProfileCard` Grace Healy como filho direto de `.vozes-main` (rail) + classes `vozes-bcf-opening` / `vozes-bcf-fin-body` / `vozes-bcf-fin-tail` + `BCF_FIN_TAIL_SLOP` em `paginateDesk.ts` + ritmo em `vozes.css`.
+
+| Folha | Conteúdo fixo |
+| --- | --- |
+| **31** | **British Curriculum Forum (BCF)**; *O que é* (dois parágrafos de abertura); ***A governança*** + `ProfileCard` **Grace Healy** no **rail**; parágrafos de governança (BERA *Council*, presidência, nomeações 2025); ***Financiamento*** integral na mesma folha (rede BERA, *BCF Curriculum Investigation Grant*, parágrafo final das demonstrações financeiras auditadas da BERA); **sem** abrir *A atuação* nesta folha |
+
+- **Proibido sem pedido:** envolver governança ou financiamento em `PageStack` que quebre o float do perfil; mudar ordem de blocos, texto, compactação BCF, ou fixes globais (paginação/CSS) que empurrem financiamento para a **p. 32** ou antecipem *A atuação* para a **p. 31**.
+- **Paginação global:** ajustes em `paginateDesk.ts` / `vozes.css` / tokens não podem mudar como a folha 31 renderiza; o slop `vozes-bcf-fin-tail` permanece **só** para este encaixe; se um fix geral afetar BCF abertura, pedir à editora ou isolar o comportamento.
+- **Exceção:** só o que a editora citar por palavras (“muda a página 31…”, BCF governança, Grace Healy, financiamento BCF, folio 31 ou trecho visível nessa folha).
+
+### Inglaterra — Curriculum Foundation (`england-org.mdx`)
+
+Folhas **28–30** fechadas. Capítulo **BCF** (`england-2.mdx`): folha **31** fechada; folhas **32+** (atuação, trajetória, cruzamento BCF) só mudam com pedido explícito; `import:mapeamento` exige reconciliar o combinado nas folhas fechadas.
+
 ## Vocabulário da editora → comando (agente executa; não repassar npm ao editor)
 
 | Editora diz | Agente roda | Resposta ao editor |
 | --- | --- | --- |
 | **Visualizar** / abrir prévia / ver páginas / ver como no livro | `npm run visualizar` (ou `dev`) | “Abra **http://127.0.0.1:5173**” + seção/país |
 | **Entrar no modo de edição** / ver texto rápido | `npm run editar` (ou `dev:edit`) — o mesmo site | “Abra **http://127.0.0.1:5173**” |
-| **Gerar renderização PDF** / gera o PDF / exporta PDF final | `npm run gerar-pdf` (ou `build` / `pdf:digital`) | Caminho `output/document-digital.pdf` |
-| **PDF para gráfica** / com sangria / para impressão | `npm run gerar-pdf-grafica` (ou `pdf:print`) | `output/document-print.pdf` |
+| **Gerar renderização PDF** / gera o PDF / exporta PDF final | `npm run gerar-pdf` (só quando pedirem) | Caminho `output/document-digital.pdf` |
+| **PDF para gráfica** / com sangria / para impressão | `npm run gerar-pdf-grafica` (só quando pedirem) | `output/document-print.pdf` |
 
-Se `visualizar` já estiver rodando no terminal do projeto, diga só para atualizar o navegador (F5). Inicie você mesmo se o editor pediu visualizar e não há servidor.
+Se `visualizar` já estiver rodando no terminal do projeto, diga só para atualizar o navegador (F5). Inicie o servidor **só** se a editora pediu visualizar e não há servidor rodando — não subir preview nem gerar PDF “por precaução”.
 
 Nunca diga ao editor: “rode npm run dev”, “build:digital”, “export:bundle”, “validate”.
 
@@ -182,7 +223,7 @@ Nunca diga ao editor: “rode npm run dev”, “build:digital”, “export:bun
 | Imagem nova | `assets/media/` + `<Figure src="media/…" />` no MDX (ou prop `photo` no ProfileCard) |
 | Links clicáveis e visíveis | Links no MDX (`[texto](url)`); estilos `a` em `document.css` / `vozes.css` — testar no site |
 
-Não editar `publication.bundle.json` à mão. App lê MDX + manifest; bundle é gerado.
+Não editar `publication.bundle.json` à mão (só via `export:bundle` quando pedirem). O app em desenvolvimento carrega MDX + manifest; o bundle não substitui o MDX na prévia.
 
 **Capa:** `capa` não usa inventory. **Abertura:** `apresentacao` / `resumo-executivo` sem `kicker` no frontmatter. **Margens PDF:** sem running heads (`paged.css`).
 
@@ -193,36 +234,31 @@ Não editar `publication.bundle.json` à mão. App lê MDX + manifest; bundle é
 | “Altera [trecho]” / país / seção | Localiza seção em `document.json`, edita `.mdx` ou timeline JSON |
 | “Adiciona essa imagem” (+ anexo) | Salva em `assets/media/`, insere `Figure` ou atualiza ProfileCard |
 | “Infográfico na página X” | Identifica seção (país/slug); `strategy: art-directed` + JSON em `infographics/` ou layout existente; não inflar flow |
-| “Alinhar fólio / margens laterais” | Tokens + `@page` + padding `.sheet` / grade Vozes; conferir no site e, se o fólio mudou, no PDF |
+| “Alinhar fólio / margens laterais” | Tokens + `@page` + padding `.sheet` / grade Vozes; conferir no site (PDF só se pedirem renderização) |
 | “Links clicáveis e identificados” | URLs válidas no conteúdo + CSS de links |
 | “Padrão para os boxes” | Unificar variantes CSS e componentes; documentar visualmente na resposta |
 | “Boxes de perfil com menos destaque” | Reduzir contraste/borda/sombra de `.profile-card` vs `.highlight` / `.callout-card` |
 | “Moldura redonda, dual tone na foto” | CSS/HTML em ProfileCard (border-radius, filtro/mix-blend ou overlay duotone) |
-| “Gerar renderização PDF” / “gera o PDF” | `npm run gerar-pdf` |
-| “PDF para gráfica” | `npm run gerar-pdf-grafica` |
+| “Gerar renderização PDF” / “gera o PDF” | `npm run gerar-pdf` (pedido explícito) |
+| “PDF para gráfica” | `npm run gerar-pdf-grafica` (pedido explícito) |
 | “Visualizar” / “modo de edição” | Ver tabela vocabulário acima |
 | “Atualizou o Mapeamento” | `npm run import:mapeamento`; **preservar** componentes/CSS combinados; não apagar capa sem pedido |
 
 Se “página X” for ambíguo, use país, título visível ou id de seção — **não** exija que o editor saiba o slug.
 
-## Comandos (só o agente)
+## Comandos npm (referência — **não** rodar automaticamente)
 
-```bash
-npm run export:bundle      # após mudança em content/ (interno)
-npm run validate           # antes de concluir (interno)
-npm run check              # após mudança em src/
-npm run visualizar         # editora: “visualizar” → :5173
-npm run editar             # editora: “modo de edição” → o mesmo site, :5173
-npm run gerar-pdf          # editora: “gerar renderização PDF”
-npm run gerar-pdf-grafica  # editora: “PDF para gráfica” (A4 + sangria, sem marcas de corte)
-```
+Disponíveis no repo; use **somente** quando a editora ou o mantenedor pedir na conversa:
+
+- `npm run visualizar` / `editar` — prévia Vite em http://127.0.0.1:5173
+- `npm run export:bundle`, `validate`, `check` — alinhamento de manifest/bundle/tipos (manual)
+- `npm run gerar-pdf`, `gerar-pdf-grafica`, `build` — exportar PDF (manual)
 
 ## Checklist interno (não enviar como lista ao editor)
 
 - Nada do **combinado** foi perdido ou revertido sem pedido explícito
 - Pedido de layout em **uma** página: padrão generalizado e **propagado** a seções equivalentes quando fizer sentido
-- `validate` exit 0; `export:bundle` se content mudou
-- Layout: pedir editora a **visualizar** no site. PDF só quando ela pedir a renderização, ou quando a quebra de página mudou.
+- Conferir visualmente convidando a **visualizar** no site; **não** encadear bundle, validate nem PDF ao fechar a tarefa
 - Resposta curta, sem jargão; link da prévia + “vá até [Austrália / capa / …]”
 - Não commitar `output/*.pdf` sem pedido
 

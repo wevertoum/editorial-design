@@ -9,26 +9,39 @@
     {
       "id": "y-2009-a-2010",
       "year": "2009 a 2010",
-      "curriculo": "O National Curriculum permanece em vigor, enquanto cresce a discussão sobre autonomia escolar e futuras reformas. A Curriculum Foundation surge mais de vinte anos após a criação do National Curriculum. Sua proposta inicial já está associada à oferta de conhecimentos e serviços técnicos de desenvolvimento curricular.",
-      "organizacao": "A Curriculum Foundation é criada, em 2009, como organização especializada em desenvolvimento e revisão curricular."
+      "curriculo": "O National Curriculum permanece em vigor, enquanto cresce a discussão sobre autonomia escolar e futuras reformas.",
+      "organizacao": "A Curriculum Foundation é criada, em 2009, como organização especializada em desenvolvimento e revisão curricular.",
+      "resumo": "A Curriculum Foundation surge mais de vinte anos após a criação do National Curriculum. Sua proposta inicial já está associada à oferta de conhecimentos e serviços técnicos de desenvolvimento curricular."
     },
     {
       "id": "y-2011-a-2014-1",
       "year": "2011 a 2014",
-      "curriculo": "O governo revisa o National Curriculum, com publicação da nova versão em 2013 e início de implementação em 2014. O período coincide com a construção de uma nova versão do currículo inglês, um cenário de intenso debate sobre o papel do conhecimento e da estrutura curricular. Nesse contexto, a Curriculum Foundation consolida sua identidade técnica.",
-      "organizacao": "A organização amplia sua trajetória de apoio técnico a escolas e sistemas educacionais, inclusive internacionalmente."
+      "curriculo": "O governo revisa o National Curriculum, com publicação da nova versão em 2013 e início de implementação em 2014.",
+      "organizacao": "A organização amplia sua trajetória de apoio técnico a escolas e sistemas educacionais, inclusive internacionalmente.",
+      "resumo": "O período coincide com a construção de uma nova versão do currículo inglês, um cenário de intenso debate sobre o papel do conhecimento e da estrutura curricular. Nesse contexto, a Curriculum Foundation consolida sua identidade técnica."
     },
     {
       "id": "y-2018-a-2019-2",
       "year": "2018 a 2019",
-      "curriculo": "A atenção à qualidade dos currículos escolares ganha destaque no debate sobre o novo modelo de inspeção do Ofsted A atuação da organização se concentra no debate público e na elaboração de currículos nas escolas, ou seja, no nível da implementação, onde o currículo nacional se traduz em prática.",
-      "organizacao": "A Curriculum Foundation publica um posicionamento sobre o modelo de inspeção e promove formação e desenvolvimento curricular em escolas britânicas."
+      "curriculo": "A atenção à qualidade dos currículos escolares ganha destaque no debate sobre o novo modelo de inspeção do Ofsted.",
+      "organizacao": "A Curriculum Foundation publica um posicionamento sobre o modelo de inspeção e promove formação e desenvolvimento curricular em escolas britânicas.",
+      "resumo": "A atuação da organização se concentra no debate público e na elaboração de currículos nas escolas, ou seja, no nível da implementação, onde o currículo nacional se traduz em prática."
     },
     {
       "id": "y-2020-a-2023-3",
       "year": "2020 a 2023",
-      "curriculo": "O currículo de 2014 permanece como referência nacional, com diferentes iniciativas de desenvolvimento curricular pelas escolas. A Curriculum Foundation amplia sua atuação para reformas curriculares internacionais, participando da elaboração de programas, orientações e instrumentos de avaliação.",
-      "organizacao": "A organização divulga trabalhos de revisão curricular e avaliação realizados para governos estrangeiros, como o Sudão do Sul."
+      "curriculo": "O currículo de 2014 permanece como referência nacional, com diferentes iniciativas de desenvolvimento curricular pelas escolas.",
+      "organizacao": "A organização divulga trabalhos de revisão curricular e avaliação realizados para governos estrangeiros, como o Sudão do Sul.",
+      "resumo": "A Curriculum Foundation amplia sua atuação para reformas curriculares internacionais, participando da elaboração de programas, orientações e instrumentos de avaliação."
+    }
+  ],
+  "overflowNodes": [
+    {
+      "id": "y-2024-a-2026",
+      "year": "2024 a 2026",
+      "curriculo": "O governo conduz uma nova revisão nacional, publica recomendações e inicia a preparação das futuras mudanças curriculares.",
+      "organizacao": "A Curriculum Foundation permanece ativa, desenvolvendo e divulgando trabalhos relacionados ao currículo.",
+      "resumo": "A Inglaterra vive uma nova revisão e a organização segue ativa como referência no campo, desenvolvendo e divulgando trabalhos relacionados a currículo."
     }
   ]
 }

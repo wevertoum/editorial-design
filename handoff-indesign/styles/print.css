@@ -1,7 +1,7 @@
 /*
  * Print layout profile. Geometry only.
  * This file does not convert color, embed an ICC profile, or declare PDF/X.
- * scripts/build-pdf.ts reads --bleed for the Vivliostyle --bleed flag.
+ * scripts/build-pdf.ts — trim com sangria (3mm) alinhado a estes tokens.
  */
 :root {
   --bleed: 3mm;

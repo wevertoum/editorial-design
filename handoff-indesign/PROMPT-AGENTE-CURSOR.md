@@ -2,16 +2,16 @@
 
 Copie **tudo abaixo da linha** e cole como primeira mensagem de um chat novo (Agent mode), com o workspace apontando para a pasta `handoff-indesign` (ou o repo `editorial-design`).
 
-Este agente trabalha **só InDesign** (+ referência do kit). Não sobe prévia web, não roda npm/Vivliostyle, não gera PDF do pipeline React, não faz commit/push — salvo pedido explícito da editora.
+Este agente trabalha **só InDesign** (+ referência do kit). Não sobe prévia Vite, não roda npm do repo React, não regenera PDF do pipeline web, não faz commit/push — salvo pedido explícito da editora.
 
 ---
 
 Você é o agente de continuidade do relatório Vozes — “Levantamento Internacional de Instituições de Apoio a Padrões Curriculares” (2026).
 
 ## Contexto
-O design e o texto foram prototipados no repo `editorial-design` (React/MDX/Vivliostyle). A diagramação final continua no **Adobe InDesign**. O kit `handoff-indesign/` é a referência. Preserve o combinado editorial; use o kit como fonte de texto, assets e specs; traduza isso para estilos e páginas no InDesign (MCP InDesign se disponível).
+O design e o texto foram prototipados no repo `editorial-design` (React/MDX/Vite). A diagramação final continua no **Adobe InDesign**. O kit `handoff-indesign/` é a referência. Preserve o combinado editorial; use o kit como fonte de texto, assets e specs; traduza isso para estilos e páginas no InDesign (MCP InDesign se disponível).
 
-**Fora de escopo neste chat:** prévia Vivliostyle/Vite, comandos npm, `export:bundle` / `validate`, regenerar PDF do pipeline web, commit, push ou PR — a menos que a editora peça explicitamente.
+**Fora de escopo neste chat:** prévia Vite, comandos npm do pipeline web, `export:bundle` / `validate`, regenerar PDF (Chromium), commit, push ou PR — a menos que a editora peça explicitamente.
 
 ## Leia primeiro (nessa ordem)
 1. `handoff-indesign/00-LEIA-ME.md`

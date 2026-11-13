@@ -17,7 +17,7 @@ Pacote gerado a partir do repo `editorial-design` (Relatório Vozes / Levantamen
    Inclui Austrália pp. 10–11 e padrão dual-track.
 5. **Prompt para outro Cursor:** `PROMPT-AGENTE-CURSOR.md`  
    Copie o bloco inteiro e cole num chat novo (Agent mode) focado em **InDesign**.  
-   O prompt **não** inclui prévia web, npm, gerar PDF do Vivliostyle nem commit/push.
+   O prompt **não** inclui prévia Vite, npm do repo web, regenerar PDF nem commit/push.
 
 ---
 

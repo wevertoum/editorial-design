@@ -5,6 +5,9 @@
 
 const SLOP = 4
 
+/** BCF — último parágrafo de Financiamento: a medição ignora espaço livre ao lado do float do perfil. */
+const BCF_FIN_TAIL_SLOP = 52
+
 const ATOMIC = [
   '.figure',
   '.profile-card',
@@ -135,7 +138,9 @@ function groupBlocks(
         block.classList.contains('vozes-page-stack--usa-opening') ||
         block.classList.contains('vozes-page-stack--usa-producao') ||
         block.classList.contains('vozes-page-stack--usa-org-fin-atuacao') ||
-        block.classList.contains('vozes-page-stack--england-p27')
+        block.classList.contains('vozes-page-stack--england-p27') ||
+        block.classList.contains('vozes-page-stack--england-org-cruzamento') ||
+        block.classList.contains('vozes-page-stack--england-bcf-cruzamento')
       ) {
         groups.push([block])
         continue
@@ -196,6 +201,18 @@ function groupBlocks(
 
     const candidate = [...current, block]
     if (current.length > 0 && !fits(candidate, withRail)) {
+      if (
+        block.classList.contains('vozes-bcf-fin-tail') &&
+        next instanceof HTMLElement &&
+        next.classList.contains('vozes-page-stack') &&
+        next.classList.contains('vozes-page-stack--england-bcf-atuacao-traj')
+      ) {
+        const overflow = measure(candidate, withRail) - limit
+        if (overflow > 0 && overflow <= BCF_FIN_TAIL_SLOP) {
+          current = candidate
+          continue
+        }
+      }
       if (block.classList.contains('org-hierarchy-flow')) {
         const intro = current[current.length - 1]
         if (intro?.matches('p')) {
@@ -785,6 +802,8 @@ function prepareStackMeasure(slot: HTMLElement): void {
       node.classList.contains('vozes-page-stack--usa-producao') ||
       node.classList.contains('vozes-page-stack--usa-org-fin-atuacao') ||
       node.classList.contains('vozes-page-stack--england-p27') ||
+      node.classList.contains('vozes-page-stack--england-org-cruzamento') ||
+      node.classList.contains('vozes-page-stack--england-bcf-cruzamento') ||
       node.classList.contains('vozes-page-break')
     ) {
       return

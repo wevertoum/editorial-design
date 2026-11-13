@@ -2819,6 +2819,270 @@
   margin-bottom: 0;
 }
 
+/* BCF — só afina abertura + Financiamento; governança, perfil e rail inalterados. */
+.layout-vozes-report .vozes-chapter--bcf .vozes-main > h2 + h3 {
+  margin-top: 0.22em;
+  margin-bottom: 0.18em;
+}
+
+.layout-vozes-report .vozes-chapter--bcf .vozes-main > p.vozes-bcf-opening {
+  margin-top: 0.22em;
+  margin-bottom: 0.22em;
+}
+
+.layout-vozes-report .vozes-main > p.vozes-bcf-fin-body {
+  margin-top: 0.24em;
+  margin-bottom: 0.24em;
+}
+
+.layout-vozes-report .vozes-main > h3 + p.vozes-bcf-fin-body {
+  margin-top: 0.2em;
+}
+
+.layout-vozes-report .vozes-main > p.vozes-bcf-fin-body.vozes-bcf-fin-tail {
+  margin-top: 0.14em;
+}
+
+/* Curriculum Foundation — p. 29 atuação + trajetória (rodapé) + p. 30 cruzamento em folha cheia. */
+.layout-vozes-report .vozes-main > .vozes-page-stack--england-org-atuacao-traj {
+  --stack-paragraph-vozes: 0.5em;
+  --stack-before-detail-grid: 2.5mm;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--england-org-atuacao-traj > h3 {
+  margin-top: 0.45em;
+  margin-bottom: 0.28em;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--england-org-atuacao-traj > h3:first-child {
+  margin-top: 0;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--england-org-atuacao-traj > p + h3 {
+  margin-top: 0.62em;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--england-org-atuacao-traj
+  .vozes-detail-list-grid {
+  margin-top: 0;
+  margin-bottom: 2.25mm;
+  gap: 2.75mm 4mm;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--england-org-atuacao-traj
+  .trajetoria-box--curriculo-england.vozes-page-stack-foot {
+  flex: 0 0 auto;
+  margin-top: 2.5mm;
+  width: calc(100% + var(--vozes-grid-gutter) + var(--vozes-rail-to-prose) * 100%);
+  max-width: none;
+  margin-inline: 0;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--england-org-cruzamento.vozes-page-stack--dual-track {
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+  min-height: var(--vozes-content-height);
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--england-org-cruzamento
+  .vozes-page-stack-prelude,
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--england-org-cruzamento
+  .vozes-dual-track-prelude-spacer {
+  display: none;
+  margin: 0;
+  padding: 0;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--england-org-cruzamento.vozes-page-stack--dual-track:has(.dual-track-section--overflow)
+  .dual-track-section--overflow.vozes-page-stack-foot,
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--england-org-cruzamento
+  .dual-track-section.vozes-page-stack-foot {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  box-sizing: border-box;
+  min-height: 100%;
+  height: auto;
+  max-height: none;
+  margin-top: 0;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--england-org-cruzamento.vozes-page-stack--dual-track:has(.dual-track-section--overflow)
+  .dual-track-section--overflow.vozes-page-stack-foot
+  .dual-track,
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--england-org-cruzamento
+  .dual-track-section.vozes-page-stack-foot
+  .dual-track {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--england-org-cruzamento
+  .dual-track-section.vozes-page-stack-foot
+  .dual-track-band {
+  flex: 1 1 auto;
+  min-height: 100%;
+  margin-top: 0;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--england-org-cruzamento.vozes-page-stack--dual-track:has(.dual-track-section--overflow)
+  .dual-track-section--overflow.vozes-page-stack-foot
+  .dual-track-matrix,
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--england-org-cruzamento
+  .dual-track-section.vozes-page-stack-foot
+  .dual-track-matrix {
+  flex: 1 1 auto;
+  min-height: 0;
+  justify-content: flex-start;
+  gap: 9.5mm;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--england-org-cruzamento
+  .dual-track-matrix
+  .dual-track-nodes--overflow {
+  margin-top: 1.5mm;
+  padding-top: 0;
+}
+
+/* BCF — atuação (4 exemplos) + trajetória no rodapé; cruzamento em folha cheia. */
+.layout-vozes-report .vozes-main > .vozes-page-stack--england-bcf-atuacao-traj {
+  --stack-paragraph-vozes: 0.5em;
+  --stack-before-detail-grid: 2.25mm;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--england-bcf-atuacao-traj .detail-list-item {
+  margin-bottom: 0.35em;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--england-bcf-atuacao-traj
+  .trajetoria-box--curriculo-england.vozes-page-stack-foot {
+  flex: 0 0 auto;
+  margin-top: 2.5mm;
+  width: calc(100% + var(--vozes-grid-gutter) + var(--vozes-rail-to-prose) * 100%);
+  max-width: none;
+  margin-inline: 0;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--england-bcf-cruzamento.vozes-page-stack--dual-track {
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+  min-height: var(--vozes-content-height);
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--england-bcf-cruzamento
+  .vozes-page-stack-prelude,
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--england-bcf-cruzamento
+  .vozes-dual-track-prelude-spacer {
+  display: none;
+  margin: 0;
+  padding: 0;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--england-bcf-cruzamento.vozes-page-stack--dual-track:has(.dual-track-section--overflow)
+  .dual-track-section--overflow.vozes-page-stack-foot,
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--england-bcf-cruzamento
+  .dual-track-section.vozes-page-stack-foot {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  box-sizing: border-box;
+  min-height: 100%;
+  height: auto;
+  max-height: none;
+  margin-top: 0;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--england-bcf-cruzamento.vozes-page-stack--dual-track:has(.dual-track-section--overflow)
+  .dual-track-section--overflow.vozes-page-stack-foot
+  .dual-track,
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--england-bcf-cruzamento
+  .dual-track-section.vozes-page-stack-foot
+  .dual-track {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--england-bcf-cruzamento
+  .dual-track-section.vozes-page-stack-foot
+  .dual-track-band {
+  flex: 1 1 auto;
+  min-height: 100%;
+  margin-top: 0;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--england-bcf-cruzamento.vozes-page-stack--dual-track:has(.dual-track-section--overflow)
+  .dual-track-section--overflow.vozes-page-stack-foot
+  .dual-track-matrix,
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--england-bcf-cruzamento
+  .dual-track-section.vozes-page-stack-foot
+  .dual-track-matrix {
+  flex: 1 1 auto;
+  min-height: 0;
+  justify-content: flex-start;
+  gap: 9.5mm;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--england-bcf-cruzamento
+  .dual-track-matrix
+  .dual-track-nodes--overflow {
+  margin-top: 1.5mm;
+  padding-top: 0;
+}
+
 /* Achieve p. 23 — trajetória da org em 2 colunas (padrão p. 19, mais compacto) + dual-track. */
 .layout-vozes-report .vozes-main .trajetoria-box--org-usa > .heading-3.vozes-trajetoria-heading {
   margin-bottom: 0.3em;

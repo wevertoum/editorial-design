@@ -9,20 +9,46 @@
     {
       "id": "y-1988-a-1990",
       "year": "1988 a 1990",
-      "curriculo": "O National Curriculum é criado pela Education Reform Act, estabelecendo conteúdos e expectativas nacionais. A criação de The Curriculum Journal, em 1990, estabeleceu um veículo especializado de pesquisa e análise curricular no período inicial do National Curriculum",
-      "organizacao": "A organização predecessora lança, em 1990, The Curriculum Journal, revista de pesquisa e discussão curricular."
+      "curriculo": "O National Curriculum é criado pela Education Reform Act, estabelecendo conteúdos e expectativas nacionais.",
+      "organizacao": "A organização predecessora lança, em 1990, The Curriculum Journal, revista de pesquisa e discussão curricular.",
+      "resumo": "A criação de The Curriculum Journal, em 1990, estabeleceu um veículo especializado de pesquisa e análise curricular no período inicial do National Curriculum."
     },
     {
       "id": "y-2011-a-2014-1",
       "year": "2011 a 2014",
-      "curriculo": "O governo conduz revisão nacional que resulta no currículo publicado em 2013 e implementado a partir de 2014. Mary James, integrante da direção da British Curriculum Foundation entre 1989 e 2014, foi nomeada para o painel de especialistas responsável por formular recomendações para a revisão de 2011.",
-      "organizacao": "A Direção da British Curriculum Foundation participa do painel oficial de especialistas da revisão. Em 2014, a entidade é incorporada à BERA."
+      "curriculo": "O governo conduz revisão nacional que resulta no currículo publicado em 2013 e implementado a partir de 2014.",
+      "organizacao": "A Direção da British Curriculum Foundation participa do painel oficial de especialistas da revisão. Em 2014, a entidade é incorporada à BERA.",
+      "resumo": "Mary James, integrante da direção da British Curriculum Foundation entre 1989 e 2014, foi nomeada para o painel de especialistas responsável por formular recomendações para a revisão de 2011."
     },
     {
       "id": "y-2019-a-2020-2",
       "year": "2019 a 2020",
-      "curriculo": "O currículo de 2014 permanece em vigor e as escolas discutem organização curricular, conhecimentos e práticas de ensino. BCF reuniu professores, pesquisadores e lideranças escolares para discutir a elaboração de currículos nas próprias instituições. O encontro gerou um relatório publicado em 2020.",
-      "organizacao": "O BCF realiza eventos que aproximam professores e pesquisadores e publica relatório sobre desenvolvimento curricular nas escolas."
+      "curriculo": "O currículo de 2014 permanece em vigor e as escolas discutem organização curricular, conhecimentos e práticas de ensino.",
+      "organizacao": "O BCF realiza eventos que aproximam professores e pesquisadores e publica relatório sobre desenvolvimento curricular nas escolas.",
+      "resumo": "BCF reuniu professores, pesquisadores e lideranças escolares para discutir a elaboração de currículos nas próprias instituições. O encontro gerou um relatório publicado em 2020."
+    }
+  ],
+  "overflowNodes": [
+    {
+      "id": "y-2021-a-2023-3",
+      "year": "2021 a 2023",
+      "curriculo": "Escolas continuam desenvolvendo e contextualizando seus currículos, considerando as exigências nacionais.",
+      "organizacao": "O BCF financia investigações escolares sobre diversidade, sustentabilidade, inclusão e outros desafios curriculares.",
+      "resumo": "Por meio do *Curriculum Investigation Grant*, o BCF passou a apoiar pesquisas conduzidas por escolas sobre seus próprios currículos. A iniciativa promove investigação, experimentação e divulgação de práticas curriculares."
+    },
+    {
+      "id": "y-2024-a-2025",
+      "year": "2024 a 2025",
+      "curriculo": "Tem início uma nova Curriculum and Assessment Review, com consulta pública, painel de especialistas e recomendações.",
+      "organizacao": "O BCF publica *Curriculum in a Changing World* em parceria com a BERA; a BERA também reúne e divulga pesquisas e debates sobre a revisão nacional.",
+      "resumo": "BERA criou um espaço institucional para reunir pesquisas, análises e discussões sobre o processo. Paralelamente, o BCF participou da publicação *Curriculum in a Changing World*, com 50 textos de especialistas."
+    },
+    {
+      "id": "y-2025-a-2026-1",
+      "year": "2025 a 2026",
+      "curriculo": "O governo prepara o desenvolvimento do currículo revisado e as futuras etapas de implementação.",
+      "organizacao": "O BCF renova sua liderança e mantém projetos de pesquisa e espaços de discussão curricular.",
+      "resumo": "A organização mantém sua atuação por meio de publicações, financiamento de pesquisas e articulação entre profissionais, enquanto a reforma nacional segue em desenvolvimento."
     }
   ]
 }

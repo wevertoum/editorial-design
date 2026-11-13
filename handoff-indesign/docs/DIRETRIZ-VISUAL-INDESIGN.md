@@ -169,7 +169,7 @@ Não redesenhar sem pedido explícito. Página 10: PageStack + prosa + ActorBand
 
 ## 10. Escopo deste handoff
 
-Continuidade = **InDesign**. O PDF em `prova/` já é a referência paginada. Não é necessário, neste kit, rodar prévia web, npm nem regenerar o pipeline Vivliostyle. Commit/push só se a editora pedir.
+Continuidade = **InDesign**. O PDF em `prova/` já é a referência paginada. Não é necessário, neste kit, rodar prévia Vite, npm nem regenerar o PDF do pipeline React (Chromium). Commit/push só se a editora pedir.
 
 ---
 

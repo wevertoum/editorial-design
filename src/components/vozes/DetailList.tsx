@@ -22,7 +22,7 @@ function DetailIconMark({ name }: { name: DetailListIcon }) {
 }
 
 export function DetailList({ children, icon }: DetailListProps) {
-  /* `div` — MDX coloca parágrafos dentro; `<p>` quebrava o marcador no Vivliostyle. */
+  /* `div` — MDX coloca parágrafos dentro; `<p>` quebrava o alinhamento do marcador no PDF. */
   const iconClass = icon ? ' detail-list-item--icon' : ''
   return (
     <div className={`detail-list-item${iconClass}`}>

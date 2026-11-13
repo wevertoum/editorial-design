@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Bake editorial duotone into ProfileCard portraits (shadow #493975 · highlight #FBF9F6).
 
-Vivliostyle does not reliably apply SVG filters or mix-blend-mode on <img>, so the
+Chromium PDF print does not reliably apply SVG filters or mix-blend-mode on <img>, so the
 two-color map is written into the PNG pixels. Color masters live under
 assets/media/_incoming/portraits-color/ so the script can be re-run safely.
 """

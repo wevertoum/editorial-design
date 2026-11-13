@@ -1,7 +1,7 @@
 import { assetUrl } from '../../lib/assetUrl'
 import { registerProfileName, useProfileGovernanceHighlight } from '../../lib/profileGovernanceHighlight'
 
-/** Bump when portrait PNGs change — evita cache de foto natural na prévia Vivliostyle. */
+/** Bump when portrait PNGs change — bust cache no dev server e na prévia. */
 const PROFILE_PHOTO_CACHE = 'duotone-v2'
 
 type ProfileCardProps = {
