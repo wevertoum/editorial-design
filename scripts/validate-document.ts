@@ -41,6 +41,7 @@ const allowedComponents = new Set([
   'EditorialTable',
   'FactsRail',
   'Figure',
+  'FigureRow',
   'Heading',
   'HighlightBox',
   'MilestoneItem',

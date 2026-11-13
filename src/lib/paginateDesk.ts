@@ -184,6 +184,15 @@ function groupBlocks(
       continue
     }
 
+    if (block.classList.contains('vozes-england-ks-sheet')) {
+      if (current.length > 0) {
+        groups.push(current)
+        current = []
+      }
+      groups.push([block])
+      continue
+    }
+
     const candidate = [...current, block]
     if (current.length > 0 && !fits(candidate, withRail)) {
       if (block.classList.contains('org-hierarchy-flow')) {
@@ -285,6 +294,14 @@ function breakApart(
   measure: (nodes: HTMLElement[], withRail: boolean) => number,
 ): HTMLElement[] {
   if (block.matches('.editorial-table')) return splitTable(block)
+
+  if (
+    block.classList.contains('vozes-england-ks-sheet') ||
+    block.classList.contains('vozes-england-ks-block') ||
+    block.classList.contains('vozes-england-ks-figure-band')
+  ) {
+    return [block]
+  }
 
   if (block.matches(ATOMIC)) return [block]
 

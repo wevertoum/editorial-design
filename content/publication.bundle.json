@@ -1,6 +1,6 @@
 {
   "bundleVersion": 1,
-  "generatedAt": "2026-11-13T19:20:01.957Z",
+  "generatedAt": "2026-11-13T19:34:46.011Z",
   "id": "levantamento-organizacoes-2026",
   "language": "pt-BR",
   "title": "Levantamento Internacional de Instituições de Apoio a Padrões Curriculares",
@@ -4008,13 +4008,22 @@
             "type": "image",
             "src": "media/org-image8.png",
             "alt": "Ilustração do documento (org-image8.png).",
-            "caption": "Fonte: [*The National Curriculum in England*](https://assets.publishing.service.gov.uk/media/5a7db9e9e5274a5eaea65f58/Master_final_national_curriculum_28_Nov.pdf)"
+            "caption": "Fonte: [*The National Curriculum in England*](https://assets.publishing.service.gov.uk/media/5a7db9e9e5274a5eaea65f58/Master_final_national_curriculum_28_Nov.pdf)",
+            "className": "figure--flow figure--england-ks"
           },
           {
             "type": "image",
             "src": "media/org-image4.png",
             "alt": "Ilustração do documento (org-image4.png).",
-            "caption": "Fonte: [*The National Curriculum in England*](https://assets.publishing.service.gov.uk/media/5a7db9e9e5274a5eaea65f58/Master_final_national_curriculum_28_Nov.pdf)"
+            "caption": "Fonte: [*The National Curriculum in England*](https://assets.publishing.service.gov.uk/media/5a7db9e9e5274a5eaea65f58/Master_final_national_curriculum_28_Nov.pdf)",
+            "className": "figure--flow figure--england-ks"
+          },
+          {
+            "type": "image",
+            "src": "media/org-image5.png",
+            "alt": "Ilustração do documento (org-image5.png).",
+            "caption": "Fonte: [Site](https://www.curriculumfoundation.org/) institucional",
+            "className": "figure--flow figure--england-ks"
           },
           {
             "type": "paragraph",
@@ -4025,12 +4034,6 @@
             ]
           },
           {
-            "type": "image",
-            "src": "media/org-image5.png",
-            "alt": "Ilustração do documento (org-image5.png).",
-            "caption": "Fonte: [Site](https://www.curriculumfoundation.org/) institucional"
-          },
-          {
             "type": "heading",
             "level": 3,
             "text": "Como o currículo nacional é produzido",
@@ -4038,7 +4041,8 @@
               {
                 "text": "Como o currículo nacional é produzido"
               }
-            ]
+            ],
+            "className": "vozes-page-start"
           },
           {
             "type": "paragraph",

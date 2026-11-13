@@ -16,6 +16,7 @@ import { MilestoneItem, MilestoneStrip } from './components/vozes/MilestoneStrip
 import { ProfileCard } from './components/vozes/ProfileCard'
 import { ActorBand } from './components/vozes/ActorBand'
 import { DualTrackEmbed } from './components/vozes/DualTrackEmbed'
+import { FigureRow } from './components/vozes/FigureRow'
 import { PageStack } from './components/vozes/PageStack'
 import { ParticipationBox } from './components/vozes/ParticipationBox'
 import { TrajetoriaBox } from './components/vozes/TrajetoriaBox'
@@ -59,6 +60,7 @@ export const mdxComponents = {
   MilestoneItem,
   ActorBand,
   DualTrackEmbed,
+  FigureRow,
   PageStack,
   ParticipationBox,
   TrajetoriaBox,

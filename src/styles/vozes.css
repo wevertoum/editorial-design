@@ -504,7 +504,7 @@
 }
 
 /* Figuras na faixa direita (1/6), salvo .figure--span */
-.layout-vozes-report .vozes-page:is(.vozes-prose-only, .vozes-with-rail) .vozes-main > .figure:not(.figure--span) {
+.layout-vozes-report .vozes-page:is(.vozes-prose-only, .vozes-with-rail) .vozes-main > .figure:not(.figure--span):not(.figure--flow) {
   float: right;
   clear: right;
   width: calc(var(--vozes-rail-to-prose) * 100%);
@@ -667,6 +667,178 @@
   margin-top: 2mm;
   break-inside: avoid;
   break-before: avoid;
+}
+
+/* Figura no fluxo do corpo — mais larga que o rail, altura limitada (várias na mesma folha). */
+.layout-vozes-report .vozes-page:is(.vozes-prose-only, .vozes-with-rail) .vozes-main .figure.figure--flow {
+  clear: both;
+  float: none;
+  width: calc(
+    var(--vozes-detail-grid-width) * (100% + var(--vozes-grid-gutter) + var(--vozes-rail-to-prose) * 100%)
+  );
+  max-width: calc(
+    var(--vozes-detail-grid-width) * (100% + var(--vozes-grid-gutter) + var(--vozes-rail-to-prose) * 100%)
+  );
+  margin: 2.25mm 0 2.75mm;
+  break-inside: avoid;
+}
+
+.layout-vozes-report .vozes-page:is(.vozes-prose-only, .vozes-with-rail) .vozes-main .figure.figure--flow img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: 34mm;
+  margin-inline: auto;
+  object-fit: contain;
+  object-position: center top;
+}
+
+.layout-vozes-report .vozes-main .figure.figure--flow figcaption {
+  margin-top: 1.75mm;
+}
+
+.layout-vozes-report .vozes-main .figure.figure--flow.figure--england-ks {
+  margin: 1.25mm 0 1.5mm;
+}
+
+.layout-vozes-report .vozes-main .figure.figure--flow.figure--england-ks img {
+  max-height: 20mm;
+}
+
+.layout-vozes-report .vozes-main .figure.figure--flow.figure--england-ks figcaption {
+  margin-top: 1.25mm;
+  font-size: 6.25pt;
+  line-height: 1.3;
+}
+
+/* Inglaterra — captura Schools Week no corpo (p. 27, com caixa de participação). */
+.layout-vozes-report .vozes-main .figure.figure--flow.figure--england-review {
+  width: calc(100% + var(--vozes-grid-gutter) + var(--vozes-rail-to-prose) * 100%);
+  max-width: calc(100% + var(--vozes-grid-gutter) + var(--vozes-rail-to-prose) * 100%);
+  margin: 0 0 3mm;
+}
+
+.layout-vozes-report .vozes-main .figure.figure--flow.figure--england-review img {
+  max-height: 56mm;
+}
+
+/* Inglaterra — folha KS (p. 25): classes (não #england — id só na 1.ª folha paginada). */
+.layout-vozes-report .vozes-main .vozes-england-ks-sheet {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  min-height: var(--vozes-content-height);
+  width: 100%;
+  break-inside: avoid;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack .actor-band + h3 {
+  margin-top: 5mm;
+  margin-bottom: 0.85em;
+}
+
+.layout-vozes-report .vozes-england-ks-sheet > h3 {
+  margin-bottom: 0.85em;
+}
+
+.layout-vozes-report .vozes-england-ks-sheet > .editorial-table {
+  margin-top: 0;
+  margin-bottom: 2mm;
+}
+
+.layout-vozes-report .vozes-england-ks-sheet > p {
+  margin-top: 0;
+  margin-bottom: 0.72em;
+}
+
+.layout-vozes-report .vozes-england-ks-sheet > p:last-of-type {
+  margin-bottom: 0.55em;
+}
+
+/* Duas ilustrações empilhadas — ocupam o espaço até a margem inferior da folha. */
+.layout-vozes-report .vozes-england-ks-sheet .vozes-england-ks-block {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 0;
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+.layout-vozes-report .vozes-main .vozes-figure-row.vozes-england-ks-figure-band {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 1.75mm;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-height: 0;
+  margin: 0;
+  break-inside: avoid;
+}
+
+.layout-vozes-report .vozes-main .vozes-figure-row.vozes-england-ks-figure-band > .figure.figure--flow.figure--england-ks {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 1 0;
+  min-height: 0;
+  width: 100%;
+  max-width: 100%;
+  float: none;
+  clear: none;
+  margin: 0;
+}
+
+.layout-vozes-report .vozes-main .vozes-figure-row.vozes-england-ks-figure-band > .figure.figure--england-ks:nth-child(1) {
+  flex-grow: 2.35;
+}
+
+.layout-vozes-report .vozes-main .vozes-figure-row.vozes-england-ks-figure-band > .figure.figure--england-ks:nth-child(2) {
+  flex-grow: 1;
+}
+
+.layout-vozes-report .vozes-main .vozes-figure-row.vozes-england-ks-figure-band > .figure.figure--flow.figure--england-ks img {
+  display: block;
+  flex: 1 1 auto;
+  width: 100%;
+  max-width: 100%;
+  min-height: 0;
+  max-height: 100%;
+  margin-inline: 0;
+  align-self: flex-start;
+  object-fit: contain;
+  object-position: left top;
+}
+
+.layout-vozes-report .vozes-main .vozes-figure-row.vozes-england-ks-figure-band .figure--england-ks figcaption {
+  flex: 0 0 auto;
+  width: 100%;
+  margin-top: 0.75mm;
+  font-size: 6pt;
+  line-height: 1.25;
+  text-align: left;
+}
+
+.layout-vozes-report .vozes-main .vozes-figure-row.vozes-england-ks-figure-band > .figure.figure--england-ks:nth-child(1) figcaption {
+  margin-top: 0.25mm;
+}
+
+.layout-vozes-report .vozes-england-ks-tree .figure--england-ks img {
+  max-height: 42mm;
+}
+
+.layout-vozes-report .vozes-england-ks-sheet .vozes-england-ks-block > p {
+  margin-top: 0.35em;
+  margin-bottom: 0;
+}
+
+.layout-vozes-report .vozes-england-ks-sheet .vozes-england-ks-block {
+  break-inside: avoid;
 }
 
 /* ActorBand — faixa de atores em colunas (prosa + faixa direita). */

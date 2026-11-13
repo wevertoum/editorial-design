@@ -29,8 +29,8 @@ Tudo o que a editora pediu e ficou combinado — texto, componentes (`ProfileCar
 Quando a editora ajusta **uma** página (largura de coluna, bullets, quebra, espaço antes de lista, perfil no rail), tratar como **sistema do relatório**, não exceção pontual.
 
 1. **Generalizar primeiro** — tokens (`tokens.css`), grade (`vozes.css`, `--vozes-rail-to-prose`, `--vozes-prose-track`), componente (`DetailListGrid`, `PageStack`, `Heading` + `vozes-page-start`). Evitar CSS ou largura só num parágrafo.
-2. **Repetir onde couber** — após fechar o pedido na página citada, varrer capítulos **parecidos** (`*-org.mdx`, miolos de país `*.mdx`, `resumo-executivo`, etc.) e alinhar ao mesmo padrão quando o conteúdo for do mesmo tipo (lista após intro, financiamento, exemplos de atuação, faixa de atores). **Excluir Austrália** (capítulo fechado), **EUA pp. 18–19**, **EUA p. 20** (Achieve abertura), **EUA p. 21** (Financiamento + abertura de A atuação) e propagar com cuidado perto de **EUA p. 22+**.
-3. **Exceções explícitas** — não alterar composições **fechadas** (Austrália pp. 10–11; **EUA pp. 18–19**; **EUA p. 20**); `DetailList` com `icon=` (processos AU) mantém faixa plena; não forçar `DetailListGrid` onde houver figura ou prosa **entre** itens sem combinar com a editora.
+2. **Repetir onde couber** — após fechar o pedido na página citada, varrer capítulos **parecidos** (`*-org.mdx`, miolos de país `*.mdx`, `resumo-executivo`, etc.) e alinhar ao mesmo padrão quando o conteúdo for do mesmo tipo (lista após intro, financiamento, exemplos de atuação, faixa de atores). **Excluir Austrália** (capítulo fechado), **EUA pp. 18–23** (currículo + Achieve org, folios fechados); não propagar a partir desse bloco.
+3. **Exceções explícitas** — não alterar composições **fechadas** (Austrália pp. 10–11; **EUA pp. 18–19**; **EUA pp. 20–23** Achieve); `DetailList` com `icon=` (processos AU) mantém faixa plena; não forçar `DetailListGrid` onde houver figura ou prosa **entre** itens sem combinar com a editora.
 4. **Micro-ajuste vs sistema** — “um pouquinho menor/maior” na coluna → calibrar token/global; “só nesta seção” → só MDX local.
 
 ### Padrões já combinados (referência rápida — Nov/2026)
@@ -108,12 +108,22 @@ Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, simplificar,
 - **Paginação global:** ajustes em `paginateDesk.ts` / `vozes.css` deste stack não podem mudar como a folha 21 renderiza; se um fix geral afetar, pedir à editora ou isolar o comportamento.
 - **Exceção:** só o que a editora citar por palavras (“muda a página 21…”, Financiamento, A atuação, folio 21 ou trecho visível nessa folha).
 
-### EUA — Achieve, folio 22 em diante (editável)
+### EUA — Achieve, dupla pp. 22–23 (fechada / não alterar)
 
-A partir do segundo bloco de **A atuação** (`usa-org.mdx`: NGSS, EQuIP, cruzamento, trajetória), o capítulo segue aberto até novo combinado da editora.
+Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, simplificar, re-quebrar nem redesenhar sem pedido explícito. Fonte: `usa-org.mdx` (dois `PageStack` finais) + `DualTrackEmbed` (`us-1-a` / `us-1-b`) + `trajetoria-box--org-usa` + `vozes.css`.
 
-- **Cuidado na paginação:** mudanças no miolo não devem puxar conteúdo da **p. 21** para a 22 (nem o inverso) sem pedido explícito.
-- **Exceções fechadas:** folios **18–21** permanecem protegidos conforme seções anteriores.
+| Folha | Conteúdo fixo |
+| --- | --- |
+| **22** | Continuação de **A atuação**: bullets ***NGSS*** e ***EQuIP*** (`DetailListGrid` coluna única); `DualTrackEmbed` parte **a**, título «Onde as trajetórias se cruzam», no rodapé (`vozes-page-stack-foot`) |
+| **23** | «**A trajetória da organização**»; `MilestoneStrip` **2 colunas** compacto, anos alinhados por linha (`trajetoria-box--org-usa`); `DualTrackEmbed` parte **b** no rodapé |
+
+- **Proibido sem pedido:** mudar ordem de blocos, quebras, layout dos bullets, marcos em duas colunas, faixa de cruzamento, ou fixes globais (paginação/CSS) que desloquem conteúdo da **p. 21** ou alterem a dupla 22–23.
+- **Paginação global:** ajustes em `paginateDesk.ts` / `vozes.css` do dual-track ou marcos org-USA não podem mudar como as folhas 22–23 renderizam; se um fix geral afetar, pedir à editora ou isolar o comportamento.
+- **Exceção:** só o que a editora citar por palavras (“muda a página 22…”, “página 23”, cruzamento Achieve, trajetória da organização EUA, ou trecho visível nessas folhas).
+
+### EUA — Achieve (`usa-org.mdx`)
+
+O capítulo **Achieve** (organização) está **fechado** nas folhas **20–23**, além do bloco país **18–19** em `usa.mdx`. Sem pedido explícito da editora, não editar texto, layout nem paginação desse trecho; `import:mapeamento` exige reconciliar o combinado.
 
 ## Vocabulário da editora → comando (agente executa; não repassar npm ao editor)
 
