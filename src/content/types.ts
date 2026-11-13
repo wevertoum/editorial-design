@@ -52,6 +52,8 @@ export type TimelineContent =
       introBodyRight?: string
       sourceNote?: string
       nodes: DualTrackNode[]
+      /** Segunda fileira paralela (spread parte B embutido) — mesma grade de colunas que `nodes`. */
+      overflowNodes?: DualTrackNode[]
     }
 
 export type InfographicStat = {

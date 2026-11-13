@@ -1,6 +1,6 @@
 {
   "bundleVersion": 1,
-  "generatedAt": "2026-11-13T12:56:34.994Z",
+  "generatedAt": "2026-11-13T13:26:00.320Z",
   "id": "levantamento-organizacoes-2026",
   "language": "pt-BR",
   "title": "Levantamento Internacional de Instituições de Apoio a Padrões Curriculares",
@@ -1885,13 +1885,6 @@
               "part": "au-1-b",
               "spreadPart": "b",
               "className": "vozes-page-stack-foot"
-            }
-          },
-          {
-            "type": "component",
-            "name": "DualTrackEmbed",
-            "props": {
-              "part": "au-2-a"
             }
           }
         ]

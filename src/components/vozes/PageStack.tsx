@@ -31,10 +31,14 @@ export function PageStack({ children, className }: PageStackProps) {
   const prelude = items.slice(0, footIndex)
   const foot = items[footIndex]
   const tail = items.slice(footIndex + 1)
+  const compactPrelude = extra.includes('vozes-prelude--compact-milestone')
+  const preludeClass = compactPrelude
+    ? 'vozes-page-stack-prelude vozes-prelude--compact-milestone'
+    : 'vozes-page-stack-prelude'
 
   return (
     <div className={`vozes-page-stack vozes-page-stack--dual-track${extra}`}>
-      <div className="vozes-page-stack-prelude">{prelude}</div>
+      <div className={preludeClass}>{prelude}</div>
       {foot}
       {tail}
     </div>

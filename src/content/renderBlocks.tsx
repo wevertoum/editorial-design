@@ -199,6 +199,7 @@ export function renderFlowBlock(block: FlowBlock, key: string): ReactNode {
             key={key}
             title={typeof block.props.title === 'string' ? block.props.title : undefined}
             items={block.props.items as string[][]}
+            className={typeof block.props.className === 'string' ? block.props.className : undefined}
           />
         )
       }

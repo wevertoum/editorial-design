@@ -201,6 +201,30 @@ export function parseTimeline(value: unknown, source: string): TimelineContent {
         ...(resumo ? { resumo } : {}),
       }
     })
+    const overflowNodes =
+      value.overflowNodes === undefined
+        ? undefined
+        : (() => {
+            if (!Array.isArray(value.overflowNodes) || value.overflowNodes.length === 0) {
+              throw new ContentError(`${source} overflowNodes must be a non-empty array when present`)
+            }
+            const overflowSeen = new Set<string>()
+            return value.overflowNodes.map((node, index) => {
+              const label = `${source} overflowNodes[${index}]`
+              if (!isRecord(node)) {
+                throw new ContentError(`${label} must be an object`)
+              }
+              const resumo =
+                node.resumo === undefined ? undefined : requireString(node.resumo, `${label}.resumo`)
+              return {
+                id: requireId(node.id, `${label}.id`, overflowSeen),
+                year: requireString(node.year, `${label}.year`),
+                curriculo: requireString(node.curriculo, `${label}.curriculo`),
+                organizacao: requireString(node.organizacao, `${label}.organizacao`),
+                ...(resumo ? { resumo } : {}),
+              }
+            })
+          })()
     const introBodyRight =
       value.introBodyRight === undefined
         ? undefined
@@ -217,6 +241,7 @@ export function parseTimeline(value: unknown, source: string): TimelineContent {
       introBodyRight,
       sourceNote,
       nodes,
+      ...(overflowNodes ? { overflowNodes } : {}),
     }
   }
 

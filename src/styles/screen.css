@@ -55,6 +55,14 @@
     left: calc(-1 * var(--dual-track-axis-gutter-bleed) - var(--spread-gutter));
   }
 
+  .spread .dual-track[data-has-overflow='true'][data-spread-part='b'] .dual-track-nodes--overflow::before {
+    left: 0;
+  }
+
+  .spread .dual-track[data-has-overflow='true'][data-spread-part='b'] .dual-track-nodes--overflow::after {
+    left: var(--dual-track-overflow-solid-start);
+  }
+
   .spread-pad {
     display: block;
     width: var(--page-width);

@@ -49,7 +49,11 @@ export function TimelinePage({ id, content, showMasthead, publication }: Timelin
         </Paragraph>
       ) : null}
       {isDual ? (
-        <DualTrackTimeline nodes={content.nodes} spreadPart={content.spreadPart} />
+        <DualTrackTimeline
+          nodes={content.nodes}
+          overflowNodes={content.overflowNodes}
+          spreadPart={content.spreadPart}
+        />
       ) : (
         <Timeline events={content.events} />
       )}

@@ -17,7 +17,6 @@ const errors: string[] = []
 const embeddedTimelineSources = new Set([
   'timelines/australia-cruzamento-1-a.json',
   'timelines/australia-cruzamento-1-b.json',
-  'timelines/australia-cruzamento-2-a.json',
 ])
 
 const allowedComponents = new Set([

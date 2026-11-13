@@ -14,12 +14,24 @@
   /* Anos e eixo do bloco “Onde as trajetórias se cruzam” (PDF). */
   --font-trajectory: "Roboto", Mulish, "Source Sans 3", sans-serif;
 
-  --dual-track-axis-offset: 8.9mm;
+  --dual-track-axis-offset: 8.2mm;
   /* Sangria do eixo roxo na lombada da dupla (spread a → direita, b → esquerda). */
   --dual-track-axis-gutter-bleed: var(--margin-inner);
   /* Zona fixa do bloco marfim na dupla embutida (pp. 16–17) — mesma altura Y nas duas folhas. */
   /* ~62% da área útil A4 (297 − 18 − 20 mm); ref. print 2 pp. 16–17. */
-  --dual-track-zone-height: 162mm;
+  /* +14mm vs 162: segunda fileira overflow (2023 / 2025–26) sem corte na p. 17; eixo Y igual nas duas folhas. */
+  --dual-track-zone-height: 176mm;
+  /* Reserva de título + eixo — mesma profundidade na parte A e B do spread embutido. */
+  --dual-track-band-pad-top-embedded: 7mm;
+  --dual-track-title-gap: 5mm;
+  --dual-track-matrix-gap: 2.5mm;
+  --dual-track-year-height: 7mm;
+  --dual-track-year-after-axis: 2.5mm;
+  /* Prelúdio (trajetória) acima do marfim overflow na p. 17 — teto do bloco; zona marfim 176mm fixa. */
+  --vozes-dual-track-prelude-budget: 60mm;
+  --text-milestone-compact: 9pt;
+  --text-milestone-year-compact: 9pt;
+  --vozes-milestone-compact-item-gap: 1.15mm;
 
   --text-body: 10pt;
   --text-leading: 1.41;

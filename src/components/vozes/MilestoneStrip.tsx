@@ -5,13 +5,15 @@ type MilestoneStripProps = {
   title?: string
   /** Pares [ano, marco] — forma preferida no MDX e no inventário. */
   items?: string[][]
+  className?: string
   children?: ReactNode
 }
 
-export function MilestoneStrip({ title, items, children }: MilestoneStripProps) {
+export function MilestoneStrip({ title, items, className, children }: MilestoneStripProps) {
   const label = title?.trim() || 'Marcos da organização'
+  const extra = className?.trim() ? ` ${className.trim()}` : ''
   return (
-    <section className="milestone-strip" aria-label={label}>
+    <section className={`milestone-strip${extra}`} aria-label={label}>
       {title?.trim() ? (
         <p className="milestone-strip-title">{title.trim()}</p>
       ) : null}

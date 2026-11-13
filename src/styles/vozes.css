@@ -573,9 +573,34 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  min-height: var(--dual-track-zone-height);
   height: var(--dual-track-zone-height);
   max-height: var(--dual-track-zone-height);
   margin: 0;
+  overflow: visible;
+}
+
+/* Overflow na parte B: mesma zona marfim que a parte A — eixo Y alinhado na dupla. */
+.layout-vozes-report .vozes-main > .vozes-page-stack--dual-track:has(.dual-track-section--overflow)
+  .dual-track-section--overflow.vozes-page-stack-foot {
+  min-height: var(--dual-track-zone-height);
+  height: var(--dual-track-zone-height);
+  max-height: var(--dual-track-zone-height);
+}
+
+/* Segunda fileira: não encolher o matrix no flex — evita corte do resumo na borda da folha. */
+.layout-vozes-report .vozes-main > .vozes-page-stack--dual-track:has(.dual-track-section--overflow)
+  .dual-track-section--overflow.vozes-page-stack-foot .dual-track,
+.layout-vozes-report .vozes-main > .vozes-page-stack--dual-track:has(.dual-track-section--overflow)
+  .dual-track-section--overflow.vozes-page-stack-foot .dual-track-matrix {
+  flex: 0 1 auto;
+  min-height: min-content;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--dual-track:has(.dual-track-section--overflow)
+  .vozes-page-stack-prelude {
+  min-height: 0;
+  max-height: var(--vozes-dual-track-prelude-budget);
 }
 
 .layout-vozes-report .vozes-page-stack--dual-track .vozes-page-stack-prelude .milestone-strip {
@@ -590,6 +615,56 @@
 
 .layout-vozes-report .vozes-page-stack--dual-track .vozes-page-stack-prelude h3 {
   margin-bottom: var(--space-2);
+}
+
+/* ACSA p. 17: trajetória no prelúdio — encosta no marfim, tipografia quase do miolo dual-track. */
+.layout-vozes-report .vozes-main > .vozes-page-stack--dual-track .vozes-prelude--compact-milestone {
+  align-self: start;
+  max-height: var(--vozes-dual-track-prelude-budget);
+}
+
+.layout-vozes-report .vozes-page-stack--dual-track .vozes-prelude--compact-milestone h3 {
+  margin-top: 0;
+  margin-bottom: var(--space-2);
+}
+
+.layout-vozes-report .vozes-page-stack--dual-track .vozes-prelude--compact-milestone .milestone-strip.vozes-milestone--compact {
+  margin-top: 0;
+  margin-bottom: 2mm;
+}
+
+.layout-vozes-report .vozes-page-stack--dual-track .vozes-milestone--compact .milestone-strip-item {
+  grid-template-columns: 12mm minmax(0, 1fr);
+  column-gap: 3mm;
+  padding: 0.65mm 0;
+  font-size: var(--text-milestone-compact);
+  line-height: 1.28;
+}
+
+.layout-vozes-report .vozes-page-stack--dual-track .vozes-milestone--compact .milestone-strip-item + .milestone-strip-item {
+  margin-top: var(--vozes-milestone-compact-item-gap, 1.15mm);
+}
+
+.layout-vozes-report
+  .vozes-page-stack--dual-track
+  .vozes-milestone--compact
+  .milestone-strip-item:has(.milestone-strip-year--range)
+  + .milestone-strip-item {
+  margin-top: calc(var(--vozes-milestone-compact-item-gap, 1.15mm) + 0.6mm);
+}
+
+.layout-vozes-report .vozes-page-stack--dual-track .vozes-milestone--compact .milestone-strip-year {
+  font-size: var(--text-milestone-year-compact);
+  line-height: 1.15;
+}
+
+.layout-vozes-report .vozes-page-stack--dual-track .vozes-milestone--compact .milestone-strip-year-rule {
+  height: 2.8mm;
+  margin: 0.35mm 0;
+}
+
+.layout-vozes-report .vozes-page-stack--dual-track .vozes-milestone--compact .milestone-strip-label {
+  line-height: 1.26;
 }
 
 /* Band label — rótulo de faixa: caixa alta, verde, menor que h3; filete após o texto. */
@@ -1398,6 +1473,11 @@
   margin-top: 0.25mm;
 }
 
+/* Intervalo (2008 a 2010): texto centrado na pilha de anos — evita vazio ao lado do 2.º ano. */
+.milestone-strip-item:has(.milestone-strip-year--range) {
+  align-items: center;
+}
+
 .layout-vozes-report .vozes-main .milestone-strip-year,
 .milestone-strip-year {
   display: flex;
@@ -1566,7 +1646,7 @@
   font-size: 18pt;
   font-weight: 700;
   line-height: 1.15;
-  margin: 0 0 5mm;
+  margin: 0 0 var(--dual-track-title-gap);
   color: var(--color-ink);
   break-after: avoid;
 }
@@ -1583,17 +1663,31 @@
   display: flex;
   flex-direction: column;
   margin-top: 0;
-  padding-top: 7mm;
+  padding-top: var(--dual-track-band-pad-top-embedded);
   padding-bottom: 6mm;
 }
 
-.layout-vozes-report .vozes-main .dual-track-section.vozes-page-stack-foot .dual-track-nodes {
+.layout-vozes-report .vozes-main .dual-track-section.vozes-page-stack-foot .dual-track-matrix {
   flex: 1 1 auto;
   min-height: 0;
 }
 
 .layout-vozes-report .vozes-main > .vozes-page-stack--dual-track .dual-track-section {
   margin-top: 0;
+}
+
+.dual-track-matrix {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  gap: 5mm;
+  min-height: 0;
+  width: 100%;
+}
+
+.layout-vozes-report .vozes-main .dual-track-section.vozes-page-stack-foot .dual-track-matrix {
+  justify-content: flex-start;
+  gap: var(--dual-track-matrix-gap);
 }
 
 .dual-track-nodes {
@@ -1603,6 +1697,8 @@
   display: grid;
   box-sizing: border-box;
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
   grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
   grid-auto-columns: minmax(0, 1fr);
   column-gap: 3.5mm;
@@ -1610,30 +1706,56 @@
   justify-items: stretch;
   align-items: start;
   position: relative;
+  --dual-track-col-gap: 3.5mm;
+  --dual-track-marker-inset: 0.8mm;
+  --dual-track-axis-color: color-mix(in srgb, var(--color-vozes-roxo-2) 55%, transparent);
+  --dual-track-axis-stroke: 0.45mm;
+  --dual-track-axis-dash: repeating-linear-gradient(
+    to right,
+    var(--dual-track-axis-color) 0,
+    var(--dual-track-axis-color) 1.1mm,
+    transparent 1.1mm,
+    transparent 2.6mm
+  );
+  --dual-track-col-width: calc(
+    (100% - (var(--dual-track-grid-cols, 4) - 1) * var(--dual-track-col-gap)) / var(--dual-track-grid-cols, 4)
+  );
+}
+
+.dual-track-nodes--overflow {
+  margin-top: 0;
+  padding-top: 0;
+  row-gap: 3mm;
 }
 
 .dual-track[data-node-count='2'] .dual-track-nodes {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  --dual-track-grid-cols: 2;
 }
 
 .dual-track[data-node-count='3'] .dual-track-nodes {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  --dual-track-grid-cols: 3;
 }
 
 .dual-track[data-node-count='4'] .dual-track-nodes {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+  --dual-track-grid-cols: 4;
 }
 
 .dual-track[data-node-count='5'] .dual-track-nodes {
   grid-template-columns: repeat(5, minmax(0, 1fr));
+  --dual-track-grid-cols: 5;
 }
 
 .dual-track[data-node-count='6'] .dual-track-nodes {
   grid-template-columns: repeat(6, minmax(0, 1fr));
+  --dual-track-grid-cols: 6;
 }
 
 .dual-track[data-node-count='7'] .dual-track-nodes {
   grid-template-columns: repeat(7, minmax(0, 1fr));
+  --dual-track-grid-cols: 7;
 }
 
 /* Eixo horizontal único — mesma altura Y na página B do spread. */
@@ -1643,12 +1765,24 @@
   left: 0;
   right: 0;
   top: var(--dual-track-axis-offset, 8.9mm);
-  height: 0.45mm;
-  background: color-mix(in srgb, var(--color-vozes-roxo-2) 55%, transparent);
+  height: var(--dual-track-axis-stroke);
+  background: var(--dual-track-axis-color);
   pointer-events: none;
   z-index: 0;
   print-color-adjust: exact;
   -webkit-print-color-adjust: exact;
+}
+
+.dual-track-nodes::after {
+  content: none;
+  position: absolute;
+  top: var(--dual-track-axis-offset, 8.9mm);
+  height: var(--dual-track-axis-stroke);
+  pointer-events: none;
+  z-index: 0;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+  background: var(--dual-track-axis-dash);
 }
 
 /* Dupla cruzamento: eixo contínuo atravessa a margem interna (lombada). */
@@ -1658,6 +1792,138 @@
 
 .dual-track[data-spread-part='b'] .dual-track-nodes::before {
   left: calc(-1 * var(--dual-track-axis-gutter-bleed));
+}
+
+/*
+ * Spread B com segunda fileira (overflow): fileira principal — cauda tracejada após
+ * o último marco; fileira overflow — entrada tracejada, sólido só nas colunas com nós
+ * (sem sangria nem extensão até a margem direita).
+ */
+.dual-track[data-has-overflow='true'][data-spread-part='b'] .dual-track-nodes--primary::before {
+  right: calc(var(--dual-track-col-width) - var(--dual-track-marker-inset));
+}
+
+/* Cauda (primária) e entrada tracejada (overflow) — mesmo ritmo, espessura e cor. */
+.dual-track[data-has-overflow='true'][data-spread-part='b'] .dual-track-nodes--primary::after,
+.dual-track[data-has-overflow='true'][data-spread-part='b'] .dual-track-nodes--overflow::before {
+  background: var(--dual-track-axis-dash);
+}
+
+.dual-track[data-has-overflow='true'][data-spread-part='b'] .dual-track-nodes--primary::after {
+  content: '';
+  right: 0;
+  left: auto;
+  width: calc(var(--dual-track-col-width) - var(--dual-track-marker-inset));
+}
+
+/*
+ * Fileira overflow: tracejado na 1ª coluna (zona 2023); sólido só após essa coluna,
+ * até o último marco ocupado — não na entrada tracejada nem nas colunas vazias.
+ * Fração explícita da grade evita col-width inflado nos pseudo-elementos.
+ */
+.dual-track[data-has-overflow='true'][data-spread-part='b'] .dual-track-nodes--overflow {
+  --dual-track-overflow-col-span: calc(
+    (100% - (var(--dual-track-grid-cols) - 1) * var(--dual-track-col-gap)) / var(--dual-track-grid-cols)
+  );
+  /* Tracejado: 1ª coluna (2023) + gutter até o marco da próxima data (2025 a 2026). */
+  --dual-track-overflow-dash-col: calc(
+    var(--dual-track-overflow-col-span) + var(--dual-track-col-gap) - var(--dual-track-marker-inset)
+  );
+  /* Sólido só após esse marco — nunca na zona tracejada da 1ª coluna. */
+  --dual-track-overflow-solid-start: var(--dual-track-overflow-dash-col);
+}
+
+/* Entrada tracejada: da margem esquerda do conteúdo até o fim da 1ª coluna (sem sangria na lombada). */
+.dual-track[data-has-overflow='true'][data-spread-part='b'] .dual-track-nodes--overflow::before {
+  content: '';
+  left: 0;
+  right: auto;
+  width: var(--dual-track-overflow-dash-col);
+  background: var(--dual-track-axis-dash);
+}
+
+/* Sólido após a 1ª coluna, entre marcos ocupados (sem extensão à margem direita). */
+.dual-track[data-has-overflow='true'][data-spread-part='b'] .dual-track-nodes--overflow::after {
+  content: '';
+  left: var(--dual-track-overflow-solid-start);
+  right: auto;
+  background: var(--dual-track-axis-color);
+}
+
+.dual-track[data-has-overflow='true'][data-spread-part='b'][data-overflow-count='1'] .dual-track-nodes--overflow::after {
+  width: calc(var(--dual-track-overflow-col-span) - var(--dual-track-marker-inset));
+}
+
+.dual-track[data-has-overflow='true'][data-spread-part='b'][data-overflow-count='2'] .dual-track-nodes--overflow::after {
+  width: calc(
+    2 * var(--dual-track-overflow-col-span) + var(--dual-track-col-gap) - var(--dual-track-marker-inset)
+      - var(--dual-track-overflow-solid-start)
+  );
+}
+
+.dual-track[data-has-overflow='true'][data-spread-part='b'][data-overflow-count='3'] .dual-track-nodes--overflow::after {
+  width: calc(
+    3 * var(--dual-track-overflow-col-span) + 2 * var(--dual-track-col-gap) - var(--dual-track-marker-inset)
+      - var(--dual-track-overflow-solid-start)
+  );
+}
+
+.dual-track[data-has-overflow='true'][data-spread-part='b'][data-overflow-count='4'] .dual-track-nodes--overflow::after {
+  width: calc(
+    4 * var(--dual-track-overflow-col-span) + 3 * var(--dual-track-col-gap) - var(--dual-track-marker-inset)
+      - var(--dual-track-overflow-solid-start)
+  );
+}
+
+.dual-track[data-has-overflow='true'][data-spread-part='b'][data-overflow-count='5'] .dual-track-nodes--overflow::after {
+  width: calc(
+    5 * var(--dual-track-overflow-col-span) + 4 * var(--dual-track-col-gap) - var(--dual-track-marker-inset)
+      - var(--dual-track-overflow-solid-start)
+  );
+}
+
+.dual-track[data-has-overflow='true'][data-spread-part='b'][data-overflow-count='6'] .dual-track-nodes--overflow::after {
+  width: calc(
+    6 * var(--dual-track-overflow-col-span) + 5 * var(--dual-track-col-gap) - var(--dual-track-marker-inset)
+      - var(--dual-track-overflow-solid-start)
+  );
+}
+
+.dual-track[data-has-overflow='true'][data-spread-part='b'][data-overflow-count='7'] .dual-track-nodes--overflow::after {
+  width: calc(
+    7 * var(--dual-track-overflow-col-span) + 6 * var(--dual-track-col-gap) - var(--dual-track-marker-inset)
+      - var(--dual-track-overflow-solid-start)
+  );
+}
+
+/* Duas fileiras: eixo roxo em cada linha, mesma altura Y relativa ao ano. */
+.dual-track[data-has-overflow='true'] .dual-track-nodes--primary {
+  flex: 0 1 auto;
+}
+
+.dual-track[data-has-overflow='true'] .dual-track-nodes--overflow .dual-track-year {
+  font-size: 12pt;
+}
+
+.dual-track[data-has-overflow='true'] .dual-track-nodes--overflow .dual-track-curriculo,
+.dual-track[data-has-overflow='true'] .dual-track-nodes--overflow .dual-track-organizacao {
+  font-size: 7pt;
+  line-height: 1.28;
+}
+
+.dual-track[data-has-overflow='true'] .dual-track-nodes--overflow .dual-track-resumo {
+  font-size: 8pt;
+  line-height: 1.28;
+  margin-top: 2mm;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--dual-track [data-has-overflow='true'] .dual-track-band {
+  padding-top: var(--dual-track-band-pad-top-embedded);
+  padding-bottom: 5mm;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--dual-track [data-has-overflow='true'] .dual-track-section-title.dual-track-reserve {
+  margin-bottom: var(--dual-track-title-gap);
 }
 
 .dual-track-node {
@@ -1673,8 +1939,8 @@
   align-items: flex-end;
   justify-content: flex-start;
   position: relative;
-  margin: 0 0 3.5mm;
-  height: 8mm;
+  margin: 0 0 var(--dual-track-year-after-axis);
+  height: var(--dual-track-year-height);
   font-family: var(--font-trajectory);
   font-size: 13pt;
   font-weight: 700;
@@ -1758,5 +2024,5 @@
 
 .layout-vozes-report .vozes-main > .vozes-page-stack--dual-track [data-spread-part='b'] .dual-track-band {
   margin-top: 0;
-  padding-top: 7mm;
+  padding-top: var(--dual-track-band-pad-top-embedded);
 }
