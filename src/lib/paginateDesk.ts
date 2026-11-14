@@ -71,11 +71,12 @@ export function paginateInto(source: HTMLElement, desk: HTMLElement): () => void
 function paginateSheet(sheet: HTMLElement, startPage: number): HTMLElement[] {
   const limit = pageLimitPx()
   const main = sheet.querySelector(':scope > .vozes-page > .vozes-main')
+  const isSumario = sheet.id === 'sumario'
   const probe = createProbe(sheet)
   try {
     if (main) {
       const blocks = elementChildren(main).map((node) => node.cloneNode(true) as HTMLElement)
-      if (probe.measure(blocks, true) <= limit + SLOP) {
+      if (!isSumario && probe.measure(blocks, true) <= limit + SLOP) {
         return [cloneWhole(sheet, startPage)]
       }
       const groups = groupBlocks(blocks, limit, probe.measure)
@@ -155,7 +156,8 @@ function groupBlocks(
         block.classList.contains('vozes-page-stack--chile-participacao-traj') ||
         block.classList.contains('vozes-page-stack--chile-org-atuacao-tres') ||
         block.classList.contains('vozes-page-stack--chile-org-traj') ||
-        block.classList.contains('vozes-page-stack--chile-org-cruzamento')
+        block.classList.contains('vozes-page-stack--chile-org-cruzamento') ||
+        block.classList.contains('vozes-page-stack--sumario')
       ) {
         groups.push([block])
         continue
@@ -742,7 +744,12 @@ function decorate(page: HTMLElement, pageNumber: number, stripExistingFolio: boo
   page.dataset.page = String(pageNumber)
   if (stripExistingFolio) page.querySelectorAll(':scope > .folio').forEach((node) => node.remove())
   if (page.querySelector(':scope > .folio')) return
-  if (page.classList.contains('layout-vozes-cover') || page.classList.contains('layout-vozes-blank')) {
+  if (
+    page.classList.contains('layout-vozes-cover') ||
+    page.classList.contains('layout-vozes-blank') ||
+    page.classList.contains('layout-vozes-folha-rosto') ||
+    page.querySelector(':scope .vozes-sumario')
+  ) {
     page.dataset.folio = 'off'
     return
   }
@@ -843,6 +850,7 @@ function prepareStackMeasure(slot: HTMLElement): void {
       node.classList.contains('vozes-page-stack--chile-org-atuacao-tres') ||
       node.classList.contains('vozes-page-stack--chile-org-traj') ||
       node.classList.contains('vozes-page-stack--chile-org-cruzamento') ||
+      node.classList.contains('vozes-page-stack--sumario') ||
       node.classList.contains('vozes-page-break')
     ) {
       return

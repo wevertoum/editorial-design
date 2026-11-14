@@ -86,10 +86,17 @@ h3 + *,
   break-inside: avoid;
 }
 
+.sheet-page.layout-vozes-report:has(.vozes-sumario) {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
 .cover-hero,
+.cover-hero-artwork,
 .cover-grafismo-rail,
 .cover-hero-logo,
 .folha-rosto-hero,
+.folha-rosto-artwork,
 .timeline-event,
 .milestone-strip-item,
 .figure,

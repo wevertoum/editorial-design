@@ -5,38 +5,17 @@ sheetVariant: vozes-report
 <VozesLayout className="vozes-prose-only vozes-sumario">
 <VozesMain>
 
-## SUMÁRIO
+<PageStack className="vozes-page-stack--sumario vozes-sumario-page">
 
-<EditorialTable
-variant="vozes"
-caption=""
-columns={["", ""]}
-rows={[
-["Apresentação", "7"],
-["Resumo executivo", "8"],
-["Austrália", "10"],
-["\u2003Australian Curriculum Studies Association (ACSA)", "14"],
-["Estados Unidos", "18"],
-["\u2003Achieve", "20"],
-["Inglaterra", "24"],
-["\u2003Curriculum Foundation", "28"],
-["\u2003British Curriculum Forum (BCF)", "31"],
-]}
-/>
+<Heading level={2} className="vozes-sumario-title">Sumário</Heading>
 
-<PageStack className="vozes-page-break">
+<SumarioSpread part="a" />
 
-<EditorialTable
-variant="vozes"
-caption=""
-columns={["", ""]}
-rows={[
-["Nigéria", "34"],
-["\u2003Curriculum Organization of Nigeria", "37"],
-["Chile", "40"],
-["\u2003A Fundación Reimagina", "44"],
-]}
-/>
+</PageStack>
+
+<PageStack className="vozes-page-stack--sumario vozes-page-break vozes-sumario-page">
+
+<SumarioSpread part="b" />
 
 </PageStack>
 

@@ -61,6 +61,7 @@
   --color-highlight: #f3eee6;
   --color-desk: #e8e3db;
 
+  --color-vozes-sumario-lime: #d0e770;
   --color-vozes-roxo: #493975;
   --color-vozes-roxo-2: #8146cb;
   --color-vozes-participation-fill: color-mix(in srgb, var(--color-vozes-roxo-2) 14%, white);

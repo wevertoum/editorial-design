@@ -6,12 +6,15 @@ type FolhaRostoHeroProps = {
 
 export function FolhaRostoHero({ publication }: FolhaRostoHeroProps) {
   return (
-    <header className="folha-rosto-hero" aria-label="Folha de rosto">
-      <p className="folha-rosto-label">Vozes da Educação</p>
-      <h1 className="folha-rosto-title">{publication.title}</h1>
-      <p className="folha-rosto-year">{publication.subtitle}</p>
-      <p className="folha-rosto-author">{publication.author}</p>
-      <p className="folha-rosto-placeholder">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <header className="folha-rosto-hero folha-rosto-hero--artwork" aria-label="Folha de rosto">
+      <img
+        className="folha-rosto-artwork"
+        src="media/folha_rosto_levantamento.png"
+        alt={publication.title}
+        width={2480}
+        height={3508}
+        decoding="async"
+      />
     </header>
   )
 }

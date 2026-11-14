@@ -155,6 +155,31 @@
   border: none;
 }
 
+/* Capa com arte final (PNG exportado do PDF de capa). */
+.layout-vozes-cover .cover-hero--artwork {
+  box-sizing: border-box;
+  display: block;
+  width: var(--page-width);
+  min-height: var(--page-height);
+  height: var(--page-height);
+  margin: 0;
+  padding: 0;
+  border: none;
+  overflow: hidden;
+  background: var(--color-paper);
+}
+
+.layout-vozes-cover .cover-hero-artwork {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  object-position: center top;
+  break-inside: avoid;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
 .cover-hero-main {
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -284,19 +309,43 @@
 
 /* Folha de rosto */
 .layout-vozes-folha-rosto.sheet {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: block;
   min-height: var(--page-height);
-  padding-top: 18mm;
-  padding-bottom: 22mm;
+  height: var(--page-height);
+  padding: 0;
+  overflow: hidden;
+  background: var(--color-paper);
 }
 
-.layout-vozes-folha-rosto .folha-rosto-hero {
+.layout-vozes-folha-rosto .folha-rosto-hero--artwork {
+  box-sizing: border-box;
+  display: block;
+  width: var(--page-width);
+  min-height: var(--page-height);
+  height: var(--page-height);
+  margin: 0;
+  padding: 0;
+  border: none;
+  overflow: hidden;
+}
+
+.layout-vozes-folha-rosto .folha-rosto-artwork {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  object-position: center top;
+  break-inside: avoid;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.layout-vozes-folha-rosto .folha-rosto-hero:not(.folha-rosto-hero--artwork) {
   display: flex;
   flex-direction: column;
   gap: 5mm;
   max-width: 155mm;
+  padding: 18mm 0 22mm;
 }
 
 .layout-vozes-folha-rosto .folha-rosto-label {
@@ -374,43 +423,195 @@
   color: color-mix(in srgb, white 88%, var(--color-vozes-roxo));
 }
 
-/* Sumário: tipografia compacta em duas páginas */
-.layout-vozes-report .vozes-page.vozes-sumario .vozes-main h2:first-of-type {
-  font-size: 12pt;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-vozes-roxo-2);
-  margin-bottom: 5mm;
+/* Sumário: dupla folha com fundo roxo escuro */
+.sheet-page.layout-vozes-report:has(.vozes-sumario) {
+  background: var(--color-vozes-roxo);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }
 
-.layout-vozes-report .vozes-page.vozes-sumario .editorial-table-vozes table {
+.sheet-page.layout-vozes-report[data-page-side='left']:has(.vozes-sumario) {
+  container-type: inline-size;
+  container-name: vozes-sumario-left;
+}
+
+/* Sumário: dupla com eixo central (molde cruzamento) */
+.layout-vozes-report .vozes-page.vozes-sumario {
+  /* Mesma altura Y do eixo na dupla (parte A e B do spread). */
+  --vozes-sumario-axis-page-y: 51%;
+  --vozes-sumario-year-size: 30pt;
+  --vozes-sumario-label-size: 13pt;
+  --vozes-sumario-org-page-size: 15.5pt;
+  --vozes-sumario-org-label-size: 9.25pt;
+  --vozes-sumario-col-gap: 10mm;
+  --vozes-sumario-title-top: 7mm;
+  --vozes-sumario-title-rule-size: 1.35mm;
+  --vozes-sumario-title-rule-gap: 3.5mm;
+  --vozes-sumario-title-tracking: normal;
+  --dual-track-axis-offset: 14.75mm;
+  --dual-track-year-height: 13.5mm;
+  --dual-track-year-after-axis: 4.7mm;
+  --dual-track-axis-stroke: 0.55mm;
+}
+
+.layout-vozes-report .vozes-page.vozes-sumario .vozes-sumario-page {
+  position: relative;
+  box-sizing: border-box;
+  min-height: var(--vozes-content-height);
+}
+
+.layout-vozes-report .vozes-page.vozes-sumario .vozes-sumario-title {
+  display: block;
+  position: absolute;
+  top: var(--vozes-sumario-title-top);
+  left: 0;
+  z-index: 2;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   width: 100%;
+  max-width: 100%;
+  font-family: "Roboto Slab", var(--font-display);
+  font-size: 80pt;
+  font-weight: 500;
+  line-height: 0.96;
+  letter-spacing: var(--vozes-sumario-title-tracking);
+  color: var(--color-marfim);
+  text-wrap: balance;
+  text-decoration-line: underline;
+  text-decoration-color: var(--color-vozes-sumario-lime);
+  text-decoration-thickness: var(--vozes-sumario-title-rule-size);
+  text-underline-offset: var(--vozes-sumario-title-rule-gap);
+  text-decoration-skip-ink: none;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+/* Folha esquerda: título na beirada; filete verde só na largura da palavra. */
+.sheet-page[data-page-side='left']
+  .layout-vozes-report
+  .vozes-page.vozes-sumario
+  .vozes-sumario-page
+  > .vozes-sumario-title {
+  display: inline-block;
+  left: calc(-1 * var(--margin-outer));
+  width: max-content;
+  max-width: calc(100% + var(--margin-outer) + var(--margin-inner));
+  padding: 0 var(--margin-outer) 0 var(--margin-outer);
+  font-size: clamp(76pt, 20.3cqw, 139pt); /* cqw = largura da folha esquerda (container da sheet) */
+  font-weight: 400;
+}
+
+.layout-vozes-report .vozes-page.vozes-sumario .vozes-sumario-track {
+  position: absolute;
+  top: calc(var(--vozes-sumario-axis-page-y) - var(--dual-track-axis-offset));
+  left: 0;
+  right: 0;
+  width: calc(100% + var(--vozes-grid-gutter) + var(--vozes-rail-to-prose) * 100%);
+  max-width: none;
+  margin: 0;
+  transform: none;
+  clear: none;
+  float: none;
+  break-inside: avoid;
+}
+
+.layout-vozes-report .vozes-page.vozes-sumario .vozes-sumario-track .dual-track-band {
+  margin: 0 calc(-1 * var(--margin-outer)) 0 calc(-1 * var(--margin-inner));
+  padding: 0 var(--margin-outer) 0 var(--margin-inner);
+  background: transparent;
+}
+
+.sheet-page[data-page-side='left'] .layout-vozes-report .vozes-page.vozes-sumario .vozes-sumario-track .dual-track-band {
+  margin-left: calc(-1 * var(--margin-outer));
+  margin-right: calc(-1 * var(--margin-inner));
+  padding-left: var(--margin-outer);
+  padding-right: var(--margin-inner);
+}
+
+.layout-vozes-report .vozes-page.vozes-sumario .vozes-sumario-track .dual-track-band::after {
+  content: none;
+}
+
+.layout-vozes-report .vozes-page.vozes-sumario .dual-track-nodes {
+  --dual-track-col-gap: var(--vozes-sumario-col-gap);
+  column-gap: var(--vozes-sumario-col-gap);
+  --dual-track-axis-color: color-mix(in srgb, var(--color-vozes-sumario-lime) 72%, white);
+  --dual-track-axis-dash: repeating-linear-gradient(
+    to right,
+    var(--dual-track-axis-color) 0,
+    var(--dual-track-axis-color) 1.1mm,
+    transparent 1.1mm,
+    transparent 2.6mm
+  );
+}
+
+.layout-vozes-report .vozes-page.vozes-sumario .sumario-entry--main .dual-track-body {
+  padding-inline: 1.25mm;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.layout-vozes-report .vozes-page.vozes-sumario .dual-track-year {
+  font-family: "Roboto Slab", var(--font-display);
+  color: var(--color-vozes-sumario-lime);
+}
+
+.layout-vozes-report .vozes-page.vozes-sumario .dual-track-year::after {
+  left: 0.15mm;
+  bottom: -2mm;
+  width: 1.9mm;
+  height: 1.9mm;
+  background: var(--color-vozes-sumario-lime);
+  box-shadow: 0 0 0 0.65mm var(--color-vozes-roxo);
+}
+
+.layout-vozes-report .vozes-page.vozes-sumario .vozes-sumario-dual-track .dual-track-matrix {
+  gap: 0;
+}
+
+.layout-vozes-report .vozes-page.vozes-sumario .sumario-spread-label--main {
   font-family: Mulish, var(--font-sans);
-  font-size: 9pt;
-  line-height: 1.35;
+  font-size: var(--vozes-sumario-label-size);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-marfim);
 }
 
-.layout-vozes-report .vozes-page.vozes-sumario .editorial-table-vozes thead {
-  display: none;
+.layout-vozes-report .vozes-page.vozes-sumario .sumario-entry--main .dual-track-year {
+  font-size: var(--vozes-sumario-year-size);
+  font-weight: 700;
 }
 
-.layout-vozes-report .vozes-page.vozes-sumario .editorial-table-vozes td {
-  padding: 1.1mm 0;
-  vertical-align: top;
-  border: none;
-  background: transparent !important;
+.layout-vozes-report .vozes-page.vozes-sumario .sumario-org-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 4.1mm;
+  margin-top: 5.9mm;
+  min-width: 0;
 }
 
-.layout-vozes-report .vozes-page.vozes-sumario .editorial-table-vozes tr:nth-child(even) td {
-  background: transparent !important;
+.layout-vozes-report .vozes-page.vozes-sumario .sumario-org-entry {
+  min-width: 0;
 }
 
-.layout-vozes-report .vozes-page.vozes-sumario .editorial-table-vozes td:last-child {
-  text-align: right;
+.layout-vozes-report .vozes-page.vozes-sumario .sumario-org-page {
+  margin: 0 0 0.7mm;
+  font-family: var(--font-trajectory);
+  font-size: var(--vozes-sumario-org-page-size);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--color-vozes-sumario-lime);
   font-variant-numeric: tabular-nums;
-  color: var(--color-muted);
-  white-space: nowrap;
-  padding-left: 4mm;
+}
+
+.layout-vozes-report .vozes-page.vozes-sumario .sumario-org-label {
+  margin: 0;
+  font-family: Mulish, var(--font-sans);
+  font-size: var(--vozes-sumario-org-label-size);
+  font-weight: 500;
+  line-height: 1.26;
+  color: var(--color-marfim);
 }
 
 /* Grade Vozes (6 colunas lógicas): prosa ~9/11 · gutter 4,5 mm · rail ~2/11 (entre 4/6 e 5/6 de prosa) */
@@ -4308,6 +4509,14 @@
   line-height: 1.15;
   margin: 0 0 var(--dual-track-title-gap);
   color: var(--color-ink);
+  break-after: avoid;
+}
+
+.layout-vozes-report .vozes-page.vozes-sumario .vozes-main h2.vozes-sumario-title {
+  margin: 0;
+  margin-top: 0;
+  font-weight: 500;
+  color: var(--color-marfim);
   break-after: avoid;
 }
 

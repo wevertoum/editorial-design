@@ -1,0 +1,48 @@
+{
+  "nodes": [
+    {
+      "id": "sum-7",
+      "year": "7",
+      "curriculo": "Apresentação",
+      "organizacao": "",
+      "tier": "main"
+    },
+    {
+      "id": "sum-8",
+      "year": "8",
+      "curriculo": "Resumo executivo",
+      "organizacao": "",
+      "tier": "main"
+    },
+    {
+      "id": "sum-10",
+      "year": "10",
+      "curriculo": "Austrália",
+      "organizacao": "",
+      "tier": "main",
+      "children": [
+        {
+          "id": "sum-14",
+          "year": "14",
+          "curriculo": "Australian Curriculum Studies Association (ACSA)",
+          "organizacao": ""
+        }
+      ]
+    },
+    {
+      "id": "sum-18",
+      "year": "18",
+      "curriculo": "Estados Unidos",
+      "organizacao": "",
+      "tier": "main",
+      "children": [
+        {
+          "id": "sum-20",
+          "year": "20",
+          "curriculo": "Achieve",
+          "organizacao": ""
+        }
+      ]
+    }
+  ]
+}

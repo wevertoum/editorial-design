@@ -1,0 +1,55 @@
+{
+  "nodes": [
+    {
+      "id": "sum-24",
+      "year": "24",
+      "curriculo": "Inglaterra",
+      "organizacao": "",
+      "tier": "main",
+      "children": [
+        {
+          "id": "sum-28",
+          "year": "28",
+          "curriculo": "Curriculum Foundation",
+          "organizacao": ""
+        },
+        {
+          "id": "sum-31",
+          "year": "31",
+          "curriculo": "British Curriculum Forum (BCF)",
+          "organizacao": ""
+        }
+      ]
+    },
+    {
+      "id": "sum-34",
+      "year": "34",
+      "curriculo": "Nigéria",
+      "organizacao": "",
+      "tier": "main",
+      "children": [
+        {
+          "id": "sum-37",
+          "year": "37",
+          "curriculo": "Curriculum Organization of Nigeria",
+          "organizacao": ""
+        }
+      ]
+    },
+    {
+      "id": "sum-40",
+      "year": "40",
+      "curriculo": "Chile",
+      "organizacao": "",
+      "tier": "main",
+      "children": [
+        {
+          "id": "sum-44",
+          "year": "44",
+          "curriculo": "A Fundación Reimagina",
+          "organizacao": ""
+        }
+      ]
+    }
+  ]
+}

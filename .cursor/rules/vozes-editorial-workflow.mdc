@@ -29,8 +29,8 @@ Tudo o que a editora pediu e ficou combinado — texto, componentes (`ProfileCar
 Quando a editora ajusta **uma** página (largura de coluna, bullets, quebra, espaço antes de lista, perfil no rail), tratar como **sistema do relatório**, não exceção pontual.
 
 1. **Generalizar primeiro** — tokens (`tokens.css`), grade (`vozes.css`, `--vozes-rail-to-prose`, `--vozes-prose-track`), componente (`DetailListGrid`, `PageStack`, `Heading` + `vozes-page-start`). Evitar CSS ou largura só num parágrafo.
-2. **Repetir onde couber** — após fechar o pedido na página citada, varrer capítulos **parecidos** (`*-org.mdx`, miolos de país `*.mdx`, `resumo-executivo`, etc.) e alinhar ao mesmo padrão quando o conteúdo for do mesmo tipo (lista após intro, financiamento, exemplos de atuação, faixa de atores). **Excluir Austrália** (capítulo fechado), **EUA pp. 18–23** (currículo + Achieve org, folios fechados), **Inglaterra pp. 26–27** (produção + participação), **Inglaterra pp. 30–33** (cruzamento CF + BCF completo), **Nigéria pp. 34–36** (abertura + produção + participação/trajetória), **Nigéria CON pp. 37–39** (abertura org + atuação/trajetória + cruzamento), **Chile pp. 40–43** (abertura país até trajetória do currículo), **Chile Reimagina pp. 44–47** (abertura org até cruzamento); não propagar a partir desses blocos.
-3. **Exceções explícitas** — não alterar composições **fechadas** (Austrália pp. 10–11; **EUA pp. 18–19**; **EUA pp. 20–23** Achieve; **Inglaterra pp. 26–27**; **Inglaterra pp. 30–33**; **Nigéria pp. 34–36**; **Nigéria CON pp. 37–39**; **Chile pp. 40–43**; **Chile Reimagina pp. 44–47**); `DetailList` com `icon=` (processos AU) mantém faixa plena; não forçar `DetailListGrid` onde houver figura ou prosa **entre** itens sem combinar com a editora.
+2. **Repetir onde couber** — após fechar o pedido na página citada, varrer capítulos **parecidos** (`*-org.mdx`, miolos de país `*.mdx`, `resumo-executivo`, etc.) e alinhar ao mesmo padrão quando o conteúdo for do mesmo tipo (lista após intro, financiamento, exemplos de atuação, faixa de atores). **Excluir Austrália** (capítulo fechado), **Sumário pp. 4–5** (dupla fechada), **EUA pp. 18–23** (currículo + Achieve org, folios fechados), **Inglaterra pp. 26–27** (produção + participação), **Inglaterra pp. 30–33** (cruzamento CF + BCF completo), **Nigéria pp. 34–36** (abertura + produção + participação/trajetória), **Nigéria CON pp. 37–39** (abertura org + atuação/trajetória + cruzamento), **Chile pp. 40–43** (abertura país até trajetória do currículo), **Chile Reimagina pp. 44–47** (abertura org até cruzamento); não propagar a partir desses blocos.
+3. **Exceções explícitas** — não alterar composições **fechadas** (Austrália pp. 10–11; **Sumário pp. 4–5**; **EUA pp. 18–19**; **EUA pp. 20–23** Achieve; **Inglaterra pp. 26–27**; **Inglaterra pp. 30–33**; **Nigéria pp. 34–36**; **Nigéria CON pp. 37–39**; **Chile pp. 40–43**; **Chile Reimagina pp. 44–47**); `DetailList` com `icon=` (processos AU) mantém faixa plena; não forçar `DetailListGrid` onde houver figura ou prosa **entre** itens sem combinar com a editora.
 4. **Micro-ajuste vs sistema** — “um pouquinho menor/maior” na coluna → calibrar token/global; “só nesta seção” → só MDX local.
 
 ### Padrões já combinados (referência rápida — Nov/2026)
@@ -390,6 +390,28 @@ Folhas **40–43** fechadas (abertura, organização, produção com participaç
 ### Chile — Fundación Reimagina (`chile-org.mdx`)
 
 Folhas **44–47** fechadas (abertura + governança/financiamento na **44**; NGOsource + *A atuação* na **45**; trajetória da org na **46**; cruzamento na **47**). O capítulo **Reimagina** não recebe mais alterações de texto, layout nem paginação sem pedido explícito da editora; `import:mapeamento` exige reconciliar o combinado nas folhas fechadas.
+
+### Sumário — dupla pp. 4–5 (fechada / não alterar)
+
+Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, simplificar, fundir numa folha só nem redesenhar sem pedido explícito. Fonte: `sumario.mdx` + `SumarioSpread` + `sumario-spread-a.json` / `sumario-spread-b.json` + bloco `vozes-sumario` em `vozes.css` + `paginateDesk.ts` (dupla obrigatória, folio desligado).
+
+| Folha | Conteúdo fixo |
+| --- | --- |
+| **4** | Fundo **roxo escuro**; **sem fólio**; título **Sumário** (marfim, Roboto Slab, largura da palavra, filete verde só sob o texto, tracking normal, ~7 mm do topo); `SumarioSpread` parte **a**: eixo **verde** único (--vozes-sumario-axis-page-y **51%**); na linha — **7** Apresentação, **8** Resumo executivo, **10** Austrália + ACSA, **18** Estados Unidos + Achieve (organizações sob o país, número verde acima do nome) |
+| **5** | Mesmo fundo e **sem fólio**; `SumarioSpread` parte **b**: continuação do eixo alinhada à p. 4 — **24** Inglaterra + Curriculum Foundation + BCF, **34** Nigéria + CON, **40** Chile + Fundación Reimagina |
+
+| Tratamento | Combinado |
+| --- | --- |
+| Tipografia | Números do eixo e das orgs: **verde** (#D0E770), **Roboto Slab** no eixo; textos (países, orgs): **marfim**; gutter entre colunas **10 mm**; tamanhos unificados nas duas folhas (`--vozes-sumario-year-size` / label / org) |
+| Estrutura | Sempre **dupla** (nunca uma folha); só entradas **principais** no eixo; organizações **não** na sequência do eixo |
+
+- **Proibido sem pedido:** mudar ordem ou split esq./dir., textos dos JSON, cores combinadas, posição do título/eixo, folio, fundo, ou fixes globais (`paginateDesk.ts`, `vozes.css` dual-track genérico, tokens) que colapsem a dupla, desalinhem o eixo na lombada ou alterem o resultado visual dessas folhas.
+- **Paginação global:** `isSumario` e stacks `vozes-page-stack--sumario` permanecem; ajustes gerais de paginação/CSS não podem fundir p. 4+5 nem reativar fólio no sumário; se um fix geral afetar a dupla, pedir à editora ou isolar o comportamento.
+- **Exceção:** só o que a editora citar por palavras (“muda o sumário…”, “página 4”, “página 5”, folio ou trecho visível nessa dupla).
+
+### Sumário (`sumario.mdx` / `SumarioSpread`)
+
+A dupla **4–5** está **fechada** (conteúdo + posicionamento). Sem pedido explícito, não editar MDX, JSON do spread, componente nem CSS dedicado; `import:mapeamento` exige reconciliar o combinado se tocar entradas do sumário.
 
 ## Vocabulário da editora → comando (agente executa; não repassar npm ao editor)
 

@@ -22,6 +22,7 @@ import { ParticipationBox } from './components/vozes/ParticipationBox'
 import { TrajetoriaBox } from './components/vozes/TrajetoriaBox'
 import { OrgHierarchyFlow, OrgHierarchyStep } from './components/vozes/OrgHierarchyFlow'
 import { SourceNote } from './components/vozes/SourceNote'
+import { SumarioSpread } from './components/vozes/SumarioSpread'
 import { VozesLayout, VozesMain, VozesRail } from './components/vozes/VozesLayout'
 
 type WithNode<T> = T & { node?: unknown }
@@ -66,4 +67,5 @@ export const mdxComponents = {
   TrajetoriaBox,
   OrgHierarchyFlow,
   OrgHierarchyStep,
+  SumarioSpread,
 }

@@ -6,35 +6,15 @@ type CoverHeroProps = {
 
 export function CoverHero({ publication }: CoverHeroProps) {
   return (
-    <header className="cover-hero cover-hero--grafismo" aria-label="Capa">
-      <div className="cover-hero-main">
-        <div className="cover-hero-kicker-row">
-          <p className="cover-hero-kicker">Relatório</p>
-        </div>
-
-        <div className="cover-hero-title-wrap">
-          <h1 className="cover-hero-title">{publication.title}</h1>
-        </div>
-
-        <footer className="cover-hero-foot" aria-label="Realização">
-          <img
-            className="cover-hero-logo cover-hero-logo--vozes"
-            src="media/logo_vozes_educacao.svg"
-            alt="Vozes da Educação"
-            width={690}
-            height={281}
-            decoding="async"
-          />
-          <img
-            className="cover-hero-logo cover-hero-logo--lemann"
-            src="media/logo_fundacao_lemann.svg"
-            alt="Fundação Lemann"
-            width={980}
-            height={480}
-            decoding="async"
-          />
-        </footer>
-      </div>
+    <header className="cover-hero cover-hero--artwork" aria-label="Capa">
+      <img
+        className="cover-hero-artwork"
+        src="media/capa_lemann_levantamento.png"
+        alt={publication.title}
+        width={2480}
+        height={3508}
+        decoding="async"
+      />
     </header>
   )
 }
