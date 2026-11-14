@@ -174,4 +174,27 @@
     break-after: page;
     /* Fundo vem de .sheet (branco) ou das variantes layout-vozes-* em vozes.css — não forçar branco aqui (quebra expediente, folha verde, etc. no PDF). */
   }
+
+  /*
+   * Folhas cor de ponta a ponta: padding da .sheet vira faixa branca no PDF (Chromium não pinta o fundo na área do padding).
+   * Miolo com margem volta no wrapper interno (vozes.css).
+   */
+  .desk .sheet:is(
+      .layout-vozes-expediente,
+      .layout-vozes-blank,
+      .layout-vozes-roxa,
+      .layout-vozes-cover,
+      .layout-vozes-folha-rosto
+    ),
+  .desk .sheet.layout-vozes-report:has(.vozes-sumario),
+  .desk .sheet.layout-vozes-report:has(
+      .vozes-page-stack--england-org-cruzamento,
+      .vozes-page-stack--england-bcf-cruzamento,
+      .vozes-page-stack--chile-org-cruzamento,
+      .vozes-page-stack--nigeria-org-cruzamento
+    ) {
+    padding: 0 !important;
+    background-clip: border-box;
+    overflow: hidden;
+  }
 }

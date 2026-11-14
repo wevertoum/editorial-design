@@ -1020,6 +1020,80 @@
     color: var(--color-accent);
     text-decoration: underline;
   }
+
+  /* Faixa marfim e fundos sangrados: estender até a borda física da página PDF. */
+  .layout-vozes-report .vozes-main > :is(
+      .vozes-page-stack--england-org-cruzamento,
+      .vozes-page-stack--england-bcf-cruzamento,
+      .vozes-page-stack--chile-org-cruzamento,
+      .vozes-page-stack--nigeria-org-cruzamento
+    ).vozes-page-stack--dual-track::before {
+    top: calc(-1 * var(--margin-top));
+    right: calc(-1 * var(--margin-outer) - var(--print-page-snap));
+    bottom: calc(-1 * var(--margin-bottom) - var(--print-page-snap));
+    left: calc(-1 * var(--margin-inner));
+  }
+
+  .sheet-page[data-page-side='left']
+    .layout-vozes-report
+    .vozes-main
+    > :is(
+        .vozes-page-stack--england-org-cruzamento,
+        .vozes-page-stack--england-bcf-cruzamento,
+        .vozes-page-stack--chile-org-cruzamento,
+        .vozes-page-stack--nigeria-org-cruzamento
+      ).vozes-page-stack--dual-track::before {
+    right: calc(-1 * var(--margin-inner) - var(--print-page-snap));
+    left: calc(-1 * var(--margin-outer));
+  }
+
+  .dual-track-band::after {
+    bottom: calc(-1 * var(--margin-bottom) - var(--print-page-snap));
+    height: calc(var(--margin-bottom) + var(--print-page-snap));
+  }
+
+  /* Margens do miolo (padding:0 na .sheet — screen.css @media print). */
+  .desk .sheet.layout-vozes-expediente .vozes-expediente-inner {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: var(--page-height);
+    padding: 0 var(--margin-outer) var(--margin-bottom) var(--margin-inner);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .desk .sheet-page[data-page-side='left'].layout-vozes-expediente .vozes-expediente-inner {
+    padding-right: var(--margin-inner);
+    padding-left: var(--margin-outer);
+  }
+
+  .desk .sheet.layout-vozes-report:has(.vozes-sumario) .vozes-page.vozes-sumario {
+    box-sizing: border-box;
+    min-height: var(--page-height);
+    padding: var(--margin-top) var(--margin-outer) var(--margin-bottom) var(--margin-inner);
+  }
+
+  .desk .sheet.layout-vozes-report:has(
+      .vozes-page-stack--england-org-cruzamento,
+      .vozes-page-stack--england-bcf-cruzamento,
+      .vozes-page-stack--chile-org-cruzamento,
+      .vozes-page-stack--nigeria-org-cruzamento
+    ) {
+    background: var(--color-marfim);
+  }
+
+  .desk .sheet.layout-vozes-report:has(
+      .vozes-page-stack--england-org-cruzamento,
+      .vozes-page-stack--england-bcf-cruzamento,
+      .vozes-page-stack--chile-org-cruzamento,
+      .vozes-page-stack--nigeria-org-cruzamento
+    )
+    .vozes-page-stack--dual-track {
+    box-sizing: border-box;
+    min-height: var(--page-height);
+    padding: var(--margin-top) var(--margin-outer) var(--margin-bottom) var(--margin-inner);
+  }
 }
 
 .layout-vozes-report .vozes-main h2,

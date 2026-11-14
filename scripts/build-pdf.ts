@@ -108,7 +108,9 @@ type PdfOutputProfile = keyof typeof geometry
 async function printSite(file: string, outputProfile: PdfOutputProfile) {
   const browser = await chromium.launch()
   try {
-    const page = await browser.newPage()
+    const page = await browser.newPage({
+      viewport: { width: 794, height: 1123 },
+    })
     page.setDefaultTimeout(180_000)
     page.setDefaultNavigationTimeout(180_000)
     await page.goto(`http://127.0.0.1:${previewPort}/`, { waitUntil: 'networkidle' })
@@ -137,26 +139,15 @@ async function printSite(file: string, outputProfile: PdfOutputProfile) {
         'html, body, #root, .desk { margin: 0 !important; padding: 0 !important; }',
       ].join('\n'),
     })
-    const pdfOptions =
-      outputProfile === 'digital'
-        ? {
-            path: file,
-            format: 'A4' as const,
-            margin: box.margin,
-            printBackground: true,
-            preferCSSPageSize: true,
-            displayHeaderFooter: false,
-          }
-        : {
-            path: file,
-            width: box.width,
-            height: box.height,
-            margin: box.margin,
-            printBackground: true,
-            preferCSSPageSize: true,
-            displayHeaderFooter: false,
-          }
-    await page.pdf(pdfOptions)
+    await page.pdf({
+      path: file,
+      width: box.width,
+      height: box.height,
+      margin: box.margin,
+      printBackground: true,
+      preferCSSPageSize: false,
+      displayHeaderFooter: false,
+    })
   } finally {
     await browser.close()
   }

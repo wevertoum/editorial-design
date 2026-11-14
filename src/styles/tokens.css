@@ -1,6 +1,8 @@
 :root {
   --page-width: 210mm;
   --page-height: 297mm;
+  /* PDF: folga em faixas marfim / dual-track (@media print em vozes.css). */
+  --print-page-snap: 1mm;
   /* Topo fixo: miolo começa sempre após 18 mm (espelhado em paged.css / padding da folha). */
   --margin-top: 18mm;
   --margin-bottom: 20mm;
