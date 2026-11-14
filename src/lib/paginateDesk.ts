@@ -3,6 +3,8 @@
  * The PDF prints those same pages, so the desk and the file match.
  */
 
+import { installSumarioReadingNav, teardownSumarioReadingNav } from './sumarioReadingNav'
+
 const SLOP = 4
 /** CON abertura: grelha + financiamento no fim da f. 37 (~120px de tolerância medida). */
 const NIGERIA_ORG_INTRO_SLOP = 168
@@ -56,6 +58,7 @@ export function paginateInto(source: HTMLElement, desk: HTMLElement): () => void
     mountGrafismoOverlays(desk, grafismoOverlays)
     document.documentElement.dataset.pagesReady = '1'
     document.documentElement.dataset.pageCount = String(pages.length)
+    installSumarioReadingNav()
   }
 
   void (async () => {
@@ -67,7 +70,9 @@ export function paginateInto(source: HTMLElement, desk: HTMLElement): () => void
 
   return () => {
     cancelled = true
+    teardownSumarioReadingNav()
     delete document.documentElement.dataset.pagesReady
+    delete document.documentElement.dataset.pageCount
   }
 }
 
@@ -778,9 +783,12 @@ function renderGroup(
 /** Page 1 sits on the right. After that, even pages face the next odd page. */
 function arrangeSpreads(pages: HTMLElement[]): HTMLElement[] {
   const spreads: HTMLElement[] = []
+  let readingUnit = 0
   const push = (left: HTMLElement | null, right: HTMLElement | null) => {
+    readingUnit += 1
     const fit = document.createElement('div')
     fit.className = 'spread-fit'
+    fit.id = `reading-${readingUnit}`
     const scale = document.createElement('div')
     scale.className = 'spread-scale'
     const spread = document.createElement('div')

@@ -11,38 +11,16 @@ export const A4_HEIGHT_PT = 841.89
 export const SPREAD_GUTTER_PT = 1.5
 export const SPREAD_WIDTH_PT = A4_WIDTH_PT * 2 + SPREAD_GUTTER_PT
 
-export type SpreadPlanItem =
-  | { kind: 'single'; page: number }
-  | { kind: 'spread'; left: number; right: number }
+import {
+  planDigitalReadingSpreads,
+  folioToReadingUnitIndex,
+  folioToReadingUnitNumber,
+  type ReadingSpreadPlanItem,
+} from '../src/lib/readingSpreadPlan'
 
-/**
- * Leitura digital: 1ª e última folha sozinhas (A4); miolo em duplas,
- * como na mesa exceto pelas pontas do documento.
- */
-export function planDigitalReadingSpreads(pageCount: number): SpreadPlanItem[] {
-  if (pageCount < 1) return []
-  if (pageCount === 1) return [{ kind: 'single', page: 0 }]
-  if (pageCount === 2) {
-    return [
-      { kind: 'single', page: 0 },
-      { kind: 'single', page: 1 },
-    ]
-  }
+export type SpreadPlanItem = ReadingSpreadPlanItem
 
-  const plan: SpreadPlanItem[] = [{ kind: 'single', page: 0 }]
-  const middleEnd = pageCount - 2
-
-  for (let index = 1; index <= middleEnd; index += 2) {
-    if (index + 1 <= middleEnd) {
-      plan.push({ kind: 'spread', left: index, right: index + 1 })
-    } else {
-      plan.push({ kind: 'single', page: index })
-    }
-  }
-
-  plan.push({ kind: 'single', page: pageCount - 1 })
-  return plan
-}
+export { planDigitalReadingSpreads, folioToReadingUnitIndex, folioToReadingUnitNumber }
 
 /** @deprecated Usar `planDigitalReadingSpreads`. Mantido para testes legados. */
 export function planSpreads(pageCount: number): SpreadPlanItem[] {
