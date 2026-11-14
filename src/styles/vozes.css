@@ -394,11 +394,45 @@
   max-width: 120mm;
 }
 
-/* Página em branco (verso antes da apresentação) */
+/* Página em branco (f. 6 — verso antes da apresentação) */
 .layout-vozes-blank.sheet {
+  position: relative;
   min-height: var(--page-height);
   padding: 0;
-  background: var(--color-paper);
+  overflow: visible;
+  background: var(--color-vozes-verde);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.layout-vozes-blank .vozes-elementos-coluna-host {
+  position: absolute;
+  z-index: 1;
+  top: calc(-1 * var(--bleed));
+  left: calc(-1 * var(--bleed));
+  bottom: calc(-1 * var(--bleed));
+  height: auto;
+  width: auto;
+  aspect-ratio: 54.79 / 709.4;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  pointer-events: none;
+  user-select: none;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.layout-vozes-blank .vozes-elementos-coluna__svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.desk .sheet-page:has(.layout-vozes-blank),
+.desk .sheet-page:has(.layout-vozes-blank) .sheet {
+  overflow: visible;
 }
 
 .layout-vozes-blank.sheet::after {
@@ -679,7 +713,7 @@
   font-weight: 700;
   line-height: 1.1;
   margin: 0 0 var(--stack-after-h1);
-  color: var(--color-ink);
+  color: var(--color-vozes-roxo);
 }
 
 .layout-vozes-report .vozes-main h3 {
@@ -709,9 +743,21 @@
   padding-bottom: 0.12em;
 }
 
-.layout-vozes-report .vozes-page.vozes-front-matter .vozes-main h2:first-of-type {
+/* Apresentação: coluna de leitura mais estreita (só este capítulo). */
+.layout-vozes-report .vozes-page.vozes-chapter--apresentacao .vozes-main {
+  max-width: 108mm;
+}
+
+/* Apresentação e resumo: display como país, ligeiramente menor + respiro duplo antes do 1.º parágrafo. */
+.layout-vozes-report .vozes-page.vozes-front-matter .vozes-main > h2:first-of-type {
   margin-top: 0;
-  letter-spacing: 0.04em;
+  font-family: var(--font-display);
+  font-size: 24pt;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: calc(2 * var(--stack-after-h1));
+  letter-spacing: 0;
+  color: var(--color-vozes-roxo);
 }
 
 .layout-vozes-report .vozes-main p,
@@ -1691,7 +1737,7 @@
   font-weight: 700;
   line-height: 1.1;
   margin: 0 0 var(--stack-after-h1);
-  color: var(--color-ink);
+  color: var(--color-vozes-roxo);
 }
 
 .country-lead {

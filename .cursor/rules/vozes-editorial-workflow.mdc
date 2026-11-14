@@ -30,8 +30,8 @@ Tudo o que a editora pediu e ficou combinado — texto, componentes (`ProfileCar
 Quando a editora ajusta **uma** página (largura de coluna, bullets, quebra, espaço antes de lista, perfil no rail), tratar como **sistema do relatório**, não exceção pontual.
 
 1. **Generalizar primeiro** — tokens (`tokens.css`), grade (`vozes.css`, `--vozes-rail-to-prose`, `--vozes-prose-track`), componente (`DetailListGrid`, `PageStack`, `Heading` + `vozes-page-start`). Evitar CSS ou largura só num parágrafo.
-2. **Repetir onde couber** — após fechar o pedido na página citada, varrer capítulos **parecidos** (`*-org.mdx`, miolos de país `*.mdx`, `resumo-executivo`, etc.) e alinhar ao mesmo padrão quando o conteúdo for do mesmo tipo (lista após intro, financiamento, exemplos de atuação, faixa de atores). **Excluir Austrália** (capítulo fechado), **Capa p. 1** e **Folha de rosto p. 3** (fechadas), **Expediente p. 2** (fechado), **Sumário pp. 4–5** (dupla fechada), **EUA pp. 18–23** (currículo + Achieve org, folios fechados), **Inglaterra pp. 26–27** (produção + participação), **Inglaterra pp. 30–33** (cruzamento CF + BCF completo), **Nigéria pp. 34–36** (abertura + produção + participação/trajetória), **Nigéria CON pp. 37–39** (abertura org + atuação/trajetória + cruzamento), **Chile pp. 40–43** (abertura país até trajetória do currículo), **Chile Reimagina pp. 44–47** (abertura org até cruzamento); não propagar a partir desses blocos.
-3. **Exceções explícitas** — não alterar composições **fechadas** (**Capa p. 1**; **Folha de rosto p. 3**; **Expediente p. 2**; **Sumário pp. 4–5**; Austrália pp. 10–11; **EUA pp. 18–19**; **EUA pp. 20–23** Achieve; **Inglaterra pp. 26–27**; **Inglaterra pp. 30–33**; **Nigéria pp. 34–36**; **Nigéria CON pp. 37–39**; **Chile pp. 40–43**; **Chile Reimagina pp. 44–47**); `DetailList` com `icon=` (processos AU) mantém faixa plena; não forçar `DetailListGrid` onde houver figura ou prosa **entre** itens sem combinar com a editora.
+2. **Repetir onde couber** — após fechar o pedido na página citada, varrer capítulos **parecidos** (`*-org.mdx`, miolos de país `*.mdx`, `resumo-executivo`, etc.) e alinhar ao mesmo padrão quando o conteúdo for do mesmo tipo (lista após intro, financiamento, exemplos de atuação, faixa de atores). **Excluir Austrália** (capítulo fechado), **Capa p. 1** e **Folha de rosto p. 3** (fechadas), **Expediente p. 2** (fechado), **Sumário pp. 4–5** (dupla fechada), **Folha verde p. 6** (fechada), **Apresentação p. 7** (capítulo fechado), **EUA pp. 18–23** (currículo + Achieve org, folios fechados), **Inglaterra pp. 26–27** (produção + participação), **Inglaterra pp. 30–33** (cruzamento CF + BCF completo), **Nigéria pp. 34–36** (abertura + produção + participação/trajetória), **Nigéria CON pp. 37–39** (abertura org + atuação/trajetória + cruzamento), **Chile pp. 40–43** (abertura país até trajetória do currículo), **Chile Reimagina pp. 44–47** (abertura org até cruzamento); não propagar a partir desses blocos.
+3. **Exceções explícitas** — não alterar composições **fechadas** (**Capa p. 1**; **Folha de rosto p. 3**; **Expediente p. 2**; **Sumário pp. 4–5**; **Folha verde p. 6**; **Apresentação p. 7**; Austrália pp. 10–11; **EUA pp. 18–19**; **EUA pp. 20–23** Achieve; **Inglaterra pp. 26–27**; **Inglaterra pp. 30–33**; **Nigéria pp. 34–36**; **Nigéria CON pp. 37–39**; **Chile pp. 40–43**; **Chile Reimagina pp. 44–47**); `DetailList` com `icon=` (processos AU) mantém faixa plena; não forçar `DetailListGrid` onde houver figura ou prosa **entre** itens sem combinar com a editora.
 4. **Micro-ajuste vs sistema** — “um pouquinho menor/maior” na coluna → calibrar token/global; “só nesta seção” → só MDX local.
 
 ### Padrões já combinados (referência rápida — Nov/2026)
@@ -421,6 +421,43 @@ A editora combinou: **o sumário (folhas 4–5) não recebe mais alterações** 
 - **Escopo:** `sumario.mdx`, `sumario-spread-*.json`, `SumarioSpread`, CSS/classes `vozes-sumario`, grafismo folha **5**, paginação `vozes-page-stack--sumario`.
 - **Proibido sem pedido:** mudar dupla, eixo, entradas, fundo marfim/paleta roxa do sumário, título, grafismo ou propagar “simplificações” a partir de outras seções.
 - **Exceção:** só o que a editora citar (“muda o sumário…”, “página 4”, “página 5”, grafismo do sumário, folio ou trecho visível).
+
+### Folha verde — página 6 (fechada / não alterar)
+
+Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, mudar cor de fundo, reposicionar grafismo nem redesenhar sem pedido explícito. Fonte: `pagina-vazia.mdx` (`sheetVariant: vozes-blank`) + `StandardPage` (`VozesElementosFaixa`) + `layout-vozes-blank` em `vozes.css` + sprite `vozes-g09` em `assets/media/vozes-grafismo-sprite.svg`.
+
+| Elemento | Tratamento |
+| --- | --- |
+| **Folha** | **6** — verso entre sumário e Apresentação; **sem miolo** de texto; fundo **verde** (`--color-vozes-verde`, `#0d6353`); padding **0** |
+| **Grafismo** | Coluna modular **g09** (`VozesElementosFaixa`): encostada **sup.**, **esq.** e **inf.**; **sangria** nos três lados (`--bleed`); camada absoluta (`.vozes-elementos-coluna-host`), **sem** impacto na paginação |
+| **Cores no módulo** | Trechos que eram verde escuro no levantamento = **mesmo verde do fundo** (`cls-sumario-verde-escuro` / `#0d6353`); laranja, roxo, verde-claro e demais recortes **inalterados** |
+
+- **Proibido sem pedido:** trocar folha por branco, remover coluna, voltar faixa horizontal **g07**, alterar posição/sangria, paleta do grafismo, fundo, ou fixes globais (`vozes.css`, sprite, `paginateDesk`, `StandardPage`) que mudem o resultado visual da **p. 6** ou antecipem/retrasem Apresentação na paginação.
+- **Paginação global:** `layout-vozes-blank` permanece **átomo** (`break-inside: avoid`); ajustes gerais não podem eliminar esta folha nem fundi-la ao sumário ou à Apresentação; se um fix geral afetar a **p. 6**, pedir à editora ou isolar o comportamento.
+- **Exceção:** só o que a editora citar (“muda a página 6…”, “folha verde”, verso do sumário, grafismo da coluna, folio 6 ou trecho visível).
+
+### Folha verde (`pagina-vazia.mdx`)
+
+A folha **6** está **fechada**. Sem pedido explícito, não editar MDX, `VozesElementosFaixa`, CSS `layout-vozes-blank` / coluna, grupo **g09** do sprite nem remover a seção de `document.json`; `import:mapeamento` não deve suprimir esta folha sem reconciliar o combinado.
+
+### Apresentação — capítulo (fechada / não alterar)
+
+Combinado e **fechado** pela editora (Nov/2026). **Não** reverter tipografia, largura de coluna, título em caixa alta nem redesenhar sem pedido explícito. Fonte: `apresentacao.mdx` + `VozesLayout` (`vozes-prose-only` · `vozes-front-matter` · `vozes-chapter--apresentacao`) + `vozes.css` (título e `max-width` do miolo).
+
+| Elemento | Tratamento |
+| --- | --- |
+| **Folio** | **7** no sumário (miolo inicia após folha verde **6**); **sem** `kicker` no frontmatter |
+| **Título** | `## Apresentação` (sem ALL CAPS); **Roboto Slab** **24 pt**, **roxo** (`--color-vozes-roxo`); respiro **2×** `--stack-after-h1` antes do 1.º parágrafo |
+| **Coluna** | Miolo **108 mm** (`.vozes-chapter--apresentacao .vozes-main`); **só** neste capítulo — não propagar ao Resumo executivo |
+| **Layout** | `vozes-prose-only`; nomes de países e demais capítulos **não** herdam a coluna estreita da Apresentação |
+
+- **Proibido sem pedido:** voltar título em caps, alargar coluna ao padrão 9fr, mudar cor/tamanho do título, espaço título→parágrafo, texto editorial substancial sem combinar, ou fixes globais (`vozes.css` front-matter, `renderBlocks`) que alterem o resultado da **Apresentação** ou empurrem conteúdo para fora da folha **7** de forma não combinada.
+- **Paginação global:** ajustes em `paginateDesk.ts` / tokens não podem eliminar a seção nem colapsar o miolo com o Resumo (**8**); se um fix geral afetar a Apresentação, pedir à editora ou isolar (`vozes-chapter--apresentacao`).
+- **Exceção:** só o que a editora citar (“muda a apresentação…”, “página 7”, Apresentação, folio 7 ou trecho visível).
+
+### Apresentação (`apresentacao.mdx`)
+
+O capítulo **Apresentação** está **fechado** (tipografia do título + coluna **108 mm** + caixa do título). Sem pedido explícito, não editar MDX salvo correções pontuais pedidas, nem CSS/classes dedicadas; `import:mapeamento` exige reconciliar o combinado antes de regerar o capítulo.
 
 ### Capa — folha 1 (fechada / não alterar)
 

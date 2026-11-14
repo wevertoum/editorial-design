@@ -284,6 +284,7 @@ export function renderFlowBlocks(blocks: FlowBlock[], sectionId: string): ReactN
   const layoutClass = [
     hasProfile || rail.length > 0 ? 'vozes-with-rail' : 'vozes-prose-only',
     isFront ? 'vozes-front-matter' : '',
+    sectionId === 'apresentacao' ? 'vozes-chapter--apresentacao' : '',
   ]
     .filter(Boolean)
     .join(' ')

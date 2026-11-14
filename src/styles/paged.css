@@ -86,6 +86,12 @@ h3 + *,
   break-inside: avoid;
 }
 
+.layout-vozes-blank.sheet {
+  break-inside: avoid;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
 .sheet-page.layout-vozes-report:has(.vozes-sumario) {
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;

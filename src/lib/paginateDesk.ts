@@ -888,6 +888,8 @@ function isHeading(node: HTMLElement): boolean {
 
 function isSkippable(node: HTMLElement): boolean {
   if (node.classList.contains('vozes-grafismo-host')) return true
+  if (node.classList.contains('vozes-elementos-faixa-host')) return true
+  if (node.classList.contains('vozes-elementos-coluna-host')) return true
   if (node.matches('img, svg')) return false
   if (node.querySelector('img, svg')) return false
   return !node.textContent?.trim()

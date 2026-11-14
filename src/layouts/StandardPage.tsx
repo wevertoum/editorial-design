@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { CoverHero } from '../components/CoverHero'
 import { FolhaRostoHero } from '../components/FolhaRostoHero'
+import { VozesElementosFaixa } from '../components/vozes/VozesElementosFaixa'
 import { Masthead } from '../components/Masthead'
 import type { EditorialDocument } from '../content/types'
 import { sectionHasDevelopmentLabel } from '../lib/developmentLabelSections'
@@ -32,6 +33,7 @@ export function StandardPage({ id, kicker, sheetVariant, showMasthead, publicati
     >
       {isCover && showMasthead ? <CoverHero publication={publication} /> : null}
       {isFolhaRosto ? <FolhaRostoHero publication={publication} /> : null}
+      {isBlank ? <VozesElementosFaixa /> : null}
       {!isChromeless && showMasthead ? <Masthead publication={publication} /> : null}
       {!isChromeless && kicker ? <p className="kicker">{kicker}</p> : null}
       {!isChromeless ? children : null}

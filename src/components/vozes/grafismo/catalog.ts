@@ -32,6 +32,10 @@ export const VOZES_GRAFISMO_GROUPS = {
     label: 'Losango roxo pequeno',
     viewBox: '96 100 52 52',
   },
+  g09: {
+    label: 'Coluna vertical modular (faixa lateral)',
+    viewBox: '1086.89 42.37 54.79 709.4',
+  },
 } as const
 
 export type VozesGrafismoGroupId = keyof typeof VOZES_GRAFISMO_GROUPS
