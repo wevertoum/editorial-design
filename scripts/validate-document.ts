@@ -174,6 +174,8 @@ guard(() => {
   for (const file of readdirSync(mediaDir)) {
     // Skip dotfiles and private working folders (e.g. _incoming portrait masters)
     if (file.startsWith('.') || file.startsWith('_')) continue
+    const entryPath = path.join(mediaDir, file)
+    if (statSync(entryPath).isDirectory()) continue
     const used = [...referencedAssets].some((asset) => resolveAsset(asset) === path.posix.join('assets/media', file) || resolveAsset(asset) === path.join('assets/media', file))
     if (!used) {
       throw new Error(`assets/media/${file} is not referenced by content`)

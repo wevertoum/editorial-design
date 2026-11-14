@@ -92,7 +92,49 @@
   print-color-adjust: exact;
 }
 
-/* Capa — faixa de grafismos (referência) + RELATÓRIO, título, logos. */
+/* Marca d'água «em desenvolvimento» — miolo editorial ainda em revisão. */
+.sheet[data-development-label] {
+  position: relative;
+  overflow: hidden;
+}
+
+.sheet[data-development-label]::before {
+  content: "em desenvolvimento";
+  position: absolute;
+  left: 50%;
+  top: 54%;
+  z-index: 25;
+  width: 165%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-family: Mulish, var(--font-sans);
+  font-size: 26pt;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: color-mix(in srgb, var(--color-vozes-laranja) 28%, transparent);
+  transform: translate(-50%, -50%) rotate(-32deg);
+  pointer-events: none;
+  user-select: none;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.layout-vozes-cover.sheet[data-development-label]::before {
+  color: color-mix(in srgb, var(--color-vozes-laranja) 32%, transparent);
+  font-size: 28pt;
+}
+
+.layout-vozes-expediente.sheet[data-development-label]::before {
+  color: color-mix(in srgb, #ffffff 22%, transparent);
+}
+
+/* Capa — RELATÓRIO, título, logos (sem faixa de grafismos). */
 .layout-vozes-cover.sheet {
   display: block;
   padding: 0;
@@ -104,8 +146,7 @@
 
 .layout-vozes-cover .cover-hero--grafismo {
   box-sizing: border-box;
-  display: grid;
-  grid-template-columns: 52.5mm 1fr;
+  display: block;
   width: var(--page-width);
   min-height: var(--page-height);
   height: var(--page-height);
@@ -114,20 +155,12 @@
   border: none;
 }
 
-.layout-vozes-cover .cover-grafismo-rail {
-  display: block;
-  width: 52.5mm;
-  height: var(--page-height);
-  -webkit-print-color-adjust: exact;
-  print-color-adjust: exact;
-}
-
 .cover-hero-main {
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 0;
   height: 100%;
-  padding: 20mm 24mm 18mm 16mm;
+  padding: 20mm 24mm 18mm 24mm;
   background: var(--color-paper);
 }
 
@@ -321,6 +354,24 @@
 
 .layout-vozes-blank.sheet::after {
   content: none;
+}
+
+/* Folha inteira roxa (encerramento / contracapa). */
+.layout-vozes-roxa.sheet {
+  min-height: var(--page-height);
+  height: var(--page-height);
+  padding: 0;
+  background: var(--color-vozes-roxo);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.layout-vozes-roxa.sheet::after {
+  content: none;
+}
+
+.sheet-page.layout-vozes-roxa .folio {
+  color: color-mix(in srgb, white 88%, var(--color-vozes-roxo));
 }
 
 /* Sumário: tipografia compacta em duas páginas */
@@ -3080,6 +3131,45 @@
   padding-top: 0;
 }
 
+/* Reimagina cruzamento: texto longo em 2 colunas — não comprimir o matrix (evita 2.ª fileira sobre a 1.ª). */
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--chile-org-cruzamento
+  .dual-track-section.vozes-page-stack-foot
+  .dual-track,
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--chile-org-cruzamento
+  .dual-track-section.vozes-page-stack-foot
+  .dual-track-band {
+  flex: 0 1 auto;
+  min-height: min-content;
+  height: auto;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--chile-org-cruzamento
+  .dual-track-section.vozes-page-stack-foot
+  .dual-track-matrix {
+  flex: 0 1 auto;
+  min-height: min-content;
+  gap: 11mm;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--chile-org-cruzamento
+  [data-has-overflow='true']
+  .dual-track-nodes--primary,
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--chile-org-cruzamento
+  [data-has-overflow='true']
+  .dual-track-nodes--overflow {
+  flex: 0 0 auto;
+}
+
 /* Nigéria — produção + etapas + parágrafo NCE (f. 35); participação + trajetória (f. 36). */
 .layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-producao {
   --stack-paragraph-vozes: 0.98em;
@@ -3358,6 +3448,19 @@
   line-height: 1.3;
   hyphens: none;
   text-align: left;
+}
+
+/* Reimagina — folha só da trajetória da organização (cruzamento em folha dedicada). */
+.layout-vozes-report .vozes-main > .vozes-page-stack--chile-org-traj {
+  min-height: var(--vozes-content-height);
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--chile-org-traj
+  .trajetoria-box--compact
+  .vozes-milestone--compact {
+  --vozes-milestone-compact-item-gap: 0.85mm;
 }
 
 /* CON — grelha + Financiamento: subir conteúdo da f. 38 para a 37 (perfil no rail). */

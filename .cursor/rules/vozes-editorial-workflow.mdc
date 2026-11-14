@@ -29,8 +29,8 @@ Tudo o que a editora pediu e ficou combinado — texto, componentes (`ProfileCar
 Quando a editora ajusta **uma** página (largura de coluna, bullets, quebra, espaço antes de lista, perfil no rail), tratar como **sistema do relatório**, não exceção pontual.
 
 1. **Generalizar primeiro** — tokens (`tokens.css`), grade (`vozes.css`, `--vozes-rail-to-prose`, `--vozes-prose-track`), componente (`DetailListGrid`, `PageStack`, `Heading` + `vozes-page-start`). Evitar CSS ou largura só num parágrafo.
-2. **Repetir onde couber** — após fechar o pedido na página citada, varrer capítulos **parecidos** (`*-org.mdx`, miolos de país `*.mdx`, `resumo-executivo`, etc.) e alinhar ao mesmo padrão quando o conteúdo for do mesmo tipo (lista após intro, financiamento, exemplos de atuação, faixa de atores). **Excluir Austrália** (capítulo fechado), **EUA pp. 18–23** (currículo + Achieve org, folios fechados), **Inglaterra pp. 26–27** (produção + participação), **Inglaterra pp. 30–33** (cruzamento CF + BCF completo), **Nigéria pp. 34–36** (abertura + produção + participação/trajetória), **Nigéria CON pp. 37–39** (abertura org + atuação/trajetória + cruzamento), **Chile pp. 40–43** (abertura país até trajetória do currículo), **Chile Reimagina p. 44** (abertura org); não propagar a partir desses blocos.
-3. **Exceções explícitas** — não alterar composições **fechadas** (Austrália pp. 10–11; **EUA pp. 18–19**; **EUA pp. 20–23** Achieve; **Inglaterra pp. 26–27**; **Inglaterra pp. 30–33**; **Nigéria pp. 34–36**; **Nigéria CON pp. 37–39**; **Chile pp. 40–43**; **Chile Reimagina p. 44**); `DetailList` com `icon=` (processos AU) mantém faixa plena; não forçar `DetailListGrid` onde houver figura ou prosa **entre** itens sem combinar com a editora.
+2. **Repetir onde couber** — após fechar o pedido na página citada, varrer capítulos **parecidos** (`*-org.mdx`, miolos de país `*.mdx`, `resumo-executivo`, etc.) e alinhar ao mesmo padrão quando o conteúdo for do mesmo tipo (lista após intro, financiamento, exemplos de atuação, faixa de atores). **Excluir Austrália** (capítulo fechado), **EUA pp. 18–23** (currículo + Achieve org, folios fechados), **Inglaterra pp. 26–27** (produção + participação), **Inglaterra pp. 30–33** (cruzamento CF + BCF completo), **Nigéria pp. 34–36** (abertura + produção + participação/trajetória), **Nigéria CON pp. 37–39** (abertura org + atuação/trajetória + cruzamento), **Chile pp. 40–43** (abertura país até trajetória do currículo), **Chile Reimagina pp. 44–47** (abertura org até cruzamento); não propagar a partir desses blocos.
+3. **Exceções explícitas** — não alterar composições **fechadas** (Austrália pp. 10–11; **EUA pp. 18–19**; **EUA pp. 20–23** Achieve; **Inglaterra pp. 26–27**; **Inglaterra pp. 30–33**; **Nigéria pp. 34–36**; **Nigéria CON pp. 37–39**; **Chile pp. 40–43**; **Chile Reimagina pp. 44–47**); `DetailList` com `icon=` (processos AU) mantém faixa plena; não forçar `DetailListGrid` onde houver figura ou prosa **entre** itens sem combinar com a editora.
 4. **Micro-ajuste vs sistema** — “um pouquinho menor/maior” na coluna → calibrar token/global; “só nesta seção” → só MDX local.
 
 ### Padrões já combinados (referência rápida — Nov/2026)
@@ -347,9 +347,49 @@ Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, simplificar,
 - **Paginação global:** ajustes em `paginateDesk.ts` / `vozes.css` não podem mudar como a folha 44 renderiza; não reintroduzir slop de paginação que force conteúdo além do limite da folha; se um fix geral afetar Reimagina abertura, pedir à editora ou isolar o comportamento.
 - **Exceção:** só o que a editora citar por palavras (“muda a página 44…”, Reimagina abertura, Fundación Reimagina, folio 44 ou trecho visível nessa folha).
 
+### Chile — Reimagina, folha 45 (fechada / não alterar)
+
+Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, simplificar, re-quebrar nem redesenhar sem pedido explícito. Fonte: `chile-org.mdx` (`PageStack` `vozes-page-stack--chile-org-atuacao-tres`) + `DetailListGrid` coluna única estreita (cinco exemplos) + ritmo em `vozes.css` / `paginateDesk.ts` (átomo).
+
+| Folha | Conteúdo fixo |
+| --- | --- |
+| **45** | Parágrafo *Equivalence Determination* / NGOsource e transparência; ***A atuação*** (intro); cinco exemplos em `DetailListGrid` **coluna única** — **sem** trajetória nem cruzamento nesta folha |
+
+- **Proibido sem pedido:** mudar ordem de blocos, texto, espaçamento compacto desta folha, grelha estreita dos exemplos, ou fixes globais (paginação/CSS/tokens) que desloquem conteúdo da **p. 44** para a **45** ou antecipem `vozes-page-stack--chile-org-traj` para a **p. 45**.
+- **Paginação global:** ajustes em `paginateDesk.ts` / `vozes.css` não podem mudar como a folha 45 renderiza; o stack permanece **átomo**; se um fix geral afetar Reimagina atuação, pedir à editora ou isolar o comportamento.
+- **Exceção:** só o que a editora citar por palavras (“muda a página 45…”, NGOsource, A atuação Reimagina, folio 45 ou trecho visível nessa folha).
+
+### Chile — Reimagina, folha 46 (fechada / não alterar)
+
+Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, simplificar, re-quebrar nem redesenhar sem pedido explícito. Fonte: `chile-org.mdx` (`PageStack` `vozes-page-stack--chile-org-traj`) + `TrajetoriaBox` compacto + `MilestoneStrip` **2 colunas** (`vozes-milestone--compact`) + `paginateDesk.ts` (átomo).
+
+| Folha | Conteúdo fixo |
+| --- | --- |
+| **46** | Folha dedicada **A trajetória da organização** (sete marcos 2020–2026 em duas colunas) — **sem** faixa «Onde as trajetórias se cruzam» nesta folha |
+
+- **Proibido sem pedido:** voltar a juntar trajetória e cruzamento na mesma folha, mudar ordem de marcos, texto, colunas ou compactação, ou fixes globais (paginação/CSS/tokens de milestone) que desloquem conteúdo da **p. 45** para a **46** ou antecipem `vozes-page-stack--chile-org-cruzamento` para a **p. 46**.
+- **Paginação global:** ajustes em `paginateDesk.ts` / `vozes.css` não podem mudar como a folha 46 renderiza; o stack permanece **átomo**; se um fix geral afetar trajetória Reimagina, pedir à editora ou isolar o comportamento.
+- **Exceção:** só o que a editora citar por palavras (“muda a página 46…”, trajetória Reimagina, folio 46 ou trecho visível nessa folha).
+
+### Chile — Reimagina, folha 47 (fechada / não alterar)
+
+Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, simplificar, re-quebrar nem redesenhar sem pedido explícito. Fonte: `chile-org.mdx` (`PageStack` `vozes-page-stack--chile-org-cruzamento`) + `DualTrackEmbed` parte **a** (`chile-cruzamento-1-a.json`, overflow 2×2) + `vozes.css` (folha dedicada, flex do matrix sem comprimir fileiras).
+
+| Folha | Conteúdo fixo |
+| --- | --- |
+| **47** | Folha dedicada **Onde as trajetórias se cruzam**: faixa marfim em folha cheia; quatro períodos em **duas fileiras** de duas colunas (currículo + organização + resumo) — **sem** caixa de trajetória nesta folha |
+
+- **Proibido sem pedido:** mudar ordem de nós, texto, layout da grelha, reagrupar trajetória e cruzamento numa folha só, ou fixes globais (paginação/CSS/tokens/dual-track) que desloquem o cruzamento para a **p. 46** ou alterem a composição fechada da **p. 47**.
+- **Paginação global:** ajustes em `paginateDesk.ts` / `vozes.css` do dual-track não podem mudar como a folha 47 renderiza; o stack permanece **átomo**; se um fix geral afetar Reimagina cruzamento, pedir à editora ou isolar o comportamento.
+- **Exceção:** só o que a editora citar por palavras (“muda a página 47…”, cruzamento Reimagina, folio 47 ou trecho visível nessa folha).
+
 ### Chile — capítulo país (`chile.mdx`)
 
-Folhas **40–43** fechadas (abertura, organização, produção com participação na **42**, encerramento + trajetória na **43**). O capítulo **país** Chile não recebe mais alterações de texto, layout nem paginação sem pedido explícito da editora. **Reimagina:** folha **44** fechada (ver acima); demais folhas de `chile-org.mdx` só com pedido explícito; `import:mapeamento` exige reconciliar o combinado nas folhas fechadas.
+Folhas **40–43** fechadas (abertura, organização, produção com participação na **42**, encerramento + trajetória na **43**). O capítulo **país** Chile não recebe mais alterações de texto, layout nem paginação sem pedido explícito da editora.
+
+### Chile — Fundación Reimagina (`chile-org.mdx`)
+
+Folhas **44–47** fechadas (abertura + governança/financiamento na **44**; NGOsource + *A atuação* na **45**; trajetória da org na **46**; cruzamento na **47**). O capítulo **Reimagina** não recebe mais alterações de texto, layout nem paginação sem pedido explícito da editora; `import:mapeamento` exige reconciliar o combinado nas folhas fechadas.
 
 ## Vocabulário da editora → comando (agente executa; não repassar npm ao editor)
 

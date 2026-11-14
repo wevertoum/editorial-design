@@ -1,5 +1,4 @@
 import type { EditorialDocument } from '../content/types'
-import { CoverGrafismoRail } from './CoverGrafismoRail'
 
 type CoverHeroProps = {
   publication: Pick<EditorialDocument, 'title' | 'subtitle' | 'author'>
@@ -8,12 +7,9 @@ type CoverHeroProps = {
 export function CoverHero({ publication }: CoverHeroProps) {
   return (
     <header className="cover-hero cover-hero--grafismo" aria-label="Capa">
-      <CoverGrafismoRail />
-
       <div className="cover-hero-main">
         <div className="cover-hero-kicker-row">
           <p className="cover-hero-kicker">Relatório</p>
-          <span className="cover-hero-kicker-rule" aria-hidden="true" />
         </div>
 
         <div className="cover-hero-title-wrap">
@@ -29,7 +25,6 @@ export function CoverHero({ publication }: CoverHeroProps) {
             height={281}
             decoding="async"
           />
-          <span className="cover-hero-foot-rule" aria-hidden="true" />
           <img
             className="cover-hero-logo cover-hero-logo--lemann"
             src="media/logo_fundacao_lemann.svg"

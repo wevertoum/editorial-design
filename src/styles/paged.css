@@ -82,6 +82,10 @@ h3 + *,
   break-inside: avoid;
 }
 
+.layout-vozes-roxa.sheet {
+  break-inside: avoid;
+}
+
 .cover-hero,
 .cover-grafismo-rail,
 .cover-hero-logo,

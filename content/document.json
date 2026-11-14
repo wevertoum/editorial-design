@@ -112,6 +112,12 @@
       "strategy": "flow",
       "layout": "standard",
       "source": "chapters/chile-org.mdx"
+    },
+    {
+      "id": "pagina-roxa",
+      "strategy": "flow",
+      "layout": "standard",
+      "source": "chapters/pagina-roxa.mdx"
     }
   ]
 }

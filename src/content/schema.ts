@@ -574,6 +574,7 @@ export function assertBundleMatchesDocument(bundle: PublicationBundle, document:
       'folha-de-rosto',
       'sumario',
       'pagina-vazia',
+      'pagina-roxa',
     ])
     if (
       bundle.mapeamento?.inventory &&

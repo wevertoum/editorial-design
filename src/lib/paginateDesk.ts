@@ -154,8 +154,8 @@ function groupBlocks(
         block.classList.contains('vozes-page-stack--nigeria-org-cruzamento') ||
         block.classList.contains('vozes-page-stack--chile-participacao-traj') ||
         block.classList.contains('vozes-page-stack--chile-org-atuacao-tres') ||
-        block.classList.contains('vozes-page-stack--chile-org-cruzamento') ||
-        block.classList.contains('vozes-page-stack--chile-org-traj')
+        block.classList.contains('vozes-page-stack--chile-org-traj') ||
+        block.classList.contains('vozes-page-stack--chile-org-cruzamento')
       ) {
         groups.push([block])
         continue
@@ -841,8 +841,8 @@ function prepareStackMeasure(slot: HTMLElement): void {
       node.classList.contains('vozes-page-stack--nigeria-org-cruzamento') ||
       node.classList.contains('vozes-page-stack--chile-participacao-traj') ||
       node.classList.contains('vozes-page-stack--chile-org-atuacao-tres') ||
-      node.classList.contains('vozes-page-stack--chile-org-cruzamento') ||
       node.classList.contains('vozes-page-stack--chile-org-traj') ||
+      node.classList.contains('vozes-page-stack--chile-org-cruzamento') ||
       node.classList.contains('vozes-page-break')
     ) {
       return
