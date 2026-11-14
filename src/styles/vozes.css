@@ -1265,8 +1265,22 @@
   margin-top: 0.25mm;
 }
 
-.layout-vozes-report .vozes-england-ks-tree .figure--england-ks img {
-  max-height: 42mm;
+/* Árvore do site institucional (p. 26): largura da coluna de prosa — sem empurrar miolo para p. 27. */
+.layout-vozes-report .vozes-main .vozes-england-ks-tree .figure.figure--flow.figure--england-ks {
+  width: 100%;
+  max-width: 100%;
+  margin-inline: 0;
+}
+
+.layout-vozes-report .vozes-main .vozes-england-ks-tree .figure.figure--flow.figure--england-ks img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 48mm;
+  margin-inline: 0;
+  object-fit: contain;
+  object-position: left top;
 }
 
 .layout-vozes-report .vozes-england-ks-sheet .vozes-england-ks-block > p {
