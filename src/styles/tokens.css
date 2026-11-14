@@ -48,6 +48,9 @@
   --text-h1: 28pt;
   --text-h2: 13pt;
   --text-h3: 11pt;
+  /* Título macro: 1.º bloco após o país («O sistema curricular…») e nome da fundação (+2 pt sobre H3/H2). */
+  --text-vozes-titulo-macro-h3: calc(var(--text-h3) + 2pt);
+  --text-vozes-titulo-macro-h2: calc(var(--text-h2) + 2pt);
   --text-kicker: 8pt;
   --text-small: 7.5pt;
 
@@ -114,9 +117,24 @@
   --vozes-detail-grid-width: 0.76;
   --stack-before-detail-grid: 5.5mm;
   --vozes-list-nest-indent: var(--space-4);
-  /* Respiro generoso entre bandeira/código e o nome do país */
+  /* Abertura de país: faixa modular ao lado do título (substitui bandeira empilhada). */
   --stack-country-code: 9mm;
   --stack-country-opening: 5.5mm;
+  --vozes-country-title-size: 28pt;
+  --vozes-country-title-line: 1.1;
+  /* Faixa g04 (3 células), proporção 229.5∶108 */
+  --vozes-country-faixa-height: calc(var(--vozes-country-title-size) * var(--vozes-country-title-line));
+  --vozes-country-faixa-width: calc(var(--vozes-country-faixa-height) * 229.5 / 108);
+  --vozes-country-faixa-gap: 6mm;
+  --vozes-country-opening-title-inset-top: 3mm;
+  /* Sangria só na versão gráfica (--bleed); na digital encosta na borda da folha. */
+  --vozes-country-faixa-sangria: var(--bleed);
+  /* Ajuste óptico: centro da faixa × centro das maiúsculas (Roboto Slab) */
+  --vozes-country-faixa-align-shift: 0.7mm;
+  /* Altura mínima = bandeira + respiro antigo + linha do H1 (evita subir o 1.º H3). */
+  --stack-country-opening-block-min: calc(
+    3.75mm + var(--stack-country-code) + var(--vozes-country-title-size) * var(--vozes-country-title-line)
+  );
   --stack-figcaption: 1.5mm;
   --stack-highlight-title: 2mm;
   --stack-pullquote-attribution: 2.5mm;

@@ -730,20 +730,48 @@
 
 .layout-vozes-report .vozes-main .country-opening h1 {
   font-family: var(--font-display);
-  font-size: 28pt;
+  font-size: var(--vozes-country-title-size);
   font-weight: 700;
-  line-height: 1.1;
+  line-height: var(--vozes-country-title-line);
   margin: 0 0 var(--stack-after-h1);
   color: var(--color-vozes-roxo);
+}
+
+.layout-vozes-report .vozes-main .country-opening__title-row h1 {
+  margin: 0;
 }
 
 .layout-vozes-report .vozes-main h3 {
   font-weight: 600;
   font-size: 11pt;
   line-height: 1.27;
-  /* Títulos de seção do relatório (sistema curricular, governança, etc.) */
+  /* Títulos de seção do relatório (governança, produção, etc.) — não o 1.º após o país */
   color: var(--color-ink);
   margin-top: var(--stack-before-h3);
+}
+
+/* Título macro: «O sistema curricular…» (após abertura do país) e nome da fundação/organização. */
+.layout-vozes-report .vozes-main h3.vozes-titulo-macro,
+.layout-vozes-report .vozes-main .country-opening + h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.23;
+  color: var(--color-vozes-roxo);
+}
+
+.layout-vozes-report .vozes-main h3.vozes-titulo-macro,
+.layout-vozes-report .vozes-main .country-opening + h3 {
+  font-size: var(--text-vozes-titulo-macro-h3);
+}
+
+.layout-vozes-report .vozes-main h2.vozes-titulo-macro,
+.layout-vozes-report .vozes-with-rail .vozes-main > h2:first-of-type,
+.layout-vozes-report .vozes-with-rail .vozes-main > h2.org-section-title:first-of-type {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.23;
+  color: var(--color-vozes-roxo);
+  font-size: var(--text-vozes-titulo-macro-h2);
 }
 
 .layout-vozes-report .vozes-main h2 {
@@ -1707,37 +1735,86 @@
 }
 
 .country-opening {
+  box-sizing: border-box;
+  padding-top: var(--vozes-country-opening-title-inset-top);
   margin-bottom: var(--stack-country-opening);
+  overflow: visible;
 }
 
-.country-code {
-  margin: 0 0 var(--stack-country-code);
-  font-family: var(--font-sans);
-  font-size: 9pt;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-vozes-roxo-2);
+/* Sem lead: reserva vertical da abertura antiga (bandeira + gap + título). */
+.country-opening:not(:has(.country-lead)) {
+  display: flex;
+  flex-direction: column;
+  min-height: var(--stack-country-opening-block-min);
 }
 
-.country-code--flag {
+.country-opening:not(:has(.country-lead))::after {
+  content: "";
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.country-opening__title-row {
   position: relative;
-  line-height: 0;
-  letter-spacing: 0;
-  text-transform: none;
-  color: transparent;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: var(--vozes-country-faixa-gap);
+  width: auto;
+  max-width: 100%;
+  margin: 0 0 var(--stack-after-h1);
+  font-size: var(--vozes-country-title-size);
+  line-height: var(--vozes-country-title-line);
+  overflow: visible;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
 }
 
-.country-flag {
-  display: block;
-  width: 7.5mm;
-  height: 3.75mm;
+.country-opening__faixa-anchor {
+  flex: 0 0 var(--vozes-country-faixa-width);
+  width: var(--vozes-country-faixa-width);
+  height: var(--vozes-country-faixa-height);
+  margin-left: calc(-1 * var(--margin-inner) - var(--vozes-country-faixa-sangria));
+  position: relative;
+  overflow: clip;
+  align-self: center;
+  flex-shrink: 0;
+  transform: translateY(var(--vozes-country-faixa-align-shift));
+}
+
+.sheet-page[data-page-side='left'] .country-opening__faixa-anchor {
+  margin-left: calc(-1 * var(--margin-outer) - var(--vozes-country-faixa-sangria));
+}
+
+.country-opening__title-row h1 {
+  position: relative;
+  z-index: 1;
+  flex: 0 1 auto;
+  flex-shrink: 0;
+  min-width: 0;
   margin: 0;
   padding: 0;
-  border: none;
+  isolation: isolate;
+}
+
+.country-opening__faixa {
+  display: block;
+  width: var(--vozes-country-faixa-width);
+  height: var(--vozes-country-faixa-height);
+  margin: 0;
+  padding: 0;
+  line-height: 0;
   overflow: visible;
+  pointer-events: none;
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
+}
+
+.country-opening__faixa-svg {
+  display: block;
+  width: var(--vozes-country-faixa-width);
+  height: var(--vozes-country-faixa-height);
+  overflow: visible;
 }
 
 .country-code-sr {
@@ -1754,9 +1831,9 @@
 
 .country-opening h1 {
   font-family: var(--font-display);
-  font-size: 28pt;
+  font-size: var(--vozes-country-title-size);
   font-weight: 700;
-  line-height: 1.1;
+  line-height: var(--vozes-country-title-line);
   margin: 0 0 var(--stack-after-h1);
   color: var(--color-vozes-roxo);
 }
@@ -2005,11 +2082,15 @@
 
 .layout-vozes-report .vozes-main .participation-box-icon {
   display: block;
-  width: auto;
-  height: auto;
-  margin-bottom: 3mm;
-  font-size: 7.5mm;
-  color: var(--color-vozes-roxo);
+  width: 5.5mm;
+  height: 5.5mm;
+  margin: 0.5mm 0 2.75mm 0.35mm;
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+.layout-vozes-report .vozes-main .participation-box-icon__shape {
+  fill: var(--color-vozes-verde);
 }
 
 .layout-vozes-report .vozes-main .participation-box-inner {

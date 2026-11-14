@@ -30,7 +30,8 @@ export const VOZES_GRAFISMO_GROUPS = {
   },
   g08: {
     label: 'Losango roxo pequeno',
-    viewBox: '96 100 52 52',
+    /* Recorte do sprite com folga — o rect girado ultrapassa o viewBox 52×52 antigo. */
+    viewBox: '88 93 75 75',
   },
   g09: {
     label: 'Coluna vertical modular (faixa lateral)',

@@ -35,8 +35,11 @@ Referência editorial alinhada ao CSS (`src/styles/tokens.css`, `document.css`, 
 | Bloco abertura (código + H1 + lead) | — | — | **5,5 mm** após o bloco | Abertura |
 | **H2** seção (1. O currículo…) | Mulish 13 pt bold | **6,5 mm** | **4 mm** | Corpo |
 | **H2** primeira da página (apresentação / resumo) | idem | **0** | 4 mm | Front matter |
-| **H3** subseção (1.1. …) | Mulish 11 pt, Roxo 2 | **12 mm** | **2 mm** | Corpo |
-| Título org (`org-section-title`) | = H2 ou H3 | = nível | = nível | Organizações |
+| **H3** subseção (governança, produção…) | Mulish 11 pt, preto | **12 mm** | **2 mm** | Corpo |
+| **Título macro** (`.vozes-titulo-macro` / 1.º H3 após país / 1.º H2 org) | Roboto Slab, roxo escuro | herdado | herdado | País + org |
+| Título macro após país | Slab **13 pt** (H3 + 2 pt) | — | — | «O sistema curricular…» |
+| Nome da fundação (1.º H2 org) | Slab **15 pt** (H2 + 2 pt) + filete laranja | — | — | Organizações |
+| Título org (`org-section-title`) | demais H2/H3 | = nível | = nível | Subseções org |
 
 **Regra de leitura:** o respiro **antes** de H2/H3 marca nova seção; o respiro **depois** do título cola o primeiro parágrafo sem “buraco” grande (4 mm ou 2 mm).
 
