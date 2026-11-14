@@ -398,12 +398,12 @@ Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, simplificar,
 
 | Folha | Conteúdo fixo |
 | --- | --- |
-| **4** | Fundo **roxo escuro**; **sem fólio**; título **Sumário** (marfim, Roboto Slab, largura da palavra, filete verde só sob o texto, tracking normal, ~7 mm do topo); `SumarioSpread` parte **a**: eixo **verde** único (--vozes-sumario-axis-page-y **51%**); na linha — **7** Apresentação, **8** Resumo executivo, **10** Austrália + ACSA, **18** Estados Unidos + Achieve (organizações sob o país, número verde acima do nome) |
-| **5** | Mesmo fundo e **sem fólio**; `SumarioSpread` parte **b**: continuação do eixo alinhada à p. 4 — **24** Inglaterra + Curriculum Foundation + BCF, **34** Nigéria + CON, **40** Chile + Fundación Reimagina; **grafismo** `VozesGrafismo` **g05** (`tone="sumario-lime"`, `vozes-g05-sumario-lime` no sprite): canto **inf. dir.**, **64 mm**, **flip horizontal**, base verde única (sem filete entre células); posição `bottom` **14 mm** / `right` **12 mm** — camada absoluta, sem impacto na quebra |
+| **4** | Fundo **marfim** (mesma base do bloco de cruzamento); **sem fólio**; título **Sumário** (**roxo**, Roboto Slab, largura da palavra, filete **roxo vibrante** (#8146CB) só sob o texto, tracking normal, ~7 mm do topo); `SumarioSpread` parte **a**: eixo **roxo-2** (--vozes-sumario-axis-page-y **51%**); na linha — **7** Apresentação, **8** Resumo executivo, **10** Austrália + ACSA, **18** Estados Unidos + Achieve (organizações sob o país, número roxo-2 acima do nome) |
+| **5** | Mesmo fundo e **sem fólio**; `SumarioSpread` parte **b**: continuação do eixo alinhada à p. 4 — **24** Inglaterra + Curriculum Foundation + BCF, **34** Nigéria + CON, **40** Chile + Fundación Reimagina; **grafismo** `VozesGrafismo` **g05** (`tone="sumario-lime"`, `vozes-g05-sumario-lime` no sprite): canto **inf. dir.**, **64 mm**, **flip horizontal**, base **verde claro** (#D0E770) + recortes laranja/roxo do sprite; posição `bottom` **14 mm** / `right` **12 mm** — camada absoluta, sem impacto na quebra |
 
 | Tratamento | Combinado |
 | --- | --- |
-| Tipografia | Números do eixo e das orgs: **verde** (#D0E770), **Roboto Slab** no eixo; textos (países, orgs): **marfim**; gutter entre colunas **10 mm**; tamanhos unificados nas duas folhas (`--vozes-sumario-year-size` / label / org) |
+| Tipografia | Números do eixo e das orgs: **roxo-2** (#8146CB), **Roboto Slab** no eixo; textos (países, orgs): **roxo** (#493975); gutter entre colunas **10 mm**; tamanhos unificados nas duas folhas (`--vozes-sumario-year-size` / label / org) |
 | Estrutura | Sempre **dupla** (nunca uma folha); só entradas **principais** no eixo; organizações **não** na sequência do eixo |
 
 - **Proibido sem pedido:** mudar ordem ou split esq./dir., textos dos JSON, cores combinadas, posição do título/eixo, folio, fundo, **grafismo da p. 5** (tamanho, flip, tom, sprite `vozes-g05-sumario-lime`), ou fixes globais (`paginateDesk.ts`, `vozes.css` dual-track genérico, tokens, overlay `VozesGrafismo`) que colapsem a dupla, desalinhem o eixo na lombada ou alterem o resultado visual dessas folhas.
@@ -419,7 +419,7 @@ A dupla **4–5** está **fechada** (conteúdo + posicionamento + grafismo p. **
 A editora combinou: **o sumário (folhas 4–5) não recebe mais alterações** sem pedido explícito.
 
 - **Escopo:** `sumario.mdx`, `sumario-spread-*.json`, `SumarioSpread`, CSS/classes `vozes-sumario`, grafismo folha **5**, paginação `vozes-page-stack--sumario`.
-- **Proibido sem pedido:** mudar dupla, eixo, entradas, fundo roxo, título, grafismo ou propagar “simplificações” a partir de outras seções.
+- **Proibido sem pedido:** mudar dupla, eixo, entradas, fundo marfim/paleta roxa do sumário, título, grafismo ou propagar “simplificações” a partir de outras seções.
 - **Exceção:** só o que a editora citar (“muda o sumário…”, “página 4”, “página 5”, grafismo do sumário, folio ou trecho visível).
 
 ### Capa — folha 1 (fechada / não alterar)

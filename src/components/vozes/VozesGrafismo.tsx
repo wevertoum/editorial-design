@@ -13,12 +13,13 @@ type VozesGrafismoProps = {
   rotate?: number
   flipH?: boolean
   /** Paletas derivadas do levantamento (sem alterar grupos padrão). */
-  tone?: 'sumario-lime' | 'verde-roxo'
+  tone?: 'sumario-lime' | 'sumario-roxo' | 'verde-roxo'
   className?: string
 }
 
 function grafismoSpriteId(group: VozesGrafismoGroupId, tone?: VozesGrafismoProps['tone']): string {
   if (tone === 'sumario-lime' && group === 'g05') return 'vozes-g05-sumario-lime'
+  if (tone === 'sumario-roxo' && group === 'g05') return 'vozes-g05-sumario-roxo'
   if (tone === 'verde-roxo' && group === 'g01') return 'vozes-g01-verde-roxo'
   return `vozes-${group}`
 }

@@ -423,9 +423,9 @@
   color: color-mix(in srgb, white 88%, var(--color-vozes-roxo));
 }
 
-/* Sumário: dupla folha com fundo roxo escuro */
+/* Sumário: dupla folha com fundo marfim (mesma base do bloco de cruzamento) */
 .sheet-page.layout-vozes-report:has(.vozes-sumario) {
-  background: var(--color-vozes-roxo);
+  background: var(--color-marfim);
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
 }
@@ -476,10 +476,10 @@
   font-weight: 500;
   line-height: 0.96;
   letter-spacing: var(--vozes-sumario-title-tracking);
-  color: var(--color-marfim);
+  color: var(--color-vozes-roxo);
   text-wrap: balance;
   text-decoration-line: underline;
-  text-decoration-color: var(--color-vozes-sumario-lime);
+  text-decoration-color: var(--color-vozes-roxo-2);
   text-decoration-thickness: var(--vozes-sumario-title-rule-size);
   text-underline-offset: var(--vozes-sumario-title-rule-gap);
   text-decoration-skip-ink: none;
@@ -487,7 +487,7 @@
   -webkit-print-color-adjust: exact;
 }
 
-/* Folha esquerda: título na beirada; filete verde só na largura da palavra. */
+/* Folha esquerda: título na beirada; filete roxo vibrante só na largura da palavra. */
 .sheet-page[data-page-side='left']
   .layout-vozes-report
   .vozes-page.vozes-sumario
@@ -536,7 +536,7 @@
 .layout-vozes-report .vozes-page.vozes-sumario .dual-track-nodes {
   --dual-track-col-gap: var(--vozes-sumario-col-gap);
   column-gap: var(--vozes-sumario-col-gap);
-  --dual-track-axis-color: color-mix(in srgb, var(--color-vozes-sumario-lime) 72%, white);
+  --dual-track-axis-color: color-mix(in srgb, var(--color-vozes-roxo-2) 55%, transparent);
   --dual-track-axis-dash: repeating-linear-gradient(
     to right,
     var(--dual-track-axis-color) 0,
@@ -554,7 +554,7 @@
 
 .layout-vozes-report .vozes-page.vozes-sumario .dual-track-year {
   font-family: "Roboto Slab", var(--font-display);
-  color: var(--color-vozes-sumario-lime);
+  color: var(--color-vozes-roxo-2);
 }
 
 .layout-vozes-report .vozes-page.vozes-sumario .dual-track-year::after {
@@ -562,8 +562,8 @@
   bottom: -2mm;
   width: 1.9mm;
   height: 1.9mm;
-  background: var(--color-vozes-sumario-lime);
-  box-shadow: 0 0 0 0.65mm var(--color-vozes-roxo);
+  background: var(--color-vozes-roxo-2);
+  box-shadow: 0 0 0 0.65mm var(--color-marfim);
 }
 
 .layout-vozes-report .vozes-page.vozes-sumario .vozes-sumario-dual-track .dual-track-matrix {
@@ -575,7 +575,7 @@
   font-size: var(--vozes-sumario-label-size);
   font-weight: 700;
   line-height: 1.2;
-  color: var(--color-marfim);
+  color: var(--color-vozes-roxo);
 }
 
 .layout-vozes-report .vozes-page.vozes-sumario .sumario-entry--main .dual-track-year {
@@ -601,7 +601,7 @@
   font-size: var(--vozes-sumario-org-page-size);
   font-weight: 700;
   line-height: 1.05;
-  color: var(--color-vozes-sumario-lime);
+  color: var(--color-vozes-roxo-2);
   font-variant-numeric: tabular-nums;
 }
 
@@ -611,7 +611,7 @@
   font-size: var(--vozes-sumario-org-label-size);
   font-weight: 500;
   line-height: 1.26;
-  color: var(--color-marfim);
+  color: var(--color-vozes-roxo);
 }
 
 /* Grade Vozes (6 colunas lógicas): prosa ~9/11 · gutter 4,5 mm · rail ~2/11 (entre 4/6 e 5/6 de prosa) */
@@ -4516,7 +4516,7 @@
   margin: 0;
   margin-top: 0;
   font-weight: 500;
-  color: var(--color-marfim);
+  color: var(--color-vozes-roxo);
   break-after: avoid;
 }
 

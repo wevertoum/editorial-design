@@ -33,6 +33,14 @@
       .cls-sumario-lime {
         fill: #d0e770;
       }
+
+      .cls-sumario-roxo {
+        fill: #8146cb;
+      }
+
+      .cls-sumario-verde-escuro {
+        fill: #0d6353;
+      }
     </style>
   </defs>
   <g id="vozes-g01">
@@ -63,6 +71,13 @@
   </g>
   <g id="vozes-g05-sumario-lime">
     <rect class="cls-sumario-lime" x="532.51" y="146.46" width="197.92" height="98.96" transform="translate(385.83 777.85) rotate(-89.98)"/>
+    <rect class="cls-4" x="532.51" y="146.46" width="98.96" height="98.96" rx="49.48" ry="49.48" transform="translate(385.83 777.85) rotate(-89.98)"/>
+    <path class="cls-4" d="M631.5,47.54h0c54.62,0,98.96,44.34,98.96,98.95h0c-54.61,0-98.96-44.34-98.96-98.95h0Z" transform="translate(583.71 777.96) rotate(-89.98)"/>
+    <path class="cls-1" d="M532.55,47.5h49.47c27.31,0,49.48,22.17,49.48,49.48h0c0,27.31-22.17,49.48-49.48,49.48h-49.47V47.5H532.55Z" transform="translate(484.83 678.97) rotate(-89.98)"/>
+    <path class="cls-1" d="M631.47,146.49h0c54.61,0,98.95,44.35,98.95,98.96h-98.95V146.49H631.47Z" transform="translate(484.72 876.85) rotate(-89.98)"/>
+  </g>
+  <g id="vozes-g05-sumario-roxo">
+    <rect class="cls-sumario-roxo" x="532.51" y="146.46" width="197.92" height="98.96" transform="translate(385.83 777.85) rotate(-89.98)"/>
     <rect class="cls-4" x="532.51" y="146.46" width="98.96" height="98.96" rx="49.48" ry="49.48" transform="translate(385.83 777.85) rotate(-89.98)"/>
     <path class="cls-4" d="M631.5,47.54h0c54.62,0,98.96,44.34,98.96,98.95h0c-54.61,0-98.96-44.34-98.96-98.95h0Z" transform="translate(583.71 777.96) rotate(-89.98)"/>
     <path class="cls-1" d="M532.55,47.5h49.47c27.31,0,49.48,22.17,49.48,49.48h0c0,27.31-22.17,49.48-49.48,49.48h-49.47V47.5H532.55Z" transform="translate(484.83 678.97) rotate(-89.98)"/>
