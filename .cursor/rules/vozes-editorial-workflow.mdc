@@ -13,6 +13,7 @@ Leia `AGENTS.md` (arquitetura/PDF). **Editores falam em português editorial** �
 2. Implementar na **fonte de verdade** (tabela abaixo).
 3. **Não** rodar `export:bundle`, `validate`, `check`, `build`, `build:digital`, `build:print`, `gerar-pdf` nem `gerar-pdf-grafica` por conta própria ao concluir uma tarefa — a equipe dispara isso **manualmente** quando quiser. Só executar esses comandos se a editora **pedir explicitamente** (ex.: “gera o PDF”, “roda validate”, “atualiza o bundle”).
 4. Responder em português simples: o que mudou + convite a **visualizar** no site (link, não nome de comando). Só mencione arquivos se o editor pedir detalhe técnico.
+5. **Folhas travadas (Nov/2026):** em qualquer pedido — grafismos, CSS, texto — **nenhum** miolo pode migrar de folha por falta de espaço. Conteúdo e diagramação já fechados permanecem. Grafismos só via camada absoluta (`VozesGrafismo` / overlay fora do fluxo), nunca empurrando prosa, listas ou rodapés.
 
 ## Preservação do combinado (obrigatório)
 
@@ -29,8 +30,8 @@ Tudo o que a editora pediu e ficou combinado — texto, componentes (`ProfileCar
 Quando a editora ajusta **uma** página (largura de coluna, bullets, quebra, espaço antes de lista, perfil no rail), tratar como **sistema do relatório**, não exceção pontual.
 
 1. **Generalizar primeiro** — tokens (`tokens.css`), grade (`vozes.css`, `--vozes-rail-to-prose`, `--vozes-prose-track`), componente (`DetailListGrid`, `PageStack`, `Heading` + `vozes-page-start`). Evitar CSS ou largura só num parágrafo.
-2. **Repetir onde couber** — após fechar o pedido na página citada, varrer capítulos **parecidos** (`*-org.mdx`, miolos de país `*.mdx`, `resumo-executivo`, etc.) e alinhar ao mesmo padrão quando o conteúdo for do mesmo tipo (lista após intro, financiamento, exemplos de atuação, faixa de atores). **Excluir Austrália** (capítulo fechado), **Sumário pp. 4–5** (dupla fechada), **EUA pp. 18–23** (currículo + Achieve org, folios fechados), **Inglaterra pp. 26–27** (produção + participação), **Inglaterra pp. 30–33** (cruzamento CF + BCF completo), **Nigéria pp. 34–36** (abertura + produção + participação/trajetória), **Nigéria CON pp. 37–39** (abertura org + atuação/trajetória + cruzamento), **Chile pp. 40–43** (abertura país até trajetória do currículo), **Chile Reimagina pp. 44–47** (abertura org até cruzamento); não propagar a partir desses blocos.
-3. **Exceções explícitas** — não alterar composições **fechadas** (Austrália pp. 10–11; **Sumário pp. 4–5**; **EUA pp. 18–19**; **EUA pp. 20–23** Achieve; **Inglaterra pp. 26–27**; **Inglaterra pp. 30–33**; **Nigéria pp. 34–36**; **Nigéria CON pp. 37–39**; **Chile pp. 40–43**; **Chile Reimagina pp. 44–47**); `DetailList` com `icon=` (processos AU) mantém faixa plena; não forçar `DetailListGrid` onde houver figura ou prosa **entre** itens sem combinar com a editora.
+2. **Repetir onde couber** — após fechar o pedido na página citada, varrer capítulos **parecidos** (`*-org.mdx`, miolos de país `*.mdx`, `resumo-executivo`, etc.) e alinhar ao mesmo padrão quando o conteúdo for do mesmo tipo (lista após intro, financiamento, exemplos de atuação, faixa de atores). **Excluir Austrália** (capítulo fechado), **Capa p. 1** e **Folha de rosto p. 3** (fechadas), **Expediente p. 2** (fechado), **Sumário pp. 4–5** (dupla fechada), **EUA pp. 18–23** (currículo + Achieve org, folios fechados), **Inglaterra pp. 26–27** (produção + participação), **Inglaterra pp. 30–33** (cruzamento CF + BCF completo), **Nigéria pp. 34–36** (abertura + produção + participação/trajetória), **Nigéria CON pp. 37–39** (abertura org + atuação/trajetória + cruzamento), **Chile pp. 40–43** (abertura país até trajetória do currículo), **Chile Reimagina pp. 44–47** (abertura org até cruzamento); não propagar a partir desses blocos.
+3. **Exceções explícitas** — não alterar composições **fechadas** (**Capa p. 1**; **Folha de rosto p. 3**; **Expediente p. 2**; **Sumário pp. 4–5**; Austrália pp. 10–11; **EUA pp. 18–19**; **EUA pp. 20–23** Achieve; **Inglaterra pp. 26–27**; **Inglaterra pp. 30–33**; **Nigéria pp. 34–36**; **Nigéria CON pp. 37–39**; **Chile pp. 40–43**; **Chile Reimagina pp. 44–47**); `DetailList` com `icon=` (processos AU) mantém faixa plena; não forçar `DetailListGrid` onde houver figura ou prosa **entre** itens sem combinar com a editora.
 4. **Micro-ajuste vs sistema** — “um pouquinho menor/maior” na coluna → calibrar token/global; “só nesta seção” → só MDX local.
 
 ### Padrões já combinados (referência rápida — Nov/2026)
@@ -398,20 +399,77 @@ Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, simplificar,
 | Folha | Conteúdo fixo |
 | --- | --- |
 | **4** | Fundo **roxo escuro**; **sem fólio**; título **Sumário** (marfim, Roboto Slab, largura da palavra, filete verde só sob o texto, tracking normal, ~7 mm do topo); `SumarioSpread` parte **a**: eixo **verde** único (--vozes-sumario-axis-page-y **51%**); na linha — **7** Apresentação, **8** Resumo executivo, **10** Austrália + ACSA, **18** Estados Unidos + Achieve (organizações sob o país, número verde acima do nome) |
-| **5** | Mesmo fundo e **sem fólio**; `SumarioSpread` parte **b**: continuação do eixo alinhada à p. 4 — **24** Inglaterra + Curriculum Foundation + BCF, **34** Nigéria + CON, **40** Chile + Fundación Reimagina |
+| **5** | Mesmo fundo e **sem fólio**; `SumarioSpread` parte **b**: continuação do eixo alinhada à p. 4 — **24** Inglaterra + Curriculum Foundation + BCF, **34** Nigéria + CON, **40** Chile + Fundación Reimagina; **grafismo** `VozesGrafismo` **g05** (`tone="sumario-lime"`, `vozes-g05-sumario-lime` no sprite): canto **inf. dir.**, **64 mm**, **flip horizontal**, base verde única (sem filete entre células); posição `bottom` **14 mm** / `right` **12 mm** — camada absoluta, sem impacto na quebra |
 
 | Tratamento | Combinado |
 | --- | --- |
 | Tipografia | Números do eixo e das orgs: **verde** (#D0E770), **Roboto Slab** no eixo; textos (países, orgs): **marfim**; gutter entre colunas **10 mm**; tamanhos unificados nas duas folhas (`--vozes-sumario-year-size` / label / org) |
 | Estrutura | Sempre **dupla** (nunca uma folha); só entradas **principais** no eixo; organizações **não** na sequência do eixo |
 
-- **Proibido sem pedido:** mudar ordem ou split esq./dir., textos dos JSON, cores combinadas, posição do título/eixo, folio, fundo, ou fixes globais (`paginateDesk.ts`, `vozes.css` dual-track genérico, tokens) que colapsem a dupla, desalinhem o eixo na lombada ou alterem o resultado visual dessas folhas.
+- **Proibido sem pedido:** mudar ordem ou split esq./dir., textos dos JSON, cores combinadas, posição do título/eixo, folio, fundo, **grafismo da p. 5** (tamanho, flip, tom, sprite `vozes-g05-sumario-lime`), ou fixes globais (`paginateDesk.ts`, `vozes.css` dual-track genérico, tokens, overlay `VozesGrafismo`) que colapsem a dupla, desalinhem o eixo na lombada ou alterem o resultado visual dessas folhas.
 - **Paginação global:** `isSumario` e stacks `vozes-page-stack--sumario` permanecem; ajustes gerais de paginação/CSS não podem fundir p. 4+5 nem reativar fólio no sumário; se um fix geral afetar a dupla, pedir à editora ou isolar o comportamento.
 - **Exceção:** só o que a editora citar por palavras (“muda o sumário…”, “página 4”, “página 5”, folio ou trecho visível nessa dupla).
 
 ### Sumário (`sumario.mdx` / `SumarioSpread`)
 
-A dupla **4–5** está **fechada** (conteúdo + posicionamento). Sem pedido explícito, não editar MDX, JSON do spread, componente nem CSS dedicado; `import:mapeamento` exige reconciliar o combinado se tocar entradas do sumário.
+A dupla **4–5** está **fechada** (conteúdo + posicionamento + grafismo p. **5**). Combinado e salvo pela editora (Nov/2026). Sem pedido explícito, não editar `sumario.mdx`, JSON do spread, `SumarioSpread`, CSS `vozes-sumario`, sprite `vozes-g05-sumario-lime` nem `VozesGrafismo` desta folha; `import:mapeamento` exige reconciliar o combinado se tocar entradas do sumário.
+
+### Sumário — capítulo fechado (Nov/2026)
+
+A editora combinou: **o sumário (folhas 4–5) não recebe mais alterações** sem pedido explícito.
+
+- **Escopo:** `sumario.mdx`, `sumario-spread-*.json`, `SumarioSpread`, CSS/classes `vozes-sumario`, grafismo folha **5**, paginação `vozes-page-stack--sumario`.
+- **Proibido sem pedido:** mudar dupla, eixo, entradas, fundo roxo, título, grafismo ou propagar “simplificações” a partir de outras seções.
+- **Exceção:** só o que a editora citar (“muda o sumário…”, “página 4”, “página 5”, grafismo do sumário, folio ou trecho visível).
+
+### Capa — folha 1 (fechada / não alterar)
+
+Combinado e **fechado** pela editora (Nov/2026). **Não** substituir arte, reverter para composição tipográfica nem alterar trim sem pedido explícito. Fonte: `capa.mdx` (`sheetVariant: vozes-cover`) + `CoverHero` + `media/capa_lemann_levantamento.png` + `layout-vozes-cover` em `vozes.css`.
+
+| Elemento | Tratamento |
+| --- | --- |
+| **Folha** | **1** — única; **sem fólio**; folha cheia **A4**; conteúdo = **PNG de arte final** (sem masthead React no miolo) |
+| **MDX** | Só frontmatter `vozes-cover` — **sem** corpo MDX |
+| **Ativos** | `assets/media/capa_lemann_levantamento.png` (impressão: fills/SVG inline na arte, não recompor no código salvo indicação) |
+
+- **Proibido sem pedido:** trocar PNG, reativar `CoverGrafismoRail`/tipografia de capa, padding, logos separados, ou fixes globais que alterem como a **p. 1** renderiza no PDF e na mesa.
+- **Exceção:** só o que a editora citar (“muda a capa…”, “página 1”, folio ou trecho visível).
+
+### Folha de rosto — folha 3 (fechada / não alterar)
+
+Combinado e **fechado** pela editora (Nov/2026). **Não** substituir arte nem recompor layout sem pedido explícito. Fonte: `folha-de-rosto.mdx` (`sheetVariant: vozes-folha-rosto`) + `FolhaRostoHero` + `media/folha_rosto_levantamento.png` + `layout-vozes-folha-rosto` em `vozes.css`.
+
+| Elemento | Tratamento |
+| --- | --- |
+| **Folha** | **3** — única; **sem fólio**; folha cheia **A4**; conteúdo = **PNG de arte final** |
+| **MDX** | Só frontmatter `vozes-folha-rosto` — **sem** corpo MDX |
+| **Ativos** | `assets/media/folha_rosto_levantamento.png` |
+
+- **Proibido sem pedido:** trocar PNG, reativar blocos tipográficos `.folha-rosto-*` no lugar da arte, ou fixes globais que alterem a **p. 3**.
+- **Exceção:** só o que a editora citar (“muda a folha de rosto…”, “página 3”, folio ou trecho visível).
+
+### Capa e folha de rosto (front matter arte)
+
+As folhas **1** (capa) e **3** (folha de rosto) estão **fechadas** como arte raster. Sem pedido explícito, não editar MDX, componentes hero, PNG nem CSS dedicado; metadados do livro (`document.json`) só mudam título/autor se a editora pedir **e** a arte for atualizada em paralelo.
+
+### Expediente — folha 2 (fechada / não alterar)
+
+Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, alargar a coluna, remover grafismo nem redesenhar sem pedido explícito. Fonte: `expediente.mdx` + bloco `layout-vozes-expediente` em `vozes.css` + `VozesGrafismo` / sprite `vozes-g01-verde-roxo`.
+
+| Elemento | Tratamento |
+| --- | --- |
+| **Folha** | **2** — única; fundo **roxo** (`--color-vozes-roxo`); texto **branco**; miolo alinhado ao **rodapé** (`flex-end`) |
+| **Coluna** | `max-width` **74 mm** (`.vozes-expediente-inner .vozes-main`); tipografia expediente (9 pt título caps, corpo `--text-small`) |
+| **Blocos** | **Realização**, **Pesquisa e levantamento**, **Design e diagramação**, **Revisão**, **Edição** 2026 · São Paulo — **sem ISBN** |
+| **Grafismo** | **g01** `tone="verde-roxo"`: canto **sup. esq.**, **24 mm**, `top` **12 mm** / `left` **12 mm** — camada absoluta |
+
+- **Proibido sem pedido:** mudar largura da coluna, rótulos combinados (incl. troca Pesquisa e levantamento), reintroduzir ISBN, texto placeholder, grafismo, fundo, ou fixes globais (`vozes.css`, `VozesGrafismo`, `paginateDesk`) que desloquem o expediente para outra folha ou alterem o resultado visual da **p. 2**.
+- **Paginação global:** `break-inside: avoid` no expediente permanece; ajustes gerais não podem partir nem empurrar o conteúdo da **p. 2**.
+- **Exceção:** só o que a editora citar (“muda o expediente…”, “página 2”, folio ou trecho visível).
+
+### Expediente (`expediente.mdx`)
+
+A folha **2** está **fechada**. Sem pedido explícito, não editar MDX, CSS dedicado nem grafismo; `import:mapeamento` não deve regerar esta folha sem reconciliar o combinado.
 
 ## Vocabulário da editora → comando (agente executa; não repassar npm ao editor)
 
@@ -452,6 +510,7 @@ Nunca diga ao editor: “rode npm run dev”, “build:digital”, “export:bun
 | Foto perfil redonda / dual tone | `ProfileCard.tsx` + `.profile-card-photo*` em `vozes.css` |
 | Imagem nova | `assets/media/` + `<Figure src="media/…" />` no MDX (ou prop `photo` no ProfileCard) |
 | Links clicáveis e visíveis | Links no MDX (`[texto](url)`); estilos `a` em `document.css` / `vozes.css` — testar no site |
+| Grafismos de marca (levantamento) | `VozesGrafismo` + sprite `media/vozes-grafismo-sprite.svg`; grupos `g01`–`g08`; folio + posição absoluta; **zero** impacto na quebra de página |
 
 Não editar `publication.bundle.json` à mão (só via `export:bundle` quando pedirem). O app em desenvolvimento carrega MDX + manifest; o bundle não substitui o MDX na prévia.
 

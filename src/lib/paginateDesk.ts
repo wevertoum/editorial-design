@@ -45,12 +45,15 @@ export function paginateInto(source: HTMLElement, desk: HTMLElement): () => void
     const sheets = [...source.children].filter((node): node is HTMLElement => node instanceof HTMLElement && node.classList.contains('sheet'))
     const pages: HTMLElement[] = []
     let pageNumber = 1
+    const grafismoOverlays: HTMLElement[] = []
     for (const sheet of sheets) {
-      const built = paginateSheet(sheet, pageNumber)
+      const { pages: built, overlays } = paginateSheet(sheet, pageNumber)
+      grafismoOverlays.push(...overlays)
       pages.push(...built)
       pageNumber += built.length
     }
     desk.replaceChildren(...arrangeSpreads(pages))
+    mountGrafismoOverlays(desk, grafismoOverlays)
     document.documentElement.dataset.pagesReady = '1'
     document.documentElement.dataset.pageCount = String(pages.length)
   }
@@ -68,31 +71,37 @@ export function paginateInto(source: HTMLElement, desk: HTMLElement): () => void
   }
 }
 
-function paginateSheet(sheet: HTMLElement, startPage: number): HTMLElement[] {
+function paginateSheet(
+  sheet: HTMLElement,
+  startPage: number,
+): { pages: HTMLElement[]; overlays: HTMLElement[] } {
   const limit = pageLimitPx()
   const main = sheet.querySelector(':scope > .vozes-page > .vozes-main')
   const isSumario = sheet.id === 'sumario'
   const probe = createProbe(sheet)
   try {
     if (main) {
-      const blocks = elementChildren(main).map((node) => node.cloneNode(true) as HTMLElement)
+      const { content, overlays } = partitionGrafismoHosts(main)
+      const blocks = content.map((node) => node.cloneNode(true) as HTMLElement)
       if (!isSumario && probe.measure(blocks, true) <= limit + SLOP) {
-        return [cloneWhole(sheet, startPage)]
+        return { pages: [cloneWhole(sheet, startPage)], overlays }
       }
       const groups = groupBlocks(blocks, limit, probe.measure)
-      return groups.map((nodes, index) =>
+      const pages = groups.map((nodes, index) =>
         renderGroup(sheet, nodes, startPage + index, index === 0, index === 0),
       )
+      return { pages, overlays }
     }
 
     const blocks = elementChildren(sheet).map((node) => node.cloneNode(true) as HTMLElement)
     if (probe.measure(blocks, false) <= limit + SLOP) {
-      return [cloneWhole(sheet, startPage)]
+      return { pages: [cloneWhole(sheet, startPage)], overlays: [] }
     }
     const groups = groupBlocks(blocks, limit, probe.measure)
-    return groups.map((nodes, index) =>
+    const pages = groups.map((nodes, index) =>
       renderGroup(sheet, nodes, startPage + index, false, index === 0),
     )
+    return { pages, overlays: [] }
   } finally {
     probe.destroy()
   }
@@ -878,7 +887,35 @@ function isHeading(node: HTMLElement): boolean {
 }
 
 function isSkippable(node: HTMLElement): boolean {
+  if (node.classList.contains('vozes-grafismo-host')) return true
   if (node.matches('img, svg')) return false
   if (node.querySelector('img, svg')) return false
   return !node.textContent?.trim()
+}
+
+function partitionGrafismoHosts(main: Element): { content: HTMLElement[]; overlays: HTMLElement[] } {
+  const content: HTMLElement[] = []
+  const overlays: HTMLElement[] = []
+  for (const node of elementChildren(main)) {
+    if (node.classList.contains('vozes-grafismo-host')) {
+      overlays.push(node)
+    } else {
+      content.push(node)
+    }
+  }
+  return { content, overlays }
+}
+
+function mountGrafismoOverlays(desk: HTMLElement, overlays: HTMLElement[]): void {
+  if (overlays.length === 0) return
+  for (const host of overlays) {
+    const folio = Number(host.dataset.folio)
+    if (!Number.isFinite(folio) || folio < 1) continue
+    const page = desk.querySelector(
+      `.sheet-page[data-page="${folio}"]`,
+    ) as HTMLElement | null
+    if (!page) continue
+    page.querySelectorAll(`:scope > .vozes-grafismo-host[data-folio="${folio}"][data-group="${host.dataset.group ?? ''}"]`).forEach((node) => node.remove())
+    page.appendChild(host.cloneNode(true))
+  }
 }

@@ -281,7 +281,7 @@
 }
 
 .layout-vozes-expediente .vozes-expediente-inner .vozes-main {
-  max-width: 148mm;
+  max-width: 74mm;
 }
 
 .layout-vozes-expediente .vozes-expediente-inner h2 {
@@ -4990,4 +4990,36 @@
 .layout-vozes-report .vozes-main > .vozes-page-stack--dual-track [data-spread-part='b'] .dual-track-band {
   margin-top: 0;
   padding-top: var(--dual-track-band-pad-top-embedded);
+}
+
+/* Grafismos de marca — fora do fluxo; não alteram medição de quebra (ver paginateDesk). */
+.vozes-grafismo-host {
+  position: absolute;
+  z-index: 3;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  pointer-events: none;
+  user-select: none;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.paginate-source .vozes-grafismo-host {
+  opacity: 0.35;
+}
+
+.desk .sheet-page > .vozes-grafismo-host {
+  opacity: 1;
+}
+
+.sheet-page:has(.vozes-sumario) > .vozes-grafismo-host {
+  z-index: 6;
+}
+
+.vozes-grafismo-host .vozes-grafismo__svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
 }

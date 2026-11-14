@@ -24,6 +24,7 @@ import { OrgHierarchyFlow, OrgHierarchyStep } from './components/vozes/OrgHierar
 import { SourceNote } from './components/vozes/SourceNote'
 import { SumarioSpread } from './components/vozes/SumarioSpread'
 import { VozesLayout, VozesMain, VozesRail } from './components/vozes/VozesLayout'
+import { VozesGrafismo } from './components/vozes/VozesGrafismo'
 
 type WithNode<T> = T & { node?: unknown }
 
@@ -68,4 +69,5 @@ export const mdxComponents = {
   OrgHierarchyFlow,
   OrgHierarchyStep,
   SumarioSpread,
+  VozesGrafismo,
 }

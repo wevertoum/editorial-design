@@ -92,6 +92,13 @@ IDs are lowercase slugs. Section ids and event ids share the document, so they m
 4. If you do run a PDF command, do not claim it succeeded unless it exited 0 and you read its page count and media box.
 5. Do not commit generated `output/*.pdf` unless the user asks. `output/` is gitignored except `.gitkeep`.
 
+## Grafismos de marca (camada travada)
+
+Sprites do levantamento: `assets/media/vozes-grafismo-sprite.svg` (grupos `vozes-g01` … `vozes-g08` — catálogo em `src/components/vozes/grafismo/catalog.ts`).
+
+- MDX: `<VozesGrafismo folio={N} group="g04" top="14mm" right="10mm" size="18mm" />` dentro do capítulo; **não** entra na medição de quebra (`paginateDesk` extrai `.vozes-grafismo-host` e ancora ao folio **N** após paginar).
+- **Regra editorial:** nenhuma implementação (grafismo, CSS, texto) pode deslocar miolo entre folhas nem alterar a diagramação fechada. Grafismos só em `position: absolute`; proibido aumentar margens, espaçamentos ou blocos que mudem onde o texto cai.
+
 ## PDF check
 
 `scripts/build-pdf.ts` fails the build when the PDF has fewer than 24 pages, when the digital media box is not A4, or when the print media box is not larger than A4.

@@ -57,6 +57,7 @@ const allowedComponents = new Set([
   'SumarioSpread',
   'TrajetoriaBox',
   'VozesLayout',
+  'VozesGrafismo',
   'VozesMain',
   'VozesRail',
 ])
