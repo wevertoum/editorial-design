@@ -1,5 +1,8 @@
-import { readFileSync, writeFileSync } from 'node:fs'
-import { PDFDocument, type PDFPage } from 'pdf-lib'
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
+import { spawnSync } from 'node:child_process'
+import { tmpdir } from 'node:os'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 /** A4 trim in pt (matches Chromium digital export). */
 export const A4_WIDTH_PT = 595.28
@@ -46,45 +49,28 @@ export function planSpreads(pageCount: number): SpreadPlanItem[] {
   return planDigitalReadingSpreads(pageCount)
 }
 
+const joinScript = path.resolve(path.dirname(fileURLToPath(import.meta.url)), 'join_pdf_spreads.py')
+
+/**
+ * Junta duplas com pypdf (merge + translate), preservando anotações de link.
+ * pdf-lib `drawPage` rasterizava o miolo e apagava hyperlinks.
+ */
 export async function joinPdfSpreads(sourceBytes: Uint8Array): Promise<Uint8Array> {
-  const source = await PDFDocument.load(sourceBytes, { ignoreEncryption: true })
-  const pageCount = source.getPageCount()
-  if (pageCount < 1) {
-    throw new Error('PDF de origem não tem páginas.')
-  }
-
-  const plan = planDigitalReadingSpreads(pageCount)
-  const out = await PDFDocument.create()
-
-  for (const item of plan) {
-    if (item.kind === 'single') {
-      const page = out.addPage([A4_WIDTH_PT, A4_HEIGHT_PT])
-      await placePage(out, source, page, item.page, 0)
-      continue
+  const work = mkdtempSync(path.join(tmpdir(), 'vozes-spread-'))
+  const input = path.join(work, 'source.pdf')
+  const output = path.join(work, 'spread.pdf')
+  try {
+    writeFileSync(input, sourceBytes)
+    const result = spawnSync('python3', [joinScript, input, output], { encoding: 'utf8' })
+    if (result.status !== 0) {
+      throw new Error(
+        result.stderr?.trim() || result.stdout?.trim() || 'join_pdf_spreads.py falhou',
+      )
     }
-
-    const spread = out.addPage([SPREAD_WIDTH_PT, A4_HEIGHT_PT])
-    await placePage(out, source, spread, item.left, 0)
-    await placePage(out, source, spread, item.right, A4_WIDTH_PT + SPREAD_GUTTER_PT)
+    return readFileSync(output)
+  } finally {
+    rmSync(work, { recursive: true, force: true })
   }
-
-  return out.save()
-}
-
-async function placePage(
-  out: PDFDocument,
-  source: PDFDocument,
-  target: PDFPage,
-  sourceIndex: number,
-  x: number,
-) {
-  const [embedded] = await out.embedPages([source.getPage(sourceIndex)])
-  target.drawPage(embedded, {
-    x,
-    y: 0,
-    width: A4_WIDTH_PT,
-    height: A4_HEIGHT_PT,
-  })
 }
 
 export function joinPdfSpreadsFromFile(inputPath: string, outputPath: string): Promise<void> {

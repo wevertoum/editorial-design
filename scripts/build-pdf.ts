@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url'
 import { chromium } from '@playwright/test'
 import { joinPdfSpreads } from './join-pdf-spreads'
 import { assertPdfProfile, formatPdfReport, inspectPdfResolved } from './pdf-report'
+import { prepareDomForPdfExportInBrowser } from './pdf-dom-prepare'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const previewPort = 4174
@@ -125,6 +126,7 @@ async function printSite(file: string, outputProfile: PdfOutputProfile) {
       throw new Error('O site não paginou nenhuma folha A4 antes da impressão.')
     }
     await page.emulateMedia({ media: 'print' })
+    await page.evaluate(prepareDomForPdfExportInBrowser)
     const box = geometry[outputProfile]
     const printOverride =
       outputProfile === 'digital'

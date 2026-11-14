@@ -595,7 +595,7 @@ function splitText(
       break
     }
     const count = fitCount(rest, limit, measure)
-    const snapped = snapWhitespace(rest.textContent ?? '', count)
+    const snapped = snapWhitespace(rest.textContent ?? '', snapOutsideAnchors(rest, count))
     if (snapped < 24) {
       parts.push(rest)
       break
@@ -683,6 +683,61 @@ function snapWhitespace(text: string, index: number): number {
   const space = Math.max(slice.lastIndexOf(' '), slice.lastIndexOf('\n'))
   if (space >= 24) return space
   return index
+}
+
+/** Não partir o miolo no meio de um `<a>` — mantém o href íntegro no PDF. */
+function snapOutsideAnchors(root: HTMLElement, index: number): number {
+  const total = root.textContent?.length ?? 0
+  if (index <= 0 || index >= total) return index
+
+  let pos = 0
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT)
+  let current: Text | null = null
+
+  while (walker.nextNode()) {
+    const node = walker.currentNode as Text
+    const len = node.data.length
+    const next = pos + len
+    if (index <= next) {
+      current = node
+      break
+    }
+    pos = next
+  }
+
+  if (!current) return index
+
+  let parent: Node | null = current.parentNode
+  while (parent && (!(parent instanceof HTMLElement) || parent.tagName !== 'A')) {
+    parent = parent.parentNode
+  }
+  if (!(parent instanceof HTMLElement) || parent.tagName !== 'A') return index
+
+  let anchorStart = 0
+  const anchorWalker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT)
+  while (anchorWalker.nextNode()) {
+    const node = anchorWalker.currentNode as Text
+    let p: Node | null = node.parentNode
+    let inAnchor = false
+    while (p) {
+      if (p === parent) {
+        inAnchor = true
+        break
+      }
+      p = p.parentNode
+    }
+    if (inAnchor) break
+    anchorStart += node.data.length
+  }
+
+  const anchorLen = parent.textContent?.length ?? 0
+  const anchorEnd = anchorStart + anchorLen
+  if (index <= anchorStart || index >= anchorEnd) return index
+
+  const toStart = index - anchorStart
+  const toEnd = anchorEnd - index
+  const snapped = toStart <= toEnd ? anchorStart : anchorEnd
+  return snapWhitespace(root.textContent ?? '', snapped)
 }
 
 function cloneWhole(sheet: HTMLElement, pageNumber: number): HTMLElement {
