@@ -148,6 +148,7 @@ function groupBlocks(
         block.classList.contains('vozes-page-stack--dual-track') ||
         block.classList.contains('vozes-page-stack--trajetoria-sheet') ||
         block.classList.contains('vozes-page-stack--usa-opening') ||
+        block.classList.contains('vozes-page-stack--australia-dimensions') ||
         block.classList.contains('vozes-page-stack--usa-producao') ||
         block.classList.contains('vozes-page-stack--usa-org-fin-atuacao') ||
         block.classList.contains('vozes-page-stack--england-p27') ||
@@ -842,6 +843,7 @@ function prepareStackMeasure(slot: HTMLElement): void {
       node.classList.contains('vozes-page-stack--dual-track') ||
       node.classList.contains('vozes-page-stack--trajetoria-sheet') ||
       node.classList.contains('vozes-page-stack--usa-opening') ||
+      node.classList.contains('vozes-page-stack--australia-dimensions') ||
       node.classList.contains('vozes-page-stack--usa-producao') ||
       node.classList.contains('vozes-page-stack--usa-org-fin-atuacao') ||
       node.classList.contains('vozes-page-stack--england-p27') ||

@@ -1106,6 +1106,66 @@
   break-before: avoid;
 }
 
+/* Austrália p. 11 — cubo + legenda no rodapé; prioriza pin do PageStack sobre o respiro local da figura. */
+.layout-vozes-report .vozes-page:has(> .vozes-main > .vozes-page-stack--australia-dimensions:only-child) {
+  align-items: stretch;
+}
+
+.layout-vozes-report
+  .vozes-page:has(> .vozes-main > .vozes-page-stack--australia-dimensions:only-child)
+  .vozes-main {
+  display: flex;
+  flex-direction: column;
+  min-height: var(--vozes-content-height);
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--australia-dimensions {
+  flex: 1 1 auto;
+  min-height: var(--vozes-content-height);
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--australia-dimensions
+  .figure.figure--span.figure--compact.vozes-page-stack-foot {
+  clear: both;
+  float: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(100% + var(--vozes-grid-gutter) + var(--vozes-rail-to-prose) * 100%);
+  max-width: none;
+  margin-inline: 0;
+  margin-top: auto;
+  margin-bottom: 15mm;
+  break-inside: avoid;
+  break-before: avoid;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--australia-dimensions
+  .figure.figure--span.figure--compact.vozes-page-stack-foot
+  img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 92mm;
+  margin-inline: auto;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--australia-dimensions
+  .figure.figure--span.figure--compact.vozes-page-stack-foot
+  figcaption {
+  width: 100%;
+  text-align: left;
+}
+
 /* Figura no fluxo do corpo — mais larga que o rail, altura limitada (várias na mesma folha). */
 .layout-vozes-report .vozes-page:is(.vozes-prose-only, .vozes-with-rail) .vozes-main .figure.figure--flow {
   clear: both;
