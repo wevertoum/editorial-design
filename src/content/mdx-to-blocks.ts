@@ -422,6 +422,34 @@ export function parseFlowBlocks(body: string): FlowBlock[] {
         i = el.end
         continue
       }
+
+      // MDX layout wrappers (<div>) — not uppercase JSX; must not stall the scanner.
+      const htmlOpen = rest.match(/^<([a-z][a-z0-9]*)\b([^>]*)>/)
+      if (htmlOpen) {
+        const tagName = htmlOpen[1]
+        const openLen = htmlOpen[0].length
+        const openEnd = i + openLen
+        const selfClosing = /\/\s*>$/.test(htmlOpen[0])
+        if (selfClosing) {
+          i = openEnd
+          continue
+        }
+        const close = `</${tagName}>`
+        const closeIndex = normalized.indexOf(close, openEnd)
+        if (closeIndex >= 0) {
+          const inner = normalized.slice(openEnd, closeIndex)
+          if (inner.trim()) {
+            blocks.push(...parseFlowBlocks(inner))
+          }
+          i = closeIndex + close.length
+          continue
+        }
+        i = openEnd
+        continue
+      }
+
+      i += 1
+      continue
     }
 
     const end = findParagraphEnd(normalized, i)

@@ -1,6 +1,6 @@
 {
   "bundleVersion": 1,
-  "generatedAt": "2026-11-13T19:34:46.011Z",
+  "generatedAt": "2026-11-14T00:39:57.330Z",
   "id": "levantamento-organizacoes-2026",
   "language": "pt-BR",
   "title": "Levantamento Internacional de Instituições de Apoio a Padrões Curriculares",
@@ -167,7 +167,7 @@
                 "",
                 ""
               ],
-              "rows": "[\n[\"Apresentação\", \"00\"],\n[\"Resumo executivo\", \"00\"],\n[\"Austrália\", \"00\"],\n[\"Austrália — organização\", \"00\"],\n[\"Austrália — cruzamento I\", \"00\"],\n[\"Austrália — cruzamento II\", \"00\"],\n[\"Estados Unidos\", \"00\"],\n[\"Estados Unidos — organização\", \"00\"],\n[\"Estados Unidos — cruzamento\", \"00\"],\n[\"Inglaterra\", \"00\"],\n[\"Inglaterra — organização\", \"00\"],\n[\"Inglaterra — cruzamento I\", \"00\"],\n]"
+              "rows": "[\n[\"Apresentação\", \"7\"],\n[\"Resumo executivo\", \"8\"],\n[\"Austrália\", \"10\"],\n[\"\\u2003Australian Curriculum Studies Association (ACSA)\", \"14\"],\n[\"Estados Unidos\", \"18\"],\n[\"\\u2003Achieve\", \"20\"],\n[\"Inglaterra\", \"24\"],\n[\"\\u2003Curriculum Foundation\", \"28\"],\n[\"\\u2003British Curriculum Forum (BCF)\", \"31\"],\n]"
             }
           },
           {
@@ -180,7 +180,7 @@
                 "",
                 ""
               ],
-              "rows": "[\n[\"Inglaterra — cruzamento II\", \"00\"],\n[\"Inglaterra (complemento)\", \"00\"],\n[\"Inglaterra — cruzamento III\", \"00\"],\n[\"Nigéria\", \"00\"],\n[\"Nigéria — organização\", \"00\"],\n[\"Nigéria — cruzamento I\", \"00\"],\n[\"Nigéria — cruzamento II\", \"00\"],\n[\"Chile\", \"00\"],\n[\"Chile — organização\", \"00\"],\n[\"Chile — cruzamento I\", \"00\"],\n[\"Chile — cruzamento II\", \"00\"],\n]"
+              "rows": "[\n[\"Nigéria\", \"34\"],\n[\"\\u2003Curriculum Organization of Nigeria\", \"37\"],\n[\"Chile\", \"40\"],\n[\"\\u2003A Fundación Reimagina\", \"44\"],\n]"
             }
           }
         ]
@@ -3604,6 +3604,29 @@
             "type": "paragraph",
             "runs": [
               {
+                "text": "Pessoas externas podem "
+              },
+              {
+                "text": "contribuir",
+                "href": "https://www.gov.uk/government/groups/curriculum-and-assessment-review"
+              },
+              {
+                "text": " em diferentes momentos da política curricular, apresentando pesquisas, recomendações e posicionamentos ou participando de reuniões e eventos. Em 2024, por exemplo, qualquer interessado podia apresentar contribuições por meio de formulário on-line ou canais alternativos."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "runs": [
+              {
+                "text": "Em novembro de 2025, o governo anunciou a intenção de atualizar o currículo, mantendo sua estrutura geral e revisando conteúdos e abordagens. Entre os temas contemplados estão letramento digital e inteligência artificial, educação financeira, cidadania, inclusão, diversidade e preparação para a vida e o trabalho."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "runs": [
+              {
                 "text": "Em novembro de 2025, o governo anunciou a intenção de "
               },
               {
@@ -3612,29 +3635,6 @@
               },
               {
                 "text": " o currículo, mantendo sua estrutura geral e revisando conteúdos e abordagens. Entre os temas contemplados estão letramento digital e inteligência artificial, educação financeira, cidadania, inclusão, diversidade e preparação para a vida e o trabalho."
-              }
-            ]
-          },
-          {
-            "type": "paragraph",
-            "runs": [
-              {
-                "text": "O planejamento governamental prevê a publicação do currículo revisado em 2027 e o início de sua implementação em setembro de 2028. Em outubro de 2026, o DfE também "
-              },
-              {
-                "text": "buscou",
-                "href": "https://www.gov.uk/government/publications/dfe-update-7-october-2026/dfe-update-local-authorities-7-october-2026"
-              },
-              {
-                "text": " a participação de educadores no desenvolvimento de uma versão digital e navegável do currículo, para facilitar o acesso e a organização dos conteúdos pelas escolas."
-              }
-            ]
-          },
-          {
-            "type": "paragraph",
-            "runs": [
-              {
-                "text": "O planejamento governamental prevê a publicação do currículo revisado em 2027 e o início de sua implementação em setembro de 2028. Em outubro de 2026, o DfE também buscou a participação de educadores no desenvolvimento de uma versão digital e navegável do currículo, para facilitar o acesso e a organização dos conteúdos pelas escolas."
               }
             ]
           },
@@ -3895,8 +3895,7 @@
                   "Organizam os currículos escolares, selecionam materiais e definem práticas de ensino, respeitando as exigências aplicáveis a cada tipo de escola."
                 ]
               ],
-              "columns": 3,
-              "className": "vozes-page-stack-foot"
+              "columns": 3
             }
           },
           {
@@ -4005,6 +4004,13 @@
             ]
           },
           {
+            "type": "component",
+            "name": "FigureRow",
+            "props": {
+              "className": "vozes-england-ks-figure-band"
+            }
+          },
+          {
             "type": "image",
             "src": "media/org-image8.png",
             "alt": "Ilustração do documento (org-image8.png).",
@@ -4019,11 +4025,19 @@
             "className": "figure--flow figure--england-ks"
           },
           {
+            "type": "paragraph",
+            "runs": [
+              {
+                "text": "/div>"
+              }
+            ]
+          },
+          {
             "type": "image",
             "src": "media/org-image5.png",
             "alt": "Ilustração do documento (org-image5.png).",
             "caption": "Fonte: [Site](https://www.curriculumfoundation.org/) institucional",
-            "className": "figure--flow figure--england-ks"
+            "className": "figure--flow figure--england-ks figure--span"
           },
           {
             "type": "paragraph",
@@ -4041,8 +4055,7 @@
               {
                 "text": "Como o currículo nacional é produzido"
               }
-            ],
-            "className": "vozes-page-start"
+            ]
           },
           {
             "type": "paragraph",
@@ -4170,12 +4183,6 @@
             ]
           },
           {
-            "type": "image",
-            "src": "media/org-image1.png",
-            "alt": "Ilustração do documento (org-image1.png).",
-            "caption": "Fonte: [Site](https://schoolsweek.co.uk/new-curriculum-to-be-introduced-in-2028-as-review-published/) Schools Week"
-          },
-          {
             "type": "heading",
             "level": 3,
             "text": "A trajetória do currículo inglês",
@@ -4209,7 +4216,7 @@
                   "Revisão do currículo secundário: fortalece conceitos, processos de aprendizagem e conexões entre disciplinas."
                 ],
                 [
-                  "2010 e 2011",
+                  "2010 a 2011",
                   "Autonomia escolar e nova revisão: a expansão das *academies* modifica o alcance obrigatório do currículo. Em 2011, o governo inicia revisão voltada a conteúdos essenciais e comparação internacional."
                 ],
                 [
@@ -4228,7 +4235,9 @@
                   "2026 a 2028 (previsto)",
                   "Desenvolvimento de um novo currículo, com versão para o formato digital. A publicação está prevista para 2027, com início de implementação em setembro de 2028."
                 ]
-              ]
+              ],
+              "columns": 2,
+              "className": "vozes-milestone--compact"
             }
           }
         ]
@@ -4317,14 +4326,6 @@
             "type": "paragraph",
             "runs": [
               {
-                "text": "A Curriculum Foundation possui uma estrutura de governança formada por um conselho administrativo, responsável pela administração formal da instituição, combinado a uma equipe executiva e uma rede de especialistas que participam da realização dos projetos."
-              }
-            ]
-          },
-          {
-            "type": "paragraph",
-            "runs": [
-              {
                 "text": "A "
               },
               {
@@ -4340,6 +4341,21 @@
               },
               {
                 "text": " formada por um conselho administrativo, responsável pela administração formal da instituição, combinado a uma equipe executiva e uma rede de especialistas que participam da realização dos projetos."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "runs": [
+              {
+                "text": "Segundo o "
+              },
+              {
+                "text": "registro",
+                "href": "https://find-and-update.company-information.service.gov.uk/company/06841310/officers"
+              },
+              {
+                "text": " oficial britânico, a organização possui atualmente três diretores registrados: Brian Male, Victoria Pendry e Narinderjit Gill. A organização informa que também mobiliza especialistas associados conforme as necessidades de cada projeto, reunindo profissionais com experiência em escolas, pesquisa, inspeção educacional, autoridades curriculares e consultoria internacional."
               }
             ]
           },
@@ -4360,14 +4376,6 @@
             "runs": [
               {
                 "text": "Financiamento"
-              }
-            ]
-          },
-          {
-            "type": "paragraph",
-            "runs": [
-              {
-                "text": "A Curriculum Foundation oferta serviços especializados, incluindo consultoria para desenvolvimento curricular, apoio à implementação, formação de profissionais, avaliação e projetos contratados por escolas, redes e organizações educacionais."
               }
             ]
           },
@@ -4397,6 +4405,14 @@
               },
               {
                 "text": " (GPE), parceria internacional de financiamento da educação, com participação do UNICEF na gestão de recursos e atividades."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "runs": [
+              {
+                "text": "Seu histórico também mostra participação em iniciativas financiadas por governos e organismos internacionais. No Sudão do Sul, por exemplo, a organização prestou apoio técnico ao desenvolvimento do currículo nacional em um projeto com recursos do governo britânico e da Global Partnership for Education (GPE), parceria internacional de financiamento da educação, com participação do UNICEF na gestão de recursos e atividades."
               }
             ]
           },
@@ -4543,21 +4559,6 @@
             ]
           },
           {
-            "type": "paragraph",
-            "runs": [
-              {
-                "text": "Do ponto de vista jurídico, a instituição está registrada como uma companhia limitada por garantia, sem capital acionário ("
-              },
-              {
-                "text": "company limited by guarantee",
-                "italic": true
-              },
-              {
-                "text": "). Seu funcionamento se baseia na reunião de especialistas que apoiam outras instituições em processos de desenvolvimento e mudança curricular."
-              }
-            ]
-          },
-          {
             "type": "heading",
             "level": 3,
             "text": "A governança",
@@ -4669,6 +4670,21 @@
             ]
           },
           {
+            "type": "paragraph",
+            "runs": [
+              {
+                "text": "Do ponto de vista jurídico, a instituição está registrada como uma companhia limitada por garantia, sem capital acionário ("
+              },
+              {
+                "text": "company limited by guarantee",
+                "italic": true
+              },
+              {
+                "text": "). Seu funcionamento se baseia na reunião de especialistas que apoiam outras instituições em processos de desenvolvimento e mudança curricular."
+              }
+            ]
+          },
+          {
             "type": "heading",
             "level": 3,
             "text": "A atuação",
@@ -4723,15 +4739,6 @@
             }
           },
           {
-            "type": "component",
-            "name": "DualTrackEmbed",
-            "props": {
-              "part": "eng-1-a",
-              "title": "Onde as trajetórias se cruzam",
-              "className": "vozes-page-stack-foot"
-            }
-          },
-          {
             "type": "heading",
             "level": 3,
             "text": "A trajetória da organização",
@@ -4773,15 +4780,24 @@
                   "Publicações sobre temas curriculares e continuidade de sua atuação internacional."
                 ]
               ],
+              "columns": 2,
               "className": "vozes-milestone--compact"
             }
+          },
+          {
+            "type": "paragraph",
+            "runs": [
+              {
+                "text": "&#8203;"
+              }
+            ]
           },
           {
             "type": "component",
             "name": "DualTrackEmbed",
             "props": {
-              "part": "eng-1-b",
-              "spreadPart": "b",
+              "part": "eng-1-a",
+              "title": "Onde as trajetórias se cruzam",
               "className": "vozes-page-stack-foot"
             }
           }
@@ -5253,7 +5269,8 @@
               {
                 "text": "A atuação"
               }
-            ]
+            ],
+            "className": "vozes-page-start"
           },
           {
             "type": "paragraph",
@@ -5297,15 +5314,6 @@
             "name": "DetailList",
             "props": {
               "children": "***Curriculum and Assessment Review *(2024 a 2026)**\n\nO governo inglês iniciou uma nova [revisão](https://www.bera.ac.uk/project/bera-and-the-curriculum) do currículo nacional e das avaliações. O ambiente institucional da BERA reuniu pesquisas, debates, eventos e análises sobre a reforma."
-            }
-          },
-          {
-            "type": "component",
-            "name": "DualTrackEmbed",
-            "props": {
-              "part": "eng-3-a",
-              "title": "Onde as trajetórias se cruzam",
-              "className": "vozes-page-stack-foot"
             }
           },
           {
@@ -5354,15 +5362,24 @@
                   "Continuidade dos programas de pesquisa, eventos e publicações, em um contexto de novas revisões curriculares."
                 ]
               ],
+              "columns": 2,
               "className": "vozes-milestone--compact"
             }
+          },
+          {
+            "type": "paragraph",
+            "runs": [
+              {
+                "text": "&#8203;"
+              }
+            ]
           },
           {
             "type": "component",
             "name": "DualTrackEmbed",
             "props": {
-              "part": "eng-3-b",
-              "spreadPart": "b",
+              "part": "eng-3-a",
+              "title": "Onde as trajetórias se cruzam",
               "className": "vozes-page-stack-foot"
             }
           }
@@ -5493,7 +5510,35 @@
             "type": "paragraph",
             "runs": [
               {
-                "text": "A educação escolar nigeriana está organizada em nove anos de educação básica, seguidos por três anos de ensino secundário superior. A principal referência da educação básica é o Basic Education Curriculum (BEC), desenvolvido pelo NERDC para estabelecer conteúdos, objetivos de aprendizagem, competências e orientações de ensino. Para o ensino secundário superior, existe o Senior Secondary Education Curriculum, voltado à formação geral e à preparação para estudos posteriores e para o mundo do trabalho."
+                "text": "A "
+              },
+              {
+                "text": "implementação",
+                "href": "https://www.nerdc.gov.ng/content_manager/Revised%209%20Year%20BEC%20Implementation%20Strategy%203.pdf"
+              },
+              {
+                "text": " foi planejada de maneira progressiva, começando pelas primeiras séries de cada ciclo de três anos ("
+              },
+              {
+                "text": "Primary",
+                "italic": true
+              },
+              {
+                "text": " 1-3, "
+              },
+              {
+                "text": "Primary",
+                "italic": true
+              },
+              {
+                "text": " 4-6, "
+              },
+              {
+                "text": "Junior Secondary School",
+                "italic": true
+              },
+              {
+                "text": " 1-3), para permitir a preparação dos professores, a distribuição de materiais e a incorporação gradual das mudanças."
               }
             ]
           },
@@ -5758,8 +5803,7 @@
                   "Organizam a oferta educacional e colocam as orientações nacionais em prática, considerando necessidades locais."
                 ]
               ],
-              "columns": 4,
-              "className": "vozes-page-stack-foot"
+              "columns": 4
             }
           },
           {
@@ -5829,17 +5873,6 @@
                 "text": " estão a reorganização dos componentes curriculares, a inclusão de novas tecnologias e a retomada da História da Nigéria como disciplina obrigatória durante a educação básica."
               }
             ]
-          },
-          {
-            "type": "image",
-            "src": "media/org-image12.png",
-            "alt": "Ilustração do documento (org-image12.png)."
-          },
-          {
-            "type": "image",
-            "src": "media/org-image3.png",
-            "alt": "Ilustração do documento (org-image3.png).",
-            "caption": "Fonte: [Página](https://www.facebook.com/AfricaIndependentTelevision/posts/nigeria-education-fg-introduces-new-curriculum-in-basic-senior-secondary-technic/1216199720534265/) oficial da Africa Independent Television (AIT)."
           },
           {
             "type": "paragraph",
@@ -6039,7 +6072,9 @@
                   "2025",
                   "O governo apresenta uma reforma da educação básica e secundária para reduzir a quantidade de disciplinas e fortalecer competências digitais, profissionais e práticas. O NERDC publica novos [documentos](https://www.nerdc.gov.ng/content_manager/Revised%209%20Year%20BEC%20Implementation%20Strategy%203.pdf), com estratégia de implementação progressiva e formação de professores."
                 ]
-              ]
+              ],
+              "columns": 2,
+              "className": "vozes-milestone--compact"
             }
           }
         ]
@@ -6233,14 +6268,7 @@
             "type": "paragraph",
             "runs": [
               {
-                "text": "Quatro "
-              },
-              {
-                "text": "exemplos",
-                "href": "https://con.org.ng/"
-              },
-              {
-                "text": " mostram como essa atuação acontece."
+                "text": "Quatro exemplos mostram como essa atuação acontece."
               }
             ]
           },
@@ -6488,7 +6516,15 @@
             "type": "paragraph",
             "runs": [
               {
-                "text": "O quadro de membros da CON é aberto a estudantes, profissionais e instituições da área educacional, dividindo-se em categorias que acompanham a evolução acadêmica. O fluxo inicial atende estudantes e recém-graduados com taxas reduzidas e suporte de transição para a carreira. O núcleo da organização é formado por professores e pesquisadores estabelecidos com direito a voto, além de faculdades e órgãos públicos associados. No topo da estrutura, estão os títulos honoríficos de mérito, voltado para a mentoria de educadores sêniores de destaque nacional, e filantropos ou ministros externos de grande impacto na educação."
+                "text": "O quadro de membros da CON é aberto a estudantes, profissionais e instituições da área educacional, dividindo-se em categorias que acompanham a evolução acadêmica. O fluxo inicial atende estudantes e recém-graduados com taxas reduzidas e suporte de transição para a carreira. O núcleo da organização é formado por professores e pesquisadores estabelecidos com direito a voto, além de faculdades e órgãos públicos associados."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "runs": [
+              {
+                "text": "No topo da estrutura, estão os títulos honoríficos de mérito, voltado para a mentoria de educadores sêniores de destaque nacional, e filantropos ou ministros externos de grande impacto na educação."
               }
             ]
           },
@@ -6541,12 +6577,6 @@
             }
           },
           {
-            "type": "image",
-            "src": "media/org-image2.png",
-            "alt": "Ilustração do documento (org-image2.png).",
-            "className": "figure--compact vozes-page-stack-foot"
-          },
-          {
             "type": "component",
             "name": "DetailList",
             "props": {
@@ -6565,15 +6595,6 @@
             "name": "DetailList",
             "props": {
               "children": "**Seminários e reconhecimento de especialistas**\n\nA CON também organiza seminários temáticos no campo curricular. O primeiro ocorreu em março de 1999, na University of Jos, com apoio registrado da UNESCO. Em 2001, a organização promoveu uma discussão sobre os desafios da educação secundária nigeriana no século XXI, com apresentações de especialistas, discussões entre participantes e elaboração de comunicados."
-            }
-          },
-          {
-            "type": "component",
-            "name": "DualTrackEmbed",
-            "props": {
-              "part": "ng-1-a",
-              "title": "Onde as trajetórias se cruzam",
-              "className": "vozes-page-stack-foot"
             }
           },
           {
@@ -6634,15 +6655,24 @@
                   "Publicação de novas edições do periódico acadêmico, conforme o acervo institucional."
                 ]
               ],
+              "columns": 2,
               "className": "vozes-milestone--compact"
             }
+          },
+          {
+            "type": "paragraph",
+            "runs": [
+              {
+                "text": "&#8203;"
+              }
+            ]
           },
           {
             "type": "component",
             "name": "DualTrackEmbed",
             "props": {
-              "part": "ng-1-b",
-              "spreadPart": "b",
+              "part": "ng-1-a",
+              "title": "Onde as trajetórias se cruzam",
               "className": "vozes-page-stack-foot"
             }
           }
@@ -6776,14 +6806,7 @@
             "type": "paragraph",
             "runs": [
               {
-                "text": "As Bases Curriculares são obrigatórias, mas os estabelecimentos podem desenvolver planos e programas próprios que cumpram os objetivos nacionais, seguindo os procedimentos previstos na "
-              },
-              {
-                "text": "legislação",
-                "href": "https://www.bcn.cl/leychile/navegar?idNorma=1014974&idParte=9185310&idVersion=2026-07-01"
-              },
-              {
-                "text": ". Os programas elaborados pelo Ministério são obrigatórios para escolas que não possuem programas próprios."
+                "text": "O currículo nacional é complementado pelos Planes de Estudio, que organizam o tempo destinado às disciplinas, e pelos Programas de Estudio, que oferecem orientações para trabalhar os objetivos de aprendizagem nas escolas."
               }
             ]
           },
@@ -7070,8 +7093,7 @@
                   "Planejam o ensino, utilizam os programas oficiais ou desenvolvem programas próprios compatíveis com as Bases Curriculares."
                 ]
               ],
-              "columns": 5,
-              "className": "vozes-page-stack-foot"
+              "columns": 3
             }
           },
           {
@@ -7116,28 +7138,6 @@
             "type": "paragraph",
             "runs": [
               {
-                "text": "O currículo nacional é complementado pelos "
-              },
-              {
-                "text": "Planes de Estudio",
-                "italic": true
-              },
-              {
-                "text": ", que organizam o tempo destinado às disciplinas, e pelos"
-              },
-              {
-                "text": " Programas de Estudio",
-                "italic": true
-              },
-              {
-                "text": ", que oferecem orientações para trabalhar os objetivos de aprendizagem nas escolas."
-              }
-            ]
-          },
-          {
-            "type": "paragraph",
-            "runs": [
-              {
                 "text": "As Bases Curriculares são obrigatórias, mas os estabelecimentos podem desenvolver planos e programas próprios que cumpram os objetivos nacionais, seguindo os procedimentos previstos na "
               },
               {
@@ -7154,6 +7154,28 @@
             "runs": [
               {
                 "text": "O currículo escolar chileno compreende a educação parvularia (primeira infância), oito anos de educação básica e quatro anos de educação média. Os dois últimos anos do ensino médio incluem possibilidades de formação diferenciada, como a técnico-profissional."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "runs": [
+              {
+                "text": "O currículo nacional é complementado pelos "
+              },
+              {
+                "text": "Planes de Estudio",
+                "italic": true
+              },
+              {
+                "text": ", que organizam o tempo destinado às disciplinas, e pelos"
+              },
+              {
+                "text": " Programas de Estudio",
+                "italic": true
+              },
+              {
+                "text": ", que oferecem orientações para trabalhar os objetivos de aprendizagem nas escolas."
               }
             ]
           },
@@ -7368,7 +7390,9 @@
                   "2025 a 2026",
                   "O conselho examina as propostas de atualização e apresenta decisões específicas por disciplina. Em 2026, aprova algumas propostas e solicita ajustes em outras."
                 ]
-              ]
+              ],
+              "columns": 2,
+              "className": "vozes-milestone--compact"
             }
           }
         ]
@@ -7465,14 +7489,7 @@
             "type": "paragraph",
             "runs": [
               {
-                "text": "A "
-              },
-              {
-                "text": "Fundación",
-                "href": "https://fundacionreimagina.org/somos/"
-              },
-              {
-                "text": " Reimagina possui uma estrutura composta por um diretório institucional, responsável pela governança, e uma equipe executiva e técnica, responsável pela condução das iniciativas."
+                "text": "A organização é juridicamente registrada no Chile como Fundación para el Impulso de la Educación y la Cultura Reimagina, constituída em 29 de setembro de 2020. Seu registro público de organizações aptas a receber doações disponibiliza estatutos, certificado de diretório e demonstrações financeiras."
               }
             ]
           },
@@ -7738,41 +7755,18 @@
             }
           },
           {
-            "type": "paragraph",
-            "runs": [
-              {
-                "text": "A "
-              },
-              {
-                "text": "Fundación",
-                "href": "https://fundacionreimagina.org/somos/"
-              },
-              {
-                "text": " Reimagina possui uma estrutura composta por um diretório institucional, responsável pela governança, e uma equipe executiva e técnica, responsável pela condução das iniciativas."
-              }
-            ]
+            "type": "component",
+            "name": "DetailList",
+            "props": {
+              "children": "**Estrutura institucional**\n\nA [Fundación](https://fundacionreimagina.org/somos/) Reimagina possui uma estrutura composta por um diretório institucional, responsável pela governança, e uma equipe executiva e técnica, responsável pela condução das iniciativas."
+            }
           },
           {
-            "type": "paragraph",
-            "runs": [
-              {
-                "text": "A organização é juridicamente registrada no Chile como "
-              },
-              {
-                "text": "Fundación para el Impulso de la Educación y la Cultura Reimagina",
-                "italic": true
-              },
-              {
-                "text": ", constituída em 29 de setembro de 2020. Seu "
-              },
-              {
-                "text": "registro",
-                "href": "https://donacionesley21440.gob.cl/registro-publico?n=218"
-              },
-              {
-                "text": " público de organizações aptas a receber doações disponibiliza estatutos, certificado de diretório e demonstrações financeiras."
-              }
-            ]
+            "type": "component",
+            "name": "DetailList",
+            "props": {
+              "children": "**Registro legal**\n\nA organização é juridicamente registrada no Chile como *Fundación para el Impulso de la Educación y la Cultura Reimagina*, constituída em 29 de setembro de 2020. Seu [registro](https://donacionesley21440.gob.cl/registro-publico?n=218) público de organizações aptas a receber doações disponibiliza estatutos, certificado de diretório e demonstrações financeiras."
+            }
           },
           {
             "type": "heading",
@@ -7920,15 +7914,6 @@
             }
           },
           {
-            "type": "component",
-            "name": "DualTrackEmbed",
-            "props": {
-              "part": "cl-1-a",
-              "title": "Onde as trajetórias se cruzam",
-              "className": "vozes-page-stack-foot"
-            }
-          },
-          {
             "type": "heading",
             "level": 3,
             "text": "A trajetória da organização",
@@ -7974,19 +7959,40 @@
                   "Publica pesquisas com a Brookings sobre currículo, oportunidades de aprendizagem e condições de implementação das competências amplas no Chile."
                 ]
               ],
+              "columns": 2,
               "className": "vozes-milestone--compact"
             }
+          },
+          {
+            "type": "paragraph",
+            "runs": [
+              {
+                "text": "&#8203;"
+              }
+            ]
           },
           {
             "type": "component",
             "name": "DualTrackEmbed",
             "props": {
-              "part": "cl-1-b",
-              "spreadPart": "b",
+              "part": "cl-1-a",
+              "title": "Onde as trajetórias se cruzam",
               "className": "vozes-page-stack-foot"
             }
           }
         ]
+      }
+    },
+    {
+      "id": "pagina-roxa",
+      "strategy": "flow",
+      "layout": "standard",
+      "source": "chapters/pagina-roxa.mdx",
+      "payload": {
+        "kind": "flow",
+        "derivedFrom": "mdx",
+        "sheetVariant": "vozes-roxa",
+        "blocks": []
       }
     }
   ]
