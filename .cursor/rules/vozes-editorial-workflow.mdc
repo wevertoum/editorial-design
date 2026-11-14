@@ -537,6 +537,7 @@ A folha **2** está **fechada**. Sem pedido explícito, não editar MDX, CSS ded
 | **Visualizar** / abrir prévia / ver páginas / ver como no livro | `npm run visualizar` (ou `dev`) | “Abra **http://127.0.0.1:5173**” + seção/país |
 | **Entrar no modo de edição** / ver texto rápido | `npm run editar` (ou `dev:edit`) — o mesmo site | “Abra **http://127.0.0.1:5173**” |
 | **Gerar renderização PDF** / gera o PDF / exporta PDF final | `npm run gerar-pdf` (só quando pedirem) | Caminho `output/document-digital.pdf` |
+| **PDF para leitura digital** / duplas como na prévia | `npm run gerar-pdf-leitura` (só quando pedirem) | A4 normal + junção em pós-processo → `output/document-digital-spread.pdf` |
 | **PDF para gráfica** / com sangria / para impressão | `npm run gerar-pdf-grafica` (só quando pedirem) | `output/document-print.pdf` |
 
 Se `visualizar` já estiver rodando no terminal do projeto, diga só para atualizar o navegador (F5). Inicie o servidor **só** se a editora pediu visualizar e não há servidor rodando — não subir preview nem gerar PDF “por precaução”.

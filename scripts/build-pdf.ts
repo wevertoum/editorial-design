@@ -1,26 +1,33 @@
 import { spawn, spawnSync, type ChildProcess } from 'node:child_process'
-import { mkdirSync } from 'node:fs'
+import { mkdirSync, readFileSync, unlinkSync, writeFileSync } from 'node:fs'
 import net from 'node:net'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { chromium } from '@playwright/test'
-import { assertPdfProfile, formatPdfReport, inspectPdf } from './pdf-report'
+import { joinPdfSpreads } from './join-pdf-spreads'
+import { assertPdfProfile, formatPdfReport, inspectPdfResolved } from './pdf-report'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const previewPort = 4174
 
 const profile = readFlag('--profile')
-if (profile !== 'digital' && profile !== 'print') {
-  console.error('Usage: tsx scripts/build-pdf.ts --profile digital|print')
+if (profile !== 'digital' && profile !== 'print' && profile !== 'digital-spread') {
+  console.error('Usage: tsx scripts/build-pdf.ts --profile digital|print|digital-spread')
   process.exit(1)
 }
 
 const outputPath = path.join(
   root,
   'output',
-  profile === 'print' ? 'document-print.pdf' : 'document-digital.pdf',
+  profile === 'print'
+    ? 'document-print.pdf'
+    : profile === 'digital-spread'
+      ? 'document-digital-spread.pdf'
+      : 'document-digital.pdf',
 )
 mkdirSync(path.dirname(outputPath), { recursive: true })
+
+const tempDigitalPath = path.join(root, 'output', '.document-digital-print-pass.pdf')
 
 /**
  * Page size and margins used by Chromium. They mirror paged.css (digital)
@@ -48,7 +55,19 @@ const preview = startPreview()
 let printFailed = false
 try {
   await waitForPort(previewPort)
-  await printSite(outputPath, profile)
+  if (profile === 'digital-spread') {
+    console.log('\n> Render A4 digital, then join spreads (post-process)')
+    await printSite(tempDigitalPath, 'digital')
+    const spreadBytes = await joinPdfSpreads(readFileSync(tempDigitalPath))
+    writeFileSync(outputPath, spreadBytes)
+    try {
+      unlinkSync(tempDigitalPath)
+    } catch {
+      /* keep temp if unlink fails */
+    }
+  } else {
+    await printSite(outputPath, profile)
+  }
 } catch (error) {
   console.error(error instanceof Error ? error.message : error)
   printFailed = true
@@ -57,7 +76,7 @@ try {
 }
 if (printFailed) process.exit(1)
 
-const report = inspectPdf(outputPath)
+const report = await inspectPdfResolved(outputPath)
 console.log(`\n${formatPdfReport(outputPath, report)}`)
 try {
   assertPdfProfile(profile, report)
@@ -84,7 +103,9 @@ function startPreview(): ChildProcess {
   return child
 }
 
-async function printSite(file: string, outputProfile: 'digital' | 'print') {
+type PdfOutputProfile = keyof typeof geometry
+
+async function printSite(file: string, outputProfile: PdfOutputProfile) {
   const browser = await chromium.launch()
   try {
     const page = await browser.newPage()

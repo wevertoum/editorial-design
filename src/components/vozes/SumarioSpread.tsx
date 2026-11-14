@@ -68,8 +68,9 @@ function SumarioNodeRow({ nodes }: NodeRowProps) {
   )
 }
 
-function readNodes(json: { nodes?: SumarioNode[] }) {
-  return (json.nodes ?? []) as SumarioNode[]
+function readNodes(json: unknown): SumarioNode[] {
+  const nodes = (json as { nodes?: SumarioNode[] }).nodes
+  return nodes ?? []
 }
 
 /** Sumário em dupla: eixo só com entradas principais; organizações sob o país. */

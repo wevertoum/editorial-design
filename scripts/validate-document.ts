@@ -27,6 +27,8 @@ const embeddedTimelineSources = new Set([
   'timelines/nigeria-cruzamento-1-b.json',
   'timelines/chile-cruzamento-1-a.json',
   'timelines/chile-cruzamento-1-b.json',
+  'timelines/sumario-spread-a.json',
+  'timelines/sumario-spread-b.json',
 ])
 
 const allowedComponents = new Set([

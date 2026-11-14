@@ -32,6 +32,7 @@ User-facing:
 | --- | --- |
 | `npm run dev` / `npm run visualizar` / `npm run editar` / `npm run dev:edit` | Vite site at http://127.0.0.1:5173. Hot reload. Editors say **visualizar** or **modo de edição** — same site. |
 | `npm run build` / `npm run gerar-pdf` | Validate, build the site, print it to `output/document-digital.pdf` (A4). Editors say **gerar renderização PDF**. |
+| `npm run gerar-pdf-leitura` / `npm run pdf:digital-spread` | Leitura digital: render A4 igual `gerar-pdf`, depois junta duplas em pós-processo — `output/document-digital-spread.pdf`. |
 | `npm run pdf:print` / `npm run gerar-pdf-grafica` | Same print, with bleed (`output/document-print.pdf`). No crop marks. |
 
 Maintainers:

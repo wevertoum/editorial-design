@@ -1,5 +1,6 @@
 import { spawnSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
+import { PDFDocument } from 'pdf-lib'
 
 export type MediaBox = [number, number, number, number]
 
@@ -11,8 +12,9 @@ export type PdfReport = {
   fonts: string[]
 }
 
-const A4_WIDTH_PT = 595.28
-const A4_HEIGHT_PT = 841.89
+import { A4_HEIGHT_PT, A4_WIDTH_PT, SPREAD_WIDTH_PT } from './join-pdf-spreads'
+
+const SPREAD_HEIGHT_PT = A4_HEIGHT_PT
 const TOLERANCE_PT = 8
 
 export function inspectPdf(file: string): PdfReport {
@@ -51,7 +53,31 @@ export function inspectPdf(file: string): PdfReport {
   }
 }
 
-export function assertPdfProfile(profile: 'digital' | 'print', report: PdfReport): void {
+/** Fallback when o PDF está compactado (ex.: pós-processo pdf-lib). */
+export async function inspectPdfResolved(file: string): Promise<PdfReport> {
+  const report = inspectPdf(file)
+  if (report.pageCount > 0 && report.mediaBoxes.length > 0) {
+    return report
+  }
+  const data = readFileSync(file)
+  const doc = await PDFDocument.load(data, { ignoreEncryption: true })
+  const pageCount = doc.getPageCount()
+  if (pageCount < 1) {
+    return report
+  }
+  const first = doc.getPage(0)
+  return {
+    ...report,
+    pageCount,
+    pageCountSource: 'pdf-lib',
+    mediaBoxes: [[0, 0, first.getWidth(), first.getHeight()]],
+  }
+}
+
+export function assertPdfProfile(
+  profile: 'digital' | 'print' | 'digital-spread',
+  report: PdfReport,
+): void {
   if (report.pageCount < 24) {
     throw new Error(
       `Expected at least 24 pages (full Organizações document), found ${report.pageCount} via ${report.pageCountSource}.`,
@@ -71,6 +97,18 @@ export function assertPdfProfile(profile: 'digital' | 'print', report: PdfReport
     if (!widthOk || !heightOk) {
       throw new Error(
         `Digital PDF media box is ${width.toFixed(2)} × ${height.toFixed(2)} pt. Expected A4 (${A4_WIDTH_PT} × ${A4_HEIGHT_PT}).`,
+      )
+    }
+    return
+  }
+
+  if (profile === 'digital-spread') {
+    const spreadWidthOk = Math.abs(width - SPREAD_WIDTH_PT) <= TOLERANCE_PT * 2
+    const singleWidthOk = Math.abs(width - A4_WIDTH_PT) <= TOLERANCE_PT
+    const heightOk = Math.abs(height - SPREAD_HEIGHT_PT) <= TOLERANCE_PT
+    if ((!spreadWidthOk && !singleWidthOk) || !heightOk) {
+      throw new Error(
+        `Digital spread PDF media box is ${width.toFixed(2)} × ${height.toFixed(2)} pt. Expected ~A4 or ~${SPREAD_WIDTH_PT} wide × ${SPREAD_HEIGHT_PT} tall.`,
       )
     }
     return

@@ -157,6 +157,6 @@
     box-shadow: none;
     break-inside: avoid;
     break-after: page;
-    background: white;
+    /* Fundo vem de .sheet (branco) ou das variantes layout-vozes-* em vozes.css — não forçar branco aqui (quebra expediente, folha verde, etc. no PDF). */
   }
 }
