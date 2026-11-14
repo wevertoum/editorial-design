@@ -12,14 +12,16 @@ type VozesGrafismoProps = {
   left?: string
   rotate?: number
   flipH?: boolean
+  flipV?: boolean
   /** Paletas derivadas do levantamento (sem alterar grupos padrão). */
-  tone?: 'sumario-lime' | 'sumario-roxo' | 'verde-roxo'
+  tone?: 'sumario-lime' | 'sumario-roxo' | 'verde-roxo' | 'lime-circle'
   className?: string
 }
 
 function grafismoSpriteId(group: VozesGrafismoGroupId, tone?: VozesGrafismoProps['tone']): string {
   if (tone === 'sumario-lime' && group === 'g05') return 'vozes-g05-sumario-lime'
   if (tone === 'sumario-roxo' && group === 'g05') return 'vozes-g05-sumario-roxo'
+  if (tone === 'lime-circle' && group === 'g05') return 'vozes-g05-lime-circle'
   if (tone === 'verde-roxo' && group === 'g01') return 'vozes-g01-verde-roxo'
   return `vozes-${group}`
 }
@@ -38,6 +40,7 @@ export function VozesGrafismo({
   left,
   rotate = 0,
   flipH = false,
+  flipV = false,
   tone,
   className,
 }: VozesGrafismoProps) {
@@ -45,6 +48,7 @@ export function VozesGrafismo({
   const extra = className?.trim() ? ` ${className.trim()}` : ''
   const transformParts = [
     flipH ? 'scaleX(-1)' : '',
+    flipV ? 'scaleY(-1)' : '',
     rotate ? `rotate(${rotate}deg)` : '',
   ].filter(Boolean)
   const hostStyle = {
@@ -55,7 +59,7 @@ export function VozesGrafismo({
     width: size,
     height: size,
     transform: transformParts.length > 0 ? transformParts.join(' ') : undefined,
-    transformOrigin: flipH || rotate ? 'center center' : undefined,
+    transformOrigin: flipH || flipV || rotate ? 'center center' : undefined,
   }
 
   return (

@@ -761,6 +761,7 @@ function decorate(page: HTMLElement, pageNumber: number, stripExistingFolio: boo
     page.classList.contains('layout-vozes-cover') ||
     page.classList.contains('layout-vozes-blank') ||
     page.classList.contains('layout-vozes-folha-rosto') ||
+    page.classList.contains('layout-vozes-roxa') ||
     page.querySelector(':scope .vozes-sumario')
   ) {
     page.dataset.folio = 'off'

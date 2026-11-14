@@ -3850,6 +3850,30 @@
   flex: 0 0 auto;
 }
 
+/* Reimagina f. 47 — miolo do cruzamento mais estreito (evita linhas longas na coluna dir.). */
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--chile-org-cruzamento {
+  --vozes-chile-cruzamento-body-max: 76mm;
+  --dual-track-col-gap: 9mm;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--chile-org-cruzamento
+  .dual-track-nodes {
+  column-gap: var(--dual-track-col-gap);
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--chile-org-cruzamento
+  .dual-track-node
+  .dual-track-body {
+  box-sizing: border-box;
+  max-width: var(--vozes-chile-cruzamento-body-max);
+}
+
 /* Nigéria — produção + etapas + parágrafo NCE (f. 35); participação + trajetória (f. 36). */
 .layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-producao {
   --stack-paragraph-vozes: 0.98em;
@@ -3992,6 +4016,30 @@
 /* Reimagina — abertura/Financiamento na f. 44; fecho NGO + A atuação (stack) na f. 45. */
 .layout-vozes-report .vozes-page.vozes-with-rail.vozes-chapter--chile-org .vozes-main {
   --stack-paragraph-vozes: 0.4em;
+  /* Coluna estreita ao lado do perfil (governança + 1.º § de Financiamento). */
+  --vozes-chile-org-narrow-rail: 46mm;
+}
+
+.layout-vozes-report
+  .vozes-page.vozes-with-rail.vozes-chapter--chile-org
+  .vozes-main
+  > .profile-card:not(.profile-card--horizontal)
+  ~ .vozes-chile-org-gov-grid,
+.layout-vozes-report
+  .vozes-page.vozes-with-rail.vozes-chapter--chile-org
+  .vozes-main
+  > .profile-card:not(.profile-card--horizontal)
+  ~ .vozes-chile-org-gov-grid
+  + h3,
+.layout-vozes-report
+  .vozes-page.vozes-with-rail.vozes-chapter--chile-org
+  .vozes-main
+  > .profile-card:not(.profile-card--horizontal)
+  ~ .vozes-chile-org-gov-grid
+  + h3
+  + p {
+  width: calc(100% - var(--vozes-chile-org-narrow-rail) - var(--vozes-grid-gutter));
+  max-width: calc(100% - var(--vozes-chile-org-narrow-rail) - var(--vozes-grid-gutter));
 }
 
 .layout-vozes-report .vozes-page.vozes-with-rail.vozes-chapter--chile-org .vozes-main > h3 {
