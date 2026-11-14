@@ -841,12 +841,16 @@
 .layout-vozes-report .vozes-main ul:not([class]),
 .layout-vozes-report .vozes-main ol:not([class]) {
   margin: 0 0 var(--stack-paragraph-vozes);
-  padding-left: calc(var(--vozes-detail-list-indent) + var(--vozes-detail-list-gutter));
+  padding-left: var(--vozes-detail-list-indent);
   list-style-position: outside;
 }
 
+.layout-vozes-report .vozes-main ol:not([class]) {
+  padding-left: calc(var(--vozes-detail-list-indent) + var(--vozes-detail-list-gutter));
+}
+
 .layout-vozes-report .vozes-main ul:not([class]) {
-  list-style-type: disc;
+  list-style: none;
 }
 
 .layout-vozes-report .vozes-main ol:not([class]) {
@@ -864,6 +868,32 @@
   font-size: var(--text-body);
   line-height: var(--text-leading);
   margin-bottom: var(--stack-detail-item);
+}
+
+.layout-vozes-report .vozes-main ul:not([class]) > li {
+  position: relative;
+  padding-left: var(--vozes-detail-list-gutter);
+}
+
+.layout-vozes-report .vozes-main ul:not([class]) > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: var(--vozes-bullet-row-align);
+  width: var(--vozes-bullet-glyph-size);
+  height: var(--vozes-bullet-glyph-size);
+  border: none;
+  border-radius: var(--vozes-bullet-glyph-radius);
+  background: var(--vozes-bullet-glyph-fill);
+  transform: rotate(45deg);
+  transform-origin: center center;
+  box-shadow: none;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.layout-vozes-report .vozes-main ul:not([class]) ul > li::before {
+  background: color-mix(in srgb, var(--vozes-bullet-glyph-fill) 72%, var(--color-vozes-verde-vivo));
 }
 
 .layout-vozes-report .vozes-main :is(ul, ol):not([class]) li:last-child {
@@ -1440,7 +1470,7 @@
   line-height: var(--vozes-milestone-line-height, 1.26);
 }
 
-/* Band label — rótulo de faixa: caixa alta, verde, menor que h3; filete após o texto. */
+/* Band label — padrão verde; Principais atores (ActorBand) usa roxo abaixo. */
 .layout-vozes-report .vozes-main .band-label {
   display: flex;
   align-items: center;
@@ -1480,6 +1510,15 @@
   padding: 0;
 }
 
+/* Principais atores — rótulo, filete e títulos de coluna em roxo (referência Nov/2026). */
+.layout-vozes-report .vozes-main .actor-band:not(.actor-band--examples) .band-label {
+  color: var(--color-vozes-roxo);
+}
+
+.layout-vozes-report .vozes-main .actor-band:not(.actor-band--examples) .actor-band-name {
+  color: var(--color-vozes-roxo);
+}
+
 .layout-vozes-report .vozes-main .actor-band-grid {
   display: grid;
   box-sizing: border-box;
@@ -1495,6 +1534,137 @@
   /* Gap uniforme entre colunas (e linhas, se houver wrap). */
   column-gap: 3.5mm;
   row-gap: 3.5mm;
+}
+
+/* Marcador + cabeçalho + corpo: subgrid alinha o topo dos parágrafos entre colunas. */
+.layout-vozes-report .vozes-main .actor-band:not(.actor-band--examples):not(.actor-band--icons) .actor-band-grid {
+  grid-template-rows: auto auto 1fr;
+  row-gap: 0;
+}
+
+.layout-vozes-report .vozes-main .actor-band-item--roles {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  align-content: start;
+  min-height: 0;
+  padding-inline: 3mm;
+  border-inline-start: 0.35pt solid color-mix(in srgb, var(--color-rule) 82%, white);
+}
+
+.layout-vozes-report .vozes-main .actor-band-grid[data-columns="1"] .actor-band-item--roles {
+  padding-inline: 0;
+  border-inline-start: none;
+}
+
+.layout-vozes-report .vozes-main .actor-band-grid[data-columns="2"] .actor-band-item--roles:not(:nth-child(2n + 1)) {
+  border-inline-start-width: 0.35pt;
+}
+
+.layout-vozes-report .vozes-main .actor-band-grid[data-columns="2"] .actor-band-item--roles:nth-child(2n + 1) {
+  padding-inline-start: 0;
+  border-inline-start: none;
+}
+
+.layout-vozes-report .vozes-main .actor-band-grid[data-columns="3"] .actor-band-item--roles:not(:nth-child(3n + 1)) {
+  border-inline-start-width: 0.35pt;
+}
+
+.layout-vozes-report .vozes-main .actor-band-grid[data-columns="3"] .actor-band-item--roles:nth-child(3n + 1) {
+  padding-inline-start: 0;
+  border-inline-start: none;
+}
+
+.layout-vozes-report .vozes-main .actor-band-grid[data-columns="4"] .actor-band-item--roles:not(:nth-child(4n + 1)) {
+  border-inline-start-width: 0.35pt;
+}
+
+.layout-vozes-report .vozes-main .actor-band-grid[data-columns="4"] .actor-band-item--roles:nth-child(4n + 1) {
+  padding-inline-start: 0;
+  border-inline-start: none;
+}
+
+.layout-vozes-report .vozes-main .actor-band-grid[data-columns="5"] .actor-band-item--roles:not(:nth-child(5n + 1)) {
+  border-inline-start-width: 0.35pt;
+}
+
+.layout-vozes-report .vozes-main .actor-band-grid[data-columns="5"] .actor-band-item--roles:nth-child(5n + 1) {
+  padding-inline-start: 0;
+  border-inline-start: none;
+}
+
+.layout-vozes-report .vozes-main .actor-band-grid[data-columns="6"] .actor-band-item--roles:not(:nth-child(6n + 1)) {
+  border-inline-start-width: 0.35pt;
+}
+
+.layout-vozes-report .vozes-main .actor-band-grid[data-columns="6"] .actor-band-item--roles:nth-child(6n + 1) {
+  padding-inline-start: 0;
+  border-inline-start: none;
+}
+
+.layout-vozes-report .vozes-main .actor-band-marker {
+  display: block;
+  width: 7.5mm;
+  height: 7.5mm;
+  margin: 0 0 2.5mm;
+  line-height: 0;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.layout-vozes-report .vozes-main .actor-band-marker-shape {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background: var(--actor-band-marker-fill, var(--color-vozes-roxo));
+  border-bottom-left-radius: 100%;
+  transform: rotate(var(--actor-band-marker-rotate, 0deg));
+  transform-origin: center center;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* Rodapé fixo (AU p. 10, EUA p. 18): marcadores um pouco menores — menos risco de estourar a folha. */
+.layout-vozes-report .vozes-main .actor-band.vozes-page-stack-foot .actor-band-marker {
+  width: 7mm;
+  height: 7mm;
+  margin-bottom: 2.25mm;
+}
+
+.layout-vozes-report .vozes-main .actor-band.vozes-page-stack-foot .actor-band-label {
+  margin-bottom: 5mm;
+}
+
+.layout-vozes-report .vozes-main .actor-band-item--roles .actor-band-head {
+  margin-bottom: 0;
+  align-self: start;
+}
+
+.layout-vozes-report .vozes-main .actor-band-item--roles .actor-band-body {
+  align-self: start;
+  margin-top: 2.5mm;
+}
+
+/* Segunda fileira+ (ex. Chile 3+2): todos os itens da fileira ganham o mesmo respiro — marcadores alinhados. */
+.layout-vozes-report .vozes-main .actor-band-grid[data-columns="2"] .actor-band-item--roles:nth-child(n + 3) {
+  margin-block-start: var(--vozes-actor-band-wrap-gap);
+}
+
+.layout-vozes-report .vozes-main .actor-band-grid[data-columns="3"] .actor-band-item--roles:nth-child(n + 4) {
+  margin-block-start: var(--vozes-actor-band-wrap-gap);
+}
+
+.layout-vozes-report .vozes-main .actor-band-grid[data-columns="4"] .actor-band-item--roles:nth-child(n + 5) {
+  margin-block-start: var(--vozes-actor-band-wrap-gap);
+}
+
+.layout-vozes-report .vozes-main .actor-band-grid[data-columns="5"] .actor-band-item--roles:nth-child(n + 6) {
+  margin-block-start: var(--vozes-actor-band-wrap-gap);
+}
+
+.layout-vozes-report .vozes-main .actor-band-grid[data-columns="6"] .actor-band-item--roles:nth-child(n + 7) {
+  margin-block-start: var(--vozes-actor-band-wrap-gap);
 }
 
 .layout-vozes-report .vozes-main .actor-band-grid[data-columns="1"] {
@@ -2126,31 +2296,32 @@
   color: var(--color-vozes-roxo-2);
 }
 
-/* Hierarquia org — pílula ícone + rótulo (referência editorial Achieve). */
+/* Hierarquia org — marcador gráfico + rótulo (sem stroke/sombra). */
 .layout-vozes-report .vozes-main > p:has(+ .org-hierarchy-flow) {
   margin-bottom: 1.5mm;
 }
 
 .layout-vozes-report .vozes-main > .org-hierarchy-flow {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 7mm minmax(0, max-content);
+  column-gap: 3mm;
+  row-gap: 0;
   align-items: center;
-  gap: 0;
   box-sizing: border-box;
   clear: none;
   float: none;
-  width: 100%;
+  width: fit-content;
   max-width: 100%;
   min-width: 0;
   margin: 0 0 1.5mm;
-  padding-bottom: 0.5mm;
+  padding: 0;
   break-inside: avoid;
 }
 
-/*
- * Com ProfileCard flutuando à direita: bloco a 100% invade a faixa do float
- * e o motor desloca o diagrama para baixo do card — sobra branco e o fluxo vaza da página.
- */
+.layout-vozes-report .vozes-main .org-hierarchy-flow-step {
+  display: contents;
+}
+
 .layout-vozes-report
   .vozes-page.vozes-with-rail
   .vozes-main
@@ -2161,40 +2332,6 @@
   margin-top: 4mm;
   margin-inline: 0;
   align-items: flex-start;
-}
-
-.layout-vozes-report
-  .vozes-page.vozes-with-rail
-  .vozes-main
-  > .profile-card:not(.profile-card--horizontal)
-  ~ .org-hierarchy-flow
-  .org-hierarchy-flow-item {
-  align-items: flex-start;
-  width: auto;
-  max-width: 100%;
-}
-
-.layout-vozes-report
-  .vozes-page.vozes-with-rail
-  .vozes-main
-  > .profile-card:not(.profile-card--horizontal)
-  ~ .org-hierarchy-flow
-  .org-hierarchy-pill {
-  margin-inline: 0;
-}
-
-.layout-vozes-report
-  .vozes-page.vozes-with-rail
-  .vozes-main
-  > .profile-card:not(.profile-card--horizontal)
-  ~ .org-hierarchy-flow
-  .org-hierarchy-flow-arrow {
-  display: block;
-  width: max-content;
-  margin: 0.05mm 0 0.1mm;
-  margin-left: 4.75mm;
-  text-align: left;
-  align-self: flex-start;
 }
 
 /* CON — órgãos de governança ao lado do ProfileCard (não descem para largura plena). */
@@ -2231,89 +2368,52 @@
   clear: both;
 }
 
-.layout-vozes-report .vozes-main .org-hierarchy-flow-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
+.layout-vozes-report .vozes-main .org-hierarchy-marker.actor-band-marker {
+  grid-column: 1;
+  width: 7mm;
+  height: 7mm;
+  margin: 0;
+  justify-self: center;
+  align-self: center;
 }
 
-.layout-vozes-report .vozes-main .org-hierarchy-pill {
-  display: grid;
-  grid-template-columns: 10mm minmax(0, max-content);
-  align-items: stretch;
-  width: max-content;
-  max-width: 100%;
-  margin-inline: auto;
-  min-height: 8.25mm;
-  border-radius: 4.25mm;
-  overflow: hidden;
-  box-shadow: 0 0.2mm 0.6mm color-mix(in srgb, var(--color-vozes-roxo) 12%, transparent);
-  print-color-adjust: exact;
-  -webkit-print-color-adjust: exact;
-}
-
-.layout-vozes-report .vozes-main .org-hierarchy-pill-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 1.5mm;
-  color: #fff;
-}
-
-.layout-vozes-report .vozes-main .org-hierarchy-pill--0 .org-hierarchy-pill-icon {
-  background: var(--org-hierarchy-icon-tone-0);
-}
-
-.layout-vozes-report .vozes-main .org-hierarchy-pill--1 .org-hierarchy-pill-icon {
-  background: var(--org-hierarchy-icon-tone-1);
-}
-
-.layout-vozes-report .vozes-main .org-hierarchy-pill--2 .org-hierarchy-pill-icon {
-  background: var(--org-hierarchy-icon-tone-2);
-}
-
-.layout-vozes-report .vozes-main .org-hierarchy-pill--3 .org-hierarchy-pill-icon {
-  background: var(--org-hierarchy-icon-tone-3);
-}
-
-.layout-vozes-report .vozes-main .org-hierarchy-flow-item:last-child .org-hierarchy-pill {
-  box-shadow: none;
-}
-
-.layout-vozes-report .vozes-main .org-hierarchy-pill-glyph {
-  font-size: 4.5mm;
-  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 20;
-}
-
-.layout-vozes-report .vozes-main .org-hierarchy-pill-label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.layout-vozes-report .vozes-main .org-hierarchy-label {
+  grid-column: 2;
+  display: block;
   box-sizing: border-box;
-  padding: 1.4mm 4mm 1.4mm 3.25mm;
+  padding: 1.25mm 3.5mm;
+  margin: 0;
+  border: none;
+  border-radius: 3.5mm;
   background: var(--org-hierarchy-label-fill);
   font-family: var(--font-sans);
   font-size: 7.25pt;
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: 0.045em;
-  text-align: center;
+  text-align: left;
   text-transform: uppercase;
   color: var(--color-vozes-roxo);
   white-space: nowrap;
+  box-shadow: none;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }
 
 .layout-vozes-report .vozes-main .org-hierarchy-flow-arrow {
+  grid-column: 2;
+  justify-self: center;
+  align-self: center;
   display: block;
-  margin: 0.05mm auto 0.08mm;
-  text-align: center;
-  font-size: 3.5mm;
-  line-height: 0.85;
-  color: color-mix(in srgb, var(--color-vozes-roxo-2) 72%, var(--color-vozes-roxo));
-  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 18;
+  width: 0;
+  height: 0;
+  margin: 1.1mm 0;
+  border: none;
+  border-left: 1.35mm solid transparent;
+  border-right: 1.35mm solid transparent;
+  border-top: 1.75mm solid var(--color-vozes-roxo-2);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }
 
 .facts-rail-list {
@@ -2351,14 +2451,19 @@
 }
 
 .detail-list-item:has(> p)::before {
-  content: "•";
+  content: "";
   grid-column: 1;
   grid-row: 1;
   align-self: start;
-  text-align: center;
-  line-height: var(--text-leading);
-  color: var(--color-vozes-verde-vivo);
-  font-weight: 700;
+  justify-self: center;
+  width: var(--vozes-bullet-glyph-size);
+  height: var(--vozes-bullet-glyph-size);
+  margin-top: var(--vozes-bullet-row-align);
+  border: none;
+  border-radius: var(--vozes-bullet-glyph-radius);
+  background: var(--vozes-bullet-glyph-fill);
+  transform: rotate(45deg);
+  box-shadow: none;
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
 }
@@ -2369,13 +2474,41 @@
 
 /* Bundle/inventory: strong + texto corrido inline, sem <p>. */
 .detail-list-item:not(:has(> p))::before {
-  content: "•";
+  content: "";
+  display: inline-block;
+  flex-shrink: 0;
+  width: var(--vozes-bullet-glyph-size);
+  height: var(--vozes-bullet-glyph-size);
+  margin-right: calc(var(--vozes-detail-list-gutter) - var(--vozes-bullet-glyph-size));
   margin-left: calc(-1 * var(--vozes-detail-list-gutter));
-  padding-right: calc(var(--vozes-detail-list-gutter) - 0.35em);
-  color: var(--color-vozes-verde-vivo);
-  font-weight: 700;
+  vertical-align: middle;
+  border: none;
+  border-radius: var(--vozes-bullet-glyph-radius);
+  background: var(--vozes-bullet-glyph-fill);
+  transform: rotate(45deg);
+  box-shadow: none;
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
+}
+
+/* A atuação e exemplos sem marcador — título + corpo alinhados à prosa. */
+.layout-vozes-report .vozes-main .vozes-detail-list-grid--no-bullets .detail-list-item:has(> p)::before,
+.layout-vozes-report .vozes-main .vozes-detail-list-grid--no-bullets .detail-list-item:not(:has(> p))::before,
+.layout-vozes-report .vozes-main .detail-list-item--no-bullet:has(> p)::before,
+.layout-vozes-report .vozes-main .detail-list-item--no-bullet:not(:has(> p))::before {
+  content: none;
+  display: none;
+}
+
+.layout-vozes-report .vozes-main .vozes-detail-list-grid--no-bullets .detail-list-item:has(> p),
+.layout-vozes-report .vozes-main .detail-list-item--no-bullet:has(> p) {
+  grid-template-columns: minmax(0, 1fr);
+  padding-left: var(--vozes-detail-list-body-inset);
+}
+
+.layout-vozes-report .vozes-main .vozes-detail-list-grid--no-bullets .detail-list-item,
+.layout-vozes-report .vozes-main .detail-list-item--no-bullet:not(.detail-list-item--icon) {
+  padding-left: var(--vozes-detail-list-body-inset);
 }
 
 /* Ícone editorial no lugar do bullet (ex.: fases do currículo AU). */
@@ -2598,6 +2731,11 @@
 
 .layout-vozes-report .vozes-main .vozes-detail-list-grid .detail-list-item:has(> p) {
   padding-left: var(--vozes-detail-list-indent);
+}
+
+.layout-vozes-report .vozes-main .vozes-detail-list-grid--no-bullets .detail-list-item,
+.layout-vozes-report .vozes-main .vozes-detail-list-grid--no-bullets .detail-list-item:has(> p) {
+  padding-left: var(--vozes-detail-list-body-inset);
 }
 
 /* Quebra de página editorial dentro da folha (ex.: início de subtítulo). */
@@ -2952,6 +3090,20 @@
 
 .layout-vozes-report .vozes-main > .vozes-page-stack--usa-opening .actor-band-name {
   font-size: 8.5pt;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--usa-opening .actor-band-marker {
+  width: 6.5mm;
+  height: 6.5mm;
+  margin-bottom: 2mm;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--usa-opening .actor-band-label {
+  margin-bottom: 4.5mm;
+}
+
+.layout-vozes-report .vozes-main > .vozes-page-stack--usa-opening .actor-band-item--roles .actor-band-body {
+  margin-top: 2mm;
 }
 
 /* EUA p. 19 — «Como produzidos» + trajetória numa folha. */

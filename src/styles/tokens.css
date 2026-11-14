@@ -109,13 +109,22 @@
   --stack-detail-item: var(--space-1);
   /* DetailList / DetailListGrid — bullets e blocos especiais (relatório Vozes) */
   --vozes-detail-list-indent: 4mm;
-  --vozes-detail-list-gutter: 3.5mm;
+  --vozes-detail-list-gutter: 4.5mm;
+  /* Onde não há losango (ex.: A atuação) — mesmo alinhamento do corpo das listas com marcador. */
+  --vozes-detail-list-body-inset: calc(var(--vozes-detail-list-indent) + var(--vozes-detail-list-gutter));
   --vozes-detail-list-icon-gutter: 6.5mm;
   --vozes-detail-list-icon-gap: 7.5mm;
   --vozes-detail-list-icon-size: 6mm;
+  /* Losango arredondado (g08) — DetailList e listas ul no miolo. */
+  --vozes-bullet-glyph-size: 1.85mm;
+  --vozes-bullet-glyph-radius: 0.52mm;
+  --vozes-bullet-glyph-fill: var(--color-vozes-verde);
+  --vozes-bullet-row-align: calc(0.5lh - var(--vozes-bullet-glyph-size) / 2);
   --stack-detail-item-vozes: 1.5mm;
   --vozes-detail-grid-width: 0.76;
   --stack-before-detail-grid: 5.5mm;
+  /** ActorBand em mais de uma fileira: espaço entre corpo de cima e marcadores da fileira seguinte. */
+  --vozes-actor-band-wrap-gap: 5.5mm;
   --vozes-list-nest-indent: var(--space-4);
   /* Abertura de país: faixa modular ao lado do título (substitui bandeira empilhada). */
   --stack-country-code: 9mm;

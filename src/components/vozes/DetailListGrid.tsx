@@ -11,6 +11,8 @@ type DetailListGridProps = {
   markerLigature?: string
   /** Segundo ícone no mesmo círculo (ex.: `attach_money`). */
   markerLigatureAlt?: string
+  /** Exemplos de atuação e similares — sem losango no item. Padrão: true. */
+  bullets?: boolean
   className?: string
 }
 
@@ -21,6 +23,7 @@ export function DetailListGrid({
   width = 'narrow',
   markerLigature,
   markerLigatureAlt,
+  bullets = true,
   className,
 }: DetailListGridProps) {
   const colClass =
@@ -33,6 +36,7 @@ export function DetailListGrid({
     'vozes-detail-list-grid',
     colClass,
     width === 'full' ? 'vozes-detail-list-grid--full' : '',
+    bullets === false ? 'vozes-detail-list-grid--no-bullets' : '',
     className?.trim() ?? '',
   ]
     .filter(Boolean)

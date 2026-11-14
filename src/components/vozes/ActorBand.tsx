@@ -1,4 +1,5 @@
 import { renderInlineText } from '../../content/renderRuns'
+import { ActorBandMarker } from './ActorBandMarker'
 import { MaterialSymbol } from './MaterialSymbol'
 
 type ActorBandProps = {
@@ -43,6 +44,8 @@ export function ActorBand({ title, items, icons, columns = 4, className }: Actor
   const colCount = Math.max(1, Math.min(columns, items.length))
   const extra = className?.trim() ? ` ${className.trim()}` : ''
   const hasIcons = Boolean(icons?.length)
+  const isExamples = /\bactor-band--examples\b/.test(extra)
+  const showRoleMarkers = !hasIcons && !isExamples
 
   return (
     <section
@@ -84,7 +87,12 @@ export function ActorBand({ title, items, icons, columns = 4, className }: Actor
           }
 
           return (
-            <div className="actor-band-item" role="listitem" key={index}>
+            <div
+              className={`actor-band-item${showRoleMarkers ? ' actor-band-item--roles' : ''}`}
+              role="listitem"
+              key={index}
+            >
+              {showRoleMarkers ? <ActorBandMarker index={index} /> : null}
               {head}
               {bodyEl}
             </div>
