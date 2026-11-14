@@ -123,24 +123,40 @@ async function printSite(file: string, outputProfile: PdfOutputProfile) {
       throw new Error('O site não paginou nenhuma folha A4 antes da impressão.')
     }
     await page.emulateMedia({ media: 'print' })
+    const box = geometry[outputProfile]
+    const printOverride =
+      outputProfile === 'digital'
+        ? '@page { size: 210mm 297mm; margin: 0; }'
+        : '@page { size: 216mm 303mm; margin: 0; }'
     await page.addStyleTag({
       content: [
-        '@page { margin: 0; }',
+        printOverride,
         '@page :first { margin: 0; }',
         '@page :left { margin: 0; }',
         '@page :right { margin: 0; }',
+        'html, body, #root, .desk { margin: 0 !important; padding: 0 !important; }',
       ].join('\n'),
     })
-    const box = geometry[outputProfile]
-    await page.pdf({
-      path: file,
-      width: box.width,
-      height: box.height,
-      margin: box.margin,
-      printBackground: true,
-      preferCSSPageSize: false,
-      displayHeaderFooter: false,
-    })
+    const pdfOptions =
+      outputProfile === 'digital'
+        ? {
+            path: file,
+            format: 'A4' as const,
+            margin: box.margin,
+            printBackground: true,
+            preferCSSPageSize: true,
+            displayHeaderFooter: false,
+          }
+        : {
+            path: file,
+            width: box.width,
+            height: box.height,
+            margin: box.margin,
+            printBackground: true,
+            preferCSSPageSize: true,
+            displayHeaderFooter: false,
+          }
+    await page.pdf(pdfOptions)
   } finally {
     await browser.close()
   }
