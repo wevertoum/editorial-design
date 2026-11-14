@@ -158,15 +158,23 @@ def join_pdf_spreads(input_path: Path, output_path: Path) -> None:
             expand=False,
         )
 
+    source_sumario_links = 0
+    for sheet_index in (3, 4):
+        if sheet_index < page_count:
+            source_sumario_links += len(reader.pages[sheet_index].get("/Annots") or [])
+    if source_sumario_links < 10:
+        raise ValueError(
+            "O PDF A4 não tem links no sumário (folhas 4–5). "
+            "O export do Chromium precisa de href `#page-N` nos itens do sumário."
+        )
+
     remap_sumario_destinations(writer, page_count)
 
     sumario_spread_index = folio_to_output_page(4, page_count)
-    sumario_page = writer.pages[sumario_spread_index]
-    sumario_links = sumario_page.get("/Annots") or []
+    sumario_links = writer.pages[sumario_spread_index].get("/Annots") or []
     if len(sumario_links) < 10:
         raise ValueError(
-            "PDF spread sem links internos no sumário (esperado ≥10). "
-            "Regenere o A4 digital antes de juntar duplas."
+            f"Junção das duplas perdeu links do sumário ({len(sumario_links)} < 10)."
         )
 
     with output_path.open("wb") as handle:

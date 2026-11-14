@@ -1,4 +1,4 @@
-import { folioToReadingUnitNumber, folioToReadingHash } from './readingSpreadPlan'
+import { folioToReadingUnitNumber } from './readingSpreadPlan'
 
 const PAGE_HASH_RE = /^#page-(\d+)$/
 const READING_HASH_RE = /^#reading-(\d+)$/
@@ -25,16 +25,29 @@ export function scrollToReadingUnit(unitNumber: number, behavior: ScrollBehavior
   return true
 }
 
-function applySumarioHrefs(pageCount: number): void {
+/** Só marca o fólio; o href fica `#page-N` para o Chromium gerar `/Dest` no PDF. */
+function stampSumarioFolioLinks(): void {
   document.querySelectorAll<HTMLAnchorElement>('.sumario-entry-link[href]').forEach((link) => {
     const href = link.getAttribute('href') ?? ''
     const match = href.match(PAGE_HASH_RE) ?? (href.includes('#page-') ? href.match(/#page-(\d+)$/) : null)
-    if (!match) return
+    if (!match) {
+      const reading = href.match(READING_HASH_RE)
+      if (reading) link.dataset.folio = String(folioFromReadingUnit(Number(reading[1])))
+      return
+    }
     const folio = Number(match[1])
     if (!Number.isFinite(folio)) return
-    link.setAttribute('href', folioToReadingHash(folio, pageCount))
     link.dataset.folio = String(folio)
   })
+}
+
+function folioFromReadingUnit(unit: number): number | null {
+  const spread = document.getElementById(`reading-${unit}`)
+  if (!spread) return null
+  const leaf = spread.querySelector<HTMLElement>('.sheet-page[id^="page-"]')
+  const id = leaf?.id ?? ''
+  const m = id.match(/^page-(\d+)$/)
+  return m ? Number(m[1]) : null
 }
 
 function onSumarioClick(event: MouseEvent): void {
@@ -88,8 +101,7 @@ export function installSumarioReadingNav(): void {
   if (document.documentElement.dataset.pagesReady !== '1') return
   teardownSumarioReadingNav()
 
-  const pageCount = pageCountFromDocument()
-  if (pageCount > 0) applySumarioHrefs(pageCount)
+  stampSumarioFolioLinks()
 
   document.addEventListener('click', onSumarioClick)
   window.addEventListener('hashchange', scrollFromLocationHash)
