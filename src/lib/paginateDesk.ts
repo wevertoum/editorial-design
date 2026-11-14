@@ -749,6 +749,7 @@ function spreadPad(): HTMLElement {
 
 function decorate(page: HTMLElement, pageNumber: number, stripExistingFolio: boolean) {
   page.classList.add('sheet-page')
+  page.id = `page-${pageNumber}`
   page.dataset.pageSide = pageNumber % 2 === 1 ? 'right' : 'left'
   page.dataset.page = String(pageNumber)
   if (stripExistingFolio) page.querySelectorAll(':scope > .folio').forEach((node) => node.remove())

@@ -18,6 +18,10 @@ type NodeRowProps = {
   nodes: SumarioNode[]
 }
 
+function sumarioPageHref(year: string): string {
+  return `#page-${year}`
+}
+
 function SumarioNodeRow({ nodes }: NodeRowProps) {
   const columnCount = nodes.length
   return (
@@ -28,17 +32,31 @@ function SumarioNodeRow({ nodes }: NodeRowProps) {
     >
       {nodes.map((node) => (
         <li key={node.id} className="dual-track-node sumario-entry--main">
-          <p className="dual-track-year">{node.year}</p>
+          <p className="dual-track-year">
+            <a className="sumario-entry-link" href={sumarioPageHref(node.year)}>
+              {node.year}
+            </a>
+          </p>
           <div className="dual-track-body">
             <p className="dual-track-curriculo sumario-spread-label sumario-spread-label--main">
-              {renderInlineText(node.curriculo)}
+              <a className="sumario-entry-link" href={sumarioPageHref(node.year)}>
+                {renderInlineText(node.curriculo)}
+              </a>
             </p>
             {node.children && node.children.length > 0 ? (
               <div className="sumario-org-stack">
                 {node.children.map((child) => (
                   <div key={child.id} className="sumario-org-entry">
-                    <p className="sumario-org-page">{child.year}</p>
-                    <p className="sumario-org-label">{renderInlineText(child.curriculo)}</p>
+                    <p className="sumario-org-page">
+                      <a className="sumario-entry-link" href={sumarioPageHref(child.year)}>
+                        {child.year}
+                      </a>
+                    </p>
+                    <p className="sumario-org-label">
+                      <a className="sumario-entry-link" href={sumarioPageHref(child.year)}>
+                        {renderInlineText(child.curriculo)}
+                      </a>
+                    </p>
                   </div>
                 ))}
               </div>

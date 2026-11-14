@@ -648,6 +648,27 @@
   color: var(--color-vozes-roxo);
 }
 
+/* Sumário: links para folha alvo — clicável, sem mudar cor nem sublinhado do combinado. */
+.layout-vozes-report .vozes-page.vozes-sumario .sumario-entry-link {
+  color: inherit;
+  font: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.layout-vozes-report .vozes-page.vozes-sumario .sumario-entry-link:visited {
+  color: inherit;
+}
+
+@media print {
+  .layout-vozes-report .vozes-page.vozes-sumario .sumario-entry-link {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
 /* Grade Vozes (6 colunas lógicas): prosa ~9/11 · gutter 4,5 mm · rail ~2/11 (entre 4/6 e 5/6 de prosa) */
 .layout-vozes-report {
   --vozes-grid-gutter: 4.5mm;
