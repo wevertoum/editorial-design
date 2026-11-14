@@ -285,6 +285,7 @@ export function renderFlowBlocks(blocks: FlowBlock[], sectionId: string): ReactN
     hasProfile || rail.length > 0 ? 'vozes-with-rail' : 'vozes-prose-only',
     isFront ? 'vozes-front-matter' : '',
     sectionId === 'apresentacao' ? 'vozes-chapter--apresentacao' : '',
+    sectionId === 'resumo-executivo' ? 'vozes-chapter--resumo-executivo' : '',
   ]
     .filter(Boolean)
     .join(' ')

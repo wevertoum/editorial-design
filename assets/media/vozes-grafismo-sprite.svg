@@ -118,6 +118,34 @@
     <rect class="cls-7" x="477.79" y="565.46" width="98.96" height="98.96" transform="translate(-87.869 1141.9856) rotate(-89.9785)"/>
     <rect class="cls-1" x="505.28" y="592.95" width="43.98" height="43.98" rx="12.16" ry="12.16" transform="translate(464.9687 1422.5881) rotate(-134.9779)"/>
   </g>
+  <g id="vozes-resumoJuncao">
+    <rect class="cls-7" x="334.86" y="659.68" width="98.96" height="98.96" transform="translate(-324.965 1093.2258) rotate(-89.9785)"/>
+    <rect class="cls-3" x="235.9" y="659.64" width="98.96" height="98.96" transform="translate(-423.85 994.23) rotate(-89.98)"/>
+    <rect class="cls-4" x="235.9" y="659.64" width="98.96" height="98.96" rx="49.48" ry="49.48" transform="translate(-423.85 994.23) rotate(-89.98)"/>
+    <path class="cls-4" d="M334.89,560.72h0c54.62,0,98.96,44.34,98.96,98.96h0c-54.62,0-98.96-44.34-98.96-98.96h0Z" transform="translate(-225.97 994.34) rotate(-89.98)"/>
+    <path class="cls-1" d="M235.94,560.68h49.47c27.31,0,49.48,22.17,49.48,49.48h0c0,27.31-22.17,49.48-49.48,49.48h-49.47V560.68H235.94Z" transform="translate(-324.85 895.35) rotate(-89.98)"/>
+    <rect class="cls-3" x="532.77" y="659.75" width="98.96" height="98.96" transform="translate(-127.198 1291.2153) rotate(-89.9785)"/>
+    <rect class="cls-2" x="532.77" y="659.75" width="98.96" height="98.96" rx="49.48" ry="49.48" transform="translate(-127.198 1291.2153) rotate(-89.9785)"/>
+    <rect class="cls-5" x="433.81" y="659.71" width="98.96" height="98.96" transform="translate(-226.0814 1192.2206) rotate(-89.9785)"/>
+    <rect class="cls-7" x="532.81" y="560.79" width="98.96" height="98.96" transform="translate(-28.2032 1192.3318) rotate(-89.9785)"/>
+    <path class="cls-2" d="M631.77,560.79h0v98.96h-98.96C532.81,605.14,577.15,560.79,631.77,560.79Z" transform="translate(-28.2032 1192.3318) rotate(-89.9785)"/>
+    <rect class="cls-1" x="631.73" y="659.79" width="98.96" height="98.96" transform="translate(-28.3146 1390.21) rotate(-89.9785)"/>
+    <path class="cls-7" d="M631.71,758.73l.04-98.96h0c27.32.01,49.47,22.17,49.46,49.5h0C681.2,736.59,659.04,758.74,631.71,758.73H631.71Z"/>
+    <rect class="cls-7" x="631.77" y="560.83" width="98.96" height="98.96" transform="translate(70.6802 1291.3265) rotate(-89.9785)"/>
+    <polygon class="cls-4" points="730.71 659.81 631.75 659.77 631.79 560.81 730.71 659.81"/>
+    <rect class="cls-6" x="433.85" y="560.76" width="98.96" height="98.96" transform="translate(-127.0867 1093.3371) rotate(-89.9785)"/>
+    <path class="cls-1" d="M334.86,659.68h0c54.61,0,98.95,44.34,98.95,98.95h-98.95V659.68H334.86Z" transform="translate(-324.965 1093.2258) rotate(-89.9785)"/>
+    <rect class="cls-7" x="632.04" y="460.94" width="98.96" height="98.96" transform="translate(170.8431 1191.7396) rotate(-89.9785)"/>
+    <rect class="cls-7" x="533.08" y="460.9" width="98.96" height="98.96" transform="translate(71.9597 1092.7449) rotate(-89.9785)"/>
+    <rect class="cls-4" x="533.08" y="460.9" width="98.96" height="98.96" rx="49.48" ry="49.48" transform="translate(71.9597 1092.7449) rotate(-89.9785)"/>
+    <path class="cls-4" d="M632.07,361.98h0c54.62,0,98.96,44.34,98.96,98.96h0c-54.62,0-98.96-44.34-98.96-98.96h0Z" transform="translate(269.8379 1092.8561) rotate(-89.9785)"/>
+    <path class="cls-1" d="M533.12,361.94h49.47c27.31,0,49.48,22.17,49.48,49.48h0c0,27.31-22.17,49.48-49.48,49.48h-49.47V361.94H533.12Z" transform="translate(170.95 993.86) rotate(-89.98)"/>
+    <path class="cls-3" d="M632.04,460.94h0c54.61,0,98.95,44.34,98.95,98.95h-98.95V460.94H632.04Z" transform="translate(170.8431 1191.7396) rotate(-89.9785)"/>
+    <path class="cls-4" d="M532.79,659.73h0c-.02,54.66-44.34,98.94-98.99,98.92h0l.03-98.95L532.79,659.73Z"/>
+    <rect class="cls-7" x="433.85" y="560.76" width="98.96" height="98.96" transform="translate(-127.0867 1093.3371) rotate(-89.9785)"/>
+    <rect class="cls-1" x="461.34" y="588.25" width="43.98" height="43.98" rx="12.16" ry="12.16" transform="translate(393.297 1383.4684) rotate(-134.9779)"/>
+    <rect class="cls-1" x="660.65" y="277.51" width="43.98" height="43.98" rx="12.16" ry="12.16" transform="translate(953.29 994.08) rotate(-134.98)"/>
+  </g>
   <rect id="vozes-g08" class="cls-1" x="103.53" y="108.02" width="43.98" height="43.98" rx="12.16" ry="12.16" transform="translate(122.27 310.69) rotate(-134.98)"/>
   <g id="vozes-g09">
     <rect class="cls-sumario-verde-escuro" x="1086.99" y="69.71" width="54.67" height="54.67"/>

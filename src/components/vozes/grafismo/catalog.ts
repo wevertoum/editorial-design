@@ -37,6 +37,11 @@ export const VOZES_GRAFISMO_GROUPS = {
     label: 'Coluna vertical modular (faixa lateral)',
     viewBox: '1086.89 42.37 54.79 709.4',
   },
+  /** Junção do canto inf. dir. — `SVG/Mesa de trabajo 1 copy 3.svg` (artboard esquerda). */
+  resumoJuncao: {
+    label: 'Juncão modular canto inf. dir. (resumo p. 9)',
+    viewBox: '235 277 496 482',
+  },
 } as const
 
 export type VozesGrafismoGroupId = keyof typeof VOZES_GRAFISMO_GROUPS

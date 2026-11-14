@@ -52,6 +52,8 @@ const allowedComponents = new Set([
   'ParticipationBox',
   'ProfileCard',
   'PullQuote',
+  'ResumoFinding',
+  'ResumoFindingGrid',
   'RailItem',
   'SourceNote',
   'SumarioSpread',

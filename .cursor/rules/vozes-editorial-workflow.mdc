@@ -30,8 +30,8 @@ Tudo o que a editora pediu e ficou combinado — texto, componentes (`ProfileCar
 Quando a editora ajusta **uma** página (largura de coluna, bullets, quebra, espaço antes de lista, perfil no rail), tratar como **sistema do relatório**, não exceção pontual.
 
 1. **Generalizar primeiro** — tokens (`tokens.css`), grade (`vozes.css`, `--vozes-rail-to-prose`, `--vozes-prose-track`), componente (`DetailListGrid`, `PageStack`, `Heading` + `vozes-page-start`). Evitar CSS ou largura só num parágrafo.
-2. **Repetir onde couber** — após fechar o pedido na página citada, varrer capítulos **parecidos** (`*-org.mdx`, miolos de país `*.mdx`, `resumo-executivo`, etc.) e alinhar ao mesmo padrão quando o conteúdo for do mesmo tipo (lista após intro, financiamento, exemplos de atuação, faixa de atores). **Excluir Austrália** (capítulo fechado), **Capa p. 1** e **Folha de rosto p. 3** (fechadas), **Expediente p. 2** (fechado), **Sumário pp. 4–5** (dupla fechada), **Folha verde p. 6** (fechada), **Apresentação p. 7** (capítulo fechado), **EUA pp. 18–23** (currículo + Achieve org, folios fechados), **Inglaterra pp. 26–27** (produção + participação), **Inglaterra pp. 30–33** (cruzamento CF + BCF completo), **Nigéria pp. 34–36** (abertura + produção + participação/trajetória), **Nigéria CON pp. 37–39** (abertura org + atuação/trajetória + cruzamento), **Chile pp. 40–43** (abertura país até trajetória do currículo), **Chile Reimagina pp. 44–47** (abertura org até cruzamento); não propagar a partir desses blocos.
-3. **Exceções explícitas** — não alterar composições **fechadas** (**Capa p. 1**; **Folha de rosto p. 3**; **Expediente p. 2**; **Sumário pp. 4–5**; **Folha verde p. 6**; **Apresentação p. 7**; Austrália pp. 10–11; **EUA pp. 18–19**; **EUA pp. 20–23** Achieve; **Inglaterra pp. 26–27**; **Inglaterra pp. 30–33**; **Nigéria pp. 34–36**; **Nigéria CON pp. 37–39**; **Chile pp. 40–43**; **Chile Reimagina pp. 44–47**); `DetailList` com `icon=` (processos AU) mantém faixa plena; não forçar `DetailListGrid` onde houver figura ou prosa **entre** itens sem combinar com a editora.
+2. **Repetir onde couber** — após fechar o pedido na página citada, varrer capítulos **parecidos** (`*-org.mdx`, miolos de país `*.mdx`, etc.) e alinhar ao mesmo padrão quando o conteúdo for do mesmo tipo (lista após intro, financiamento, exemplos de atuação, faixa de atores). **Excluir Austrália** (capítulo fechado), **Capa p. 1** e **Folha de rosto p. 3** (fechadas), **Expediente p. 2** (fechado), **Sumário pp. 4–5** (dupla fechada), **Folha verde p. 6** (fechada), **Apresentação p. 7** (capítulo fechado), **Resumo executivo pp. 8–9** (dupla fechada), **EUA pp. 18–23** (currículo + Achieve org, folios fechados), **Inglaterra pp. 26–27** (produção + participação), **Inglaterra pp. 30–33** (cruzamento CF + BCF completo), **Nigéria pp. 34–36** (abertura + produção + participação/trajetória), **Nigéria CON pp. 37–39** (abertura org + atuação/trajetória + cruzamento), **Chile pp. 40–43** (abertura país até trajetória do currículo), **Chile Reimagina pp. 44–47** (abertura org até cruzamento); não propagar a partir desses blocos.
+3. **Exceções explícitas** — não alterar composições **fechadas** (**Capa p. 1**; **Folha de rosto p. 3**; **Expediente p. 2**; **Sumário pp. 4–5**; **Folha verde p. 6**; **Apresentação p. 7**; **Resumo executivo pp. 8–9**; Austrália pp. 10–11; **EUA pp. 18–19**; **EUA pp. 20–23** Achieve; **Inglaterra pp. 26–27**; **Inglaterra pp. 30–33**; **Nigéria pp. 34–36**; **Nigéria CON pp. 37–39**; **Chile pp. 40–43**; **Chile Reimagina pp. 44–47**); `DetailList` com `icon=` (processos AU) mantém faixa plena; não forçar `DetailListGrid` onde houver figura ou prosa **entre** itens sem combinar com a editora.
 4. **Micro-ajuste vs sistema** — “um pouquinho menor/maior” na coluna → calibrar token/global; “só nesta seção” → só MDX local.
 
 ### Padrões já combinados (referência rápida — Nov/2026)
@@ -458,6 +458,28 @@ Combinado e **fechado** pela editora (Nov/2026). **Não** reverter tipografia, l
 ### Apresentação (`apresentacao.mdx`)
 
 O capítulo **Apresentação** está **fechado** (tipografia do título + coluna **108 mm** + caixa do título). Sem pedido explícito, não editar MDX salvo correções pontuais pedidas, nem CSS/classes dedicadas; `import:mapeamento` exige reconciliar o combinado antes de regerar o capítulo.
+
+### Resumo executivo — dupla pp. 8–9 (fechada / não alterar)
+
+Combinado e **fechado** pela editora (Nov/2026). **Não** reverter, simplificar, fundir numa folha só nem redesenhar sem pedido explícito. Fonte: `resumo-executivo.mdx` + `ResumoFinding` / `ResumoFindingGrid` + `PageStack` `vozes-page-stack--resumo-p8` / `vozes-page-stack--resumo-p9` + `vozes.css` / `tokens.css` (`--vozes-resumo-finding-width`) + `paginateDesk.ts` (átomos pp. 8–9) + `VozesGrafismo` `resumoJuncao` na p. **9**.
+
+| Folha | Conteúdo fixo |
+| --- | --- |
+| **8** | Título **Resumo executivo** (Roboto Slab **24 pt**, roxo); intro em coluna **118 mm**; achados **1–3** em `ResumoFindingGrid` (`ResumoFinding`: cifra fora + caixa com título roxo Slab + corpo compacto); cifras na sequência **verde vivo → verde claro (sumário) → violeta médio** — **sem** rosa nem roxo escuro |
+| **9** | Achados **4–6** (mesma grelha e mesma sequência de cores **4–6** = **1–3**); **grafismo** `resumoJuncao` canto **inf. dir.**, **96 mm**, `bottom` **14 mm** / `right` **12 mm** — camada absoluta |
+
+| Tratamento | Combinado |
+| --- | --- |
+| Caixas | Borda `--trajetoria-box-border`, padding generoso, espaço título→corpo **3 mm**, `row-gap` **4 mm** entre achados |
+| Quebra | Dupla obrigatória: p. **8** intro + 1–3; p. **9** 4–6; stacks **indivisíveis** em `paginateDesk.ts` |
+
+- **Proibido sem pedido:** mudar split 8/9, layout das caixas, cores das cifras, largura da coluna, tamanho/posição do grafismo, texto editorial substancial, ou fixes globais (paginação/CSS/tokens/grafismo) que colapsem a dupla, antecipem Austrália (**10**) ou alterem o resultado visual das folhas **8–9**.
+- **Paginação global:** ajustes em `paginateDesk.ts` / `vozes.css` não podem fundir pp. 8+9 nem deslocar o miolo para fora dos átomos; se um fix geral afetar o Resumo, pedir à editora ou isolar (`vozes-chapter--resumo-executivo`, stacks `--resumo-p8` / `--resumo-p9`).
+- **Exceção:** só o que a editora citar (“muda o resumo…”, “página 8”, “página 9”, folio ou trecho visível).
+
+### Resumo executivo (`resumo-executivo.mdx`)
+
+A dupla **8–9** está **fechada** (achados em caixa + cores + grafismo p. **9**). Sem pedido explícito, não editar MDX, `ResumoFinding`, CSS dedicado, sprite `resumoJuncao` nem paginação deste capítulo; `import:mapeamento` exige reconciliar o combinado antes de regerar.
 
 ### Capa — folha 1 (fechada / não alterar)
 

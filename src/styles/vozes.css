@@ -797,6 +797,111 @@
   max-width: 108mm;
 }
 
+/* Resumo executivo — dupla pp. 8–9: intro + achados 1–3 | achados 4–6; coluna estreita + caixas. */
+.layout-vozes-report .vozes-chapter--resumo-executivo .vozes-page-stack--resumo-p8 > h2:first-of-type,
+.layout-vozes-report .vozes-chapter--resumo-executivo .vozes-page-stack--resumo-p8 > .heading-2:first-of-type {
+  margin-top: 0;
+  font-family: var(--font-display);
+  font-size: 24pt;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: calc(2 * var(--stack-after-h1));
+  letter-spacing: 0;
+  color: var(--color-vozes-roxo);
+}
+
+.layout-vozes-report .vozes-chapter--resumo-executivo .vozes-page-stack--resumo-p8 > p {
+  max-width: var(--vozes-resumo-finding-width);
+}
+
+.layout-vozes-report .vozes-chapter--resumo-executivo .vozes-page-stack--resumo-p8 .resumo-finding-grid {
+  margin-top: 3mm;
+}
+
+.layout-vozes-report .vozes-chapter--resumo-executivo .resumo-finding-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: 4mm;
+  width: 100%;
+  max-width: var(--vozes-resumo-finding-width);
+}
+
+.layout-vozes-report .vozes-main .resumo-finding {
+  display: grid;
+  grid-template-columns: 9mm minmax(0, 1fr);
+  align-items: center;
+  column-gap: 1.5mm;
+  margin: 0;
+  min-width: 0;
+  break-inside: avoid;
+}
+
+.layout-vozes-report .vozes-main .resumo-finding-number {
+  justify-self: center;
+  align-self: center;
+  font-family: var(--font-display);
+  font-size: 26pt;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.layout-vozes-report .vozes-chapter--resumo-executivo .resumo-finding--1 .resumo-finding-number {
+  color: var(--color-vozes-verde-vivo);
+}
+
+.layout-vozes-report .vozes-chapter--resumo-executivo .resumo-finding--2 .resumo-finding-number {
+  color: var(--color-vozes-sumario-lime);
+}
+
+.layout-vozes-report .vozes-chapter--resumo-executivo .resumo-finding--3 .resumo-finding-number {
+  color: var(--org-hierarchy-icon-tone-1);
+}
+
+.layout-vozes-report .vozes-chapter--resumo-executivo .resumo-finding--4 .resumo-finding-number {
+  color: var(--color-vozes-verde-vivo);
+}
+
+.layout-vozes-report .vozes-chapter--resumo-executivo .resumo-finding--5 .resumo-finding-number {
+  color: var(--color-vozes-sumario-lime);
+}
+
+.layout-vozes-report .vozes-chapter--resumo-executivo .resumo-finding--6 .resumo-finding-number {
+  color: var(--org-hierarchy-icon-tone-1);
+}
+
+.layout-vozes-report .vozes-main .resumo-finding-box {
+  box-sizing: border-box;
+  min-width: 0;
+  padding: 3.5mm 4mm 4mm;
+  border: 0.35mm solid var(--trajetoria-box-border);
+  border-radius: 2mm;
+  background: transparent;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.layout-vozes-report .vozes-main .resumo-finding-title {
+  margin: 0 0 3mm;
+  font-family: var(--font-display);
+  font-size: var(--text-vozes-titulo-macro-h3);
+  font-weight: 700;
+  line-height: 1.18;
+  color: var(--color-vozes-roxo);
+  hyphens: none;
+}
+
+.layout-vozes-report .vozes-main .resumo-finding-body > p {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-milestone-compact);
+  line-height: 1.33;
+  text-align: left;
+  hyphens: auto;
+}
+
 /* Apresentação e resumo: display como país, ligeiramente menor + respiro duplo antes do 1.º parágrafo. */
 .layout-vozes-report .vozes-page.vozes-front-matter .vozes-main > h2:first-of-type {
   margin-top: 0;
@@ -5397,3 +5502,8 @@
   height: 100%;
   overflow: visible;
 }
+
+.vozes-grafismo-host[data-group='resumoJuncao'] .vozes-grafismo__svg {
+  preserveAspectRatio: xMaxYMax meet;
+}
+

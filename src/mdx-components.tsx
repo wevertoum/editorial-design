@@ -22,6 +22,7 @@ import { ParticipationBox } from './components/vozes/ParticipationBox'
 import { TrajetoriaBox } from './components/vozes/TrajetoriaBox'
 import { OrgHierarchyFlow, OrgHierarchyStep } from './components/vozes/OrgHierarchyFlow'
 import { SourceNote } from './components/vozes/SourceNote'
+import { ResumoFinding, ResumoFindingGrid } from './components/vozes/ResumoFinding'
 import { SumarioSpread } from './components/vozes/SumarioSpread'
 import { VozesLayout, VozesMain, VozesRail } from './components/vozes/VozesLayout'
 import { VozesGrafismo } from './components/vozes/VozesGrafismo'
@@ -69,5 +70,7 @@ export const mdxComponents = {
   OrgHierarchyFlow,
   OrgHierarchyStep,
   SumarioSpread,
+  ResumoFinding,
+  ResumoFindingGrid,
   VozesGrafismo,
 }
