@@ -944,9 +944,12 @@ function prepareStackMeasure(slot: HTMLElement): void {
 /** Flutuantes (ex.: profile-card) podem esticar filhos além de scrollHeight. */
 function contentExtent(container: HTMLElement): number {
   let extent = container.scrollHeight
+  /* Rects relative to the container: `offsetTop` may resolve against a
+     positioned ancestor (page), which inflated groups after the profile card. */
+  const base = container.getBoundingClientRect().top
   for (const child of elementChildren(container)) {
     const mb = parseFloat(getComputedStyle(child).marginBottom) || 0
-    extent = Math.max(extent, child.offsetTop + child.offsetHeight + mb)
+    extent = Math.max(extent, child.getBoundingClientRect().bottom - base + mb)
   }
   return extent
 }

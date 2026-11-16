@@ -32,14 +32,14 @@
   --dual-track-band-pad-top-embedded: 7mm;
   --dual-track-band-pad-bottom-embedded: 9mm;
   --dual-track-title-gap: 5mm;
-  --dual-track-matrix-gap: 2.5mm;
+  --dual-track-matrix-gap: var(--gap-dual-matrix-row);
   --dual-track-year-height: 7mm;
-  --dual-track-year-after-axis: 2.5mm;
+  --dual-track-year-after-axis: var(--gap-dual-axis-body);
   /* Prelúdio (trajetória) acima do marfim overflow na p. 17 — teto do bloco; zona marfim 176mm fixa. */
   --vozes-dual-track-prelude-budget: 60mm;
   --text-milestone-compact: 9pt;
   --text-milestone-year-compact: 9pt;
-  --vozes-milestone-compact-item-gap: 1.15mm;
+  --vozes-milestone-compact-item-gap: var(--gap-trajetoria-milestone);
   /* Intervalo de anos empilhados (ex. 2008–2010). */
   --vozes-milestone-range-stack-gap: 0.15mm;
   --vozes-milestone-range-rule-height: 2mm;
@@ -85,8 +85,8 @@
   --color-marfim: #f3eee6;
   /* Contorno «A trajetória…» (só borda — roxo da paleta). */
   --trajetoria-box-border: color-mix(in srgb, var(--color-vozes-roxo-2) 38%, transparent);
-  --trajetoria-box-padding: 4mm 4.5mm 4.5mm;
-  --trajetoria-box-padding-compact: 2.5mm 3mm 2.75mm;
+  --trajetoria-box-padding: var(--gap-trajetoria-padding);
+  --trajetoria-box-padding-compact: var(--gap-trajetoria-padding);
   --profile-card-surface: color-mix(in srgb, var(--color-marfim) 32%, white);
 
   --space-1: 2mm;
@@ -96,22 +96,41 @@
   --space-5: 12mm;
   --column-gap: 7mm;
 
+  /*
+   * Ritmo editorial Vozes — unidade U = space-1 (2 mm).
+   * Proporções do guia: parágrafo 1U; parágrafo→bloco 2U; H3→texto 1U; H2→texto 2U;
+   * país→1.º macro 6U; trajetória (padding/título/marcos) 1/1/2U; cruzamento 1/1/3U.
+   */
+  --vozes-rhythm-u: var(--space-1);
+  --gap-paragraph: calc(1 * var(--vozes-rhythm-u));
+  --gap-paragraph-to-block: calc(2 * var(--vozes-rhythm-u));
+  --gap-h3-after: calc(1 * var(--vozes-rhythm-u));
+  --gap-h2-after: calc(2 * var(--vozes-rhythm-u));
+  --gap-country-to-macro: calc(6 * var(--vozes-rhythm-u));
+  --gap-trajetoria-padding: calc(1 * var(--vozes-rhythm-u));
+  --gap-trajetoria-title-body: calc(1 * var(--vozes-rhythm-u));
+  --gap-trajetoria-milestone: calc(2 * var(--vozes-rhythm-u));
+  --gap-dual-axis-body: calc(1 * var(--vozes-rhythm-u));
+  --gap-dual-body-paragraph: calc(1 * var(--vozes-rhythm-u));
+  --gap-dual-matrix-row: calc(3 * var(--vozes-rhythm-u));
+  --vozes-detail-grid-row-gap: var(--gap-paragraph-to-block);
+
   /* Ritmo vertical — respiro entre blocos (docs/ESPACAMENTO-TIPOGRAFICO.md) */
   --stack-after-kicker: var(--space-1);
   --stack-after-h1: var(--space-3);
-  --stack-after-h2: var(--space-2);
-  --stack-after-h3: var(--space-1);
+  --stack-after-h2: var(--gap-h2-after);
+  --stack-after-h3: var(--gap-h3-after);
   --stack-before-h2: var(--space-5);
   --stack-before-h2-vozes: 6.5mm;
   --stack-before-h3: var(--space-5);
   --stack-paragraph: 0.72em;
-  --stack-paragraph-vozes: 0.92em;
+  --stack-paragraph-vozes: var(--gap-paragraph);
   --stack-block: var(--space-4);
   --stack-block-figure-vozes: 4.5mm;
   --stack-block-aside: 5mm;
   --stack-block-profile: 10mm;
   --stack-before-profile-flow: 13mm;
-  --stack-detail-item: var(--space-1);
+  --stack-detail-item: var(--vozes-rhythm-u);
   /* DetailList / DetailListGrid — bullets e blocos especiais (relatório Vozes) */
   --vozes-detail-list-indent: 4mm;
   --vozes-detail-list-gutter: 4.5mm;
@@ -125,9 +144,9 @@
   --vozes-bullet-glyph-radius: 0.52mm;
   --vozes-bullet-glyph-fill: var(--color-vozes-verde);
   --vozes-bullet-row-align: calc(0.5lh - var(--vozes-bullet-glyph-size) / 2);
-  --stack-detail-item-vozes: 1.5mm;
+  --stack-detail-item-vozes: var(--vozes-rhythm-u);
   --vozes-detail-grid-width: 0.76;
-  --stack-before-detail-grid: 5.5mm;
+  --stack-before-detail-grid: var(--gap-paragraph-to-block);
   /** ActorBand em mais de uma fileira: espaço entre corpo de cima e marcadores da fileira seguinte. */
   --vozes-actor-band-wrap-gap: 5.5mm;
   --vozes-list-nest-indent: var(--space-4);

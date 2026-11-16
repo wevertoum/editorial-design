@@ -140,8 +140,9 @@ def join_pdf_spreads(input_path: Path, output_path: Path) -> None:
     if page_count < 1:
         raise ValueError("PDF de origem não tem páginas.")
 
+    plan = plan_digital_reading_spreads(page_count)
     writer = PdfWriter()
-    for item in plan_digital_reading_spreads(page_count):
+    for item in plan:
         if item["kind"] == "single":
             writer.add_page(reader.pages[item["page"]])
             continue
@@ -158,10 +159,33 @@ def join_pdf_spreads(input_path: Path, output_path: Path) -> None:
             expand=False,
         )
 
+    # Se o Chromium fragmentar conteúdo para a folha seguinte, os links saem da
+    # dupla certa silenciosamente (ex.: a parte B do sumário cai na folha 6).
+    # Cada unidade de leitura deve manter exatamente os links das folhas A4 que a compõem.
+    for index, item in enumerate(plan):
+        if item["kind"] == "single":
+            expected = len(reader.pages[item["page"]].get("/Annots") or [])
+        else:
+            expected = len(reader.pages[item["left"]].get("/Annots") or []) + len(
+                reader.pages[item["right"]].get("/Annots") or []
+            )
+        actual = len(writer.pages[index].get("/Annots") or [])
+        if actual != expected:
+            raise ValueError(
+                f"A unidade {index + 1} perdeu links na junção ({actual} de {expected}). "
+                "Alguma folha foi fragmentada para a página seguinte no PDF A4."
+            )
+
     source_sumario_links = 0
     for sheet_index in (3, 4):
         if sheet_index < page_count:
-            source_sumario_links += len(reader.pages[sheet_index].get("/Annots") or [])
+            sheet_links = len(reader.pages[sheet_index].get("/Annots") or [])
+            if sheet_links == 0:
+                raise ValueError(
+                    f"A folha {sheet_index + 1} do sumário não tem links. "
+                    "O miolo pode ter sido fragmentado para a folha seguinte no PDF A4."
+                )
+            source_sumario_links += sheet_links
     if source_sumario_links < 10:
         raise ValueError(
             "O PDF A4 não tem links no sumário (folhas 4–5). "

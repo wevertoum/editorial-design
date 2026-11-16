@@ -506,6 +506,13 @@
   print-color-adjust: exact;
 }
 
+/* ACSA (Austrália) — dupla de cruzamento pp. 16–17: folha inteira em marfim, de ponta a ponta. */
+.sheet-page.layout-vozes-report:has(.vozes-page-stack--australia-org-cruzamento) {
+  background: var(--color-marfim);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
 .sheet-page.layout-vozes-report[data-page-side='left']:has(.vozes-sumario) {
   container-type: inline-size;
   container-name: vozes-sumario-left;
@@ -790,6 +797,7 @@
   /* Títulos de seção do relatório (governança, produção, etc.) — não o 1.º após o país */
   color: var(--color-ink);
   margin-top: var(--stack-before-h3);
+  margin-bottom: var(--stack-after-h3);
 }
 
 /* Título macro: «O sistema curricular…» (após abertura do país) e nome da fundação/organização. */
@@ -822,6 +830,33 @@
   line-height: 1.23;
   color: var(--color-ink);
   margin-top: var(--stack-before-h2-vozes);
+  margin-bottom: var(--stack-after-h2);
+}
+
+/*
+ * Ritmo entre blocos (docs/ESPACAMENTO-TIPOGRAFICO.md):
+ * o respiro antes do H3 é só o do H3 (6U) — o parágrafo anterior não soma 1U.
+ * Em pilhas flex/grid as margens não colapsam; esta regra iguala ao fluxo normal.
+ */
+.layout-vozes-report .vozes-main p:has(+ h3:not(.band-label)) {
+  margin-bottom: 0;
+}
+
+/* Nome da organização (H2) → 1.ª secção (H3): 6U no total, como país → macro. */
+.layout-vozes-report .vozes-main h2 + h3 {
+  margin-top: calc(var(--stack-before-h3) - var(--stack-after-h2));
+}
+
+/* Grelha (4U) → H3: o respiro de secção é o do H3, sem somar o da grelha. */
+.layout-vozes-report .vozes-main .vozes-detail-list-grid + h3 {
+  margin-top: calc(var(--stack-before-h3) - var(--stack-block));
+}
+
+/* Miolo começa sempre a 18 mm: nenhum bloco abre a folha com margem própria. */
+.layout-vozes-report .vozes-page > .vozes-main > :first-child,
+.layout-vozes-report .vozes-main > .vozes-page-stack > :first-child,
+.layout-vozes-report .vozes-main > .vozes-england-ks-sheet > :first-child {
+  margin-top: 0;
 }
 
 /* Nome da fundação / instituição (só o título principal do capítulo org). */
@@ -864,13 +899,13 @@
 }
 
 .layout-vozes-report .vozes-chapter--resumo-executivo .vozes-page-stack--resumo-p8 .resumo-finding-grid {
-  margin-top: 3mm;
+  margin-top: 6mm;
 }
 
 .layout-vozes-report .vozes-chapter--resumo-executivo .resumo-finding-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  row-gap: 4mm;
+  row-gap: 8mm;
   width: 100%;
   max-width: var(--vozes-resumo-finding-width);
 }
@@ -933,7 +968,7 @@
 }
 
 .layout-vozes-report .vozes-main .resumo-finding-title {
-  margin: 0 0 3mm;
+  margin: 0 0 6mm;
   font-family: var(--font-display);
   font-size: var(--text-vozes-titulo-macro-h3);
   font-weight: 700;
@@ -1075,6 +1110,26 @@
     position: relative;
     overflow: visible;
     background: transparent;
+  }
+
+  /* ACSA pp. 16–17: fundo marfim sangrado em todos os lados (trim + sangria gráfica). */
+  .sheet-page.layout-vozes-report:has(.vozes-page-stack--australia-org-cruzamento) {
+    position: relative;
+    overflow: visible;
+    background: transparent;
+  }
+
+  .sheet-page.layout-vozes-report:has(.vozes-page-stack--australia-org-cruzamento)::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: calc(-1 * var(--bleed));
+    right: calc(-1 * var(--bleed));
+    bottom: calc(-1 * var(--bleed));
+    left: calc(-1 * var(--bleed));
+    background: var(--color-marfim);
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
   }
 
   .sheet-page.layout-vozes-report:has(.vozes-sumario)::before {
@@ -1351,9 +1406,10 @@
   margin-top: var(--space-2);
 }
 
-/* Caixa de participação compacta (AU — libera folha da trajetória). */
+/* Caixa de participação compacta (AU — libera folha da trajetória).
+   Pé do box “Canais de participação” a 4U (8 mm) em todas as ocorrências. */
 .layout-vozes-report .vozes-main .participation-box.participation-box--compact {
-  padding: 3.5mm 5.5mm 4mm;
+  padding: 3.5mm 5.5mm 8mm;
 }
 
 .layout-vozes-report .vozes-main .participation-box.participation-box--compact .participation-box-body > p {
@@ -1364,19 +1420,44 @@
   margin-bottom: 0;
 }
 
-/* Fases do processo AU — grelha 2 colunas mais enxuta (libera p. 12 para texto da trajetória). */
+/* Fases do processo AU — grelha 2 colunas (p. 12). */
 .layout-vozes-report .vozes-main .vozes-detail-list-grid--process-au {
-  row-gap: 2mm;
+  row-gap: 8mm;
   margin-bottom: 3mm;
 }
 
 .layout-vozes-report .vozes-main .vozes-detail-list-grid--process-au .detail-list-item > p:not(:only-child):last-child {
-  font-size: 8.5pt;
-  line-height: 1.28;
+  font-size: 9pt;
+  line-height: 1.34;
+  /* Sem rabos de linha: quebra equilibrada e sem hifenização automática
+     (nas colunas estreitas o dicionário pt-BR partia palavras em 2 letras). */
+  text-wrap: balance;
+  hyphens: manual;
+  -webkit-hyphens: manual;
+}
+
+/* Austrália p. 12 — mais respiro entre a introdução e as fases; pé do box de participação. */
+.layout-vozes-report .vozes-page .vozes-main p:has(+ .vozes-detail-list-grid--process-au) {
+  margin-bottom: 8mm;
+}
+
+.layout-vozes-report .vozes-page.vozes-prose-only .vozes-main .vozes-detail-list-grid.vozes-detail-list-grid--process-au {
+  row-gap: 8mm;
+}
+
+.layout-vozes-report .vozes-main .vozes-detail-list-grid--process-au + .participation-box {
+  margin-top: 4mm;
+  margin-bottom: 6mm;
+  padding-bottom: 8mm;
+}
+
+/* A trajetória continua na p. 12: o respiro extra das fases é absorvido pela secção seguinte. */
+.layout-vozes-report .vozes-main .vozes-detail-list-grid--process-au + .participation-box + h3 {
+  margin-top: 8mm;
 }
 
 .layout-vozes-report .vozes-main .heading-3.vozes-trajetoria-heading {
-  margin-bottom: 0.45em;
+  margin-bottom: var(--gap-trajetoria-title-body);
   break-after: avoid;
 }
 
@@ -1591,12 +1672,12 @@
 }
 
 .layout-vozes-report .vozes-main > .vozes-page-stack .actor-band + h3 {
-  margin-top: 5mm;
-  margin-bottom: 0.85em;
+  margin-top: calc(var(--stack-before-h3) - var(--stack-block));
+  margin-bottom: var(--stack-after-h3);
 }
 
 .layout-vozes-report .vozes-england-ks-sheet > h3 {
-  margin-bottom: 0.85em;
+  margin-bottom: var(--stack-after-h3);
 }
 
 .layout-vozes-report .vozes-england-ks-sheet > .editorial-table {
@@ -1802,6 +1883,7 @@
  * Nigéria f. 39: parte B no rodapé — altura pelo conteúdo. Demais folhas dedicadas: marfim na altura útil.
  */
 .layout-vozes-report .vozes-main > .vozes-page-stack--england-org-cruzamento.vozes-page-stack--dual-track .dual-track-section.vozes-page-stack-foot,
+.layout-vozes-report .vozes-main > .vozes-page-stack--australia-org-cruzamento.vozes-page-stack--dual-track .dual-track-section.vozes-page-stack-foot,
 .layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-org-cruzamento.vozes-page-stack--dual-track .dual-track-section.vozes-page-stack-foot,
 .layout-vozes-report .vozes-main > .vozes-page-stack--chile-org-cruzamento.vozes-page-stack--dual-track .dual-track-section.vozes-page-stack-foot,
 .layout-vozes-report .vozes-main > .vozes-page-stack--england-bcf-cruzamento.vozes-page-stack--dual-track .dual-track-section.vozes-page-stack-foot {
@@ -1847,7 +1929,7 @@
 }
 
 .layout-vozes-report .vozes-page-stack--dual-track .vozes-page-stack-prelude h3 {
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--gap-h3-after);
 }
 
 /* ACSA p. 17: trajetória no prelúdio — encosta no marfim, tipografia quase do miolo dual-track. */
@@ -1858,7 +1940,7 @@
 
 .layout-vozes-report .vozes-page-stack--dual-track .vozes-prelude--compact-milestone h3 {
   margin-top: 0;
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--gap-h3-after);
 }
 
 .layout-vozes-report .vozes-page-stack--dual-track .vozes-prelude--compact-milestone .milestone-strip.vozes-milestone--compact {
@@ -2217,6 +2299,23 @@
   word-break: normal;
 }
 
+/* Austrália p. 10 — respiro interno da faixa de atores (ícone / título / subtítulo / texto). */
+#page-10 .actor-band {
+  margin-top: 11mm;
+}
+
+#page-10 .actor-band-marker {
+  margin-bottom: 4mm;
+}
+
+#page-10 .actor-band-name {
+  margin-bottom: 2mm;
+}
+
+#page-10 .actor-band-head {
+  margin-bottom: 3mm;
+}
+
 /* Faixa 2 col. mais estreita (ex.: pp. abertura EUA) — mesma medida do DetailListGrid. */
 .layout-vozes-report .vozes-main .actor-band.actor-band--narrow .actor-band-grid {
   box-sizing: border-box;
@@ -2344,6 +2443,17 @@
   padding-top: var(--vozes-country-opening-title-inset-top);
   margin-bottom: var(--stack-country-opening);
   overflow: visible;
+}
+
+/* País → 1.º subtítulo macro: 6U único (sem somar margem da abertura). */
+.layout-vozes-report .vozes-main .country-opening:has(+ h3) {
+  margin-bottom: 0;
+}
+
+.layout-vozes-report .vozes-main .country-opening + h3 {
+  margin-top: var(--gap-country-to-macro);
+  /* Mesmo respiro do título da fundação → subtítulo (p. 14): 6U até ao texto. */
+  margin-bottom: var(--gap-country-to-macro);
 }
 
 /* Sem lead: reserva vertical da abertura antiga (bandeira + gap + título). */
@@ -3005,8 +3115,20 @@
 .layout-vozes-report .vozes-main p:has(+ .vozes-detail-list-grid),
 .layout-vozes-report .vozes-main p:has(+ .vozes-detail-list-grid-with-marker),
 .layout-vozes-report .vozes-main p:has(+ .detail-list-item),
-.layout-vozes-report .vozes-main p:has(+ .actor-band) {
-  margin-bottom: calc(var(--stack-paragraph-vozes) + var(--stack-before-detail-grid));
+.layout-vozes-report .vozes-main p:has(+ .actor-band),
+.layout-vozes-report .vozes-main p:has(+ .trajetoria-box),
+.layout-vozes-report .vozes-main p:has(+ .participation-box),
+.layout-vozes-report .vozes-main p:has(+ .highlight-box),
+.layout-vozes-report .vozes-main p:has(+ .callout-card) {
+  margin-bottom: var(--gap-paragraph-to-block);
+}
+
+/* Figuras e tabelas são «blocos grandes» (4U): o respiro é só o delas. */
+.layout-vozes-report .vozes-main p:has(+ .figure),
+.layout-vozes-report .vozes-main p:has(+ figure),
+.layout-vozes-report .vozes-main p:has(+ .editorial-table),
+.layout-vozes-report .vozes-main p:has(+ table) {
+  margin-bottom: 0;
 }
 
 /* DetailList solto (fora de grelha): mesma medida estreita; ícones AU mantêm faixa plena. */
@@ -3022,7 +3144,7 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   column-gap: 6mm;
-  row-gap: 3mm;
+  row-gap: var(--vozes-detail-grid-row-gap);
   box-sizing: border-box;
   width: calc(var(--vozes-detail-grid-width) * var(--vozes-detail-grid-span));
   max-width: calc(var(--vozes-detail-grid-width) * var(--vozes-detail-grid-span));
@@ -3358,7 +3480,7 @@
   box-sizing: border-box;
   display: flow-root;
   clear: both;
-  margin: var(--stack-block) 0;
+  margin: 0 0 var(--stack-block);
   padding: var(--trajetoria-box-padding);
   background: transparent;
   border: 0.4mm solid var(--trajetoria-box-border);
@@ -3405,11 +3527,11 @@
 
 .layout-vozes-report .vozes-main .trajetoria-box > h3,
 .layout-vozes-report .vozes-main .trajetoria-box > .heading-3 {
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--gap-trajetoria-title-body);
 }
 
 .layout-vozes-report .vozes-main .trajetoria-box > .heading-3.vozes-trajetoria-heading {
-  margin-bottom: 0.45em;
+  margin-bottom: var(--gap-trajetoria-title-body);
 }
 
 .layout-vozes-report .vozes-main .trajetoria-box > .heading-3.vozes-trajetoria-heading + p {
@@ -3473,7 +3595,7 @@
 }
 
 .layout-vozes-report .vozes-main > .trajetoria-box--compact .heading-3.vozes-trajetoria-heading {
-  margin-bottom: 0.35em;
+  margin-bottom: var(--gap-trajetoria-title-body);
   font-size: 10.5pt;
   line-height: 1.22;
 }
@@ -3493,25 +3615,12 @@
   .vozes-milestone--compact
   .milestone-strip-item
   + .milestone-strip-item {
-  margin-top: 0.4mm;
+  margin-top: var(--vozes-milestone-compact-item-gap);
 }
 
 /* EUA p. 18 — sistema + standards inteiros + ActorBand (folha única, sem partir corpo). */
-.layout-vozes-report .vozes-main > .vozes-page-stack--usa-opening {
-  --stack-paragraph-vozes: 0.58em;
-}
-
-.layout-vozes-report .vozes-main > .vozes-page-stack--usa-opening h3 {
-  margin-top: 0.55em;
-  margin-bottom: 0.35em;
-}
-
 .layout-vozes-report .vozes-main > .vozes-page-stack--usa-opening p {
   line-height: 1.28;
-}
-
-.layout-vozes-report .vozes-main > .vozes-page-stack--usa-opening .country-opening {
-  margin-bottom: calc(var(--stack-country-code) - 1.5mm);
 }
 
 .layout-vozes-report .vozes-main > .vozes-page-stack--usa-opening .actor-band {
@@ -3543,22 +3652,8 @@
 
 /* EUA p. 19 — «Como produzidos» + trajetória numa folha. */
 /* Achieve — Financiamento + abertura de A atuação na mesma folha (p. 21). */
-.layout-vozes-report .vozes-main > .vozes-page-stack--usa-org-fin-atuacao {
-  --stack-paragraph-vozes: 0.58em;
-  --stack-before-detail-grid: 3.75mm;
-}
-
-.layout-vozes-report .vozes-main > .vozes-page-stack--usa-org-fin-atuacao > h3 {
-  margin-top: 0.5em;
-  margin-bottom: 0.32em;
-}
-
 .layout-vozes-report .vozes-main > .vozes-page-stack--usa-org-fin-atuacao > h3:first-child {
   margin-top: 0;
-}
-
-.layout-vozes-report .vozes-main > .vozes-page-stack--usa-org-fin-atuacao > p + h3 {
-  margin-top: 0.72em;
 }
 
 .layout-vozes-report .vozes-main > .vozes-page-stack--usa-org-fin-atuacao p {
@@ -3632,49 +3727,26 @@
   margin-bottom: 0;
 }
 
-.layout-vozes-report .vozes-main > .vozes-page-stack--usa-producao {
-  --stack-paragraph-vozes: 0.62em;
-}
-
 .layout-vozes-report .vozes-main > .vozes-page-stack--usa-producao h3 {
   margin-top: 0;
-  margin-bottom: 0.35em;
 }
 
 .layout-vozes-report .vozes-main > .vozes-page-stack--usa-producao p {
   line-height: 1.28;
 }
 
-.layout-vozes-report .vozes-main > .vozes-page-stack--usa-producao
-  > p:has(+ .trajetoria-box--curriculo-usa) {
-  margin-bottom: calc(var(--stack-paragraph-vozes) + 3mm);
-}
-
-/* Rodapé da folha (EUA p. 19): caixa de trajetória alinhada à margem inferior dentro do PageStack. */
-/* EUA — trajetória do currículo cabe na p. 19 (prévia + PDF). */
+/* EUA p. 19 — caixa da trajetória no topo do PageStack (marcos a 2U; altura do conteúdo). */
 .layout-vozes-report .vozes-main .trajetoria-box--curriculo-usa {
-  margin-top: 2mm;
+  margin-top: 0;
 }
 
-/* Respiro entre o último parágrafo de «Como os standards…» e a caixa de trajetória (p. 19). */
-.layout-vozes-report
-  .vozes-main
-  .vozes-page-stack
-  > p:has(+ .trajetoria-box--curriculo-usa) {
-  margin-bottom: calc(var(--stack-paragraph-vozes) + 8.5mm);
-}
-
-.layout-vozes-report .vozes-main .trajetoria-box--curriculo-usa.trajetoria-box--compact {
-  padding: 4mm 3.25mm;
-}
-
-/* PageStack: caixa encosta na margem inferior; marcos com espaço entre linhas (não só após o último). */
+/* PageStack: caixa com a altura do conteúdo (marcos a 2U entre si). */
 .layout-vozes-report .vozes-main .vozes-page-stack .trajetoria-box--curriculo-usa.vozes-page-stack-foot {
-  flex: 1 1 auto;
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   min-height: 0;
-  margin-top: auto;
+  margin-top: 0;
 }
 
 .layout-vozes-report
@@ -3682,7 +3754,7 @@
   .vozes-page-stack
   .trajetoria-box--curriculo-usa.vozes-page-stack-foot
   > .milestone-strip {
-  flex: 1 1 auto;
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   min-height: 0;
@@ -3696,7 +3768,7 @@
   .trajetoria-box--curriculo-usa
   > .milestone-strip.milestone-strip--cols-2
   .milestone-strip-columns {
-  flex: 1 1 auto;
+  flex: 0 0 auto;
   min-height: 0;
 }
 
@@ -3728,98 +3800,30 @@
   box-sizing: border-box;
 }
 
-/* Grade em 6 faixas: marcos da coluna 1 e 2 alinhados na mesma linha (1983 ↔ 2008, …). */
+/* Duas colunas independentes (como as demais trajetórias): marcos a 2U, altura natural. */
 .layout-vozes-report
   .vozes-main
-  .vozes-page-stack
   .trajetoria-box--curriculo-usa
-  .milestone-strip-columns,
-.layout-vozes-report
-  .vozes-page
-  .vozes-main
-  .trajetoria-box--curriculo-usa
-  .milestone-strip
-  .milestone-strip-columns {
-  /* 5 linhas pares (1983↔2008 … 1990–2000↔2015–2026) absorvem o vazio; 2001 fica na 6.ª sem vão extra */
-  grid-template-rows: repeat(5, minmax(0, 1fr)) auto;
-  row-gap: 0.45mm;
-  align-items: start;
-}
-
-.layout-vozes-report
-  .vozes-main
-  .vozes-page-stack
-  .trajetoria-box--curriculo-usa
-  .milestone-strip-column,
-.layout-vozes-report
-  .vozes-page
-  .vozes-main
-  .trajetoria-box--curriculo-usa
+  .milestone-strip--cols-2
   .milestone-strip-column {
-  display: contents;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-trajetoria-milestone);
+  min-width: 0;
 }
 
 .layout-vozes-report
   .vozes-main
   .trajetoria-box--curriculo-usa
-  .milestone-strip-column:first-child
-  > .milestone-strip-item {
-  grid-column: 1;
-}
-
-.layout-vozes-report
-  .vozes-main
-  .trajetoria-box--curriculo-usa
-  .milestone-strip-column:last-child
-  > .milestone-strip-item {
-  grid-column: 2;
-}
-
-.layout-vozes-report
-  .vozes-main
-  .trajetoria-box--curriculo-usa
+  .milestone-strip--cols-2
   .milestone-strip-column
-  > .milestone-strip-item:nth-child(1) {
-  grid-row: 1;
-}
-.layout-vozes-report
-  .vozes-main
-  .trajetoria-box--curriculo-usa
-  .milestone-strip-column
-  > .milestone-strip-item:nth-child(2) {
-  grid-row: 2;
-}
-.layout-vozes-report
-  .vozes-main
-  .trajetoria-box--curriculo-usa
-  .milestone-strip-column
-  > .milestone-strip-item:nth-child(3) {
-  grid-row: 3;
-}
-.layout-vozes-report
-  .vozes-main
-  .trajetoria-box--curriculo-usa
-  .milestone-strip-column
-  > .milestone-strip-item:nth-child(4) {
-  grid-row: 4;
-}
-.layout-vozes-report
-  .vozes-main
-  .trajetoria-box--curriculo-usa
-  .milestone-strip-column
-  > .milestone-strip-item:nth-child(5) {
-  grid-row: 5;
-}
-.layout-vozes-report
-  .vozes-main
-  .trajetoria-box--curriculo-usa
-  .milestone-strip-column
-  > .milestone-strip-item:nth-child(6) {
-  grid-row: 6;
+  > .milestone-strip-item
+  + .milestone-strip-item {
+  margin-top: 0;
 }
 
 .layout-vozes-report .vozes-main .trajetoria-box--curriculo-usa > .heading-3.vozes-trajetoria-heading {
-  margin-bottom: 0.55em;
+  margin-bottom: var(--gap-trajetoria-title-body);
   font-size: 10.25pt;
   flex-shrink: 0;
 }
@@ -3829,7 +3833,7 @@
   .trajetoria-box--curriculo-usa
   > .heading-3.vozes-trajetoria-heading
   + .milestone-strip {
-  margin-top: 1.75mm;
+  margin-top: 0;
 }
 
 /* Inglaterra p. 27 — participação + trajetória (rodapé do PageStack, 2 colunas compactas). */
@@ -3837,9 +3841,6 @@
   margin-top: 0;
 }
 
-.layout-vozes-report .vozes-main .trajetoria-box--curriculo-england.trajetoria-box--compact {
-  padding: 3.25mm 3.5mm 3.75mm;
-}
 
 .layout-vozes-report .vozes-main .trajetoria-box--curriculo-england .vozes-milestone--compact .milestone-strip-item {
   font-size: 8.25pt;
@@ -3873,12 +3874,12 @@
 .layout-vozes-report .vozes-main .trajetoria-box--curriculo-england .milestone-strip-column {
   display: flex;
   flex-direction: column;
-  gap: 2.25mm;
+  gap: var(--gap-trajetoria-milestone);
   min-width: 0;
 }
 
 .layout-vozes-report .vozes-main .trajetoria-box--curriculo-england > .heading-3.vozes-trajetoria-heading {
-  margin-bottom: 0.55em;
+  margin-bottom: var(--gap-trajetoria-title-body);
   font-size: 10pt;
   line-height: 1.2;
   flex-shrink: 0;
@@ -3889,7 +3890,7 @@
   .trajetoria-box--curriculo-england
   > .heading-3.vozes-trajetoria-heading
   + .milestone-strip {
-  margin-top: 1.75mm;
+  margin-top: 0;
 }
 
 .layout-vozes-report .vozes-main .trajetoria-box--curriculo-england .milestone-strip-title {
@@ -3899,8 +3900,6 @@
 
 /* Inglaterra p. 27 — ritmo vertical: participação → corpo → trajetória (folha única). */
 .layout-vozes-report .vozes-main > .vozes-page-stack--england-p27 {
-  --stack-paragraph-vozes: 0.72em;
-  --vozes-milestone-compact-item-gap: 0;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -3911,8 +3910,8 @@
 
 .layout-vozes-report .vozes-main > .vozes-page-stack--england-p27 .participation-box.participation-box--compact {
   margin-top: 0;
-  margin-bottom: 5.5mm;
-  padding: 3.5mm 5.5mm 4mm;
+  margin-bottom: var(--gap-paragraph-to-block);
+  padding: 3.5mm 5.5mm 8mm;
 }
 
 .layout-vozes-report .vozes-main > .vozes-page-stack--england-p27 .participation-box.participation-box--compact .participation-box-icon {
@@ -3929,15 +3928,7 @@
 
 .layout-vozes-report .vozes-main > .vozes-page-stack--england-p27 > p {
   margin-top: 0;
-  margin-bottom: var(--stack-paragraph-vozes);
   line-height: 1.28;
-}
-
-.layout-vozes-report
-  .vozes-main
-  > .vozes-page-stack--england-p27
-  > p:has(+ .trajetoria-box--curriculo-england) {
-  margin-bottom: 5.5mm;
 }
 
 .layout-vozes-report .vozes-main > .vozes-page-stack--england-p27 .trajetoria-box--curriculo-england.vozes-page-stack-foot {
@@ -3959,47 +3950,9 @@
   margin-bottom: 0;
 }
 
-/* BCF — só afina abertura + Financiamento; governança, perfil e rail inalterados. */
-.layout-vozes-report .vozes-chapter--bcf .vozes-main > h2 + h3 {
-  margin-top: 0.22em;
-  margin-bottom: 0.18em;
-}
-
-.layout-vozes-report .vozes-chapter--bcf .vozes-main > p.vozes-bcf-opening {
-  margin-top: 0.22em;
-  margin-bottom: 0.22em;
-}
-
-.layout-vozes-report .vozes-main > p.vozes-bcf-fin-body {
-  margin-top: 0.24em;
-  margin-bottom: 0.24em;
-}
-
-.layout-vozes-report .vozes-main > h3 + p.vozes-bcf-fin-body {
-  margin-top: 0.2em;
-}
-
-.layout-vozes-report .vozes-main > p.vozes-bcf-fin-body.vozes-bcf-fin-tail {
-  margin-top: 0.14em;
-}
-
 /* Curriculum Foundation — p. 29 atuação + trajetória (rodapé) + p. 30 cruzamento em folha cheia. */
-.layout-vozes-report .vozes-main > .vozes-page-stack--england-org-atuacao-traj {
-  --stack-paragraph-vozes: 0.5em;
-  --stack-before-detail-grid: 2.5mm;
-}
-
-.layout-vozes-report .vozes-main > .vozes-page-stack--england-org-atuacao-traj > h3 {
-  margin-top: 0.45em;
-  margin-bottom: 0.28em;
-}
-
 .layout-vozes-report .vozes-main > .vozes-page-stack--england-org-atuacao-traj > h3:first-child {
   margin-top: 0;
-}
-
-.layout-vozes-report .vozes-main > .vozes-page-stack--england-org-atuacao-traj > p + h3 {
-  margin-top: 0.62em;
 }
 
 .layout-vozes-report
@@ -4007,8 +3960,8 @@
   > .vozes-page-stack--england-org-atuacao-traj
   .vozes-detail-list-grid {
   margin-top: 0;
-  margin-bottom: 2.25mm;
-  gap: 2.75mm 4mm;
+  margin-bottom: var(--gap-paragraph-to-block);
+  gap: var(--vozes-detail-grid-row-gap) var(--space-2);
 }
 
 .layout-vozes-report
@@ -4023,6 +3976,7 @@
 }
 
 .layout-vozes-report .vozes-main > .vozes-page-stack--england-org-cruzamento.vozes-page-stack--dual-track,
+.layout-vozes-report .vozes-main > .vozes-page-stack--australia-org-cruzamento.vozes-page-stack--dual-track,
 .layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-org-cruzamento.vozes-page-stack--dual-track,
 .layout-vozes-report .vozes-main > .vozes-page-stack--chile-org-cruzamento.vozes-page-stack--dual-track,
 .layout-vozes-report .vozes-main > .vozes-page-stack--england-bcf-cruzamento.vozes-page-stack--dual-track {
@@ -4038,9 +3992,53 @@
   height: var(--vozes-content-height);
 }
 
+/* Austrália f. 16 — cruzamento em folha inteira, sem rail: largura da prosa. */
+.layout-vozes-report .vozes-main > .vozes-page-stack--australia-org-cruzamento.vozes-page-stack--dual-track {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Austrália f. 17 — parte B sozinha na folha: marfim na altura útil. */
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--australia-org-cruzamento.vozes-page-stack--dual-track
+  .dual-track-section.dual-track-section--overflow.vozes-page-stack-foot {
+  min-height: 100%;
+  height: auto;
+  max-height: none;
+}
+
+/* Austrália f. 15 — caixa da trajetória na largura da mancha (como as faixas de exemplos). */
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--australia-org-atuacao
+  > .trajetoria-box--compact {
+  width: calc(100% + var(--vozes-grid-gutter) + var(--vozes-rail-to-prose) * 100%);
+  max-width: none;
+}
+
+/* Austrália f. 15 — aproxima as duas faixas de exemplos de atuação. */
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--australia-org-atuacao
+  .actor-band.actor-band--examples {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--australia-org-atuacao
+  .actor-band.actor-band--examples
+  + .actor-band--examples {
+  margin-top: 8mm;
+}
+
 .layout-vozes-report .vozes-main > .vozes-page-stack--england-org-cruzamento .vozes-page-stack-prelude,
+.layout-vozes-report .vozes-main > .vozes-page-stack--australia-org-cruzamento .vozes-page-stack-prelude,
 .layout-vozes-report .vozes-main > .vozes-page-stack--chile-org-cruzamento .vozes-page-stack-prelude,
 .layout-vozes-report .vozes-main > .vozes-page-stack--england-org-cruzamento .vozes-dual-track-prelude-spacer,
+.layout-vozes-report .vozes-main > .vozes-page-stack--australia-org-cruzamento .vozes-dual-track-prelude-spacer,
 .layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-org-cruzamento .vozes-dual-track-prelude-spacer,
 .layout-vozes-report .vozes-main > .vozes-page-stack--chile-org-cruzamento .vozes-dual-track-prelude-spacer {
   display: none;
@@ -4049,6 +4047,7 @@
 }
 
 .layout-vozes-report .vozes-main > .vozes-page-stack--england-org-cruzamento .dual-track-section.vozes-page-stack-foot,
+.layout-vozes-report .vozes-main > .vozes-page-stack--australia-org-cruzamento .dual-track-section.vozes-page-stack-foot,
 .layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-org-cruzamento .dual-track-section.vozes-page-stack-foot,
 .layout-vozes-report .vozes-main > .vozes-page-stack--chile-org-cruzamento .dual-track-section.vozes-page-stack-foot {
   flex: 1 1 auto;
@@ -4088,7 +4087,7 @@
   flex: 1 1 auto;
   min-height: 0;
   justify-content: flex-start;
-  gap: 9.5mm;
+  gap: var(--gap-dual-matrix-row);
 }
 
 .layout-vozes-report .vozes-main > .vozes-page-stack--england-org-cruzamento .dual-track-matrix .dual-track-nodes--overflow,
@@ -4121,7 +4120,7 @@
   .dual-track-matrix {
   flex: 0 1 auto;
   min-height: min-content;
-  gap: 11mm;
+  gap: var(--gap-dual-matrix-row);
 }
 
 .layout-vozes-report
@@ -4162,28 +4161,8 @@
 }
 
 /* Nigéria — produção + etapas + parágrafo NCE (f. 35); participação + trajetória (f. 36). */
-.layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-producao {
-  --stack-paragraph-vozes: 0.98em;
-  --stack-detail-item: 1.45mm;
-  --stack-before-detail-grid: 3.25mm;
-}
-
 .layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-producao > p {
-  margin-bottom: var(--stack-paragraph-vozes);
   line-height: var(--text-leading);
-}
-
-.layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-producao > h3 {
-  margin-top: 0.62em;
-  margin-bottom: 0.42em;
-}
-
-.layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-producao > p + h3 {
-  margin-top: 0.95em;
-}
-
-.layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-producao .detail-list-item {
-  margin-bottom: var(--stack-detail-item);
 }
 
 .layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-producao > .detail-list-item:last-of-type + p {
@@ -4196,7 +4175,6 @@
 }
 
 .layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-p36 {
-  --vozes-milestone-compact-item-gap: 0;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -4208,7 +4186,7 @@
 .layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-p36 .participation-box.participation-box--compact {
   margin-top: 0;
   margin-bottom: 5mm;
-  padding: 3.5mm 5.5mm 4mm;
+  padding: 3.5mm 5.5mm 8mm;
 }
 
 .layout-vozes-report
@@ -4242,6 +4220,11 @@
   flex: 0 0 auto;
 }
 
+/* Chile f. 40 — título macro com 6U até ao texto; a faixa de atores absorve o respiro extra. */
+.layout-vozes-report .vozes-main > .vozes-page-stack--chile-p40 .actor-band {
+  margin-top: 5mm;
+}
+
 /* Chile f. 42 — produção + Canais de participação (espaço após a grelha de etapas). */
 .layout-vozes-report .vozes-main > .vozes-page-stack--chile-producao .vozes-detail-list-grid {
   margin-bottom: 0;
@@ -4250,13 +4233,11 @@
 .layout-vozes-report .vozes-main > .vozes-page-stack--chile-producao .participation-box.participation-box--compact {
   margin-top: 5mm;
   margin-bottom: 0;
-  padding: 3.5mm 5.5mm 4mm;
+  padding: 3.5mm 5.5mm 8mm;
 }
 
 /* Chile f. 43 — parágrafo pós-participação + trajetória (ritmo como Inglaterra p. 27). */
 .layout-vozes-report .vozes-main > .vozes-page-stack--chile-participacao-traj {
-  --vozes-milestone-compact-item-gap: 0;
-  --stack-paragraph-vozes: 0.72em;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -4267,15 +4248,7 @@
 
 .layout-vozes-report .vozes-main > .vozes-page-stack--chile-participacao-traj > p {
   margin-top: 0;
-  margin-bottom: var(--stack-paragraph-vozes);
   line-height: 1.28;
-}
-
-.layout-vozes-report
-  .vozes-main
-  > .vozes-page-stack--chile-participacao-traj
-  > p:has(+ .trajetoria-box--curriculo-england) {
-  margin-bottom: 7.5mm;
 }
 
 .layout-vozes-report
@@ -4302,7 +4275,6 @@
 
 /* Reimagina — abertura/Financiamento na f. 44; fecho NGO + A atuação (stack) na f. 45. */
 .layout-vozes-report .vozes-page.vozes-with-rail.vozes-chapter--chile-org .vozes-main {
-  --stack-paragraph-vozes: 0.4em;
   /* Coluna estreita ao lado do perfil (governança + 1.º § de Financiamento). */
   --vozes-chile-org-narrow-rail: 46mm;
 }
@@ -4329,11 +4301,6 @@
   max-width: calc(100% - var(--vozes-chile-org-narrow-rail) - var(--vozes-grid-gutter));
 }
 
-.layout-vozes-report .vozes-page.vozes-with-rail.vozes-chapter--chile-org .vozes-main > h3 {
-  margin-top: 0.52em;
-  margin-bottom: 0.3em;
-}
-
 .layout-vozes-report .vozes-page.vozes-with-rail.vozes-chapter--chile-org .vozes-main > h2 + h3 {
   margin-top: 0;
 }
@@ -4357,13 +4324,27 @@
   line-height: 1.22;
 }
 
+/* Reimagina f. 44 — folha em capacidade máxima: mantém ritmo compacto, sem invadir a margem inferior. */
+.layout-vozes-report
+  .vozes-page.vozes-with-rail.vozes-chapter--chile-org
+  .vozes-main:has(> .vozes-chile-org-gov-grid) {
+  --stack-before-h3: 3mm;
+  --stack-paragraph-vozes: 1.5mm;
+}
+
+.layout-vozes-report
+  .vozes-page.vozes-with-rail.vozes-chapter--chile-org
+  .vozes-main
+  > p:has(+ .vozes-chile-org-gov-grid) {
+  margin-bottom: var(--gap-paragraph);
+}
+
 .layout-vozes-report
   .vozes-page.vozes-with-rail.vozes-chapter--chile-org
   .vozes-main
   > .vozes-chile-org-gov-grid {
-  --stack-detail-item: 0;
-  margin: 0 0 2.75mm;
-  row-gap: 3.25mm;
+  margin: 0 0 3mm;
+  row-gap: var(--stack-detail-item-vozes);
 }
 
 .layout-vozes-report
@@ -4380,7 +4361,6 @@
   > .vozes-chile-org-gov-grid
   + h3 {
   margin-top: 0;
-  margin-bottom: 1.75mm;
   clear: left;
 }
 
@@ -4393,7 +4373,7 @@
   line-height: 1.3;
   text-align: left;
   margin-top: 0;
-  margin-bottom: 4.25mm;
+  margin-bottom: var(--gap-paragraph);
 }
 
 .layout-vozes-report
@@ -4406,7 +4386,7 @@
   clear: both;
   width: 100%;
   max-width: 100%;
-  margin-top: 1.5mm;
+  margin-top: 0;
 }
 
 .layout-vozes-report
@@ -4418,18 +4398,20 @@
   text-align: left;
 }
 
-.layout-vozes-report .vozes-main > .vozes-page-stack--chile-org-atuacao-tres {
-  --stack-detail-item: 1.95mm;
-  --stack-paragraph-vozes: 0.42em;
+/* Reimagina f. 45 — NGOsource + cinco exemplos: ritmo compacto para caber na folha. */
+.layout-vozes-report
+  .vozes-chapter--chile-org
+  .vozes-main
+  > .vozes-page-stack--chile-org-atuacao-tres {
+  --stack-before-h3: 6mm;
 }
 
-.layout-vozes-report .vozes-main > .vozes-page-stack--chile-org-atuacao-tres > p {
-  margin-bottom: 2.75mm;
-}
-
-.layout-vozes-report .vozes-main > .vozes-page-stack--chile-org-atuacao-tres > p + h3 {
-  margin-top: 3mm;
-  margin-bottom: 0.28em;
+.layout-vozes-report
+  .vozes-chapter--chile-org
+  .vozes-main
+  > .vozes-page-stack--chile-org-atuacao-tres
+  > .actor-band-label {
+  margin-bottom: 4mm;
 }
 
 .layout-vozes-report
@@ -4439,7 +4421,7 @@
   .vozes-detail-list-grid {
   margin-top: 0;
   margin-bottom: 0;
-  gap: 2.5mm;
+  row-gap: 3mm;
   width: calc(var(--vozes-detail-grid-width) * var(--vozes-detail-grid-span));
   max-width: calc(var(--vozes-detail-grid-width) * var(--vozes-detail-grid-span));
   text-align: left;
@@ -4470,24 +4452,6 @@
   min-height: var(--vozes-content-height);
 }
 
-.layout-vozes-report
-  .vozes-main
-  > .vozes-page-stack--chile-org-traj
-  .trajetoria-box--compact
-  .vozes-milestone--compact {
-  --vozes-milestone-compact-item-gap: 0.85mm;
-}
-
-/* CON — grelha + Financiamento: subir conteúdo da f. 38 para a 37 (perfil no rail). */
-.layout-vozes-report .vozes-chapter--nigeria-org .vozes-main {
-  --stack-paragraph-vozes: 0.44em;
-}
-
-.layout-vozes-report .vozes-chapter--nigeria-org .vozes-main > h3 {
-  margin-top: 0.45em;
-  margin-bottom: 0.26em;
-}
-
 .layout-vozes-report .vozes-chapter--nigeria-org .vozes-main > h2 + h3 {
   margin-top: 0;
 }
@@ -4512,7 +4476,15 @@
   line-height: 1.2;
 }
 
-.layout-vozes-report .vozes-chapter--nigeria-org .vozes-main > .vozes-nigeria-org-gov-grid {
+/* CON f. 37 — governança + financiamento na mesma folha: seções a 3U e lista a 3 mm. */
+.layout-vozes-report .vozes-chapter--nigeria-org .vozes-main:has(> .vozes-nigeria-org-gov-grid) {
+  --stack-before-h3: 6mm;
+}
+
+.layout-vozes-report
+  .vozes-page.vozes-with-rail.vozes-chapter--nigeria-org
+  .vozes-main
+  > .vozes-nigeria-org-gov-grid {
   --stack-detail-item: var(--stack-detail-item-vozes);
   margin-top: 0;
   margin-bottom: 0.25em;
@@ -4524,32 +4496,11 @@
   margin-bottom: var(--stack-detail-item);
 }
 
-.layout-vozes-report .vozes-chapter--nigeria-org .vozes-main > .vozes-nigeria-org-gov-grid + h3 {
-  margin-top: 0.42em;
-  margin-bottom: 0.22em;
-}
-
 .layout-vozes-report .vozes-chapter--nigeria-org .vozes-main > .vozes-nigeria-org-gov-grid ~ p {
-  margin-bottom: 0.46em;
   line-height: var(--text-leading);
 }
 
 /* CON — f. 38: fecho financiamento + A atuação + exemplos + trajetória; f. 39 cruzamento. */
-.layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-org-atuacao-traj {
-  --stack-paragraph-vozes: 0.32em;
-  --stack-before-detail-grid: 1.1mm;
-  --stack-detail-item: 1.55mm;
-}
-
-.layout-vozes-report
-  .vozes-main
-  > .vozes-page-stack--nigeria-org-atuacao-traj
-  .vozes-page-stack-prelude
-  > h3 {
-  margin-top: 0.38em;
-  margin-bottom: 0.15em;
-}
-
 .layout-vozes-report
   .vozes-main
   > .vozes-page-stack--nigeria-org-atuacao-traj
@@ -4562,17 +4513,7 @@
   .vozes-main
   > .vozes-page-stack--nigeria-org-atuacao-traj
   .vozes-page-stack-prelude
-  > p
-  + h3 {
-  margin-top: 0.36em;
-}
-
-.layout-vozes-report
-  .vozes-main
-  > .vozes-page-stack--nigeria-org-atuacao-traj
-  .vozes-page-stack-prelude
   > p {
-  margin-bottom: var(--stack-paragraph-vozes);
   line-height: 1.2;
 }
 
@@ -4583,15 +4524,6 @@
   .vozes-detail-list-grid {
   margin-top: 0;
   margin-bottom: 0;
-  row-gap: 1.35mm;
-}
-
-.layout-vozes-report
-  .vozes-main
-  > .vozes-page-stack--nigeria-org-atuacao-traj
-  .vozes-page-stack-prelude
-  .detail-list-item {
-  margin-bottom: var(--stack-detail-item);
 }
 
 .layout-vozes-report
@@ -4647,7 +4579,7 @@
 
 /* Trajetória compacta no rodapé da f. 38 */
 .layout-vozes-report .vozes-main > .vozes-page-stack--nigeria-org-atuacao-traj .trajetoria-box--compact .heading-3.vozes-trajetoria-heading {
-  margin-bottom: 0.28em;
+  margin-bottom: var(--gap-trajetoria-title-body);
   font-size: 10pt;
   line-height: 1.18;
 }
@@ -4660,77 +4592,32 @@
   .milestone-strip-columns {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: repeat(5, minmax(0, auto));
   column-gap: 3.25mm;
-  row-gap: 0.22mm;
   align-items: start;
 }
 
+/* Duas colunas independentes (padrão das trajetórias): marcos a 2U, altura natural. */
 .layout-vozes-report
   .vozes-main
   > .vozes-page-stack--nigeria-org-atuacao-traj
   .trajetoria-box--compact
+  .milestone-strip--cols-2
   .milestone-strip-column {
-  display: contents;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-trajetoria-milestone);
+  min-width: 0;
 }
 
 .layout-vozes-report
   .vozes-main
   > .vozes-page-stack--nigeria-org-atuacao-traj
   .trajetoria-box--compact
-  .milestone-strip-column:first-child
-  > .milestone-strip-item {
-  grid-column: 1;
-}
-
-.layout-vozes-report
-  .vozes-main
-  > .vozes-page-stack--nigeria-org-atuacao-traj
-  .trajetoria-box--compact
-  .milestone-strip-column:last-child
-  > .milestone-strip-item {
-  grid-column: 2;
-}
-
-.layout-vozes-report
-  .vozes-main
-  > .vozes-page-stack--nigeria-org-atuacao-traj
-  .trajetoria-box--compact
+  .milestone-strip--cols-2
   .milestone-strip-column
-  > .milestone-strip-item:nth-child(1) {
-  grid-row: 1;
-}
-.layout-vozes-report
-  .vozes-main
-  > .vozes-page-stack--nigeria-org-atuacao-traj
-  .trajetoria-box--compact
-  .milestone-strip-column
-  > .milestone-strip-item:nth-child(2) {
-  grid-row: 2;
-}
-.layout-vozes-report
-  .vozes-main
-  > .vozes-page-stack--nigeria-org-atuacao-traj
-  .trajetoria-box--compact
-  .milestone-strip-column
-  > .milestone-strip-item:nth-child(3) {
-  grid-row: 3;
-}
-.layout-vozes-report
-  .vozes-main
-  > .vozes-page-stack--nigeria-org-atuacao-traj
-  .trajetoria-box--compact
-  .milestone-strip-column
-  > .milestone-strip-item:nth-child(4) {
-  grid-row: 4;
-}
-.layout-vozes-report
-  .vozes-main
-  > .vozes-page-stack--nigeria-org-atuacao-traj
-  .trajetoria-box--compact
-  .milestone-strip-column
-  > .milestone-strip-item:nth-child(5) {
-  grid-row: 5;
+  > .milestone-strip-item
+  + .milestone-strip-item {
+  margin-top: 0;
 }
 
 .layout-vozes-report
@@ -4770,22 +4657,12 @@
 }
 
 /* BCF — atuação (4 exemplos) + trajetória no rodapé; cruzamento em folha cheia. */
-.layout-vozes-report .vozes-main > .vozes-page-stack--england-bcf-atuacao-traj {
-  --stack-paragraph-vozes: 0.58em;
-  --stack-before-detail-grid: 3mm;
-  --stack-detail-item: 2.85mm;
-}
-
-.layout-vozes-report .vozes-main > .vozes-page-stack--england-bcf-atuacao-traj .detail-list-item {
-  margin-bottom: var(--stack-detail-item);
-}
-
 .layout-vozes-report
   .vozes-main
   > .vozes-page-stack--england-bcf-atuacao-traj
   .trajetoria-box--curriculo-england
   .milestone-strip-column {
-  gap: 3.1mm;
+  gap: var(--gap-trajetoria-milestone);
 }
 
 .layout-vozes-report
@@ -4878,7 +4755,7 @@
   flex: 1 1 auto;
   min-height: 0;
   justify-content: flex-start;
-  gap: 9.5mm;
+  gap: var(--gap-dual-matrix-row);
 }
 
 .layout-vozes-report
@@ -4892,7 +4769,7 @@
 
 /* Achieve p. 23 — trajetória da org em 2 colunas (padrão p. 19, mais compacto) + dual-track. */
 .layout-vozes-report .vozes-main .trajetoria-box--org-usa > .heading-3.vozes-trajetoria-heading {
-  margin-bottom: 0.3em;
+  margin-bottom: var(--gap-trajetoria-title-body);
   font-size: 10pt;
   line-height: 1.2;
 }
@@ -4902,7 +4779,7 @@
   .trajetoria-box--org-usa
   > .heading-3.vozes-trajetoria-heading
   + .milestone-strip {
-  margin-top: 1.25mm;
+  margin-top: 0;
   margin-bottom: 0;
 }
 
@@ -4914,71 +4791,22 @@
   .milestone-strip-columns {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: repeat(5, minmax(0, auto));
   width: 100%;
   column-gap: 3.25mm;
-  row-gap: 0.28mm;
   align-items: start;
   box-sizing: border-box;
 }
 
+/* Duas colunas independentes (padrão das trajetórias): marcos a 2U, altura natural. */
 .layout-vozes-report
   .vozes-main
   .trajetoria-box--org-usa
+  .milestone-strip--cols-2
   .milestone-strip-column {
-  display: contents;
-}
-
-.layout-vozes-report
-  .vozes-main
-  .trajetoria-box--org-usa
-  .milestone-strip-column:first-child
-  > .milestone-strip-item {
-  grid-column: 1;
-}
-
-.layout-vozes-report
-  .vozes-main
-  .trajetoria-box--org-usa
-  .milestone-strip-column:last-child
-  > .milestone-strip-item {
-  grid-column: 2;
-}
-
-.layout-vozes-report
-  .vozes-main
-  .trajetoria-box--org-usa
-  .milestone-strip-column
-  > .milestone-strip-item:nth-child(1) {
-  grid-row: 1;
-}
-.layout-vozes-report
-  .vozes-main
-  .trajetoria-box--org-usa
-  .milestone-strip-column
-  > .milestone-strip-item:nth-child(2) {
-  grid-row: 2;
-}
-.layout-vozes-report
-  .vozes-main
-  .trajetoria-box--org-usa
-  .milestone-strip-column
-  > .milestone-strip-item:nth-child(3) {
-  grid-row: 3;
-}
-.layout-vozes-report
-  .vozes-main
-  .trajetoria-box--org-usa
-  .milestone-strip-column
-  > .milestone-strip-item:nth-child(4) {
-  grid-row: 4;
-}
-.layout-vozes-report
-  .vozes-main
-  .trajetoria-box--org-usa
-  .milestone-strip-column
-  > .milestone-strip-item:nth-child(5) {
-  grid-row: 5;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-trajetoria-milestone);
+  min-width: 0;
 }
 
 .layout-vozes-report
@@ -5029,13 +4857,6 @@
   .milestone-strip-year-stack
   .milestone-strip-year-rule {
   height: 1.45mm;
-}
-
-.layout-vozes-report
-  .vozes-main
-  > .vozes-page-stack--dual-track:has(.trajetoria-box--org-usa)
-  .vozes-prelude--compact-milestone {
-  --vozes-milestone-compact-item-gap: 0.35mm;
 }
 
 .layout-vozes-report
@@ -5155,7 +4976,7 @@
 }
 
 .milestone-strip-item + .milestone-strip-item {
-  margin-top: 0.25mm;
+  margin-top: var(--gap-trajetoria-milestone);
 }
 
 .layout-vozes-report .vozes-main .milestone-strip-item > .milestone-strip-year-num,
@@ -5459,7 +5280,7 @@
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
-  gap: 5mm;
+  gap: var(--gap-dual-matrix-row);
   min-height: 0;
   width: 100%;
 }
@@ -5504,7 +5325,7 @@
 .dual-track-nodes--overflow {
   margin-top: 0;
   padding-top: 0;
-  row-gap: 3mm;
+  row-gap: var(--vozes-detail-grid-row-gap);
 }
 
 .dual-track[data-node-count='2'] .dual-track-nodes {
@@ -5792,7 +5613,7 @@
 .dual-track-body {
   display: flex;
   flex-direction: column;
-  gap: 2mm;
+  gap: var(--gap-dual-body-paragraph);
   min-width: 0;
 }
 
@@ -5814,7 +5635,7 @@
 
 .layout-vozes-report .vozes-main .dual-track-resumo,
 .layout-timeline-dual .dual-track-resumo {
-  margin: 3.5mm 0 0;
+  margin: var(--gap-dual-body-paragraph) 0 0;
   min-width: 0;
   font-family: var(--font-serif);
   font-size: 8.5pt;

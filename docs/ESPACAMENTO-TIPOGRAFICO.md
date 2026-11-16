@@ -4,93 +4,98 @@ Referência editorial alinhada ao CSS (`src/styles/tokens.css`, `document.css`, 
 
 ---
 
-## Escala base
+## Unidade de ritmo (U)
+
+**1U = 2 mm** (`--vozes-rhythm-u` / `--space-1`).
+
+| Nível | mm |
+|-------|-----|
+| 1 | 2 |
+| 2 | 4 |
+| 3 | 6 |
+| 6 | 12 |
+
+Tokens semânticos (`--gap-*`) em `tokens.css` derivam desta escala.
+
+---
+
+## Esquema combinado (miolo)
+
+| Situação | Proporção | Token |
+|----------|-----------|--------|
+| Entre parágrafos | 1U | `--gap-paragraph` / `--stack-paragraph-vozes` |
+| Entre parágrafo e box / bullets / faixa | 2U | `--gap-paragraph-to-block` |
+| Entre subtítulo (H3) e texto | 1U | `--gap-h3-after` / `--stack-after-h3` |
+| Entre título (H2) e texto | 2U | `--gap-h2-after` / `--stack-after-h2` |
+| Título macro do país (H3) → texto | 6U | `.country-opening + h3` (`--gap-country-to-macro`) |
+| Título do país → 1.º subtítulo macro | 6U | `--gap-country-to-macro` |
+| Caixa trajetória — padding | 1U | `--gap-trajetoria-padding` |
+| Caixa “Canais de participação” — padding inferior | 4U (8 mm) | `participation-box--compact` — todas as ocorrências (pp. 12, 27, 36, 42) |
+| Caixa trajetória — título → marcos | 1U | `--gap-trajetoria-title-body` |
+| Caixa trajetória — entre marcos (datas) | 2U | `--gap-trajetoria-milestone` |
+| Cruzamento — eixo → parágrafos | 1U | `--gap-dual-axis-body` |
+| Cruzamento — entre parágrafos no cartão | 1U | `--gap-dual-body-paragraph` |
+| Cruzamento — entre fileiras de períodos | 3U | `--gap-dual-matrix-row` |
+
+**Antes de H3** (nova seção no fluxo): mantém **6U** (`--stack-before-h3` / 12 mm), salvo o 1.º H3 logo após a abertura do país (só os **6U** de `--gap-country-to-macro`).
+
+### Regra de não somar
+
+O respiro antes de um H3 é **um só**. Quando o H3 vem depois de um parágrafo, grelha, caixa ou faixa, o bloco anterior **não** soma a sua margem:
+
+| Sequência | Total | Como |
+|-----------|-------|------|
+| parágrafo → H3 | 6U | `p:has(+ h3)` com `margin-bottom: 0` |
+| H2 (título da organização) → H3 | 6U | `h2 + h3` com `margin-top: 2U` (H2 já tem 2U abaixo) |
+| grelha → H3 | 6U | `grelha + h3` com `margin-top: 2U` (grelha mantém 4U abaixo) |
+
+Em pilhas `flex`/`grid` as margens não colapsam; estas regras garantem o mesmo resultado do fluxo normal.
+
+**Figuras e tabelas** são blocos grandes (4U = 8 mm): o parágrafo anterior não soma 1U (`p:has(+ figure/table)` com `margin-bottom: 0`).
+
+**Topo da folha:** o miolo começa sempre a 18 mm. O primeiro bloco de cada `PageStack` (ou da folha) não tem margem superior própria.
+
+---
+
+## Exceções editoriais (não generalizar)
+
+| Onde | Tratamento |
+|------|-----------|
+| Resumo executivo pp. 8–9 | Caixas dos achados com respiro duplicado (título→texto 3U; entre caixas 4U) — pedido da editora |
+| Abertura de país — faixa de atores | A faixa mantém o respiro de secção próprio (7 mm + 2U do parágrafo); na p. 10 o respiro interno é ampliado (ícone→título 4 mm, título→subtítulo 2 mm, subtítulo→texto ≈4,5 mm) |
+| Abertura de país — título “O sistema curricular…” | 6U antes e 6U depois, como o título da fundação → subtítulo (p. 14); na p. 40 a faixa de atores absorve 2 mm para o pé fechar |
+| Expediente p. 2 / aberturas p. 7–8 | Ritmo de front matter (título display + 6U antes do texto) |
+| CON p. 37, Reimagina pp. 44–45 | Folhas em capacidade máxima: ritmo compacto (secções a 3U/6 mm, parágrafos a 1,5–2 mm) para não invadir a margem inferior; texto e ordem intactos |
+| Austrália p. 12 — quatro fases | Introdução → bullets 4U (8 mm); entre fileiras 4U (8 mm) — pedido da editora |
+
+### Rabos de linha
+
+Nenhum bloco pode ficar com última linha muito curta. O ajuste é tipográfico, dentro do texto existente:
+
+| Ferramenta | Limite |
+|------------|--------|
+| `letter-spacing` | no máximo ±0,015 em (+15 / −15 milésimos de em) |
+| Hifenização (`hyphens`) | só para evitar a última linha curta; nunca deixar fragmentos de 1–2 letras |
+| `text-wrap: balance` | preferir nas colunas estreitas: equilibra as linhas sem mexer no texto nem na altura do bloco |
+
+As quatro fases da p. 12 usam quebra equilibrada e `hyphens: manual` (o dicionário pt-BR partia “currículo” e “consultivos” em fragmentos de 2 letras); a altura da grelha não muda.
+
+---
+
+## Escala base (legado)
 
 | Nome | Valor | Papel |
 |------|-------|--------|
-| space-1 | 2 mm | Respiro curto (abaixo de H3, kicker, itens de lista detalhe) |
-| space-2 | 4 mm | Abaixo de H2 |
-| space-3 | 6 mm | Abaixo de H1 |
-| space-4 | 8 mm | Blocos destacados (caixa, tabela, citação) |
-| space-5 | 12 mm | Acima de H2/H3 no specimen; acima de H3 no Vozes |
-
----
-
-## Estilos de texto + respiro
-
-### Corpo e listas (Vozes)
-
-| Estilo | Fonte | Tamanho | Espaço **depois** |
-|--------|-------|---------|-------------------|
-| Parágrafo | Mulish | 10 pt | 0,92 em entre parágrafos (~3,2 mm) |
-| Item detalhe (bullet laranja) | Mulish | 10 pt | 2 mm entre itens |
-| Lead do país | Mulish | 10 pt | Mesmo ritmo que parágrafo |
-
-### Títulos (miolo Vozes)
-
-| Estilo | Fonte | Antes | Depois | Perfil |
-|--------|-------|-------|--------|--------|
-| Código do país (AU, BR…) | Mulish 9 pt caps | — | 2 mm | Abertura |
-| **H1** país | Roboto Slab 28 pt | — | **6 mm** | Abertura |
-| Bloco abertura (código + H1 + lead) | — | — | **5,5 mm** após o bloco | Abertura |
-| **H2** seção (1. O currículo…) | Mulish 13 pt bold | **6,5 mm** | **4 mm** | Corpo |
-| **H2** primeira da página (apresentação / resumo) | idem | **0** | 4 mm | Front matter |
-| **H3** subseção (governança, produção…) | Mulish 11 pt, preto | **12 mm** | **2 mm** | Corpo |
-| **Título macro** (`.vozes-titulo-macro` / 1.º H3 após país / 1.º H2 org) | Roboto Slab, roxo escuro | herdado | herdado | País + org |
-| Título macro após país | Slab **13 pt** (H3 + 2 pt) | — | — | «O sistema curricular…» |
-| Nome da fundação (1.º H2 org) | Slab **15 pt** (H2 + 2 pt) + filete laranja | — | — | Organizações |
-| Título org (`org-section-title`) | demais H2/H3 | = nível | = nível | Subseções org |
-
-**Regra de leitura:** o respiro **antes** de H2/H3 marca nova seção; o respiro **depois** do título cola o primeiro parágrafo sem “buraco” grande (4 mm ou 2 mm).
-
-### Rótulos (outros layouts)
-
-| Estilo | Depois |
-|--------|--------|
-| Kicker (caps roxo) | 2 mm |
-
----
-
-## Blocos e componentes
-
-| Componente | Antes | Depois | Não partir no PDF |
-|------------|-------|--------|-------------------|
-| Figura (Vozes) | 4,5 mm | 4,5 mm | Sim |
-| Figura (specimen) | 8 mm | 8 mm | Sim |
-| Legenda da figura | — | 1,5 mm abaixo da imagem | — |
-| Caixa destaque (`HighlightBox`) | 8 mm | 8 mm | Sim |
-| Título dentro da caixa | — | 2 mm | — |
-| Citação lateral (`PullQuote`) | 8 mm | 8 mm | Sim |
-| Tabela editorial | 8 mm | 8 mm | Sim |
-| Card de perfil | 10 mm | (fluxo) | Sim |
-| Callout / facts no rail | 5 mm | (fluxo) | Sim |
-| Faixa de marcos (`MilestoneStrip`) | 8 mm | 8 mm | — |
-
----
-
-## Combinações frequentes (o que o editor vê)
-
-| Sequência | Respiro aproximado |
-|-----------|-------------------|
-| H1 país → lead / parágrafo | 6 mm |
-| Parágrafo → parágrafo | ~3,2 mm |
-| Parágrafo → H2 | ~3,2 mm + 6,5 mm |
-| H2 → parágrafo | 4 mm (título “gruda” no texto; PDF evita quebra entre eles) |
-| Parágrafo → figura | fim do parágrafo + 4,5 mm |
-| Parágrafo → card de perfil | fim do parágrafo + 10 mm |
-
----
-
-## Paginação (PDF e visualizador paginado)
-
-- Nova **seção** do relatório = nova página.
-- **Título + primeiro parágrafo** da mesma seção ficam na mesma página quando possível.
-- Figuras, caixas, perfis e tabelas **não são cortados** ao meio.
+| space-1 | 2 mm | 1U |
+| space-2 | 4 mm | 2U |
+| space-3 | 6 mm | 3U |
+| space-4 | 8 mm | Blocos grandes |
+| space-5 | 12 mm | 6U — acima de H2/H3 |
 
 ---
 
 ## Onde ajustar (equipe técnica)
 
-Todos os tokens `--stack-*` estão em `src/styles/tokens.css`. Alterar um token (ex.: `--stack-before-h2-vozes`) atualiza o PDF e as prévias sem editar capítulo por capítulo.
+Alterar **um** token `--gap-*` ou `--vozes-rhythm-u` em `tokens.css` propaga ao PDF e à prévia. Evitar novos overrides de `--stack-paragraph-vozes` por folha em `vozes.css`.
 
-Handoff InDesign: ver também `docs/DIRETRIZ-VISUAL-INDESIGN.md` (tipografia e cor).
+Handoff InDesign: ver também `docs/DIRETRIZ-VISUAL-INDESIGN.md`.

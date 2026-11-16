@@ -217,4 +217,29 @@
   .desk .sheet.layout-vozes-report:has(.dual-track-band) {
     overflow: visible;
   }
+
+  /*
+   * Sumário: o eixo das duas folhas é posicionado em absoluto (51% da altura).
+   * Sem padding na folha, o bloco do miolo fica exatamente da altura útil e o
+   * Chromium fragmenta a parte B para a folha seguinte (texto e links caem na
+   * página errada). O clip na folha mantém o miolo inteiro na sua página,
+   * preservando a sangria do fundo marfim.
+   * Fica depois de `:has(.dual-track-band)` para vencer o `overflow: visible`.
+   */
+  .desk .sheet.layout-vozes-report:has(.vozes-sumario) {
+    overflow: clip;
+    overflow-clip-margin: var(--bleed);
+  }
+
+  /*
+   * Enfeites que passam da largura da folha (marca «em desenvolvimento», sangria
+   * do eixo dual-track) fazem o Chromium encolher o documento inteiro para caber
+   * na página — no PDF isso vira uma faixa branca no pé das folhas coloridas.
+   * Recortar o desk na largura útil, com margem igual à sangria, mantém o
+   * sangramento gráfico e evita o encolhimento.
+   */
+  .desk {
+    overflow-x: clip;
+    overflow-clip-margin: var(--bleed);
+  }
 }
