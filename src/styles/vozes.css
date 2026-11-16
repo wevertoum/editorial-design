@@ -839,6 +839,13 @@
   max-width: 108mm;
 }
 
+/* Último parágrafo da Apresentação: evita hifenização estranha + viúva no fecho. */
+.layout-vozes-report .vozes-page.vozes-chapter--apresentacao .vozes-main p:last-of-type {
+  hyphens: none;
+  -webkit-hyphens: none;
+  text-wrap: pretty;
+}
+
 /* Resumo executivo — dupla pp. 8–9: intro + achados 1–3 | achados 4–6; coluna estreita + caixas. */
 .layout-vozes-report .vozes-chapter--resumo-executivo .vozes-page-stack--resumo-p8 > h2:first-of-type,
 .layout-vozes-report .vozes-chapter--resumo-executivo .vozes-page-stack--resumo-p8 > .heading-2:first-of-type {
