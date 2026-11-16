@@ -232,6 +232,21 @@
   }
 
   /*
+   * Cruzamentos com fundo marfim vindo do ::before do PageStack: o fundo
+   * precisa parar na sangria (--bleed). Sem recorte, ele avança as margens do
+   * miolo (18/20 mm) e pinta faixas marfim nas folhas vizinhas.
+   */
+  .desk .sheet.layout-vozes-report:has(
+      .vozes-page-stack--england-org-cruzamento,
+      .vozes-page-stack--england-bcf-cruzamento,
+      .vozes-page-stack--chile-org-cruzamento,
+      .vozes-page-stack--nigeria-org-cruzamento
+    ) {
+    overflow: clip;
+    overflow-clip-margin: var(--bleed);
+  }
+
+  /*
    * Enfeites que passam da largura da folha (marca «em desenvolvimento», sangria
    * do eixo dual-track) fazem o Chromium encolher o documento inteiro para caber
    * na página — no PDF isso vira uma faixa branca no pé das folhas coloridas.
