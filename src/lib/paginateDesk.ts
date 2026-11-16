@@ -4,6 +4,7 @@
  */
 
 import { installSumarioReadingNav, teardownSumarioReadingNav } from './sumarioReadingNav'
+import { applyApresentacaoTrackingTuning } from './tuneLetterSpacing'
 
 const SLOP = 4
 /** CON abertura: grelha + financiamento no fim da f. 37 (~120px de tolerância medida). */
@@ -44,6 +45,7 @@ export function paginateInto(source: HTMLElement, desk: HTMLElement): () => void
 
   const run = () => {
     if (cancelled) return
+    applyApresentacaoTrackingTuning(source)
     const sheets = [...source.children].filter((node): node is HTMLElement => node instanceof HTMLElement && node.classList.contains('sheet'))
     const pages: HTMLElement[] = []
     let pageNumber = 1

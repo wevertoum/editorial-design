@@ -14,6 +14,7 @@ Leia `AGENTS.md` (arquitetura/PDF). **Editores falam em português editorial** �
 3. **Não** rodar `export:bundle`, `validate`, `check`, `build`, `build:digital`, `build:print`, `gerar-pdf` nem `gerar-pdf-grafica` por conta própria ao concluir uma tarefa — a equipe dispara isso **manualmente** quando quiser. Só executar esses comandos se a editora **pedir explicitamente** (ex.: “gera o PDF”, “roda validate”, “atualiza o bundle”).
 4. Responder em português simples: o que mudou + convite a **visualizar** no site (link, não nome de comando). Só mencione arquivos se o editor pedir detalhe técnico.
 5. **Folhas travadas (Nov/2026):** em qualquer pedido — grafismos, CSS, texto — **nenhum** miolo pode migrar de folha por falta de espaço. Conteúdo e diagramação já fechados permanecem. Grafismos só via camada absoluta (`VozesGrafismo` / overlay fora do fluxo), nunca empurrando prosa, listas ou rodapés.
+6. **Rodada de cortes de texto (ativa):** ver `.cursor/rules/vozes-rodada-ajustes-texto.mdc` — layout **congelado**; cortar só o pedido; **não** preencher vazios; **não** vazar conteúdo entre folhas nem “consertar” paginação sem a editora pedir.
 
 ## Preservação do combinado (obrigatório)
 

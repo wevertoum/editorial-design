@@ -11,8 +11,8 @@ export function CoverHero({ publication }: CoverHeroProps) {
         className="cover-hero-artwork"
         src="media/capa_lemann_levantamento.png"
         alt={publication.title}
-        width={2480}
-        height={3508}
+        width={2551}
+        height={3579}
         decoding="async"
       />
     </header>

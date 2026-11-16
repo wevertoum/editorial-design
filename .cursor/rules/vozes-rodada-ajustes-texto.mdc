@@ -1,0 +1,30 @@
+---
+description: Rodada de cortes de texto — layout fixo, espaço vazio ok, proibido vazar miolo entre folhas
+alwaysApply: true
+---
+
+# Rodada de ajustes de texto
+
+A editora está **retirando parágrafos**. Vale até ela pedir para **encerrar** a rodada ou pedir **reequilíbrio de layout**.
+
+## Prioridades
+
+1. **Layout congelado** — tipografia, grade, componentes, classes, CSS, tokens e `paginateDesk.ts` **não mudam** sem pedido explícito de layout/diagramação.
+2. **Só o trecho pedido** — apagar ou editar o texto **como a editora enviou** (pontuação e redação intactas); o restante do combinado permanece. Não “arredondar” frases nem trocar pontuação para corrigir quebra de linha; tipografia só com pedido explícito e sem mudar palavras.
+3. **Espaço vazio é aceitável** — não preencher buracos na folha nesta fase.
+
+## Proibido (sem pedido explícito)
+
+- Subir conteúdo da **folha seguinte** ou antecipar blocos do **rodapé** para ocupar o vazio.
+- Apertar margens, `--stack-*`, compactação, reunir `PageStack`, mover `vozes-page-start` ou alterar átomos de paginação só para “fechar” o buraco.
+- **Vazar miolo entre folhas** — nada que estava na folha **N+1** pode aparecer na **N** (nem o contrário) só porque sobrou espaço; cada folha mantém o mesmo encaixe de antes, menos o parágrafo cortado.
+- Propagação de layout ou “alinhar o livro inteiro” nesta rodada.
+
+## Se o corte alterar a quebra na prévia
+
+- **Não corrigir sozinho** com CSS ou paginação.
+- Avisar a editora e aguardar instrução (ex.: “encaixa”, “sobe o bloco X”, “pode mudar o layout desta folha”).
+
+## Junto com as demais regras
+
+- `vozes-editorial-workflow.mdc` (folhas fechadas, preservação, grafismos absolutos) continua valendo; nesta rodada a proibição de **vazamento entre folhas** aplica-se a **todo** o relatório, não só às folhas já fechadas.

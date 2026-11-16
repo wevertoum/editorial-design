@@ -11,8 +11,8 @@ export function FolhaRostoHero({ publication }: FolhaRostoHeroProps) {
         className="folha-rosto-artwork"
         src="media/folha_rosto_levantamento.png"
         alt={publication.title}
-        width={2480}
-        height={3508}
+        width={2551}
+        height={3579}
         decoding="async"
       />
     </header>
