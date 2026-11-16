@@ -3546,14 +3546,45 @@
   column-gap: 3.25mm;
 }
 
+/* Fundadores: título (linha 1) + Finalidade (linha 2) alinhados entre as três colunas. */
 .layout-vozes-report
   .vozes-main
   > .vozes-page-stack--usa-org-fin-atuacao
-  .vozes-detail-list-grid-with-marker--four-cols
+  .vozes-detail-list-grid-with-marker--four-cols.vozes-detail-list-grid--usa-financiadores {
+  grid-template-rows: auto auto;
+  align-items: stretch;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--usa-org-fin-atuacao
+  .vozes-detail-list-grid-with-marker--four-cols.vozes-detail-list-grid--usa-financiadores
+  > .vozes-detail-list-grid-marker {
+  grid-row: 1 / span 2;
+  place-self: center center;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--usa-org-fin-atuacao
+  .vozes-detail-list-grid-with-marker--four-cols.vozes-detail-list-grid--usa-financiadores
+  > .detail-list-item:has(> p) {
+  grid-row: span 2;
+  align-self: stretch;
+  grid-template-rows: subgrid;
+  text-align: left;
+}
+
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--usa-org-fin-atuacao
+  .vozes-detail-list-grid-with-marker--four-cols.vozes-detail-list-grid--usa-financiadores
   .detail-list-item
   > p {
   font-size: 7.9pt;
   line-height: 1.22;
+  text-align: left;
+  text-align-last: left;
 }
 
 .layout-vozes-report
