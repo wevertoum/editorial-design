@@ -12,6 +12,14 @@
   src: url("/fonts/Mulish-Italic.ttf") format("truetype");
 }
 
+/* Itálico 600–900: Mulish não traz Bold Italic estático; a variável garante itálico negrito real. */
+@font-face {
+  font-family: Mulish;
+  font-style: italic;
+  font-weight: 600 900;
+  src: url("/fonts/Mulish-Italic-VF.ttf") format("truetype");
+}
+
 @font-face {
   font-family: Mulish;
   font-style: normal;
@@ -506,8 +514,9 @@
   print-color-adjust: exact;
 }
 
-/* ACSA (Austrália) — dupla de cruzamento pp. 16–17: folha inteira em marfim, de ponta a ponta. */
-.sheet-page.layout-vozes-report:has(.vozes-page-stack--australia-org-cruzamento) {
+/* Austrália (ACSA pp. 16–17) e Chile (Reimagina f. 45): folha inteira em marfim, de ponta a ponta. */
+.sheet-page.layout-vozes-report:has(.vozes-page-stack--australia-org-cruzamento),
+.sheet-page.layout-vozes-report:has(.vozes-page-stack--chile-org-traj) {
   background: var(--color-marfim);
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
@@ -1112,14 +1121,16 @@
     background: transparent;
   }
 
-  /* ACSA pp. 16–17: fundo marfim sangrado em todos os lados (trim + sangria gráfica). */
-  .sheet-page.layout-vozes-report:has(.vozes-page-stack--australia-org-cruzamento) {
+  /* ACSA pp. 16–17 e Reimagina f. 45: fundo marfim sangrado em todos os lados (trim + sangria). */
+  .sheet-page.layout-vozes-report:has(.vozes-page-stack--australia-org-cruzamento),
+  .sheet-page.layout-vozes-report:has(.vozes-page-stack--chile-org-traj) {
     position: relative;
     overflow: visible;
     background: transparent;
   }
 
-  .sheet-page.layout-vozes-report:has(.vozes-page-stack--australia-org-cruzamento)::before {
+  .sheet-page.layout-vozes-report:has(.vozes-page-stack--australia-org-cruzamento)::before,
+  .sheet-page.layout-vozes-report:has(.vozes-page-stack--chile-org-traj)::before {
     content: "";
     position: absolute;
     z-index: -1;
@@ -4452,6 +4463,35 @@
   min-height: var(--vozes-content-height);
 }
 
+/* Reimagina f. 45 — trajetória na largura da mancha (prosa + rail), para o cruzamento caber abaixo. */
+.layout-vozes-report .vozes-main > .vozes-page-stack--chile-org-traj > .trajetoria-box--compact {
+  width: calc(100% + var(--vozes-grid-gutter) + var(--vozes-rail-to-prose) * 100%);
+  max-width: none;
+  margin-inline: 0;
+}
+
+/* Reimagina f. 44 — exemplos na largura da prosa (o 5.º exemplo volta a caber na folha). */
+.layout-vozes-report
+  .vozes-page.vozes-with-rail
+  .vozes-main
+  > .vozes-page-stack--chile-org-atuacao-tres
+  .vozes-detail-list-grid {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Reimagina f. 45 — faixa marfim do cruzamento desce até o pé da folha. */
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--chile-org-traj
+  .dual-track-section.vozes-page-stack-foot
+  .dual-track {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
 .layout-vozes-report .vozes-chapter--nigeria-org .vozes-main > h2 + h3 {
   margin-top: 0;
 }
@@ -4490,6 +4530,21 @@
   margin-bottom: 0.25em;
   row-gap: 3mm;
   column-gap: 6mm;
+}
+
+/* CON f. 36 — coluna dos órgãos de governança mais larga (não encosta no perfil). */
+.layout-vozes-report
+  .vozes-page.vozes-with-rail
+  .vozes-main
+  > .profile-card:not(.profile-card--horizontal)
+  ~ .vozes-nigeria-org-gov-grid {
+  width: 104mm;
+  max-width: 104mm;
+}
+
+/* CON f. 36 — respiro entre a governança e «Financiamento» (o H3 não encosta na lista). */
+.layout-vozes-report .vozes-chapter--nigeria-org .vozes-main > .vozes-nigeria-org-gov-grid + h3 {
+  margin-top: var(--stack-before-h3);
 }
 
 .layout-vozes-report .vozes-chapter--nigeria-org .vozes-main > .vozes-nigeria-org-gov-grid .detail-list-item {
@@ -4679,10 +4734,19 @@
   > .vozes-page-stack--england-bcf-atuacao-traj
   .trajetoria-box--curriculo-england.vozes-page-stack-foot {
   flex: 0 0 auto;
-  margin-top: 3.5mm;
+  margin-top: 8mm;
   width: calc(100% + var(--vozes-grid-gutter) + var(--vozes-rail-to-prose) * 100%);
   max-width: none;
   margin-inline: 0;
+}
+
+/* BCF f. 31 — respiro maior entre a intro de «A atuação» e o rótulo dos exemplos. */
+.layout-vozes-report
+  .vozes-main
+  > .vozes-page-stack--england-bcf-atuacao-traj
+  > p
+  + .band-label.actor-band-label {
+  margin-top: 6mm;
 }
 
 .layout-vozes-report
