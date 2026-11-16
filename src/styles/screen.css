@@ -63,6 +63,21 @@
     left: var(--dual-track-overflow-solid-start);
   }
 
+  .spread
+    .dual-track-section--axis-solid-rows
+    .dual-track[data-has-overflow='true'][data-spread-part='b']
+    .dual-track-nodes--primary::before {
+    right: calc(-1 * var(--dual-track-axis-gutter-bleed) - var(--spread-gutter));
+  }
+
+  .spread
+    .dual-track-section--axis-solid-rows
+    .dual-track[data-has-overflow='true'][data-spread-part='b']
+    .dual-track-nodes--overflow::before {
+    left: var(--dual-track-marker-inset);
+    right: calc(-1 * var(--dual-track-axis-gutter-bleed) - var(--spread-gutter));
+  }
+
   .spread-pad {
     display: block;
     width: var(--page-width);
@@ -195,6 +210,11 @@
     ) {
     padding: 0 !important;
     background-clip: border-box;
-    overflow: hidden;
+    overflow: visible;
+  }
+
+  /* Faixa marfim do cruzamento (rodapé embutido): sangria não pode ser cortada. */
+  .desk .sheet.layout-vozes-report:has(.dual-track-band) {
+    overflow: visible;
   }
 }

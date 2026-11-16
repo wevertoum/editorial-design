@@ -1042,17 +1042,36 @@
     text-decoration: underline;
   }
 
-  /* Faixa marfim e fundos sangrados: estender até a borda física da página PDF. */
+  /* Faixa marfim e fundos sangrados: estender até a borda física da página PDF (+ sangria gráfica). */
+  .sheet-page.layout-vozes-report:has(.vozes-sumario) {
+    position: relative;
+    overflow: visible;
+    background: transparent;
+  }
+
+  .sheet-page.layout-vozes-report:has(.vozes-sumario)::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: calc(-1 * var(--bleed));
+    right: calc(-1 * var(--bleed));
+    bottom: calc(-1 * var(--bleed));
+    left: calc(-1 * var(--bleed));
+    background: var(--color-marfim);
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
   .layout-vozes-report .vozes-main > :is(
       .vozes-page-stack--england-org-cruzamento,
       .vozes-page-stack--england-bcf-cruzamento,
       .vozes-page-stack--chile-org-cruzamento,
       .vozes-page-stack--nigeria-org-cruzamento
     ).vozes-page-stack--dual-track::before {
-    top: calc(-1 * var(--margin-top));
-    right: calc(-1 * var(--margin-outer) - var(--print-page-snap));
-    bottom: calc(-1 * var(--margin-bottom) - var(--print-page-snap));
-    left: calc(-1 * var(--margin-inner));
+    top: calc(-1 * var(--margin-top) - var(--bleed));
+    right: calc(-1 * var(--margin-outer) - var(--print-page-snap) - var(--bleed));
+    bottom: calc(-1 * var(--margin-bottom) - var(--print-page-snap) - var(--bleed));
+    left: calc(-1 * var(--margin-inner) - var(--bleed));
   }
 
   .sheet-page[data-page-side='left']
@@ -1064,11 +1083,134 @@
         .vozes-page-stack--chile-org-cruzamento,
         .vozes-page-stack--nigeria-org-cruzamento
       ).vozes-page-stack--dual-track::before {
-    right: calc(-1 * var(--margin-inner) - var(--print-page-snap));
-    left: calc(-1 * var(--margin-outer));
+    right: calc(-1 * var(--margin-inner) - var(--print-page-snap) - var(--bleed));
+    left: calc(-1 * var(--margin-outer) - var(--bleed));
+  }
+
+  .dual-track-band {
+    margin-right: calc(-1 * var(--margin-outer) - var(--bleed));
+    margin-left: calc(-1 * var(--margin-inner) - var(--bleed));
+    padding-right: calc(var(--margin-outer) + var(--bleed));
+    padding-left: calc(var(--margin-inner) + var(--bleed));
+  }
+
+  .sheet-page[data-page-side='left'] .dual-track-band {
+    margin-left: calc(-1 * var(--margin-outer) - var(--bleed));
+    margin-right: calc(-1 * var(--margin-inner) - var(--bleed));
+    padding-left: calc(var(--margin-outer) + var(--bleed));
+    padding-right: calc(var(--margin-inner) + var(--bleed));
+  }
+
+  .layout-vozes-report
+    .vozes-main
+    .dual-track-section.vozes-page-stack-foot
+    .dual-track-band {
+    margin-right: calc(-1 * var(--margin-outer) - var(--bleed));
+    margin-left: calc(-1 * var(--margin-inner) - var(--bleed));
+    padding-right: calc(var(--margin-outer) + var(--bleed));
+    padding-left: calc(var(--margin-inner) + var(--bleed));
+  }
+
+  .sheet-page[data-page-side='left']
+    .layout-vozes-report
+    .vozes-main
+    .dual-track-section.vozes-page-stack-foot
+    .dual-track-band {
+    margin-left: calc(-1 * var(--margin-outer) - var(--bleed));
+    margin-right: calc(-1 * var(--margin-inner) - var(--bleed));
+    padding-left: calc(var(--margin-outer) + var(--bleed));
+    padding-right: calc(var(--margin-inner) + var(--bleed));
+  }
+
+  /* Folhas só de cruzamento: marfim via ::before do stack — não duplicar no .sheet. */
+  .desk .sheet.layout-vozes-report:has(
+      .vozes-page-stack--england-org-cruzamento,
+      .vozes-page-stack--england-bcf-cruzamento,
+      .vozes-page-stack--chile-org-cruzamento,
+      .vozes-page-stack--nigeria-org-cruzamento
+    ) {
+    background: transparent;
   }
 
   .dual-track-band::after {
+    right: calc(-1 * var(--bleed));
+    left: calc(-1 * var(--bleed));
+    bottom: calc(-1 * var(--margin-bottom) - var(--print-page-snap) - var(--bleed));
+    height: calc(var(--margin-bottom) + var(--print-page-snap) + var(--bleed));
+  }
+
+  /* Folhas dedicadas: marfim só no ::before do stack — faixa transparente sem sangria lateral extra. */
+  .layout-vozes-report .vozes-main > :is(
+      .vozes-page-stack--england-org-cruzamento,
+      .vozes-page-stack--england-bcf-cruzamento,
+      .vozes-page-stack--chile-org-cruzamento,
+      .vozes-page-stack--nigeria-org-cruzamento
+    )
+    .dual-track-band {
+    margin-right: calc(-1 * var(--margin-outer));
+    margin-left: calc(-1 * var(--margin-inner));
+    padding-right: var(--margin-outer);
+    padding-left: var(--margin-inner);
+  }
+
+  .sheet-page[data-page-side='left']
+    .layout-vozes-report
+    .vozes-main
+    > :is(
+        .vozes-page-stack--england-org-cruzamento,
+        .vozes-page-stack--england-bcf-cruzamento,
+        .vozes-page-stack--chile-org-cruzamento,
+        .vozes-page-stack--nigeria-org-cruzamento
+      )
+    .dual-track-band {
+    margin-left: calc(-1 * var(--margin-outer));
+    margin-right: calc(-1 * var(--margin-inner));
+    padding-left: var(--margin-outer);
+    padding-right: var(--margin-inner);
+  }
+
+  .layout-vozes-report
+    .vozes-main
+    > :is(
+        .vozes-page-stack--england-org-cruzamento,
+        .vozes-page-stack--england-bcf-cruzamento,
+        .vozes-page-stack--chile-org-cruzamento,
+        .vozes-page-stack--nigeria-org-cruzamento
+      )
+    .dual-track-section.vozes-page-stack-foot
+    .dual-track-band {
+    margin-right: calc(-1 * var(--margin-outer));
+    margin-left: calc(-1 * var(--margin-inner));
+    padding-right: var(--margin-outer);
+    padding-left: var(--margin-inner);
+  }
+
+  .sheet-page[data-page-side='left']
+    .layout-vozes-report
+    .vozes-main
+    > :is(
+        .vozes-page-stack--england-org-cruzamento,
+        .vozes-page-stack--england-bcf-cruzamento,
+        .vozes-page-stack--chile-org-cruzamento,
+        .vozes-page-stack--nigeria-org-cruzamento
+      )
+    .dual-track-section.vozes-page-stack-foot
+    .dual-track-band {
+    margin-left: calc(-1 * var(--margin-outer));
+    margin-right: calc(-1 * var(--margin-inner));
+    padding-left: var(--margin-outer);
+    padding-right: var(--margin-inner);
+  }
+
+  .layout-vozes-report .vozes-main > :is(
+      .vozes-page-stack--england-org-cruzamento,
+      .vozes-page-stack--england-bcf-cruzamento,
+      .vozes-page-stack--chile-org-cruzamento,
+      .vozes-page-stack--nigeria-org-cruzamento
+    )
+    .dual-track-band::after {
+    right: 0;
+    left: 0;
     bottom: calc(-1 * var(--margin-bottom) - var(--print-page-snap));
     height: calc(var(--margin-bottom) + var(--print-page-snap));
   }
@@ -1093,15 +1235,6 @@
     box-sizing: border-box;
     min-height: var(--page-height);
     padding: var(--margin-top) var(--margin-outer) var(--margin-bottom) var(--margin-inner);
-  }
-
-  .desk .sheet.layout-vozes-report:has(
-      .vozes-page-stack--england-org-cruzamento,
-      .vozes-page-stack--england-bcf-cruzamento,
-      .vozes-page-stack--chile-org-cruzamento,
-      .vozes-page-stack--nigeria-org-cruzamento
-    ) {
-    background: var(--color-marfim);
   }
 
   .desk .sheet.layout-vozes-report:has(
@@ -5446,6 +5579,35 @@
     2 * var(--dual-track-overflow-col-span) + var(--dual-track-col-gap) - var(--dual-track-marker-inset)
       - var(--dual-track-overflow-solid-start)
   );
+}
+
+/* ACSA cruzamento (parte B): eixo sólido; 1.ª fileira sangra à dir.; 2.ª inicia no marco 2023 e sangra à dir. */
+.dual-track-section--axis-solid-rows
+  .dual-track[data-has-overflow='true'][data-spread-part='b']
+  .dual-track-nodes--primary::before {
+  right: calc(-1 * var(--dual-track-axis-gutter-bleed));
+}
+
+.dual-track-section--axis-solid-rows
+  .dual-track[data-has-overflow='true'][data-spread-part='b']
+  .dual-track-nodes--primary::after {
+  content: none;
+}
+
+.dual-track-section--axis-solid-rows
+  .dual-track[data-has-overflow='true'][data-spread-part='b']
+  .dual-track-nodes--overflow::after {
+  content: none;
+}
+
+.dual-track-section--axis-solid-rows
+  .dual-track[data-has-overflow='true'][data-spread-part='b']
+  .dual-track-nodes--overflow::before {
+  content: '';
+  left: var(--dual-track-marker-inset);
+  right: calc(-1 * var(--dual-track-axis-gutter-bleed));
+  width: auto;
+  background: var(--dual-track-axis-color);
 }
 
 .dual-track[data-has-overflow='true'][data-spread-part='b'][data-overflow-count='3'] .dual-track-nodes--overflow::after {
