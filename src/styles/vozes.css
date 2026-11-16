@@ -474,6 +474,27 @@
   content: none;
 }
 
+@media print {
+  .layout-vozes-roxa.sheet {
+    position: relative;
+    overflow: visible;
+    background: transparent;
+  }
+
+  .layout-vozes-roxa.sheet::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: calc(-1 * var(--bleed));
+    right: calc(-1 * var(--bleed));
+    bottom: calc(-1 * var(--bleed));
+    left: calc(-1 * var(--bleed));
+    background: var(--color-vozes-roxo);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
 .sheet-page.layout-vozes-roxa .folio {
   color: color-mix(in srgb, white 88%, var(--color-vozes-roxo));
 }

@@ -29,18 +29,18 @@ function DualTrackNodeRow({ nodes, columnCount, showTags, className }: NodeRowPr
       data-dual-track-row={isOverflow ? 'overflow' : 'primary'}
       style={{ gridTemplateColumns: `repeat(${columnCount}, minmax(0, 1fr))` }}
     >
-      {nodes.map((node, index) => (
+      {nodes.map((node) => (
         <li key={node.id} className="dual-track-node">
           <p className="dual-track-year">{node.year}</p>
           <div className="dual-track-body">
             <p className="dual-track-curriculo">
-              {showTags && index === 0 ? (
+              {showTags ? (
                 <span className="dual-track-tag dual-track-tag--curriculo">Currículo</span>
               ) : null}
               {renderInlineText(node.curriculo)}
             </p>
             <p className="dual-track-organizacao">
-              {showTags && index === 0 ? (
+              {showTags ? (
                 <span className="dual-track-tag dual-track-tag--organizacao">Organização</span>
               ) : null}
               {renderInlineText(node.organizacao)}
@@ -64,7 +64,7 @@ export function DualTrackTimeline({
 }: DualTrackTimelineProps) {
   const hasOverflow = (overflowNodes?.length ?? 0) > 0
   const columnCount = nodes.length
-  const showTags = spreadPart === 'a'
+  const showTags = true
 
   return (
     <div
@@ -95,7 +95,7 @@ export function DualTrackTimeline({
             <DualTrackNodeRow
               nodes={overflowNodes!}
               columnCount={columnCount}
-              showTags={false}
+              showTags={showTags}
               className="dual-track-nodes--overflow"
             />
           ) : null}
